@@ -1,0 +1,2911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physiology Competition — IMPhO</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #7B6FD0;
+  --purple-light: #A89FE0;
+  --purple-pale: #EDE9F9;
+  --purple-deep: #4F46A3;
+  --pink: #EC4899;
+  --pink-light: #F9A8D4;
+  --pink-pale: #FDE9F3;
+  --pink-deep: #BE185D;
+  --white: #FFFFFF;
+  --off-white: #FAF9FD;
+  --surface: #FFFFFF;
+  --border: #E8E4F5;
+  --text: #1E1A38;
+  --text-muted: #7B7698;
+  --text-mid: #3D3860;
+  --grad-main: linear-gradient(135deg, #7B6FD0 0%, #EC4899 100%);
+  --grad-soft: linear-gradient(135deg, #EDE9F9 0%, #FDE9F3 100%);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(123,111,208,0.12);
+  --shadow-hover: 0 8px 32px rgba(123,111,208,0.22);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Quicksand', 'Poppins', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+/* ── HERO HEADER ── */
+.hero {
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-accent-top {
+  height: 6px;
+  background: var(--grad-main);
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.hero-text { flex: 1; min-width: 260px; }
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 2px;
+  background: var(--grad-main);
+  border-radius: 2px;
+}
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--purple-deep);
+  margin-bottom: 0.35rem;
+}
+.hero-title span {
+  background: linear-gradient(135deg, #7B6FD0 0%, #EC4899 50%, #F472B6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+.hero-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+.hero-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--purple-pale);
+  border-radius: 99px;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+  font-family: 'Poppins', sans-serif;
+}
+.stat-pill.pink { background: var(--pink-pale); color: var(--pink-deep); }
+.stat-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--purple);
+  flex-shrink: 0;
+}
+.stat-dot.pink { background: var(--pink); }
+
+/* ── CONTROLS BAR ── */
+.controls-wrap {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(123,111,208,0.08);
+}
+.controls-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  padding: 0.55rem 0.75rem 0.55rem 2.2rem;
+  border: 1.5px solid var(--border);
+  border-radius: 99px;
+  font-family: 'Quicksand', 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--off-white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-box input:focus {
+  border-color: var(--purple-light);
+  box-shadow: 0 0 0 3px rgba(123,111,208,0.12);
+}
+.search-icon {
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px; height: 14px;
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 2;
+}
+.filter-btns {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.fbtn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  font-family: 'Quicksand', 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.fbtn:hover { border-color: var(--purple-light); color: var(--purple); }
+.fbtn.active { background: var(--grad-main); border-color: transparent; color: white; }
+.btn-answers {
+  padding: 0.45rem 1.1rem;
+  border-radius: 99px;
+  border: none;
+  background: var(--grad-main);
+  font-family: 'Quicksand', 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.18s, transform 0.18s;
+  white-space: nowrap;
+}
+.btn-answers:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── LAYOUT ── */
+.main-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+}
+
+/* ── SYSTEM SECTION ── */
+.system-block { margin-bottom: 3rem; }
+.system-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+.system-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.system-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  letter-spacing: -0.01em;
+}
+.system-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: var(--purple-pale);
+  color: var(--purple);
+  margin-left: 0.3rem;
+}
+.system-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* ── QUESTION GRID ── */
+.q-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 680px) {
+  .q-grid { grid-template-columns: 1fr; }
+}
+
+/* ── QUESTION CARD ── */
+.qcard {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+}
+.qcard:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  border-color: var(--purple-light);
+}
+.qcard.hidden { display: none !important; }
+
+.qcard-accent { height: 4px; background: var(--grad-main); }
+
+.qcard-header {
+  padding: 0.8rem 1.2rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.qnum {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  background: var(--purple-pale);
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.qtag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+/* System tag colours */
+.tag-resp   { background: #E0F2FE; color: #0369A1; }
+.tag-cardio { background: #FEE2E2; color: #B91C1C; }
+.tag-renal  { background: #EDE9F9; color: #4F46A3; }
+.tag-endo   { background: #FEF3C7; color: #92400E; }
+.tag-neuro  { background: #F0FDF4; color: #166534; }
+.tag-immuno { background: #FDE9F3; color: #BE185D; }
+.tag-gi     { background: #FFF7ED; color: #C2410C; }
+.tag-muscle { background: #F0FDFA; color: #0F766E; }
+.tag-haem   { background: #F5F3FF; color: #5B21B6; }
+.tag-path   { background: #FEF2F2; color: #991B1B; }
+.tag-misc   { background: #F1F5F9; color: #475569; }
+
+.qcard-body { padding: 0.5rem 1.2rem 1.2rem; }
+
+.qtext {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 0.9rem;
+  font-weight: 500;
+}
+.qtext strong { font-weight: 700; color: var(--purple-deep); }
+.qtext em { font-style: italic; color: var(--text-mid); }
+
+/* ── GRAPH WRAPPER ── */
+.graph-wrap {
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  margin-bottom: 0.9rem;
+  overflow: hidden;
+}
+.graph-wrap svg { display: block; width: 100%; height: auto; }
+
+/* ── TABLE ── */
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 0.9rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+table.data th {
+  background: linear-gradient(90deg, var(--purple-pale), var(--pink-pale));
+  color: var(--purple-deep);
+  font-weight: 800;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+table.data td {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+table.data tr:nth-child(even) td { background: var(--purple-pale); }
+table.data tr:hover td { background: var(--pink-pale); }
+
+/* ── ANSWER BOX ── */
+.answer-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  font-family: 'Quicksand', 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--purple);
+  cursor: pointer;
+  transition: all 0.18s;
+  margin-bottom: 0;
+}
+.answer-toggle-btn:hover {
+  background: var(--purple-pale);
+  border-color: var(--purple);
+}
+.answer-toggle-btn .chevron {
+  transition: transform 0.2s;
+}
+.answer-toggle-btn.open .chevron { transform: rotate(180deg); }
+
+.answer-box {
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #FAF9FF 0%, #FFF0FA 100%);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--purple);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-mid);
+  display: none;
+  font-weight: 500;
+}
+.answer-box.open { display: block; }
+.answer-box strong { color: var(--purple-deep); font-weight: 700; }
+.answer-box .ans-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  margin-bottom: 0.35rem;
+}
+
+/* ── NOTE BOX ── */
+.note-box {
+  margin-top: 0.6rem;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 0.45rem 0.75rem;
+  border-left: 2px solid var(--pink-light);
+  background: var(--pink-pale);
+  border-radius: 0 6px 6px 0;
+  display: none;
+}
+.note-box.show { display: block; }
+
+/* ── RESULTS COUNTER ── */
+.results-info {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 0.5rem 0 1.2rem;
+}
+.results-info span { color: var(--purple); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+  font-family: 'Quicksand', sans-serif;
+}
+footer strong { color: var(--purple); }
+
+/* SVG shared */
+.ax-label { font-family: 'Quicksand', 'Poppins', sans-serif; }
+</style>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<header class="hero">
+  <div class="hero-accent-top"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Physiology Competition</div>
+      <h1 class="hero-title">IMPhO <span>Final Stage</span></h1>
+      <p class="hero-sub">A curated collection of physiology questions with detailed answers, interactive graphs, and tables for exam preparation</p>
+      <div class="hero-stats">
+        <div class="stat-pill"><div class="stat-dot"></div>64 Questions</div>
+        <div class="stat-pill"><div class="stat-dot"></div>9 Topics</div>
+        <div class="stat-pill pink"><div class="stat-dot pink"></div>11 Visuals</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-shrink:0;">
+      <div style="text-align:center;background:var(--grad-soft);border-radius:16px;padding:1.2rem 1.5rem;">
+        <div style="font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">2025</div>
+        <div style="font-size:0.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-family:'Poppins',sans-serif;">Edition</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── CONTROLS ─── -->
+<div class="controls-wrap">
+  <div class="controls-inner">
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      <input type="text" id="searchInput" placeholder="Search questions…" oninput="filterQuestions()">
+    </div>
+    <div class="filter-btns">
+      <button class="fbtn active" onclick="filterBySystem('all',this)">All</button>
+      <button class="fbtn" onclick="filterBySystem('resp',this)">🫁 Resp</button>
+      <button class="fbtn" onclick="filterBySystem('cardio',this)">❤️ Cardio</button>
+      <button class="fbtn" onclick="filterBySystem('renal',this)">🫘 Renal</button>
+      <button class="fbtn" onclick="filterBySystem('endo',this)">⚗️ Endo</button>
+      <button class="fbtn" onclick="filterBySystem('neuro',this)">🧠 Neuro</button>
+      <button class="fbtn" onclick="filterBySystem('immuno',this)">🛡️ Immuno</button>
+      <button class="fbtn" onclick="filterBySystem('gi',this)">🫏 GI</button>
+      <button class="fbtn" onclick="filterBySystem('muscle',this)">💪 Muscle</button>
+      <button class="fbtn" onclick="filterBySystem('haem',this)">🩸 Haem</button>
+      <button class="fbtn" onclick="filterBySystem('path',this)">🏥 Path</button>
+    </div>
+    <button class="btn-answers" id="toggleAllBtn" onclick="toggleAllAnswers()">👁 Show All Answers</button>
+  </div>
+</div>
+
+<main class="main-wrap">
+<div class="results-info" id="resultsInfo"><span id="resultCount">64</span> questions shown</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: RESPIRATORY
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="resp">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#E0F2FE,#BAE6FD)">🫁</div>
+    <span class="system-title">Respiratory &amp; Pulmonary</span>
+    <span class="system-count">7 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q1 -->
+    <div class="qcard" data-system="resp" data-q="1">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q1</span><span class="qtag tag-resp">Respiratory</span></div>
+      <div class="qcard-body">
+        <p class="qtext">During an acute asthma attack, mast cells and eosinophils release <strong>cysteinyl leukotrienes</strong>, which bind to cysteinyl leukotriene receptors (G-protein coupled receptor), triggering intracellular signalling via phospholipase C → IP₃. <strong>Which ion is subsequently released from the endoplasmic reticulum, ultimately causing bronchoconstriction?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Calcium (Ca²⁺)</strong> — IP₃ binds to IP₃ receptors on the endoplasmic reticulum, releasing Ca²⁺ into the cytoplasm → smooth muscle contraction → bronchoconstriction.
+        </div>
+        <div class="note-box">P1: "mast cell … cystebil leukotrien … which ion inhibits … calcium" · P2: "Alergi asthma, leukotrien GPCR IP3, ion? Ca"</div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qcard" data-system="resp" data-q="2">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q2</span><span class="qtag tag-resp">Respiratory</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The graph below shows expiratory flow–volume curves for three patients (A, B, C). <strong>Curve B is normal.</strong> <strong>Which curve represents chronic bronchitis?</strong></p>
+        <div class="graph-wrap" style="background: linear-gradient(180deg, #f0ecfa 0%, #ede9f9 100%); padding:0.8rem 0.6rem 0.5rem;">
+          <!--
+            Q2 Flow-Volume curves — recreated from reference photo (Image 2).
+            Background: subtle diagonal stripe pattern (light purple/lavender like slide).
+            Y-axis: Expiratory Flow Rate (liters/sec), 0 at bottom, ticks at 3, 6, 9, 12
+            X-axis: Lung Volume (liters), runs RIGHT→LEFT: 6 at left, 5, 4, 3, 2, 1 at right
+            (standard flow-volume loop convention: TLC on left, RV on right)
+
+            Three curves:
+              A (blue)        : small blunted bell, peak ~6.5 L/s at ~5.0 L, narrow — chronic bronchitis
+              B (olive/yellow): tall sharp triangular peak ~12 L/s at ~4.5 L, wider — normal
+              C (purple)      : medium bell ~9 L/s peak at ~2.5 L, shifted right — another condition
+
+            X-scale: x=60 → 6L, x=420 → 1L   → 1 L = 72 px
+              6L→60, 5L→132, 4L→204, 3L→276, 2L→348, 1L→420
+            Y-scale: y=220 → 0, y=28 → 12   → 1 unit = 16 px
+              0→220, 3→172, 6→124, 9→76, 12→28
+
+            Curve A (blue): rises from ~5.5L(x=96), peaks ~5.0L(x=132) y=116 (~6.5 L/s),
+                            then slopes down right, ends ~3.5L(x=240)
+            Curve B (olive): rises from ~6L(x=60), sharp peak ~4.5L(x=168) y=28 (~12 L/s),
+                             then straight-line descent to ~2.5L(x=312), baseline
+            Curve C (purple): rises from ~3.5L(x=240), peak ~2.5L(x=312) y=76 (~9 L/s),
+                              then descends to ~1L(x=420)
+          -->
+          <svg viewBox="0 0 480 255" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand,sans-serif">
+
+            <!-- Subtle diagonal stripes background -->
+            <defs>
+              <pattern id="diag" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="14" height="14" fill="rgba(255,255,255,0.55)"/>
+                <line x1="0" y1="0" x2="0" y2="14" stroke="rgba(180,165,220,0.25)" stroke-width="5"/>
+              </pattern>
+            </defs>
+            <rect x="55" y="20" width="370" height="200" fill="url(#diag)"/>
+
+            <!-- Axes -->
+            <line x1="55" y1="20"  x2="55"  y2="222" stroke="#9580C8" stroke-width="1.8"/>
+            <line x1="55" y1="222" x2="430" y2="222" stroke="#9580C8" stroke-width="1.8"/>
+
+            <!-- Y-axis label -->
+            <text x="14" y="125" font-size="10" fill="#4F46A3"
+                  transform="rotate(-90,14,125)" text-anchor="middle">Expiratory Flow Rate (liters/sec)</text>
+
+            <!-- Y ticks: 0, 3, 6, 9, 12 -->
+            <line x1="52" y1="222" x2="55" y2="222" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="225" font-size="9" fill="#4F46A3" text-anchor="end">0</text>
+
+            <line x1="52" y1="174" x2="55" y2="174" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="177" font-size="9" fill="#4F46A3" text-anchor="end">3</text>
+
+            <line x1="52" y1="126" x2="55" y2="126" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="129" font-size="9" fill="#4F46A3" text-anchor="end">6</text>
+
+            <line x1="52" y1="78" x2="55" y2="78" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="81" font-size="9" fill="#4F46A3" text-anchor="end">9</text>
+
+            <line x1="52" y1="30" x2="55" y2="30" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="33" font-size="9" fill="#4F46A3" text-anchor="end">12</text>
+
+            <!-- Subtle horizontal grid lines -->
+            <line x1="55" y1="174" x2="425" y2="174" stroke="rgba(180,165,220,0.4)" stroke-width="0.8"/>
+            <line x1="55" y1="126" x2="425" y2="126" stroke="rgba(180,165,220,0.4)" stroke-width="0.8"/>
+            <line x1="55" y1="78"  x2="425" y2="78"  stroke="rgba(180,165,220,0.4)" stroke-width="0.8"/>
+            <line x1="55" y1="30"  x2="425" y2="30"  stroke="rgba(180,165,220,0.4)" stroke-width="0.8"/>
+
+            <!-- X ticks: 6→1 (left to right, decreasing lung volume) -->
+            <!-- x = 60 + (6-L)*72  → 6L=60, 5L=132, 4L=204, 3L=276, 2L=348, 1L=420 -->
+            <line x1="60"  y1="222" x2="60"  y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="60"  y="235" font-size="9" fill="#4F46A3" text-anchor="middle">6</text>
+
+            <line x1="132" y1="222" x2="132" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="132" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">5</text>
+
+            <line x1="204" y1="222" x2="204" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="204" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">4</text>
+
+            <line x1="276" y1="222" x2="276" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="276" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">3</text>
+
+            <line x1="348" y1="222" x2="348" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="348" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">2</text>
+
+            <line x1="420" y1="222" x2="420" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="420" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">1</text>
+
+            <!-- X-axis label -->
+            <text x="240" y="250" font-size="10" fill="#4F46A3" text-anchor="middle" font-weight="700">Lung Volume (liters)</text>
+
+            <!--
+              CURVE B (olive/dark yellow) — NORMAL, tall sharp peak
+              Rises from 6L (x=60), reaches sharp peak ~12 L/s (y=28) at ~4.5L (x=168),
+              then straight diagonal decline to baseline at ~2L (x=348)
+            -->
+            <path d="M60,222 Q90,200 120,140 Q145,75 168,28 L348,222"
+                  fill="none" stroke="#8B8B00" stroke-width="2.8"/>
+            <!-- Label B in cursive style, inside at peak area -->
+            <text x="185" y="48" font-size="20" fill="#8B8B00" font-weight="800" font-style="italic">B</text>
+
+            <!--
+              CURVE A (blue) — CHRONIC BRONCHITIS, small blunted bell
+              Rises from ~5.5L (x=96), peaks ~6.5 L/s (y=118) at ~5.0L (x=132),
+              then concave/blunted decline to baseline at ~3.5L (x=240)
+            -->
+            <path d="M96,222 Q110,185 125,148 Q132,118 142,125 Q160,148 190,185 Q215,210 240,222"
+                  fill="none" stroke="#2563EB" stroke-width="2.8"/>
+            <!-- Label A in cursive style -->
+            <text x="148" y="112" font-size="20" fill="#2563EB" font-weight="800" font-style="italic">A</text>
+
+            <!--
+              CURVE C (purple) — shifted right, medium bell ~9 L/s
+              Rises from ~3.5L (x=240), peaks ~9 L/s (y=78) at ~2.5L (x=312),
+              then descends to baseline at ~1L (x=420)
+            -->
+            <path d="M240,222 Q265,190 288,140 Q305,90 312,78 Q322,90 340,135 Q368,185 420,222"
+                  fill="none" stroke="#7C3AED" stroke-width="2.8"/>
+            <!-- Label C in cursive style -->
+            <text x="335" y="72" font-size="20" fill="#7C3AED" font-weight="800" font-style="italic">C</text>
+
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Curve <strong>A</strong> — chronic bronchitis shows a blunted, reduced peak expiratory flow with a <em>concave</em> (scooped) effort-independent portion due to obstructive small-airway disease. FVC is reduced and the effort-independent slope is steep.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qcard" data-system="resp" data-q="3">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q3</span><span class="qtag tag-resp">Respiratory</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A COPD patient is given a bronchodilator. On the <strong>volume–time spirometry tracing</strong> (curves 1, 2, 3), <strong>which curve represents the post-bronchodilator state in COPD?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Curve <strong>2</strong> (middle curve) — after bronchodilation in COPD, FEV₁ partially improves; the tracing rises toward but does not reach normal. FEV₁/FVC ratio remains reduced (&lt;0.7).
+        </div>
+        <div class="note-box">P2: "Ppok, dikasih bronkodilator kurva no 2, tengah"</div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qcard" data-system="resp" data-q="4">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q4</span><span class="qtag tag-resp">Respiratory</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient is given <strong>propranolol</strong> (non-selective β-blocker). <br>
+        (a) What happens to <strong>bronchial resistance</strong>? <br>
+        (b) What happens to <strong>FEV₁</strong>? <br>
+        (c) What happens to the <strong>FEV₁/FVC ratio</strong>? <br>
+        (d) Which <strong>O₂–Hb dissociation curve</strong> is represented?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Bronchial resistance <strong>increases</strong> (β₂ blockade → bronchoconstriction). <br>
+          (b) FEV₁ <strong>decreases</strong>. <br>
+          (c) FEV₁/FVC ratio <strong>decreases</strong> (obstructive pattern). <br>
+          (d) The O₂–Hb dissociation curve: <strong>Curve II / right-shifted</strong> (Bohr effect from CO₂ retention due to reduced ventilation).
+        </div>
+        <div class="note-box">P2: "Propanolol blok b2, resistensi bronkus naik, fev1 turun, rasio menurun, oksigen Hb dissociation gmn? Grafik II" · P1: confirmed same</div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qcard" data-system="resp" data-q="5">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q5</span><span class="qtag tag-resp">Respiratory</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">During strenuous anaerobic exercise with lactic acidosis: <br>
+        (a) Which direction does the <strong>oxygen–haemoglobin dissociation curve shift</strong>? <br>
+        (b) What happens to <strong>Hb saturation</strong>? <br>
+        (c) What happens to <strong>oxygen delivery (DO₂)</strong> to tissues?</p>
+        <div class="graph-wrap">
+          <!-- O2-Hb Dissociation: Curve I left shift, Curve II normal, Curve III right shift -->
+          <!-- Key points: normal P50 = 27 mmHg; left shift P50 ~18 mmHg; right shift P50 ~40 mmHg -->
+          <svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg">
+            <line x1="45" y1="15" x2="45" y2="210" stroke="#C4B5FD" stroke-width="1.5"/>
+            <line x1="45" y1="210" x2="460" y2="210" stroke="#C4B5FD" stroke-width="1.5"/>
+            <text x="12" y="115" font-size="10" fill="#7B7698" font-family="Quicksand,sans-serif" transform="rotate(-90,12,115)" text-anchor="middle">Hb Saturation (%)</text>
+            <text x="260" y="228" font-size="10" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">PO₂ (mmHg)</text>
+            <!-- Y ticks: 0 to 100% -->
+            <text x="40" y="212" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">0</text>
+            <text x="40" y="172" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">20</text>
+            <text x="40" y="132" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">40</text>
+            <text x="40" y="92" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">60</text>
+            <text x="40" y="52" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">80</text>
+            <text x="40" y="22" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">100</text>
+            <!-- X ticks: 0,20,40,60,80,100 mmHg -->
+            <text x="45" y="223" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">0</text>
+            <text x="120" y="223" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">20</text>
+            <text x="195" y="223" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">40</text>
+            <text x="270" y="223" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">60</text>
+            <text x="345" y="223" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">80</text>
+            <text x="420" y="223" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">100</text>
+            <!-- Grid lines light -->
+            <line x1="195" y1="15" x2="195" y2="210" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="270" y1="15" x2="270" y2="210" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+            <!-- CURVE I: Left shift (alkalosis/fetal Hb) — P50≈18mmHg -->
+            <!-- Sigmoid: at PO2=18mmHg → 50% sat; at PO2=100mmHg → ~98% -->
+            <path d="M47,208 Q78,200 98,180 Q112,160 122,128 Q134,88 148,52 Q162,24 195,18 Q280,14 455,13"
+                  fill="none" stroke="#2563EB" stroke-width="2.2" stroke-dasharray="8,4"/>
+            <text x="155" y="14" font-size="12" fill="#2563EB" font-family="Quicksand,sans-serif" font-weight="800">I</text>
+
+            <!-- CURVE II: Normal — P50=27mmHg -->
+            <path d="M47,208 Q85,202 108,186 Q128,166 145,135 Q165,95 190,58 Q212,28 260,19 Q350,13 455,12"
+                  fill="none" stroke="#7B6FD0" stroke-width="2.8"/>
+            <text x="225" y="18" font-size="12" fill="#7B6FD0" font-family="Quicksand,sans-serif" font-weight="800">II</text>
+            <text x="237" y="18" font-size="9" fill="#7B6FD0" font-family="Quicksand,sans-serif">(Normal)</text>
+
+            <!-- CURVE III: Right shift (acidosis/exercise/↑temp) — P50≈40mmHg -->
+            <!-- At PO2=40mmHg → ~50% sat; shifted right means lower saturation at any PO2 -->
+            <path d="M47,208 Q92,206 118,198 Q145,186 168,162 Q195,128 225,86 Q258,46 300,24 Q380,14 455,12"
+                  fill="none" stroke="#EC4899" stroke-width="2.2" stroke-dasharray="8,4"/>
+            <text x="305" y="20" font-size="12" fill="#EC4899" font-family="Quicksand,sans-serif" font-weight="800">III</text>
+
+            <!-- Legend -->
+            <rect x="48" y="108" width="205" height="62" rx="8" fill="white" fill-opacity="0.95" stroke="#E8E4F5" stroke-width="1"/>
+            <line x1="56" y1="124" x2="74" y2="124" stroke="#2563EB" stroke-width="2" stroke-dasharray="6,3"/>
+            <text x="79" y="128" font-size="10" fill="#3D3860" font-family="Quicksand,sans-serif" font-weight="600">I – Left shift (alkalosis/fetal Hb)</text>
+            <line x1="56" y1="140" x2="74" y2="140" stroke="#7B6FD0" stroke-width="2.8"/>
+            <text x="79" y="144" font-size="10" fill="#3D3860" font-family="Quicksand,sans-serif" font-weight="600">II – Normal (P₅₀ = 27 mmHg)</text>
+            <line x1="56" y1="156" x2="74" y2="156" stroke="#EC4899" stroke-width="2" stroke-dasharray="6,3"/>
+            <text x="79" y="160" font-size="10" fill="#3D3860" font-family="Quicksand,sans-serif" font-weight="600">III – Right shift (acidosis/exercise)</text>
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Shift to the <strong>right</strong> (Bohr effect: ↑H⁺ + ↑CO₂ from lactic acid). <br>
+          (b) Hb saturation <strong>decreases</strong> at any given PO₂. <br>
+          (c) DO₂ <strong>increases</strong> — more O₂ is unloaded per unit blood to the working tissues.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qcard" data-system="resp" data-q="6">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q6</span><span class="qtag tag-resp">Respiratory</span></div>
+      <div class="qcard-body">
+        <p class="qtext">At high altitude, hypocapnia (from hyperventilation) raises CSF pH, initially <strong>inhibiting</strong> the central respiratory drive. Over the following days, what change occurs in <strong>CSF composition</strong> that restores central chemoreceptor sensitivity?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Decreased CSF bicarbonate (HCO₃⁻)</strong> — the choroid plexus actively transports HCO₃⁻ out of CSF to compensate for respiratory alkalosis, restoring CSF pH toward 7.32, allowing central chemoreceptors to re-activate the hypoxic drive.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qcard" data-system="resp" data-q="7">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q7</span><span class="qtag tag-resp">Respiratory</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient using a supplemental oxygen mask: <strong>What happens to alveolar PO₂ (PAO₂)?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Alveolar PO₂ <strong>increases</strong>. By the Alveolar Gas Equation: PAO₂ = FiO₂ × (Pb − PH₂O) − PaCO₂/R. Increasing FiO₂ directly raises PAO₂.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end q-grid resp -->
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: CARDIOVASCULAR
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="cardio">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#FEE2E2,#FECACA)">❤️</div>
+    <span class="system-title">Cardiovascular</span>
+    <span class="system-count">5 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q8 -->
+    <div class="qcard" data-system="cardio" data-q="8">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q8</span><span class="qtag tag-cardio">Cardiovascular</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The jugular venous pressure (JVP) waveform is shown below with components a, c, x, v, y labelled. <strong>At which point on the JVP waveform does the tricuspid valve open?</strong></p>
+        <div class="graph-wrap" style="padding:0; overflow:hidden; background: linear-gradient(135deg, #f8c8d4 0%, #e8b4c8 40%, #d4a8e0 100%);">
+          <!--
+            Q8 JVP waveform — recreated from reference photo (Image 2).
+            Pink/decorative background (like game/quiz slide).
+            "1" label in a rounded capsule at the top-centre.
+            Dark waveform showing TWO full JVP cycles, no axis lines/grid.
+            Labels placed directly above peaks or below troughs:
+              Cycle 1: a (peak), x (descent), c (small bump), x' (descent), v (peak), y (descent)
+              Cycle 2: a, x, c, x', v, y  (same pattern)
+            Waveform runs horizontally left→right, slightly descending baseline.
+          -->
+          <svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand,sans-serif">
+
+            <!-- Decorative background stripes (subtle, like photo) -->
+            <rect x="0" y="0" width="700" height="155" fill="rgba(255,255,255,0.18)" rx="0"/>
+            <!-- subtle horizontal lines -->
+            <line x1="0" y1="40"  x2="700" y2="40"  stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <line x1="0" y1="70"  x2="700" y2="70"  stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <line x1="0" y1="100" x2="700" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <line x1="0" y1="130" x2="700" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+
+            <!-- "1" label capsule at top -->
+            <rect x="310" y="5" width="80" height="26" rx="13" fill="white" stroke="#d8699a" stroke-width="2"/>
+            <text x="350" y="23" font-size="15" fill="#c0305a" text-anchor="middle" font-weight="800">1</text>
+
+            <!--
+              JVP waveform path — two full cycles.
+              Baseline at y≈112. Wave runs from x=18 to x=680.
+              Pattern per cycle: rise to a-peak → c-bump descent → x-trough → rise to v-peak → y-descent → baseline
+              Cycle 1: x=18–350; Cycle 2: x=350–680
+
+              Key points (cycle 1):
+                Start  : (18, 112) baseline
+                a peak : (95, 48)
+                x desc : (130, 95)  ← x label here (descending after a, before c)
+                c bump : (152, 78)  ← small upward notch
+                x' desc: (175, 108) ← x' nadir
+                rise   : (220, 85)
+                v peak : (260, 48)
+                y desc : (300, 95)
+                end cy1: (350, 112)
+
+              Cycle 2: mirror of cycle 1 shifted +332
+                a peak : (427, 48)
+                x desc : (462, 95)
+                c bump : (484, 78)
+                x' desc: (507, 108)
+                v peak : (592, 48)
+                y desc : (632, 95)
+                end    : (680, 110)
+            -->
+            <path d="
+              M18,112
+              Q55,112 70,80 Q85,52 95,48
+              Q108,52 118,72 Q126,88 130,95
+              Q140,80 152,78
+              Q162,88 168,102 Q172,108 175,108
+              Q195,108 210,92 Q235,68 260,48
+              Q275,52 285,72 Q295,90 300,95
+              Q318,110 335,112 L350,112
+
+              Q385,112 400,80 Q415,52 427,48
+              Q440,52 450,72 Q458,88 462,95
+              Q472,80 484,78
+              Q494,88 500,102 Q504,108 507,108
+              Q527,108 542,92 Q567,68 592,48
+              Q607,52 617,72 Q627,90 632,95
+              Q652,110 668,112 L680,112
+            " fill="none" stroke="#1E1A38" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+
+            <!-- ── CYCLE 1 LABELS ── -->
+            <!-- a : above peak at (95,48) -->
+            <text x="90" y="38" font-size="13" fill="#1E1A38" font-weight="700" font-style="italic">a</text>
+
+            <!-- x : on the descent, ~(130,95) — label below to the right -->
+            <text x="128" y="93" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">x</text>
+
+            <!-- c : at the small bump (152,78) — label above -->
+            <text x="154" y="72" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">c</text>
+
+            <!-- x' : at the trough (175,108) — label below -->
+            <text x="172" y="122" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">x'</text>
+
+            <!-- v : above peak at (260,48) -->
+            <text x="256" y="38" font-size="13" fill="#1E1A38" font-weight="700" font-style="italic">v</text>
+
+            <!-- y : on descent from v, ~(300,95) -->
+            <text x="297" y="93" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">y</text>
+
+            <!-- ── CYCLE 2 LABELS ── -->
+            <!-- a -->
+            <text x="422" y="38" font-size="13" fill="#1E1A38" font-weight="700" font-style="italic">a</text>
+
+            <!-- x -->
+            <text x="460" y="93" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">x</text>
+
+            <!-- c -->
+            <text x="486" y="72" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">c</text>
+
+            <!-- x' -->
+            <text x="504" y="122" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">x'</text>
+
+            <!-- v -->
+            <text x="588" y="38" font-size="13" fill="#1E1A38" font-weight="700" font-style="italic">v</text>
+
+            <!-- y -->
+            <text x="629" y="93" font-size="11" fill="#1E1A38" font-weight="600" font-style="italic">y</text>
+
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Point <strong>y</strong> — the y descent represents opening of the tricuspid valve at the end of isovolumetric relaxation, allowing rapid passive ventricular filling. <em>a = atrial contraction; c = tricuspid closure bump; x = atrial relaxation; v = venous filling during systole; y = tricuspid opens.</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q9 Bezold-Jarisch -->
+    <div class="qcard" data-system="cardio" data-q="9">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q9</span><span class="qtag tag-cardio">Cardiovascular</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Capsaicin activates TRPV1 receptors on cardiac afferent C-fibres, triggering a triad of <strong>bradycardia, hypotension, and apnoea</strong>. <strong>What is the name of this reflex?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Bezold–Jarisch reflex</strong> — intense vagal (parasympathetic) activation via cardiac afferent C-fibre stimulation causes the classic triad: bradycardia, hypotension, and apnoea.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 Fahraeus-Lindqvist -->
+    <div class="qcard" data-system="cardio" data-system-secondary="haem" data-q="10">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q10</span><span class="qtag tag-cardio">Cardiovascular</span><span class="qtag tag-haem" style="background:#F5F3FF;color:#5B21B6;">🩸 Haem</span></div>
+      <div class="qcard-body">
+        <p class="qtext">In the <strong>pressure–flow relationship</strong> of blood (driving pressure vs. flow graph), polycythaemia vera is present. <strong>At which pressure range does the curve become non-linear, and why? What is this effect called?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Non-linearity occurs at <strong>low driving pressures</strong>. This is the <strong>Fahraeus–Lindqvist effect</strong> — in small vessels, RBC axial migration reduces apparent viscosity. Polycythaemia vera elevates true viscosity, disrupting linearity and causing the pressure-flow curve to deviate especially in the low-pressure region.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q11 blood viscosity -->
+    <div class="qcard" data-system="cardio" data-system-secondary="haem" data-q="11">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q11</span><span class="qtag tag-cardio">Cardiovascular</span><span class="qtag tag-haem" style="background:#F5F3FF;color:#5B21B6;">🩸 Haem</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The Fahraeus–Lindqvist effect is most prominent at a certain vessel radius. <strong>Is blood viscosity increased or decreased compared to larger vessels at this radius?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Blood viscosity <strong>decreases</strong> — in vessels &lt;300 µm diameter, RBCs migrate axially, leaving a cell-depleted plasma layer near the wall, reducing apparent (effective) viscosity below that measured in large tubes.
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Q65 Frank-Starling curve -->
+    <div class="qcard" data-system="cardio" data-q="65">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q65</span><span class="qtag tag-cardio">Cardiovascular</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The Frank-Starling graph below plots <strong>stroke volume</strong> against <strong>left ventricular end-diastolic pressure (LVEDP)</strong> for three different states of myocardial contractility (A, B, C). <br>
+        (a) Which curve represents <strong>normal cardiac contractility</strong>? <br>
+        (b) Which curve represents a patient with <strong>congestive heart failure and severely reduced contractility</strong>?</p>
+        <div class="graph-wrap" style="background: linear-gradient(135deg, #e8e0f7 0%, #ddd6fe 100%); padding:0.8rem 0.6rem 0.5rem;">
+          <!--
+            Frank-Starling curves — recreated from uploaded photo.
+            Y-axis: Stroke volume (mL), 0 at bottom, ticks at 50, 100, 150
+            X-axis: LVEDP (mm Hg), 0 at left, ticks at 10, 20, 30, 40
+            Three sigmoid curves:
+              A (magenta): normal, highest plateau
+              B (blue): moderately reduced contractility
+              C (dark green): severely reduced contractility, lowest plateau
+          -->
+          <svg viewBox="0 0 480 255" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand,sans-serif">
+
+            <!-- Subtle diagonal stripe background (lavender like slide) -->
+            <defs>
+              <pattern id="frankdiag" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="16" height="16" fill="rgba(255,255,255,0.45)"/>
+                <line x1="0" y1="0" x2="0" y2="16" stroke="rgba(180,165,220,0.2)" stroke-width="6"/>
+              </pattern>
+            </defs>
+            <rect x="55" y="20" width="400" height="200" fill="url(#frankdiag)"/>
+
+            <!-- Axes -->
+            <line x1="55" y1="20"  x2="55"  y2="222" stroke="#9580C8" stroke-width="1.8"/>
+            <line x1="55" y1="222" x2="455" y2="222" stroke="#9580C8" stroke-width="1.8"/>
+
+            <!-- Y-axis label -->
+            <text x="14" y="125" font-size="10" fill="#4F46A3"
+                  transform="rotate(-90,14,125)" text-anchor="middle">Stroke volume (mL)</text>
+
+            <!-- Y ticks: 0, 50, 100, 150 -->
+            <!-- y = 222 - (val/150)*180  → 0→222, 50→162, 100→102, 150→42 -->
+            <line x1="52" y1="222" x2="55" y2="222" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="225" font-size="9" fill="#4F46A3" text-anchor="end">0</text>
+
+            <line x1="52" y1="162" x2="55" y2="162" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="165" font-size="9" fill="#4F46A3" text-anchor="end">50</text>
+
+            <line x1="52" y1="102" x2="55" y2="102" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="105" font-size="9" fill="#4F46A3" text-anchor="end">100</text>
+
+            <line x1="52" y1="42" x2="55" y2="42" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="49" y="45" font-size="9" fill="#4F46A3" text-anchor="end">150</text>
+
+            <!-- Subtle horizontal grid lines -->
+            <line x1="55" y1="162" x2="450" y2="162" stroke="rgba(180,165,220,0.4)" stroke-width="0.8"/>
+            <line x1="55" y1="102" x2="450" y2="102" stroke="rgba(180,165,220,0.4)" stroke-width="0.8"/>
+            <line x1="55" y1="42"  x2="450" y2="42"  stroke="rgba(180,165,220,0.4)" stroke-width="0.8"/>
+
+            <!-- X ticks: 0, 10, 20, 30, 40 mmHg -->
+            <!-- x = 55 + (val/40)*390  → 0→55, 10→152.5, 20→250, 30→347.5, 40→445 -->
+            <line x1="55"  y1="222" x2="55"  y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="55"  y="235" font-size="9" fill="#4F46A3" text-anchor="middle">0</text>
+
+            <line x1="153" y1="222" x2="153" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="153" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">10</text>
+
+            <line x1="250" y1="222" x2="250" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="250" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">20</text>
+
+            <line x1="348" y1="222" x2="348" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="348" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">30</text>
+
+            <line x1="445" y1="222" x2="445" y2="225" stroke="#9580C8" stroke-width="1.2"/>
+            <text x="445" y="235" font-size="9" fill="#4F46A3" text-anchor="middle">40</text>
+
+            <!-- X-axis label -->
+            <text x="250" y="250" font-size="10" fill="#4F46A3" text-anchor="middle" font-weight="700">Left ventricular end-diastolic pressure (mm Hg)</text>
+
+            <!--
+              CURVE A (magenta) — NORMAL, highest sigmoid
+              Starts ~55mmHg(x=55), rises steeply, plateaus ~150mL at high LVEDP
+            -->
+            <path d="M55,210 Q90,200 120,170 Q150,130 180,90 Q210,55 250,42 Q300,30 350,28 Q400,26 445,25"
+                  fill="none" stroke="#D946EF" stroke-width="2.8"/>
+            <!-- Label A -->
+            <text x="360" y="28" font-size="14" fill="#D946EF" font-weight="800" font-style="italic">A</text>
+
+            <!--
+              CURVE B (blue) — MODERATELY REDUCED
+              Middle sigmoid, plateau ~100mL
+            -->
+            <path d="M55,218 Q90,212 120,195 Q150,175 180,150 Q210,125 250,105 Q300,95 350,92 Q400,90 445,88"
+                  fill="none" stroke="#2563EB" stroke-width="2.8"/>
+            <!-- Label B -->
+            <text x="360" y="90" font-size="14" fill="#2563EB" font-weight="800" font-style="italic">B</text>
+
+            <!--
+              CURVE C (dark green) — SEVERELY REDUCED
+              Lowest sigmoid, plateau ~60mL, shifted right
+            -->
+            <path d="M55,225 Q90,222 120,215 Q150,205 180,190 Q210,180 250,170 Q300,165 350,163 Q400,162 445,160"
+                  fill="none" stroke="#059669" stroke-width="2.8"/>
+            <!-- Label C -->
+            <text x="360" y="162" font-size="14" fill="#059669" font-weight="800" font-style="italic">C</text>
+
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Curve <strong>A</strong> — normal Frank-Starling relationship: increased preload (LVEDP) produces increased stroke volume up to a physiological maximum. <br>
+          (b) Curve <strong>C</strong> — severe reduction in myocardial contractility (e.g., decompensated heart failure, dilated cardiomyopathy) shifts the curve downward and to the right, so stroke volume is markedly reduced at any given preload. Curve B represents moderate contractile impairment.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: RENAL & FLUID
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="renal">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#EDE9F9,#DDD6FE)">🫘</div>
+    <span class="system-title">Renal &amp; Fluid Balance</span>
+    <span class="system-count">7 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q12 -->
+    <div class="qcard" data-system="renal" data-q="12">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q12</span><span class="qtag tag-renal">Renal</span></div>
+      <div class="qcard-body">
+        <p class="qtext">(a) Which hormone <strong>increases H⁺ secretion</strong> and <strong>Na⁺ reabsorption</strong> in the renal tubule? <br>
+        (b) Sympathetic activity stimulates renin secretion — what is the <strong>first messenger</strong>? <br>
+        (c) What is the <strong>second messenger (intracellular signal)</strong> for renin secretion?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) <strong>Aldosterone (mineralocorticoid)</strong> — acts on collecting duct principal cells. <br>
+          (b) First messenger: <strong>Norepinephrine (NE)</strong> on β₁ adrenergic receptors of JG cells. <br>
+          (c) Second messenger: <strong>cAMP</strong> → PKA → renin vesicle exocytosis.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q13 cAMP olfactory -->
+    <div class="qcard" data-system="neuro" data-q="13">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q13</span><span class="qtag tag-neuro">Neurosensory</span></div>
+      <div class="qcard-body">
+        <p class="qtext">In olfactory receptor neurons, odorant binding leads to cAMP production. <strong>What ion channel does cAMP directly bind to, causing Na⁺/Ca²⁺ influx and depolarisation?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Cyclic Nucleotide-Gated (CNG) cation channel</strong> — directly opened by cAMP binding (no kinase needed), allowing Na⁺ and Ca²⁺ influx → depolarisation of the olfactory receptor neuron.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q14 ADH collecting duct -->
+    <div class="qcard" data-system="renal" data-q="14">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q14</span><span class="qtag tag-renal">Renal</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Vasopressin (ADH) increases water reabsorption via aquaporin-2 (AQP2). <strong>In which tubular segment does ADH primarily exert this action?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Collecting duct</strong> — ADH binds V₂ receptors on principal cells → Gs → adenylyl cyclase → cAMP → PKA → phosphorylation and apical insertion of AQP2.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q15 CKD phosphate -->
+    <div class="qcard" data-system="renal" data-system-secondary="endo" data-q="15">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q15</span><span class="qtag tag-renal">Renal</span><span class="qtag tag-endo" style="background:#FEF3C7;color:#92400E;">⚗️ Endo</span></div>
+      <div class="qcard-body">
+        <p class="qtext">In end-stage kidney disease, the kidney fails to excrete a substance that accumulates in plasma. This elevated substance impairs renal calcium reabsorption, causing low serum calcium. <strong>What is this retained substance?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Phosphate (inorganic phosphate)</strong> — phosphate retention in CKD suppresses 1α-hydroxylase (↓ calcitriol), impairs intestinal Ca²⁺ absorption, and forms calcium-phosphate complexes → secondary hyperparathyroidism.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q16 GI haemorrhage ADH -->
+    <div class="qcard" data-system="renal" data-q="16">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q16</span><span class="qtag tag-renal">Renal</span></div>
+      <div class="qcard-body">
+        <p class="qtext">An elderly man with GI haemorrhage: BP 85/60 mmHg, HR 150 bpm, low serum osmolarity, elevated plasma ADH. <br>
+        (a) What happens to <strong>ADH secretion</strong> from the posterior pituitary? <br>
+        (b) What are the expected <strong>urine volume</strong> and <strong>urine osmolarity</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) ADH secretion <strong>increases</strong> — haemorrhagic hypotension triggers non-osmotic (baroreceptor-mediated) ADH release that overrides the low osmolarity signal. <br>
+          (b) Urine volume <strong>decreases</strong>; urine osmolarity <strong>increases</strong> (maximally concentrated urine, up to ~1200 mOsm/kg).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q17 NE renal vasoconstriction -->
+    <div class="qcard" data-system="renal" data-q="17">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q17</span><span class="qtag tag-renal">Renal</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Sympathetic nervous system activation causes vasoconstriction of renal afferent and efferent arterioles. <strong>Which neurotransmitter mediates this vasoconstriction?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Norepinephrine (NE)</strong> — via α₁-adrenergic receptors on arteriolar smooth muscle → vasoconstriction → ↓ GFR.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q18 DM1 insulin K -->
+    <div class="qcard" data-system="renal" data-system-secondary="endo" data-q="18">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q18</span><span class="qtag tag-renal">Renal</span><span class="qtag tag-endo" style="background:#FEF3C7;color:#92400E;">⚗️ Endo</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A type 1 diabetic in ketoacidosis receives IV insulin only. <br>
+        (a) What is the kidney's response regarding fluid/electrolyte balance during compensation? <br>
+        (b) What happens to <strong>plasma potassium</strong> after insulin treatment?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Kidney responds with increased volume reabsorption and acid excretion as pH corrects. <br>
+          (b) Plasma K⁺ <strong>decreases (hypokalaemia)</strong> — insulin drives K⁺ into cells via Na⁺/K⁺-ATPase stimulation; without K⁺ supplementation, life-threatening hypokalaemia results.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q19 FGF23 -->
+    <div class="qcard" data-system="renal" data-system-secondary="endo" data-q="19">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q19</span><span class="qtag tag-renal">Renal</span><span class="qtag tag-endo" style="background:#FEF3C7;color:#92400E;">⚗️ Endo</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Plasma inorganic phosphate is elevated. <br>
+        (a) What happens to secretion of <strong>Fibroblast Growth Factor 23 (FGF-23)</strong>? <br>
+        (b) What is the membrane-bound co-receptor required for FGF-23 signalling in the kidney?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) FGF-23 secretion <strong>increases</strong> — osteocytes sense elevated phosphate and release FGF-23 to promote phosphaturia and suppress calcitriol. <br>
+          (b) <strong>Klotho</strong> — membrane-bound co-receptor required for FGF-23/FGFR1 complex formation.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: ENDOCRINE
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="endo">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">⚗️</div>
+    <span class="system-title">Endocrine</span>
+    <span class="system-count">15 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q20 Addison table -->
+    <div class="qcard" data-system="endo" data-q="20">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q20</span><span class="qtag tag-endo">Endocrine</span><span class="qtag" style="background:#FEF3C7;color:#92400E;">📋 Table</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The table shows laboratory results for two patients (A and B). <br>
+        (a) Which result belongs to a patient with <strong>Addison's disease</strong> (primary adrenal insufficiency)? <br>
+        (b) Which patient has <strong>elevated serum potassium</strong>?</p>
+        <table class="data">
+          <tr><th>Patient</th><th>ACTH</th><th>Cortisol</th><th>Aldosterone</th></tr>
+          <tr><td><strong>A</strong></td><td>Decreased</td><td>Decreased</td><td>Normal</td></tr>
+          <tr><td><strong>B</strong></td><td>Normal</td><td>Decreased</td><td>Decreased</td></tr>
+        </table>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Patient <strong>B</strong> — Addison's disease (primary) shows low cortisol + low aldosterone (both adrenal cortex zones destroyed). Patient A shows secondary adrenal insufficiency (low ACTH from pituitary/hypothalamic problem, aldosterone preserved). <br>
+          (b) Patient <strong>B</strong> — aldosterone deficiency → impaired renal K⁺ excretion → hyperkalaemia.
+        </div>
+        <div class="note-box">P1: "secondary adrenocortical insuficienay / addison disease … which patient increased potassium level" · P2: "Addison disease yg kyk gmn? Serum potasium naik yg mana?"</div>
+      </div>
+    </div>
+
+    <!-- Q21 catecholamine graph -->
+    <div class="qcard" data-system="endo" data-q="21">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q21</span><span class="qtag tag-endo">Endocrine</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The graph shows blood concentrations of two catecholamines (ng·mL⁻¹) vs. exercise intensity (% VO₂max). Curve I rises steeply above 75% VO₂max; Curve II rises gradually. <br>
+        (a) Which curve represents <strong>norepinephrine (NE)</strong>? <br>
+        (b) Which enzyme converts NE → epinephrine in the adrenal medulla?</p>
+        <div class="graph-wrap">
+          <!-- Catecholamine vs exercise: NE (Curve I) steep rise at high intensity; Epi (Curve II) gradual -->
+          <!-- At rest NE~0.3 ng/mL, Epi~0.1; at 100%: NE~2.5, Epi~1.0 -->
+          <svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg">
+            <line x1="52" y1="15" x2="52" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+            <line x1="52" y1="198" x2="440" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+            <text x="14" y="110" font-size="10" fill="#7B7698" font-family="Quicksand,sans-serif" transform="rotate(-90,14,110)" text-anchor="middle">Blood conc. (ng·mL⁻¹)</text>
+            <text x="260" y="218" font-size="10" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">Exercise intensity (% VO₂max)</text>
+            <!-- Y ticks 0.0 → 2.5 -->
+            <text x="47" y="200" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">0.0</text>
+            <text x="47" y="162" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">0.5</text>
+            <text x="47" y="124" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">1.0</text>
+            <text x="47" y="86" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">1.5</text>
+            <text x="47" y="48" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">2.0</text>
+            <text x="47" y="22" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">2.5</text>
+            <!-- X ticks: Rest, 25%, 50%, 75%, 100% -->
+            <text x="80" y="210" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">Rest</text>
+            <text x="175" y="210" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">50%</text>
+            <text x="295" y="210" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">75%</text>
+            <text x="415" y="210" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">100%</text>
+            <!-- Grid -->
+            <line x1="295" y1="15" x2="295" y2="198" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <!-- Curve I: NE — flat to 50%, moderate rise 50-75%, steep above 75% -->
+            <!-- At rest: ~0.3 ng/mL → y=185; at 50%: ~0.35→182; at 75%: ~0.5→168; at 100%: ~2.5→18 -->
+            <path d="M80,185 Q175,183 295,168 Q355,135 415,20"
+                  fill="none" stroke="#7B6FD0" stroke-width="2.8"/>
+            <text x="418" y="18" font-size="12" fill="#7B6FD0" font-family="Quicksand,sans-serif" font-weight="800">I (NE)</text>
+            <!-- Curve II: Epinephrine — flat to 50%, gradual rise -->
+            <!-- At rest: ~0.1→194; at 50%: ~0.1→194; at 75%: ~0.2→186; at 100%: ~1.0→124 -->
+            <path d="M80,194 Q175,193 295,186 Q355,168 415,124"
+                  fill="none" stroke="#EC4899" stroke-width="2.2" stroke-dasharray="8,4"/>
+            <text x="418" y="122" font-size="12" fill="#EC4899" font-family="Quicksand,sans-serif" font-weight="800">II (Epi)</text>
+            <!-- Legend -->
+            <rect x="56" y="18" width="190" height="42" rx="8" fill="white" fill-opacity="0.95" stroke="#E8E4F5" stroke-width="1"/>
+            <line x1="64" y1="33" x2="80" y2="33" stroke="#7B6FD0" stroke-width="2.8"/>
+            <text x="85" y="37" font-size="10" fill="#3D3860" font-family="Quicksand,sans-serif" font-weight="600">I – Norepinephrine (NE)</text>
+            <line x1="64" y1="50" x2="80" y2="50" stroke="#EC4899" stroke-width="2" stroke-dasharray="6,3"/>
+            <text x="85" y="54" font-size="10" fill="#3D3860" font-family="Quicksand,sans-serif" font-weight="600">II – Epinephrine (Adrenaline)</text>
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Curve <strong>I = NE</strong> (rises steeply above 75% VO₂max, higher absolute concentration). Curve II = Epinephrine (lower, gradual rise). <br>
+          (b) Enzyme: <strong>PNMT (Phenylethanolamine-N-methyltransferase)</strong> — converts NE → epinephrine in chromaffin cells, driven by adrenal cortex cortisol.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q22 Hypothalamic mass -->
+    <div class="qcard" data-system="endo" data-q="22">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q22</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient has low TSH, low ACTH, low T3/T4, and low cortisol. A hypothalamic mass compresses the <strong>pituitary stalk</strong>, disrupting the hypothalamic-portal system. <br>
+        (a) What happens to <strong>hypothalamic releasing hormones</strong> (TRH, CRH) levels? <br>
+        (b) What happens to their concentration in <strong>portal blood reaching the anterior pituitary</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Hypothalamic releasing hormones <strong>increase</strong> — the hypothalamus upregulates secretion due to loss of negative feedback, but cannot deliver hormones because the stalk is blocked. <br>
+          (b) Portal blood hormone concentration <strong>decreases</strong> — physical disruption of the portal vessels prevents delivery to the anterior pituitary.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q23 Hyperprolactinaemia -->
+    <div class="qcard" data-system="endo" data-q="23">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q23</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A woman has amenorrhoea, decreased libido, and galactorrhoea. Labs: elevated prolactin, low FSH and LH, pituitary microadenoma. <br>
+        (a) What happens to <strong>GnRH secretion</strong>? <br>
+        (b) Effect on <strong>ovulation</strong>? <br>
+        (c) Effect on <strong>menstruation</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) GnRH <strong>decreases</strong> — elevated prolactin inhibits hypothalamic GnRH pulsatile secretion. <br>
+          (b) <strong>Anovulation</strong>. <br>
+          (c) <strong>Amenorrhoea</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q24 FSH/LH elevated ovary unresponsive -->
+    <div class="qcard" data-system="endo" data-q="24">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q24</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext">FSH and LH are elevated, oestradiol is 20 pg/mL (low), but the ovaries do not respond. <br>
+        (a) What happens to androstenedione production by the <strong>ovaries</strong>? <br>
+        (b) What happens to androstenedione from the <strong>adrenal cortex</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Ovarian androstenedione <strong>decreases</strong> — ovaries are unresponsive (premature ovarian failure/receptor defect); theca cells cannot respond to LH. <br>
+          (b) Adrenal androstenedione <strong>unchanged (normal)</strong> — adrenal androgen secretion is ACTH-dependent, not gonadotropin-dependent.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q25 Pregnancy thyroid -->
+    <div class="qcard" data-system="endo" data-q="25">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q25</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext">During normal pregnancy, thyroid function changes. <br>
+        (a) What happens to <strong>total T3 and T4 levels</strong>? <br>
+        (b) Does the pregnant woman manifest <strong>clinical hyperthyroidism</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Total T3 and T4 <strong>increase</strong> — oestrogen raises TBG (thyroid-binding globulin), increasing total bound hormone, but free T3/T4 remain normal. <br>
+          (b) <strong>No</strong> — the woman is clinically euthyroid because free hormone levels and TSH are normal.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q26 Andropause -->
+    <div class="qcard" data-system="endo" data-q="26">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q26</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A man with andropause presents with low testosterone, but LH is <strong>not elevated</strong> as expected. <strong>At which level of the hormonal axis is the dysfunction primarily located?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Hypothalamus</strong> (or hypothalamus-pituitary axis) — failure to elevate LH despite low testosterone indicates the defect is central (secondary hypogonadism), specifically impaired GnRH pulsatile secretion from the hypothalamus.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q27 IGF-1 rat graph -->
+    <div class="qcard" data-system="endo" data-q="27">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q27</span><span class="qtag tag-endo">Endocrine</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Rats are given a diet supplemented with <strong>insulin-like hormones</strong> (high insulin/IGF-1 signalling pathway activation). The graph shows two survival curves: Graph 1 declines earlier (~500 days), Graph 2 declines later (~1000 days). <br>
+        (a) Which graph represents the <strong>insulin-like hormone supplemented</strong> rats? <br>
+        (b) How does this diet affect <strong>endogenous IGF-1 levels</strong>?</p>
+        <div class="graph-wrap">
+          <!-- Survival curves: Graph 1 = treated (shorter lifespan), Graph 2 = control (longer) -->
+          <svg viewBox="0 0 460 225" xmlns="http://www.w3.org/2000/svg">
+            <line x1="52" y1="15" x2="52" y2="195" stroke="#C4B5FD" stroke-width="1.5"/>
+            <line x1="52" y1="195" x2="440" y2="195" stroke="#C4B5FD" stroke-width="1.5"/>
+            <text x="14" y="108" font-size="10" fill="#7B7698" font-family="Quicksand,sans-serif" transform="rotate(-90,14,108)" text-anchor="middle">% of rats alive</text>
+            <text x="260" y="215" font-size="10" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">Age (days)</text>
+            <!-- Y ticks 0→100 -->
+            <text x="47" y="197" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">0</text>
+            <text x="47" y="147" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">25</text>
+            <text x="47" y="97" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">50</text>
+            <text x="47" y="47" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">75</text>
+            <text x="47" y="22" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="end">100</text>
+            <!-- X ticks: 0, 300, 600, 900, 1200, 1500 days -->
+            <text x="52" y="208" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">0</text>
+            <text x="132" y="208" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">300</text>
+            <text x="212" y="208" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">600</text>
+            <text x="292" y="208" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">900</text>
+            <text x="372" y="208" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">1200</text>
+            <text x="440" y="208" font-size="9" fill="#7B7698" font-family="Quicksand,sans-serif" text-anchor="middle">1500</text>
+            <!-- Grid lines -->
+            <line x1="212" y1="15" x2="212" y2="195" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="292" y1="15" x2="292" y2="195" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+            <!-- Graph 1: insulin-like hormone diet → shorter lifespan; steep decline 300–700 days -->
+            <!-- Starts 100% at day 0, plateau to ~300d, then steep decline, 50% at ~450d, reaches 0% at ~750d -->
+            <path d="M52,20 Q132,19 175,20 Q212,24 245,65 Q272,115 295,158 Q318,185 340,194"
+                  fill="none" stroke="#EC4899" stroke-width="2.8"/>
+            <text x="178" y="15" font-size="11" fill="#EC4899" font-family="Quicksand,sans-serif" font-weight="800">Graph 1</text>
+            <text x="178" y="27" font-size="9" fill="#EC4899" font-family="Quicksand,sans-serif">(insulin-like hormone diet)</text>
+
+            <!-- Graph 2: control → longer lifespan; decline from ~700d, 50% at ~900d, 0% at ~1400d -->
+            <path d="M52,20 Q212,19 292,20 Q340,24 370,52 Q395,90 420,145 Q435,175 445,194"
+                  fill="none" stroke="#7B6FD0" stroke-width="2.8" stroke-dasharray="8,4"/>
+            <text x="350" y="46" font-size="11" fill="#7B6FD0" font-family="Quicksand,sans-serif" font-weight="800">Graph 2</text>
+            <text x="350" y="58" font-size="9" fill="#7B6FD0" font-family="Quicksand,sans-serif">(control)</text>
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) <strong>Graph 2</strong> (per competition notes — the supplemented group corresponds to Graph 2). Note: in classical IIS (insulin/IGF-1 signalling) research, <em>reduced</em> IIS extends lifespan; high IIS shortens it — Graph 1 is the expected shorter-lived treated group, but the competition answer confirmed Graph 2. <br>
+          (b) Endogenous IGF-1 levels <strong>decrease</strong> — exogenous insulin-like hormone supplementation triggers negative feedback on the GH–IGF-1 axis.
+        </div>
+        <div class="note-box">P2: "konsumsi insulin like hormon, graph represent → graph 2. diet affect igf1? decreases igf1 level" · P1 confirmed Graph 2 and IGF-1 decrease.</div>
+      </div>
+    </div>
+
+    <!-- Q28 Sulfonylurea -->
+    <div class="qcard" data-system="endo" data-q="28">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q28</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext">In type 2 DM, sulfonylurea drugs increase insulin secretion. <br>
+        (a) How does the drug affect <strong>ATP-dependent K⁺ channels (K_ATP)</strong> in β-cells? <br>
+        (b) What is the subsequent effect on <strong>voltage-gated Ca²⁺ channels</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Sulfonylureas <strong>close</strong> K_ATP channels (bind SUR1 subunit) → membrane depolarises. <br>
+          (b) Depolarisation opens voltage-gated Ca²⁺ channels → Ca²⁺ influx → insulin exocytosis.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q29 2 hormones glucose uptake -->
+    <div class="qcard" data-system="endo" data-q="29">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q29</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><strong>Which two hormones promote both glucose uptake by cells AND glucose catabolism for energy?</strong></p>
+        <div style="overflow-x:auto; margin-bottom:0.9rem;">
+          <table class="data" style="min-width:600px;">
+            <thead>
+              <tr>
+                <th style="text-align:left;">Hormone's Effects</th>
+                <th>Insulin</th>
+                <th>Glucagon</th>
+                <th>Epinephrine</th>
+                <th>Growth Hormone</th>
+                <th>Thyroxine</th>
+                <th>Cortisol</th>
+                <th>Testosterone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stimulates glucose uptake by cells</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>Stimulates amino acid uptake by cells</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>Stimulates glucose catabolism for energy</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Insulin</strong> and <strong>Thyroid hormone (T3/T4)</strong> — insulin promotes GLUT4-mediated glucose uptake and glycolysis; thyroid hormones increase BMR and glucose oxidation (catabolism) via mitochondrial upregulation.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q30 Parathyroid adenoma -->
+    <div class="qcard" data-system="endo" data-system-secondary="path" data-q="30">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q30</span><span class="qtag tag-endo">Endocrine</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient has a parathyroid adenoma with excess PTH secretion. <br>
+        (a) What happens to <strong>bone calcium</strong>? <br>
+        (b) What happens to <strong>serum calcium</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Bone calcium <strong>decreases</strong> — PTH activates osteoclasts → bone resorption. <br>
+          (b) Serum calcium <strong>increases</strong> (hypercalcaemia).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q31 Familial hypocalciuric hypercalcaemia -->
+    <div class="qcard" data-system="endo" data-system-secondary="path" data-q="31">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q31</span><span class="qtag tag-endo">Endocrine</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient has: elevated serum calcium, low urinary calcium, asymptomatic, normal or elevated PTH, impaired calcium sensing. <strong>Where does the causative genetic mutation primarily occur?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          The <strong>calcium-sensing receptor (CaSR) gene</strong> — loss-of-function mutation. The parathyroid and kidney misread normal Ca²⁺ as low, causing inappropriate PTH secretion and reduced urinary Ca²⁺ excretion. Diagnosis: Familial Hypocalciuric Hypercalcaemia (FHH).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q32 PTH serum Ca -->
+    <div class="qcard" data-system="endo" data-system-secondary="path" data-q="32">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q32</span><span class="qtag tag-endo">Endocrine</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><strong>Which hormone is primarily responsible for increasing serum calcium?</strong> (via bone resorption, renal Ca²⁺ reabsorption, and stimulation of calcitriol synthesis)</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Parathyroid hormone (PTH)</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q33 T3T4 vitamin A transport -->
+    <div class="qcard" data-system="endo" data-q="33">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q33</span><span class="qtag tag-endo">Endocrine</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><strong>Which plasma protein transports both thyroid hormones (T3/T4) AND vitamin A in the blood?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Transthyretin (pre-albumin)</strong> — transports T3/T4 and forms a complex with retinol-binding protein (RBP) to carry vitamin A (retinol). Note: Thyroglobulin is only intracellular in the thyroid follicle.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q34 Astronaut RBC -->
+    <div class="qcard" data-system="endo" data-system-secondary="haem" data-q="34">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q34</span><span class="qtag tag-endo">Endocrine</span><span class="qtag tag-haem" style="background:#F5F3FF;color:#5B21B6;">🩸 Haem</span></div>
+      <div class="qcard-body">
+        <p class="qtext">An astronaut on a space station performs regular exercise in microgravity. <strong>What happens to red blood cell (RBC) mass?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          RBC mass <strong>decreases</strong> — in microgravity, cephalad fluid shift triggers plasma volume redistribution; the body reduces erythropoietin and erythropoiesis → "space anaemia."
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: NEUROPHYSIOLOGY
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="neuro">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0)">🧠</div>
+    <span class="system-title">Neurophysiology &amp; Special Senses</span>
+    <span class="system-count">9 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q35 Graded potential conduction -->
+    <div class="qcard" data-system="neuro" data-q="35">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q35</span><span class="qtag tag-neuro">Neurophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><strong>What type of electrical conduction is associated with graded potentials</strong>, as opposed to the all-or-none conduction of action potentials?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Electrotonic (decremental/passive) conduction</strong> — graded potentials spread via local ionic currents and decay with distance (no voltage-gated Na⁺ channels, no refractory period, amplitude proportional to stimulus strength).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q36 Strong stimulus doesnt always fire AP -->
+    <div class="qcard" data-system="neuro" data-q="36">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q36</span><span class="qtag tag-neuro">Neurophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A strong stimulus is applied but does not always trigger an action potential. <strong>What are two other factors that determine whether an action potential is generated?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          1. <strong>Membrane excitability</strong> — during absolute/relative refractory periods, another AP cannot be generated regardless of stimulus strength. <br>
+          2. <strong>Distance from the axon hillock</strong> — EPSPs must spatially and temporally summate at the axon initial segment to reach threshold; distal inputs lose amplitude via cable properties.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q37 Rhodopsin chromophore -->
+    <div class="qcard" data-system="neuro" data-q="37">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q37</span><span class="qtag tag-neuro">Neurophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Rhodopsin is a visual pigment with a 7-transmembrane G-protein coupled structure. <strong>What is the name of the chromophore it contains?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>11-cis retinal</strong> — photon absorption isomerises it to all-trans retinal, triggering opsin conformational change → transducin activation → phototransduction cascade.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q38 Thermoreceptor graph -->
+    <div class="qcard" data-system="neuro" data-q="38">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q38</span><span class="qtag tag-neuro">Neurophysiology</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The graph shows mean steady-state firing rate (impulses/sec) vs. skin temperature (°C) for two cutaneous receptor types. Curve I peaks at ~40–45°C; Curve II peaks at ~20–25°C. <strong>Which curve represents warm thermoreceptors?</strong></p>
+        <div class="graph-wrap">
+          <!--
+            Q38 Thermoreceptor graph — faithfully recreated from reference photo.
+            Y-axis : Mean steady firing rate (impulses/sec), 0–40, step 10
+            X-axis : Skin temperature (°C), 15–50, step 5
+            Curve I  (warm, peaks ~40-45 °C, max ≈ 40 imp/s) — label "I" with error-bar tick at peak
+            Curve II (cold,  peaks ~20-25 °C, max ≈ 12 imp/s) — label above peak area
+
+            Scale  :  x=60 → 15 °C,  x=420 → 50 °C   → 1 °C = 10.3 px
+                      y=190 → 0 imp/s, y=18 → 40 imp/s  → 1 imp = 4.3 px
+            Key x positions:
+              15 °C = 60,  20 °C = 112,  25 °C = 163,  30 °C = 215,  35 °C = 266,
+              40 °C = 318,  43 °C = 349,  45 °C = 369,  50 °C = 420
+
+            Curve I (warm)  peak at 43 °C (x=349), y=18 (40 imp/s)
+            Curve II (cold) peak at 20 °C (x=112), y=138 (12 imp/s)
+          -->
+          <svg viewBox="0 0 470 215" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand,sans-serif">
+
+            <!-- ── Axes ── -->
+            <line x1="60" y1="15" x2="60"  y2="192" stroke="#C4B5FD" stroke-width="1.5"/>
+            <line x1="60" y1="192" x2="430" y2="192" stroke="#C4B5FD" stroke-width="1.5"/>
+
+            <!-- ── Y-axis label (rotated) ── -->
+            <text x="11" y="115" font-size="9.5" fill="#7B7698"
+                  transform="rotate(-90,11,115)" text-anchor="middle">Mean steady</text>
+            <text x="22" y="115" font-size="9.5" fill="#7B7698"
+                  transform="rotate(-90,22,115)" text-anchor="middle">firing rate</text>
+            <text x="33" y="115" font-size="9.5" fill="#7B7698"
+                  transform="rotate(-90,33,115)" text-anchor="middle">(impulses/</text>
+            <text x="44" y="115" font-size="9.5" fill="#7B7698"
+                  transform="rotate(-90,44,115)" text-anchor="middle">sec)</text>
+
+            <!-- ── X-axis label ── -->
+            <text x="245" y="212" font-size="10" fill="#7B7698" text-anchor="middle">Skin temperature (°C)</text>
+
+            <!-- ── Y tick marks &amp; labels : 0, 10, 20, 30, 40 ── -->
+            <!-- y = 192 - (val/40)*174  →  0→192, 10→148.5, 20→105, 30→61.5, 40→18 -->
+            <line x1="57" y1="192" x2="60" y2="192" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="53" y="195" font-size="9" fill="#7B7698" text-anchor="end">0</text>
+
+            <line x1="57" y1="149" x2="60" y2="149" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="53" y="152" font-size="9" fill="#7B7698" text-anchor="end">10</text>
+
+            <line x1="57" y1="105" x2="60" y2="105" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="53" y="108" font-size="9" fill="#7B7698" text-anchor="end">20</text>
+
+            <line x1="57" y1="62" x2="60" y2="62" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="53" y="65" font-size="9" fill="#7B7698" text-anchor="end">30</text>
+
+            <line x1="57" y1="18" x2="60" y2="18" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="53" y="21" font-size="9" fill="#7B7698" text-anchor="end">40</text>
+
+            <!-- ── X tick marks &amp; labels : 15, 20, 25, 30, 35, 40, 45, 50 ── -->
+            <!-- x = 60 + ((T-15)/35)*360  →  15→60, 20→111, 25→163, 30→214, 35→266, 40→317, 45→369, 50→420 -->
+            <line x1="60"  y1="192" x2="60"  y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="60"  y="204" font-size="9" fill="#7B7698" text-anchor="middle">15</text>
+
+            <line x1="111" y1="192" x2="111" y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="111" y="204" font-size="9" fill="#7B7698" text-anchor="middle">20</text>
+
+            <line x1="163" y1="192" x2="163" y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="163" y="204" font-size="9" fill="#7B7698" text-anchor="middle">25</text>
+
+            <line x1="214" y1="192" x2="214" y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="214" y="204" font-size="9" fill="#7B7698" text-anchor="middle">30</text>
+
+            <line x1="266" y1="192" x2="266" y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="266" y="204" font-size="9" fill="#7B7698" text-anchor="middle">35</text>
+
+            <line x1="317" y1="192" x2="317" y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="317" y="204" font-size="9" fill="#7B7698" text-anchor="middle">40</text>
+
+            <line x1="369" y1="192" x2="369" y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="369" y="204" font-size="9" fill="#7B7698" text-anchor="middle">45</text>
+
+            <line x1="420" y1="192" x2="420" y2="195" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="420" y="204" font-size="9" fill="#7B7698" text-anchor="middle">50</text>
+
+            <!-- ── Subtle grid ── -->
+            <line x1="60" y1="149" x2="420" y2="149" stroke="#E8E4F5" stroke-width="0.6" stroke-dasharray="3,3"/>
+            <line x1="60" y1="105" x2="420" y2="105" stroke="#E8E4F5" stroke-width="0.6" stroke-dasharray="3,3"/>
+            <line x1="60" y1="62"  x2="420" y2="62"  stroke="#E8E4F5" stroke-width="0.6" stroke-dasharray="3,3"/>
+            <line x1="60" y1="18"  x2="420" y2="18"  stroke="#E8E4F5" stroke-width="0.6" stroke-dasharray="3,3"/>
+
+            <!--
+              CURVE II — COLD receptors
+              Peak at ~20 °C (x=111), amplitude ≈ 12 imp/s → y = 192 - (12/40)*174 = 140
+              Rises from 15 °C (y≈188), peaks at 20 °C (y=140), descends to ~0 by 30 °C
+              In original photo the cold curve is the LEFT bell, shorter peak ~12 imp/s
+            -->
+            <path d="M62,190 Q80,185 111,140 Q130,115 145,140 Q163,170 190,188 Q214,191 266,191 Q317,191 420,191"
+                  fill="none" stroke="#7B6FD0" stroke-width="2.4"/>
+
+            <!--
+              CURVE I — WARM receptors
+              Peak at ~43 °C (x=349), amplitude = 40 imp/s → y = 18
+              Gradual onset from ~30 °C, rises steeply 35→43 °C, sharp drop by 47-48 °C → 0
+              In original the warm curve is the RIGHT tall bell, reaching the very top of chart
+            -->
+            <path d="M62,191 Q111,191 163,191 Q214,190 266,186 Q300,178 317,165 Q335,140 349,18 Q356,14 363,18 Q380,50 395,110 Q408,158 420,188"
+                  fill="none" stroke="#EC4899" stroke-width="2.4"/>
+
+            <!-- ── Label "I" for warm curve — at peak area with small error-bar tick (as in photo) ── -->
+            <!-- Error bar: vertical tick at peak of curve I -->
+            <line x1="349" y1="11" x2="349" y2="27" stroke="#3D3860" stroke-width="1.8"/>
+            <line x1="345" y1="11" x2="353" y2="11" stroke="#3D3860" stroke-width="1.5"/>
+            <line x1="345" y1="27" x2="353" y2="27" stroke="#3D3860" stroke-width="1.5"/>
+            <text x="360" y="25" font-size="13" fill="#3D3860" font-weight="800">I</text>
+
+            <!-- ── Small error bar for cold curve II peak (as visible in photo) ── -->
+            <line x1="111" y1="133" x2="111" y2="147" stroke="#3D3860" stroke-width="1.5"/>
+            <line x1="107" y1="133" x2="115" y2="133" stroke="#3D3860" stroke-width="1.3"/>
+            <line x1="107" y1="147" x2="115" y2="147" stroke="#3D3860" stroke-width="1.3"/>
+
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Curve <strong>I</strong> — warm thermoreceptors (TRPV1/C-fibres) peak at ~40–45°C. Curve II represents cold receptors (TRPM8) peaking at ~20–25°C.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q39 Vestibular horizontal linear -->
+    <div class="qcard" data-system="neuro" data-q="39">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q39</span><span class="qtag tag-neuro">Neurophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The horizontal semicircular canal detects angular acceleration via the crista ampullaris. <strong>Which otolith organ (not in the ampulla) detects static head position and linear acceleration in the horizontal plane?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Utricle</strong> (macula utriculi) — contains calcium carbonate otoliths on hair cells; detects horizontal linear acceleration and static head tilt due to gravity. (The saccule detects vertical linear acceleration.)
+        </div>
+      </div>
+    </div>
+
+    <!-- Q40 Post-rotatory / Scala vestibuli -->
+    <div class="qcard" data-system="neuro" data-q="40">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q40</span><span class="qtag tag-neuro">Neurophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">After stopping rotation, continued endolymph movement causes involuntary rhythmic eye movement. <strong>(a) What is this phenomenon called? (b) Which cochlear fluid compartment (scala) receives vibrations directly from the oval window via the stapes?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) <strong>Post-rotatory nystagmus</strong> — slow phase in the direction of previous rotation, fast phase opposite. <br>
+          (b) <strong>Scala vestibuli</strong> — the oval window opens into the scala vestibuli (perilymph), which transmits pressure waves to the scala tympani via the helicotrema.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q41 Adrenergic agonist pupil -->
+    <div class="qcard" data-system="neuro" data-system-secondary="path" data-q="41">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q41</span><span class="qtag tag-neuro">Autonomic</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span></div>
+      <div class="qcard-body">
+        <p class="qtext">An adrenergic agonist eye drop is administered, causing pupillary dilation (mydriasis). <br>
+        (a) <strong>Which muscle</strong> is responsible for pupillary dilation? <br>
+        (b) <strong>What type of adrenergic receptor</strong> mediates its contraction?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) <strong>Radial (dilator) muscle of the iris</strong> (dilator pupillae). <br>
+          (b) <strong>Alpha-1 (α₁) adrenergic receptor</strong> — sympathetic activation → α₁ → radial muscle contraction → mydriasis.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q42 Horner syndrome -->
+    <div class="qcard" data-system="neuro" data-system-secondary="path" data-q="42">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q42</span><span class="qtag tag-neuro">Neurophysiology</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><strong>Name the three classical clinical features of Horner's syndrome.</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          1. <strong>Ptosis</strong> — drooping upper eyelid (loss of superior tarsal muscle sympathetic innervation) <br>
+          2. <strong>Miosis</strong> — pupillary constriction (loss of dilator pupillae α₁ innervation) <br>
+          3. <strong>Anhidrosis</strong> — absent ipsilateral facial sweating (loss of sudomotor sympathetic supply) <br>
+          <em>± Enophthalmos (apparent) due to muscle tone loss</em>
+        </div>
+        <div class="note-box">P2: "Horner syndrome 3 karakter: ptosis, myosis, …" (third word not captured) · P1: "3 carsvhteristic syndrom" = Horner's</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: IMMUNOLOGY
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="immuno">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#FDE9F3,#FBCFE8)">🛡️</div>
+    <span class="system-title">Immunology</span>
+    <span class="system-count">3 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q43 Negative selection -->
+    <div class="qcard" data-system="immuno" data-q="43">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q43</span><span class="qtag tag-immuno">Immunology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">During T-cell development in the thymus: developing T-cells that recognise self-antigen complexes undergo apoptosis. <br>
+        (a) What is this selection process called? <br>
+        (b) What disease condition is prevented by this process?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) <strong>Negative selection</strong> — high-affinity autoreactive T-cells are deleted in the thymic medulla via clonal deletion. <br>
+          (b) <strong>Autoimmune disease</strong> — without this, self-reactive T-cells escape to the periphery and attack host tissues.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q44 T-cell anergy -->
+    <div class="qcard" data-system="immuno" data-q="44">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q44</span><span class="qtag tag-immuno">Immunology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">T-cells can only be activated by antigen-presenting cells (APCs) when both <strong>TCR binding (signal 1)</strong> AND <strong>co-stimulation (signal 2)</strong> occur. <strong>What state does the T-cell enter if TCR binds antigen but co-stimulation is absent?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Anergy</strong> — the T-cell becomes permanently unresponsive (functionally paralysed); a peripheral tolerance mechanism that prevents autoimmunity when self-antigens are presented without costimulatory signals (CD28/B7 interaction absent).
+        </div>
+        <div class="note-box">P1: "what state does the t cells enter if … absent of costimulation → energy state" (mishearing: "energy" = anergy)</div>
+      </div>
+    </div>
+
+    <!-- Q45 Neutrophil extravasation -->
+    <div class="qcard" data-system="immuno" data-q="45">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q45</span><span class="qtag tag-immuno">Immunology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Shortly after acute inflammation begins, neutrophils are mobilised and must cross the vascular endothelium. <br>
+        (a) Which <strong>cell adhesion molecules</strong> mediate neutrophil rolling and firm adhesion? <br>
+        (b) What type of movement do neutrophils use during <strong>extravasation (diapedesis)</strong>?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Rolling: <strong>Selectins</strong> (P-selectin, E-selectin on endothelium; L-selectin on neutrophil). Firm adhesion: <strong>Integrins</strong> (LFA-1/ICAM-1 interaction). <br>
+          (b) <strong>Transendothelial migration (diapedesis)</strong> via PECAM-1 (CD31) at endothelial junctions.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: GASTROINTESTINAL
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="gi">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">🫏</div>
+    <span class="system-title">Gastrointestinal</span>
+    <span class="system-count">3 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q46 Interstitial cells of Cajal -->
+    <div class="qcard" data-system="gi" data-q="46">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q46</span><span class="qtag tag-gi">GI</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A specific cell type generates the slow-wave electrical pacemaker activity coordinating GI motility. Its disruption leads to delayed gastric emptying. <strong>Which type of cell is this?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Interstitial cells of Cajal (ICC)</strong> — located in the myenteric plexus and circular muscle, they function as pacemakers of the GI tract. Loss or dysfunction causes gastroparesis (delayed gastric emptying).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q47 H. pylori urea substrate -->
+    <div class="qcard" data-system="gi" data-q="47">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q47</span><span class="qtag tag-gi">GI</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><em>H. pylori</em> secretes urease to convert urea → NH₃ + CO₂, buffering gastric acid. <strong>Which organ synthesises the primary substrate (urea) that H. pylori uses?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          The <strong>liver</strong> — urea is synthesised in hepatocytes via the urea cycle (ornithine cycle), then enters circulation and diffuses into gastric juice.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q48 Cholera toxin CFTR -->
+    <div class="qcard" data-system="gi" data-q="48">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q48</span><span class="qtag tag-gi">GI</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Cholera toxin permanently activates Gs, elevating cAMP in intestinal epithelial cells → massive secretory diarrhoea. <strong>Which ion channel is constitutively opened by elevated cAMP, causing Cl⁻ secretion?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>CFTR (Cystic Fibrosis Transmembrane conductance Regulator)</strong> — cAMP activates PKA, phosphorylates CFTR → opens Cl⁻ channel → Cl⁻ efflux → Na⁺ and H₂O follow osmotically → massive watery diarrhoea. The ion is <strong>Cl⁻</strong>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: MUSCLE PHYSIOLOGY
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="muscle">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#CCFBF1,#99F6E4)">💪</div>
+    <span class="system-title">Muscle Physiology &amp; Exercise</span>
+    <span class="system-count">3 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q49 Muscle force-length force-velocity -->
+    <div class="qcard" data-system="muscle" data-q="49">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q49</span><span class="qtag tag-muscle">Muscle</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The graphs show (A) force–length and (B) force–velocity curves for two conditions (Curve I and Curve II). After injury from a forceful eccentric contraction: <strong>which curve (I or II) represents the injured muscle?</strong></p>
+        <div class="graph-wrap">
+          <!--
+            Q49 — recreated from reference photo (Image 1).
+            Two panels side by side on blue background:
+              Panel A: Force–Length   Y=Muscle force N (0,50,100,150,200), X=Muscle length mm (0,100,200)
+              Panel B: Force–Velocity Y=Muscle force N, X=Muscle velocity mm·s⁻¹ (0,100,200)
+            Curve I  = magenta/pink  — higher bell (A) / higher hyperbola (B)
+            Curve II = orange/yellow — lower bell (A) / lower hyperbola (B)
+            Both curves SOLID (no dashes). Label I near peak (right of peak), II to the right.
+          -->
+          <svg viewBox="0 0 530 230" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand,sans-serif">
+
+            <!-- ══ PANEL A background ══ -->
+            <rect x="0" y="0" width="252" height="215" rx="10" fill="#1565C0"/>
+
+            <!-- Panel A axes -->
+            <!-- Y: 0→200 N over ~180px; x1=42, top=18, bottom=198 -->
+            <!-- X: 0→200 mm over ~190px; y=198, left=42, right=232 -->
+            <line x1="42" y1="14" x2="42" y2="198" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+            <line x1="42" y1="198" x2="236" y2="198" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+
+            <!-- Panel A grid -->
+            <line x1="42" y1="153" x2="236" y2="153" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+            <line x1="42" y1="108" x2="236" y2="108" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+            <line x1="42" y1="63"  x2="236" y2="63"  stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+            <line x1="42" y1="18"  x2="236" y2="18"  stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+            <line x1="139" y1="14" x2="139" y2="198" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+
+            <!-- Panel A Y ticks & labels (200,150,100,50,0) -->
+            <!-- y = 198 - (N/200)*180  → 0→198, 50→153, 100→108, 150→63, 200→18 -->
+            <text x="38" y="201" font-size="8.5" fill="white" text-anchor="end">0</text>
+            <text x="38" y="156" font-size="8.5" fill="white" text-anchor="end">50</text>
+            <text x="38" y="111" font-size="8.5" fill="white" text-anchor="end">100</text>
+            <text x="38" y="66"  font-size="8.5" fill="white" text-anchor="end">150</text>
+            <text x="38" y="21"  font-size="8.5" fill="white" text-anchor="end">200</text>
+
+            <!-- Panel A X ticks (0, 100, 200) -->
+            <text x="42"  y="209" font-size="8.5" fill="white" text-anchor="middle">0</text>
+            <text x="139" y="209" font-size="8.5" fill="white" text-anchor="middle">100</text>
+            <text x="236" y="209" font-size="8.5" fill="white" text-anchor="middle">200</text>
+
+            <!-- Panel A Y-axis label (rotated) -->
+            <text x="10" y="108" font-size="9" fill="white" transform="rotate(-90,10,108)" text-anchor="middle">Muscle force, N</text>
+
+            <!-- Panel A X-axis label -->
+            <text x="139" y="222" font-size="9" fill="white" text-anchor="middle">Muscle length, mm</text>
+
+            <!--
+              PANEL A Curve I (magenta) — tall bell, peak at x≈130mm (x=157), y_peak=10 (≈200N)
+              Rises from x=42 (short), peaks ~x=157, falls to x=236
+              x = 42 + (mm/200)*194  → 0→42, 100→139, 130→168, 150→188, 200→236
+              y = 198 - (N/200)*180  → 200N→18, 0N→198
+            -->
+            <path d="M42,196 Q70,180 90,140 Q110,90 130,50 Q145,24 157,18 Q168,24 182,55 Q200,100 220,155 Q232,185 236,196"
+                  fill="none" stroke="#C850A0" stroke-width="2.5"/>
+            <!-- Label I at top right of curve -->
+            <text x="168" y="16" font-size="12" fill="white" font-weight="800">I</text>
+
+            <!--
+              PANEL A Curve II (orange) — lower bell, peak ~100N at x≈120mm
+              x=120mm → x=139+10=~157; peak y=108 (100N)
+            -->
+            <path d="M42,196 Q68,188 88,168 Q112,138 135,108 Q150,96 163,108 Q185,135 210,168 Q228,190 236,196"
+                  fill="none" stroke="#FFA726" stroke-width="2.5"/>
+            <!-- Label II -->
+            <text x="196" y="106" font-size="12" fill="white" font-weight="800">II</text>
+
+            <!-- ══ PANEL B background ══ -->
+            <rect x="262" y="0" width="268" height="215" rx="10" fill="#1565C0"/>
+
+            <!-- Panel B axes -->
+            <!-- Y: Muscle force N (same scale 0-200); X: velocity 0→200 mm/s -->
+            <line x1="300" y1="14" x2="300" y2="198" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+            <line x1="300" y1="198" x2="520" y2="198" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+
+            <!-- Panel B grid -->
+            <line x1="300" y1="153" x2="520" y2="153" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+            <line x1="300" y1="108" x2="520" y2="108" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+            <line x1="300" y1="63"  x2="520" y2="63"  stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+            <line x1="410" y1="14"  x2="410" y2="198" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+
+            <!-- Panel B Y ticks (no labels on left — force same scale) -->
+            <!-- Panel B Y-axis label -->
+            <text x="270" y="108" font-size="9" fill="white" transform="rotate(-90,270,108)" text-anchor="middle">Muscle force, N</text>
+
+            <!-- Panel B X ticks (0, 100, 200) -->
+            <!-- x = 300 + (v/200)*220 → 0→300, 100→410, 200→520 -->
+            <text x="300" y="209" font-size="8.5" fill="white" text-anchor="middle">0</text>
+            <text x="410" y="209" font-size="8.5" fill="white" text-anchor="middle">100</text>
+            <text x="520" y="209" font-size="8.5" fill="white" text-anchor="middle">200</text>
+
+            <!-- Panel B X-axis label -->
+            <text x="410" y="222" font-size="9" fill="white" text-anchor="middle">Muscle velocity, mm • s⁻¹</text>
+
+            <!-- "B" label circle -->
+            <circle cx="282" cy="198" r="10" fill="#1565C0" stroke="white" stroke-width="1.5"/>
+            <text x="282" y="202" font-size="10" fill="white" text-anchor="middle" font-weight="800">B</text>
+
+            <!--
+              PANEL B Curve I (magenta) — hyperbolic, starts HIGH on Y (near 200N) at v=0,
+              decays to zero at Vmax ~200 mm/s
+              y=198-(N/200)*180; at v=0 N=200→y=18; at v=200 N=0→y=198
+            -->
+            <path d="M300,18 Q330,28 355,48 Q385,80 415,120 Q450,160 480,185 Q505,196 520,198"
+                  fill="none" stroke="#C850A0" stroke-width="2.5"/>
+            <!-- Label I -->
+            <text x="306" y="16" font-size="12" fill="white" font-weight="800">I</text>
+
+            <!--
+              PANEL B Curve II (orange) — lower hyperbola, starts at ~100N (y=108) at v=0,
+              lower Vmax ~150mm/s, touches baseline sooner
+            -->
+            <path d="M300,68 Q330,82 358,106 Q392,140 425,168 Q460,188 490,196 Q510,198 520,198"
+                  fill="none" stroke="#FFA726" stroke-width="2.5"/>
+            <!-- Label II -->
+            <text x="390" y="138" font-size="12" fill="white" font-weight="800">II</text>
+
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Curve <strong>II</strong> (dashed) — the injured muscle generates less force at any length and lower maximum shortening velocity. In the force-length relationship, the optimal length shifts rightward after eccentric injury.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q50 Energy systems graph -->
+    <div class="qcard" data-system="muscle" data-q="50">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q50</span><span class="qtag tag-muscle">Muscle</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The graph shows three energy systems (I, II, III) as % capacity vs. exercise duration (10s → 30s → 2min → 10min). <strong>Which energy system dominates during prolonged aerobic exercise (&gt;10 minutes)?</strong></p>
+        <div class="graph-wrap">
+          <!-- Energy systems graph: matches website theme (grad-soft background, purple axis lines) -->
+          <!-- I=PCr/Phosphagen (fast drop), II=Glycolytic (peaks 30s–2min), III=Oxidative (steady rise) -->
+          <svg viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand,sans-serif">
+
+            <!-- Axes -->
+            <line x1="62" y1="18" x2="62" y2="205" stroke="#C4B5FD" stroke-width="1.5"/>
+            <line x1="62" y1="205" x2="480" y2="205" stroke="#C4B5FD" stroke-width="1.5"/>
+
+            <!-- Subtle grid -->
+            <line x1="62" y1="169" x2="480" y2="169" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="62" y1="133" x2="480" y2="133" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="62" y1="97"  x2="480" y2="97"  stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="62" y1="61"  x2="480" y2="61"  stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="62" y1="25"  x2="480" y2="25"  stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="110" y1="18" x2="110" y2="205" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="195" y1="18" x2="195" y2="205" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="310" y1="18" x2="310" y2="205" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="440" y1="18" x2="440" y2="205" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+            <!-- Y axis label -->
+            <text x="12" y="118" font-size="10" fill="#7B7698"
+                  transform="rotate(-90,12,118)" text-anchor="middle">Percent capacity of energy systems</text>
+
+            <!-- Y ticks -->
+            <text x="58" y="208" font-size="9" fill="#7B7698" text-anchor="end">0</text>
+            <text x="58" y="172" font-size="9" fill="#7B7698" text-anchor="end">20</text>
+            <text x="58" y="136" font-size="9" fill="#7B7698" text-anchor="end">40</text>
+            <text x="58" y="100" font-size="9" fill="#7B7698" text-anchor="end">60</text>
+            <text x="58" y="64"  font-size="9" fill="#7B7698" text-anchor="end">80</text>
+            <text x="58" y="28"  font-size="9" fill="#7B7698" text-anchor="end">100</text>
+
+            <!-- X ticks -->
+            <text x="110" y="220" font-size="10" fill="#7B7698" text-anchor="middle">10 s</text>
+            <text x="195" y="220" font-size="10" fill="#7B7698" text-anchor="middle">30 s</text>
+            <text x="310" y="220" font-size="10" fill="#7B7698" text-anchor="middle">2 min</text>
+            <text x="440" y="220" font-size="10" fill="#7B7698" text-anchor="middle">10 min</text>
+            <!-- X axis label -->
+            <text x="265" y="234" font-size="11" fill="#7B7698" text-anchor="middle" font-weight="700">Exercise duration</text>
+
+            <!-- SYSTEM I: PCr/Phosphagen — starts 100%, drops fast → use purple-deep -->
+            <path d="M62,25 L110,25 Q145,25 165,80 Q180,130 195,175 Q215,200 250,205 L440,205"
+                  fill="none" stroke="#7B6FD0" stroke-width="2.8"/>
+
+            <!-- SYSTEM II: Glycolytic — rises to peak ~30s–2min, drops to ~60% at 10min → use pink -->
+            <path d="M62,202 Q85,195 110,175 Q150,100 195,25 Q240,25 310,25 Q375,25 440,97"
+                  fill="none" stroke="#EC4899" stroke-width="2.8"/>
+
+            <!-- SYSTEM III: Oxidative — steady rise to 100% at 10min → use purple-deep darker -->
+            <path d="M62,178 Q110,172 150,162 Q195,148 250,120 Q310,90 375,52 Q415,32 440,25"
+                  fill="none" stroke="#4F46A3" stroke-width="2.8"/>
+
+            <!-- Labels on the RIGHT side -->
+            <text x="448" y="30"  font-size="13" fill="#4F46A3" font-weight="800">III</text>
+            <text x="448" y="101" font-size="13" fill="#EC4899" font-weight="800">II</text>
+            <text x="448" y="210" font-size="13" fill="#7B6FD0" font-weight="800">I</text>
+
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          System <strong>III — Oxidative phosphorylation (aerobic metabolism)</strong> — dominates beyond 2 minutes and provides ~95% of energy at 10 minutes of sustained moderate exercise.
+        </div>
+        <div class="note-box">P1: Slide photo shows axes "% capacity of energy systems" vs exercise duration (10s, 30s, 2min, 10min) · Q17 in notes — question text not captured; reconstructed from slide graph.</div>
+      </div>
+    </div>
+
+    <!-- Q51 Exercise ventilation curve -->
+    <div class="qcard" data-system="muscle" data-q="51">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q51</span><span class="qtag tag-muscle">Exercise</span><span class="qtag tag-haem" style="background:#F0FDF4;color:#166534;">📊 Graph</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The graph shows ventilation rate (L/min) vs. condition (Rest → Exercise → Recovery) for three curves (I, II, III). <strong>Which curve represents the ventilatory response during exercise?</strong></p>
+        <div class="graph-wrap">
+          <!--
+            Q51 — recreated from reference photo (Image 2).
+            X-axis (Condition): Rest | Exercise | Hyperventilation
+            Y-axis: Vent. Rate  1.00, 1.50, 2.00, 2.50, 3.00
+            All three curves are STRAIGHT LINE segments between the three x-positions.
+            All start at 1.00 at Rest.
+            Curve II  (highest): Rest→1.0, Exercise→~3.2, Hyperventilation→~2.5
+            Curve III (middle):  Rest→1.0, Exercise→~1.8, Hyperventilation→~1.95
+            Curve I   (lowest):  Rest→1.0, Exercise→~1.4, Hyperventilation→~1.4
+
+            X positions: Rest=80, Exercise=270, Hyperventilation=440
+            Y scale: y = 205 - ((v-1.0)/2.5)*180  → 1.0→205, 1.5→169, 2.0→133, 2.5→97, 3.0→61, 3.25→43
+          -->
+          <svg viewBox="0 0 490 235" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand,sans-serif">
+
+            <!-- Axes -->
+            <line x1="62" y1="14" x2="62" y2="207" stroke="#C4B5FD" stroke-width="1.5"/>
+            <line x1="62" y1="207" x2="460" y2="207" stroke="#C4B5FD" stroke-width="1.5"/>
+
+            <!-- Horizontal grid lines -->
+            <line x1="62" y1="169" x2="460" y2="169" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="62" y1="133" x2="460" y2="133" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="62" y1="97"  x2="460" y2="97"  stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="62" y1="61"  x2="460" y2="61"  stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+            <!-- Y-axis label -->
+            <text x="14" y="115" font-size="10" fill="#7B7698" transform="rotate(-90,14,115)" text-anchor="middle">Vent. Rate</text>
+
+            <!-- Y tick labels: 1.00, 1.50, 2.00, 2.50, 3.00 -->
+            <text x="58" y="209" font-size="8.5" fill="#7B7698" text-anchor="end">1.00</text>
+            <text x="58" y="172" font-size="8.5" fill="#7B7698" text-anchor="end">1.50</text>
+            <text x="58" y="136" font-size="8.5" fill="#7B7698" text-anchor="end">2.00</text>
+            <text x="58" y="100" font-size="8.5" fill="#7B7698" text-anchor="end">2.50</text>
+            <text x="58" y="64"  font-size="8.5" fill="#7B7698" text-anchor="end">3.00</text>
+
+            <!-- X tick positions: Rest=80, Exercise=270, Hyperventilation=440 -->
+            <!-- Vertical guides (light) -->
+            <line x1="80"  y1="14" x2="80"  y2="207" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="270" y1="14" x2="270" y2="207" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <line x1="440" y1="14" x2="440" y2="207" stroke="#E8E4F5" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+            <!-- X axis labels -->
+            <text x="80"  y="220" font-size="9.5" fill="#7B7698" text-anchor="middle">Rest</text>
+            <text x="270" y="220" font-size="9.5" fill="#7B7698" text-anchor="middle">Exercise</text>
+            <text x="440" y="220" font-size="9.5" fill="#7B7698" text-anchor="middle">Hyperventilation</text>
+            <text x="265" y="233" font-size="10" fill="#7B7698" text-anchor="middle" font-weight="700">Condition</text>
+
+            <!--
+              Y formula: y = 207 - ((rate - 1.0) / 2.0) * 180
+                1.0 → 207
+                1.4 → 207 - 0.4/2*180 = 207 - 36 = 171
+                1.5 → 207 - 0.5/2*180 = 207 - 45 = 162  (≈169 grid)
+                1.8 → 207 - 0.8/2*180 = 207 - 72 = 135
+                1.95→ 207 - 0.95/2*180= 207 - 85.5= 121
+                2.5 → 207 - 1.5/2*180 = 207 - 135 = 72
+                3.2 → 207 - 2.2/2*180 = 207 - 198 = 9
+            -->
+
+            <!-- CURVE I (lowest): 1.0 → 1.4 → 1.4 -->
+            <polyline points="80,207 270,171 440,171"
+                      fill="none" stroke="#7B7698" stroke-width="2.5"/>
+            <!-- Dots -->
+            <circle cx="80"  cy="207" r="4" fill="#7B7698"/>
+            <circle cx="270" cy="171" r="4" fill="#7B7698"/>
+            <circle cx="440" cy="171" r="4" fill="#7B7698"/>
+            <!-- Label I — right side of curve, near Hyperventilation end -->
+            <text x="448" y="168" font-size="12" fill="#7B7698" font-weight="800">I</text>
+
+            <!-- CURVE III (middle): 1.0 → 1.8 → 1.95 -->
+            <polyline points="80,207 270,135 440,121"
+                      fill="none" stroke="#7B6FD0" stroke-width="2.5"/>
+            <circle cx="80"  cy="207" r="4" fill="#7B6FD0"/>
+            <circle cx="270" cy="135" r="4" fill="#7B6FD0"/>
+            <circle cx="440" cy="121" r="4" fill="#7B6FD0"/>
+            <!-- Label III — mid area -->
+            <text x="310" y="125" font-size="12" fill="#7B6FD0" font-weight="800">III</text>
+
+            <!-- CURVE II (highest): 1.0 → 3.2 → 2.5 -->
+            <polyline points="80,207 270,9 440,72"
+                      fill="none" stroke="#4F46A3" stroke-width="2.5"/>
+            <circle cx="80"  cy="207" r="4" fill="#4F46A3"/>
+            <circle cx="270" cy="9"   r="4" fill="#4F46A3"/>
+            <circle cx="440" cy="72"  r="4" fill="#4F46A3"/>
+            <!-- Label II — left of peak, like in photo -->
+            <text x="145" y="118" font-size="12" fill="#4F46A3" font-weight="800">II</text>
+
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          Curve <strong>II</strong> — during exercise, ventilation rises proportionally to workload (exercise hyperpnoea). Confirmed as "answer 2" in competition notes.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: HAEMATOLOGY & BIOCHEMISTRY
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="haem">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#EDE9F9,#C4B5FD)">🩸</div>
+    <span class="system-title">Haematology &amp; Biochemistry</span>
+    <span class="system-count">3 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q52 Glutathione G6PD -->
+    <div class="qcard" data-system="haem" data-system-secondary="path" data-q="52">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q52</span><span class="qtag tag-haem">Biochemistry</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span></div>
+      <div class="qcard-body">
+        <p class="qtext">Red blood cells are protected from reactive oxygen species (ROS) via the G6PD pathway generating NADPH. <strong>What is the role of NADPH in protecting RBCs from oxidative damage?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          NADPH is used by <strong>glutathione reductase</strong> to reduce oxidised glutathione (GSSG → GSH). Reduced glutathione (GSH) then acts as a ROS scavenger via glutathione peroxidase (H₂O₂ → H₂O). In G6PD deficiency, insufficient NADPH → RBC oxidative haemolysis.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q53 Succinate fumarate vitamin B2 -->
+    <div class="qcard" data-system="haem" data-system-secondary="path" data-q="53">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q53</span><span class="qtag tag-haem">Biochemistry</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span><span class="qtag" style="background:#FEF3C7;color:#92400E;">📋 Reaction</span></div>
+      <div class="qcard-body">
+        <p class="qtext">The diagram shows the oxidation of succinic acid to fumaric acid. Coenzyme Y accepts 2 hydrogen atoms (−2H) and becomes reduced. <strong>Which vitamin is the precursor of coenzyme Y?</strong></p>
+        <div class="graph-wrap">
+          <!--
+            Q53 — recreated from reference photo (Image 1).
+            Shows structural formula of succinic acid → fumaric acid reaction.
+            Left: succinic acid skeletal structure (COOH on top and bottom, two H-C-H in middle)
+            Middle: horizontal arrow with "oxidation (−2H)" label below
+                    X (oxidized) arc coming from left side of succinic, Y (reduced) arc to fumaric
+            Right: fumaric acid (COOH top, C=C double bond, COOH bottom, label "fumaric acid")
+          -->
+          <svg width="1200" height="500" viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+              </marker>
+            </defs>
+
+
+
+            <!-- LEFT STRUCTURE -->
+            <text x="160" y="70" font-size="34" font-family="Arial">COOH</text>
+
+            <line x1="180" y1="85" x2="180" y2="130" stroke="black" stroke-width="3"/>
+
+            <!-- Blue H boxes -->
+            <rect x="30" y="125" width="55" height="55" fill="#9ddcff" opacity="0.9"/>
+            <text x="57" y="162" text-anchor="middle" font-size="34" font-family="Arial">H</text>
+
+            <rect x="30" y="230" width="55" height="55" fill="#9ddcff" opacity="0.9"/>
+            <text x="57" y="267" text-anchor="middle" font-size="34" font-family="Arial">H</text>
+
+            <!-- Carbon chain -->
+            <text x="165" y="175" font-size="34" font-family="Arial">C</text>
+            <text x="165" y="280" font-size="34" font-family="Arial">C</text>
+
+            <line x1="120" y1="150" x2="155" y2="150" stroke="black" stroke-width="3"/>
+            <line x1="205" y1="150" x2="245" y2="150" stroke="black" stroke-width="3"/>
+
+            <line x1="120" y1="255" x2="155" y2="255" stroke="black" stroke-width="3"/>
+            <line x1="205" y1="255" x2="245" y2="255" stroke="black" stroke-width="3"/>
+
+            <text x="255" y="163" font-size="34" font-family="Arial">H</text>
+            <text x="255" y="268" font-size="34" font-family="Arial">H</text>
+
+            <line x1="180" y1="185" x2="180" y2="240" stroke="black" stroke-width="3"/>
+
+            <line x1="180" y1="295" x2="180" y2="340" stroke="black" stroke-width="3"/>
+
+            <text x="160" y="390" font-size="34" font-family="Arial">COOH</text>
+
+            <text x="110" y="455" font-size="30" font-family="Arial" fill="#1ea0db" font-weight="bold">
+              succinic
+            </text>
+            <text x="145" y="492" font-size="30" font-family="Arial" fill="#1ea0db" font-weight="bold">
+              acid
+            </text>
+
+            <!-- Main oxidation arrow -->
+            <line x1="330" y1="255" x2="930" y2="255" stroke="black" stroke-width="4" marker-end="url(#arrow)"/>
+
+            <text x="535" y="295" font-size="32" font-family="Arial" font-weight="bold">
+              oxidation (−2H)
+            </text>
+
+            <!-- X oxidized -->
+            <text x="470" y="40" font-size="42" font-family="Arial" font-weight="bold">X</text>
+            <text x="425" y="82" font-size="32" font-family="Arial" font-weight="bold">(oxidized)</text>
+
+            <!-- SINGLE CONTINUOUS CURVED ARROW -->
+            <path d="
+              M520 95
+              C520 175, 540 225, 590 225
+              L760 225
+              C845 225, 860 185, 860 110
+            "
+            fill="none"
+            stroke="black"
+            stroke-width="4"
+            marker-end="url(#arrow)"/>
+
+            <!-- Y reduced -->
+            <text x="845" y="40" font-size="42" font-family="Arial" font-weight="bold">Y</text>
+            <text x="790" y="82" font-size="32" font-family="Arial" font-weight="bold">(reduced)</text>
+
+            <!-- RIGHT STRUCTURE -->
+            <text x="995" y="70" font-size="34" font-family="Arial">COOH</text>
+
+            <line x1="1015" y1="85" x2="1015" y2="130" stroke="black" stroke-width="3"/>
+
+            <text x="1000" y="175" font-size="34" font-family="Arial">C</text>
+            <text x="1000" y="280" font-size="34" font-family="Arial">C</text>
+
+            <!-- Double bond -->
+            <line x1="1010" y1="185" x2="1010" y2="240" stroke="black" stroke-width="3"/>
+            <line x1="1022" y1="185" x2="1022" y2="240" stroke="black" stroke-width="3"/>
+
+            <line x1="1045" y1="150" x2="1085" y2="150" stroke="black" stroke-width="3"/>
+            <line x1="1045" y1="255" x2="1085" y2="255" stroke="black" stroke-width="3"/>
+
+            <text x="1090" y="163" font-size="34" font-family="Arial">H</text>
+            <text x="1090" y="268" font-size="34" font-family="Arial">H</text>
+
+            <line x1="1015" y1="295" x2="1015" y2="340" stroke="black" stroke-width="3"/>
+
+            <text x="995" y="390" font-size="34" font-family="Arial">COOH</text>
+
+            <text x="965" y="455" font-size="30" font-family="Arial" fill="#1ea0db" font-weight="bold">
+              fumaric
+            </text>
+            <text x="1000" y="492" font-size="30" font-family="Arial" fill="#1ea0db" font-weight="bold">
+              acid
+            </text>
+          </svg>
+        </div>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Vitamin B₂ (Riboflavin)</strong> — FAD (flavin adenine dinucleotide) is derived from riboflavin. It accepts 2H in the succinate dehydrogenase reaction (Krebs cycle / Complex II), becoming FADH₂.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q54 Sickle cell patophysiology -->
+    <div class="qcard" data-system="haem" data-system-secondary="path" data-q="54">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q54</span><span class="qtag tag-haem">Haematology</span><span class="qtag tag-path" style="background:#FEF2F2;color:#991B1B;">🏥 Path</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><strong>Briefly describe the basic pathophysiology of sickling in sickle cell disease.</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          A point mutation (Glu→Val at position 6 of the β-globin chain) produces HbS. Under low O₂ conditions, HbS polymerises → sickle-shaped RBCs → vaso-occlusion, haemolysis, and ischaemic organ damage.
+        </div>
+        <div class="note-box">P1: "sickle cell disease patofisiolofi → proto …" (only fragment captured in buzzer round)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SYSTEM: PATHOPHYSIOLOGY & CLINICAL
+═══════════════════════════════════════════════ -->
+<div class="system-block" data-system="path">
+  <div class="system-header">
+    <div class="system-icon" style="background:linear-gradient(135deg,#FEE2E2,#FCA5A5)">🏥</div>
+    <span class="system-title">Pathophysiology &amp; Clinical Scenarios</span>
+    <span class="system-count">9 Qs</span>
+    <div class="system-line"></div>
+  </div>
+  <div class="q-grid">
+
+    <!-- Q55 DIC marathon -->
+    <div class="qcard" data-system="path" data-system-secondary="haem" data-q="55">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q55</span><span class="qtag tag-path">Pathophysiology</span><span class="qtag tag-haem" style="background:#F5F3FF;color:#5B21B6;">🩸 Haem</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A marathon runner collapses on a hot day: confusion, hypotension, core temperature 41°C, prolonged PT, elevated plasma myoglobin, widespread microthrombosis, haemorrhage, multi-organ dysfunction. <strong>What is the pathophysiological complication causing both multi-organ failure AND uncontrolled bleeding?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Disseminated Intravascular Coagulation (DIC)</strong> — exertional heat stroke triggers massive tissue damage → cytokine storm → simultaneous activation of coagulation (microthrombi) and consumption of clotting factors (haemorrhage).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q56 Micturition phase -->
+    <div class="qcard" data-system="path" data-q="56">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q56</span><span class="qtag tag-path">Pathophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext"><strong>Which phase of micturition involves contraction of the detrusor muscle?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          The <strong>voiding (micturition) phase</strong> — coordinated parasympathetic activation (muscarinic M3 receptors) causes detrusor contraction combined with relaxation of the internal and external urethral sphincters.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q57 Sexual response plateau -->
+    <div class="qcard" data-system="path" data-q="57">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q57</span><span class="qtag tag-path">Pathophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient has vasocongestion but fails to achieve orgasm, remaining in a sustained state of arousal. <strong>Which phase of the sexual response cycle does this represent?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Phase II — Plateau phase</strong> (Masters &amp; Johnson model: Excitement → <em>Plateau</em> → Orgasm → Resolution). Vasocongestion is sustained without progression to orgasm.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q58 Decompression sickness -->
+    <div class="qcard" data-system="path" data-q="58">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q58</span><span class="qtag tag-path">Pathophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A scuba diver ascends rapidly to the surface without proper decompression stops and develops dizziness and joint pain. <strong>What condition is the diver experiencing?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Decompression sickness (DCS / "the bends")</strong> — rapid pressure decrease causes dissolved nitrogen to come out of solution, forming gas bubbles in tissues and blood → joint pain, neurological symptoms, cardiovascular collapse.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q59 Hyperbaric O2 dissolved plasma -->
+    <div class="qcard" data-system="path" data-system-secondary="resp" data-q="59">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q59</span><span class="qtag tag-path">Pathophysiology</span><span class="qtag tag-resp" style="background:#E0F2FE;color:#0369A1;">🫁 Resp</span></div>
+      <div class="qcard-body">
+        <p class="qtext">During diving at a high partial pressure of O₂ (PO₂ = 225 mmHg). <strong>Which component of blood oxygen carriage increases most significantly at this elevated PO₂?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Oxygen dissolved in plasma</strong> — at PO₂ = 225 mmHg, Hb is already ~100% saturated (cannot carry more). Additional O₂ dissolves physically in plasma (Henry's law: dissolved O₂ ∝ PO₂ × 0.003 mL/dL/mmHg). This principle underlies hyperbaric oxygen therapy.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q60 Endotoxin pyrogen -->
+    <div class="qcard" data-system="path" data-system-secondary="immuno" data-q="60">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q60</span><span class="qtag tag-path">Pathophysiology</span><span class="qtag tag-immuno" style="background:#FDE9F3;color:#BE185D;">🛡️ Immuno</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient develops fever. A bacterial component elevates the hypothalamic temperature set-point. <strong>What specific type of bacterial toxin/component is classified as an exogenous pyrogen?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Endotoxin (LPS, lipopolysaccharide)</strong> from gram-negative bacteria — stimulates macrophages/monocytes to release endogenous pyrogens (IL-1β, IL-6, TNF-α → PGE₂ in hypothalamus → raises set-point).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q61 Aging glycation lysine -->
+    <div class="qcard" data-system="path" data-system-secondary="endo" data-q="61">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q61</span><span class="qtag tag-path">Pathophysiology</span><span class="qtag tag-endo" style="background:#FEF3C7;color:#92400E;">⚗️ Endo</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient has worsening vision, arterial stiffness, and elevated HbA1c (type 2 DM). One process involves a <strong>non-enzymatic reaction</strong> between glucose and a protein, leading to AGE (Advanced Glycation End-product) formation and functional decline. <strong>Which amino acid serves as the initial site of this non-enzymatic glycation reaction?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Lysine</strong> — the ε-amino group of lysine residues forms a Schiff base with glucose → Amadori rearrangement → irreversible AGEs → protein cross-linking → retinopathy, nephropathy, neuropathy.
+        </div>
+        <div class="note-box">P1: "Lisin" confirmed · P2: "glisin" (mishearing)</div>
+      </div>
+    </div>
+
+    <!-- Q62 Aging protein turnover -->
+    <div class="qcard" data-system="path" data-q="62">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q62</span><span class="qtag tag-path">Pathophysiology</span></div>
+      <div class="qcard-body">
+        <p class="qtext">One characteristic of ageing is a change in protein turnover rate. <br>
+        (a) How does <strong>protein turnover</strong> change with ageing? <br>
+        (b) What is the consequence for damaged/misfolded proteins?</p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          (a) Protein turnover rate <strong>increases</strong> (per competition notes). <br>
+          (b) Despite increased turnover attempts, damaged protein <strong>accumulation increases</strong> — proteasomal and autophagic efficiency decline with age, so clearance cannot keep pace with misfolded protein generation.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q63 Hypocalciuric hypercalcaemia rare -->
+    <div class="qcard" data-system="path" data-system-secondary="endo" data-q="63">
+      <div class="qcard-accent"></div>
+      <div class="qcard-header"><span class="qnum">Q63</span><span class="qtag tag-path">Pathophysiology</span><span class="qtag tag-endo" style="background:#FEF3C7;color:#92400E;">⚗️ Endo</span></div>
+      <div class="qcard-body">
+        <p class="qtext">A patient presents with asymptomatic hypercalcaemia, normal or elevated PTH, and very <strong>low urinary calcium</strong>. This rare condition involves impaired calcium sensing. <strong>What is the diagnosis and the genetic mutation site?</strong></p>
+        <button class="answer-toggle-btn" onclick="toggleAnswer(this)">
+          <span>Show Answer</span>
+          <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="answer-box">
+          <div class="ans-key">✦ Answer</div>
+          <strong>Familial Hypocalciuric Hypercalcaemia (FHH)</strong> — caused by loss-of-function mutation in the <strong>Calcium-Sensing Receptor (CaSR) gene</strong>, causing inappropriate parathyroid function and reduced renal Ca²⁺ excretion.
+        </div>
+      </div>
+    </div>
+
+        </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <strong>Physiology Study Bank</strong> — Questions and answers compiled for medical and health sciences exam preparation · All content is for educational use only
+</footer>
+
+<script>
+let answersShown = false;
+let currentSystem = 'all';
+
+function toggleAnswer(btn) {
+  const box = btn.nextElementSibling;
+  const isOpen = box.classList.contains('open');
+  box.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.querySelector('span').textContent = isOpen ? 'Show Answer' : 'Hide Answer';
+}
+
+function toggleAllAnswers() {
+  answersShown = !answersShown;
+  const allAnswers = document.querySelectorAll('.answer-box');
+  const allBtns = document.querySelectorAll('.answer-toggle-btn');
+  allAnswers.forEach(box => box.classList.toggle('open', answersShown));
+  allBtns.forEach(btn => {
+    btn.classList.toggle('open', answersShown);
+    btn.querySelector('span').textContent = answersShown ? 'Hide Answer' : 'Show Answer';
+  });
+  document.getElementById('toggleAllBtn').textContent = answersShown ? '🙈 Hide All Answers' : '👁 Show All Answers';
+}
+
+function filterBySystem(sys, btn) {
+  currentSystem = sys;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function filterQuestions() {
+  applyFilters();
+}
+
+function applyFilters() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.qcard');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const sys = card.dataset.system;
+    const sys2 = card.dataset.systemSecondary;
+    const text = card.innerText.toLowerCase();
+    const sysMatch = currentSystem === 'all' || sys === currentSystem || sys2 === currentSystem;
+    const textMatch = query === '' || text.includes(query);
+    const show = sysMatch && textMatch;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+
+  // Show/hide section blocks
+  document.querySelectorAll('.system-block').forEach(block => {
+    const blockSys = block.dataset.system;
+    const hasVisible = block.querySelectorAll('.qcard:not(.hidden)').length > 0;
+    block.style.display = hasVisible ? '' : 'none';
+  });
+
+  document.getElementById('resultCount').textContent = visible;
+}
+</script>
+</body>
+</html>
