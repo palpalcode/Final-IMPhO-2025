@@ -1,0 +1,3264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 55: The Female Reproductive System — Olympiad Physiology</title>
+<style>
+:root {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #11183a;
+  --bg-card: #162044;
+  --bg-accent: #1a2a5e;
+  --text-primary: #e8eaf6;
+  --text-secondary: #a0a8d0;
+  --blue-primary: #4fc3f7;
+  --blue-glow: #29b6f6;
+  --pink-primary: #f48fb1;
+  --pink-glow: #ec407a;
+  --purple: #b388ff;
+  --green: #69f0ae;
+  --yellow: #fff176;
+  --orange: #ffab40;
+  --red: #ff5252;
+  --border-blue: rgba(79,195,247,0.3);
+  --border-pink: rgba(244,143,177,0.3);
+  --gradient-blue: linear-gradient(135deg, #4fc3f7 0%, #1976d2 100%);
+  --gradient-pink: linear-gradient(135deg, #f48fb1 0%, #c2185b 100%);
+  --gradient-bg: linear-gradient(180deg, #0a0e27 0%, #11183a 50%, #0a0e27 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  background: var(--gradient-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+}
+
+.slide {
+  min-height: 100vh;
+  padding: 40px 60px;
+  border-bottom: 1px solid var(--border-blue);
+  position: relative;
+  page-break-after: always;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-blue);
+}
+
+.slide-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.slide-subtitle {
+  font-size: 1.1rem;
+  color: var(--pink-primary);
+  font-weight: 500;
+  margin-bottom: 30px;
+  border-left: 4px solid var(--pink-primary);
+  padding-left: 16px;
+}
+
+.section-header {
+  font-size: 1.6rem;
+  color: var(--blue-primary);
+  font-weight: 700;
+  margin: 30px 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-header::before {
+  content: '▸';
+  color: var(--pink-primary);
+  font-size: 1.4rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-blue);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--gradient-blue);
+}
+
+.card-pink::before {
+  background: var(--gradient-pink);
+}
+
+.card-purple::before {
+  background: var(--purple);
+}
+
+.card-green::before {
+  background: var(--green);
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-pink .card-title { color: var(--pink-primary); }
+.card-purple .card-title { color: var(--purple); }
+.card-green .card-title { color: var(--green); }
+
+.highlight {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 2px 4px;
+}
+
+.hy { background: rgba(79,195,247,0.15); color: var(--blue-primary); border: 1px solid var(--border-blue); }
+.of { background: rgba(244,143,177,0.15); color: var(--pink-primary); border: 1px solid var(--border-pink); }
+.ct { background: rgba(255,82,82,0.15); color: var(--red); border: 1px solid rgba(255,82,82,0.3); }
+.im { background: rgba(105,240,174,0.15); color: var(--green); border: 1px solid rgba(105,240,174,0.3); }
+.cr { background: rgba(255,171,64,0.15); color: var(--orange); border: 1px solid rgba(255,171,64,0.3); }
+.si { background: rgba(179,136,255,0.15); color: var(--purple); border: 1px solid rgba(179,136,255,0.3); }
+.bc { background: rgba(255,241,118,0.15); color: var(--yellow); border: 1px solid rgba(255,241,118,0.3); }
+
+.flowchart {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 16px;
+  background: rgba(10,14,39,0.5);
+  border-radius: 10px;
+  border: 1px dashed var(--border-blue);
+}
+
+.flow-box {
+  background: var(--bg-accent);
+  border: 1px solid var(--border-blue);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 120px;
+}
+
+.flow-box.pink { border-color: var(--border-pink); background: rgba(244,143,177,0.08); }
+.flow-box.green { border-color: rgba(105,240,174,0.3); background: rgba(105,240,174,0.08); }
+.flow-box.yellow { border-color: rgba(255,241,118,0.3); background: rgba(255,241,118,0.08); }
+
+.flow-arrow {
+  color: var(--blue-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.flow-arrow.pink { color: var(--pink-primary); }
+
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+thead th {
+  background: var(--bg-accent);
+  color: var(--blue-primary);
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 2px solid var(--blue-primary);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-blue);
+  vertical-align: top;
+}
+
+tbody tr:hover {
+  background: rgba(79,195,247,0.05);
+}
+
+.molecular-detail {
+  background: rgba(79,195,247,0.06);
+  border-left: 3px solid var(--blue-primary);
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+}
+
+.molecular-detail .label {
+  color: var(--blue-primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.reasoning-box {
+  background: linear-gradient(135deg, rgba(79,195,247,0.08) 0%, rgba(244,143,177,0.08) 100%);
+  border: 1px solid var(--border-blue);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.reasoning-box .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.question {
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--pink-primary);
+  padding: 14px 18px;
+  margin: 14px 0;
+  border-radius: 0 8px 8px 0;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.answer {
+  background: var(--bg-card);
+  border-left: 4px solid var(--green);
+  padding: 14px 18px;
+  margin: 10px 0 20px 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.answer strong { color: var(--green); }
+
+.concept-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.cm-node {
+  background: var(--bg-card);
+  border: 1px solid var(--border-blue);
+  border-radius: 10px;
+  padding: 16px;
+  position: relative;
+}
+
+.cm-node .node-title {
+  font-weight: 700;
+  color: var(--blue-primary);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.cm-node .node-content {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.cm-arrow {
+  text-align: center;
+  color: var(--pink-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+  .slide { padding: 24px; }
+  .slide-title { font-size: 1.6rem; }
+}
+
+ul, ol {
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+li {
+  margin: 6px 0;
+  color: var(--text-secondary);
+}
+
+li strong {
+  color: var(--text-primary);
+}
+
+p {
+  margin: 8px 0;
+  color: var(--text-secondary);
+}
+
+p strong, .card strong {
+  color: var(--text-primary);
+}
+
+.mechanism-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 12px 0;
+  padding: 12px;
+  background: rgba(10,14,39,0.4);
+  border-radius: 8px;
+}
+
+.step-num {
+  background: var(--gradient-blue);
+  color: var(--bg-primary);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.step-content strong {
+  color: var(--blue-primary);
+}
+
+
+.important-callout {
+  background: linear-gradient(90deg, rgba(244,143,177,0.1), rgba(79,195,247,0.1));
+  border: 1px solid var(--border-pink);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 0.95rem;
+}
+
+.important-callout strong {
+  color: var(--pink-primary);
+}
+
+.feedback-loop {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-blue);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.feedback-loop::after {
+  content: '⟲';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--bg-primary);
+  color: var(--blue-primary);
+  font-size: 1.5rem;
+  padding: 0 8px;
+}
+
+.feedback-title {
+  font-weight: 700;
+  color: var(--blue-primary);
+  margin-bottom: 10px;
+}
+
+.comparison-table th.pink-header {
+  color: var(--pink-primary);
+  border-bottom-color: var(--pink-primary);
+}
+
+/* ===== PROGRESS BAR ===== */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink-primary), var(--blue-primary));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 8px rgba(79,195,247,0.6);
+}
+
+/* ===== FLOATING NAV BUTTON ===== */
+#nav-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-primary), var(--pink-glow));
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 4px 20px rgba(79,195,247,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#nav-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(79,195,247,0.6);
+}
+#nav-toggle .bar {
+  width: 20px; height: 2px;
+  background: #0a0e27;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+#nav-toggle.open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#nav-toggle.open .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+#nav-toggle.open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===== SLIDE COUNTER BADGE ===== */
+#slide-counter {
+  position: fixed;
+  bottom: 90px;
+  right: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-blue);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  z-index: 9998;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s;
+}
+
+/* ===== PREV/NEXT MINI NAV ===== */
+#mini-nav {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 9998;
+  transition: opacity 0.3s;
+}
+#mini-nav button {
+  background: var(--bg-card);
+  border: 1px solid var(--border-blue);
+  color: var(--text-primary);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex; align-items: center; gap: 6px;
+}
+#mini-nav button:hover {
+  background: var(--bg-accent);
+  border-color: var(--blue-primary);
+  color: var(--blue-primary);
+}
+#mini-nav button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ===== SIDEBAR NAVIGATION ===== */
+#sidebar-overlay {
+  position: fixed; inset: 0;
+  background: rgba(10,14,39,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9995;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#sidebar-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0; right: -340px;
+  width: 320px;
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-blue);
+  z-index: 9996;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+#sidebar.open {
+  right: 0;
+}
+
+#sidebar-header {
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid var(--border-blue);
+  background: var(--bg-card);
+}
+#sidebar-header h2 {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--blue-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+#sidebar-header p {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+#sidebar-search {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(79,195,247,0.1);
+}
+#sidebar-search input {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-blue);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+#sidebar-search input:focus {
+  border-color: var(--blue-primary);
+}
+#sidebar-search input::placeholder {
+  color: var(--text-secondary);
+}
+
+#sidebar-links {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+#sidebar-links::-webkit-scrollbar { width: 4px; }
+#sidebar-links::-webkit-scrollbar-track { background: transparent; }
+#sidebar-links::-webkit-scrollbar-thumb { background: var(--border-blue); border-radius: 2px; }
+
+.toc-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.toc-link:hover {
+  background: rgba(79,195,247,0.08);
+  color: var(--text-primary);
+  padding-left: 26px;
+}
+.toc-link.active {
+  background: rgba(79,195,247,0.12);
+  color: var(--blue-primary);
+  font-weight: 700;
+  border-right: 3px solid var(--blue-primary);
+}
+.toc-link .toc-num {
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.toc-link.active .toc-num {
+  background: var(--blue-primary);
+  color: var(--bg-primary);
+}
+.toc-link .toc-text { flex: 1; line-height: 1.3; }
+.toc-link .toc-tags { display: flex; gap: 3px; flex-shrink: 0; }
+
+#sidebar-footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-blue);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+#sidebar-footer span {
+  color: var(--pink-primary);
+  font-weight: 700;
+}
+
+/* ===== SCROLL TO TOP ===== */
+#scroll-top {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-blue);
+  color: var(--blue-primary);
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 9998;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+#scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#scroll-top:hover {
+  background: var(--bg-accent);
+  border-color: var(--blue-primary);
+}
+
+/* Remove old static toc */
+.toc { display: none !important; }
+
+@media (max-width: 600px) {
+  #sidebar { width: 100%; right: -100%; }
+  #slide-counter { display: none; }
+  #mini-nav { bottom: 28px; }
+}
+
+.cycle-diagram {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-blue);
+}
+
+.cycle-phase {
+  text-align: center;
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-blue);
+  margin: 0 6px;
+}
+
+.cycle-phase.pink-phase {
+  border-color: var(--border-pink);
+  background: rgba(244,143,177,0.08);
+}
+
+.cycle-phase .phase-name {
+  font-weight: 700;
+  color: var(--blue-primary);
+  font-size: 0.95rem;
+}
+
+.cycle-phase.pink-phase .phase-name {
+  color: var(--pink-primary);
+}
+
+.cycle-phase .phase-days {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.cycle-arrow {
+  color: var(--blue-primary);
+  font-size: 1.5rem;
+}
+
+.enzyme-box {
+  background: rgba(105,240,174,0.08);
+  border: 1px solid rgba(105,240,174,0.3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+.enzyme-box .enz-name {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.enzyme-box .enz-detail {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.receptor-detail {
+  background: rgba(179,136,255,0.08);
+  border: 1px solid rgba(179,136,255,0.3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+.receptor-detail .rec-name {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+/* ===== TOPBAR ===== */
+#topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 52px;
+  background: rgba(10,14,39,0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-blue);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 6px;
+}
+#topbar-progress {
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--pink-primary), var(--blue-primary));
+  width: 0%;
+  transition: width 0.1s ease;
+}
+#topbar-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  letter-spacing: -0.2px;
+}
+.topbar-sep {
+  width: 1px;
+  height: 22px;
+  background: var(--border-blue);
+  flex-shrink: 0;
+}
+.tb-btn {
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border-blue);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.tb-btn:hover { background: rgba(79,195,247,0.12); border-color: var(--blue-primary); color: var(--blue-primary); }
+.tb-btn.active { background: var(--blue-primary); color: var(--bg-primary); border-color: var(--blue-primary); }
+.tb-btn.highlight-active { background: rgba(255,236,64,0.2); color: #ffe940; border-color: #ffe940; }
+.tb-btn.focus-active { background: rgba(179,136,255,0.2); color: var(--purple); border-color: var(--purple); }
+.tb-btn.icon-only { padding: 0 10px; font-size: 0.95rem; }
+@media (max-width: 640px) {
+  .tb-btn .label-text { display: none; }
+  #topbar { padding: 0 10px; gap: 4px; }
+}
+
+/* ===== TOPBAR PANELS ===== */
+.tb-panel {
+  position: fixed;
+  top: 52px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-blue);
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  z-index: 9989;
+  display: none;
+  animation: panelIn 0.2s ease;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+.tb-panel.open { display: block; }
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─ Notes Panel ─ */
+#panel-notes { right: 12px; width: 320px; padding: 16px; }
+#panel-notes h4 { margin: 0 0 8px; font-size: 0.8rem; color: var(--blue-primary); text-transform: uppercase; letter-spacing: 0.5px; }
+#notes-context { font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 8px; font-style: italic; }
+#notes-textarea {
+  width: 100%; height: 130px;
+  border: 1px solid var(--border-blue);
+  border-radius: 8px; padding: 10px;
+  font-family: inherit; font-size: 0.82rem;
+  color: var(--text-primary); background: var(--bg-card);
+  resize: vertical; outline: none; line-height: 1.5;
+  transition: border-color 0.2s;
+}
+#notes-textarea:focus { border-color: var(--blue-primary); }
+#notes-textarea::placeholder { color: var(--text-secondary); opacity: 0.5; }
+#notes-actions { display: flex; gap: 6px; margin-top: 8px; }
+.notes-btn {
+  flex: 1; padding: 7px; border-radius: 7px;
+  border: 1px solid var(--border-blue); background: var(--bg-card);
+  font-size: 0.76rem; font-weight: 600; font-family: inherit;
+  cursor: pointer; transition: all 0.2s; color: var(--text-primary);
+}
+.notes-btn:hover { background: var(--bg-accent); border-color: var(--blue-primary); color: var(--blue-primary); }
+.notes-btn.save { background: var(--blue-primary); color: var(--bg-primary); border-color: var(--blue-primary); }
+.notes-btn.save:hover { background: var(--blue-glow); }
+.notes-btn.export-btn { background: rgba(105,240,174,0.1); color: var(--green); border-color: rgba(105,240,174,0.3); }
+#notes-saved-list { margin-top: 12px; border-top: 1px solid var(--border-blue); padding-top: 10px; max-height: 220px; overflow-y: auto; }
+.saved-note { background: var(--bg-card); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; font-size: 0.76rem; position: relative; border-left: 3px solid var(--blue-primary); }
+.saved-note-slide { font-weight: 700; color: var(--blue-primary); font-size: 0.82em; margin-bottom: 2px; }
+.saved-note-text { color: var(--text-secondary); line-height: 1.4; }
+.saved-note-del { position: absolute; top: 6px; right: 6px; background: none; border: none; cursor: pointer; color: var(--text-secondary); font-size: 0.9em; padding: 2px 4px; border-radius: 4px; transition: all 0.2s; }
+.saved-note-del:hover { color: var(--red); background: rgba(255,82,82,0.1); }
+
+/* ─ Formula Panel ─ */
+#panel-formula { left: 50%; transform: translateX(-50%); width: min(700px, calc(100vw - 24px)); padding: 18px; }
+#panel-formula h4 { margin: 0 0 14px; font-size: 0.8rem; color: var(--blue-primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.formula-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 600px) { .formula-grid { grid-template-columns: 1fr; } }
+.formula-card { background: var(--bg-card); border-radius: 10px; padding: 10px 14px; font-size: 0.79rem; border: 1px solid var(--border-blue); }
+.formula-card.red { border-color: rgba(255,82,82,0.3); background: rgba(255,82,82,0.05); }
+.formula-card.green { border-color: rgba(105,240,174,0.3); background: rgba(105,240,174,0.05); }
+.formula-card.pink { border-color: var(--border-pink); background: rgba(244,143,177,0.05); }
+.formula-card.purple { border-color: rgba(179,136,255,0.3); background: rgba(179,136,255,0.05); }
+.fc-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--blue-primary); letter-spacing: 0.5px; margin-bottom: 4px; }
+.formula-card.red .fc-label { color: var(--red); }
+.formula-card.green .fc-label { color: var(--green); }
+.formula-card.pink .fc-label { color: var(--pink-primary); }
+.formula-card.purple .fc-label { color: var(--purple); }
+.fc-formula { font-family: 'Courier New', monospace; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+.fc-note { font-size: 0.82rem; color: var(--text-secondary); margin-top: 3px; line-height: 1.3; }
+
+/* ─ Tag Filter Panel ─ */
+#panel-tags { left: 50%; transform: translateX(-50%); width: min(520px, calc(100vw - 24px)); padding: 16px; }
+#panel-tags h4 { margin: 0 0 10px; font-size: 0.8rem; color: var(--blue-primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.tag-filter-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+.tag-filter-btn {
+  border: none; padding: 5px 13px; border-radius: 20px;
+  font-size: 0.72rem; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s; opacity: 0.65;
+}
+.tag-filter-btn.active { opacity: 1; transform: scale(1.06); }
+.tag-filter-btn[data-tag="all"] { background: rgba(79,195,247,0.15); color: var(--blue-primary); border: 1px solid var(--border-blue); }
+.tag-filter-btn[data-tag="all"].active { background: var(--blue-primary); color: var(--bg-primary); }
+.tag-filter-btn[data-tag="high-yield"] { background: rgba(105,240,174,0.15); color: var(--green); border: 1px solid rgba(105,240,174,0.3); }
+.tag-filter-btn[data-tag="olympiad"] { background: rgba(255,82,82,0.12); color: var(--red); border: 1px solid rgba(255,82,82,0.3); }
+.tag-filter-btn[data-tag="mechanism"] { background: rgba(79,195,247,0.12); color: var(--blue-primary); border: 1px solid var(--border-blue); }
+.tag-filter-btn[data-tag="trap"] { background: rgba(255,171,64,0.12); color: var(--orange); border: 1px solid rgba(255,171,64,0.3); }
+.tag-filter-btn[data-tag="clinical"] { background: rgba(244,143,177,0.12); color: var(--pink-primary); border: 1px solid var(--border-pink); }
+.tag-filter-btn[data-tag="checkpoint"] { background: linear-gradient(135deg, rgba(79,195,247,0.2), rgba(244,143,177,0.2)); color: var(--text-primary); border: 1px solid var(--border-blue); }
+#tag-results-list { max-height: 280px; overflow-y: auto; }
+.tag-result-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 8px; cursor: pointer;
+  transition: background 0.15s; border-bottom: 1px solid rgba(79,195,247,0.08);
+}
+.tag-result-item:hover { background: rgba(79,195,247,0.08); }
+.tag-result-item:last-child { border-bottom: none; }
+.tag-result-num { font-size: 0.68rem; font-weight: 700; color: var(--text-secondary); min-width: 20px; }
+.tag-result-title { font-size: 0.8rem; color: var(--text-primary); flex: 1; font-weight: 600; }
+.tag-result-tags { display: flex; gap: 4px; }
+.nav-tag { font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+.nav-tag.high-yield { background: rgba(105,240,174,0.15); color: var(--green); }
+.nav-tag.olympiad { background: rgba(255,82,82,0.12); color: var(--red); }
+.nav-tag.mechanism { background: rgba(79,195,247,0.12); color: var(--blue-primary); }
+.nav-tag.trap { background: rgba(255,171,64,0.12); color: var(--orange); }
+.nav-tag.clinical { background: rgba(244,143,177,0.12); color: var(--pink-primary); }
+.nav-tag.checkpoint { background: rgba(179,136,255,0.12); color: var(--purple); }
+.tag-no-results { color: var(--text-secondary); font-size: 0.8rem; text-align: center; padding: 20px; }
+
+/* ─ Tag Filter for sidebar ─ */
+#tag-filter-area { padding: 12px 16px; border-bottom: 1px solid var(--border-blue); }
+#tag-filter-area p { color: var(--text-secondary); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+#tag-filter-buttons { display: flex; flex-wrap: wrap; gap: 5px; }
+
+/* ===== BODY PADDING for topbar ===== */
+body { padding-top: 52px; }
+
+/* ===== HIGHLIGHT MODE ===== */
+body.highlight-mode ::selection { background: rgba(255,220,0,0.55); color: var(--bg-primary); }
+body.highlight-mode .slide { cursor: text; }
+
+/* ===== FOCUS MODE ===== */
+body.focus-mode .slide:not(.focus-slide) {
+  opacity: 0.18;
+  filter: blur(1.5px);
+  transition: opacity 0.4s, filter 0.4s;
+}
+body.focus-mode .slide.focus-slide {
+  opacity: 1; filter: none;
+  box-shadow: 0 0 0 3px rgba(79,195,247,0.4), 0 16px 60px rgba(79,195,247,0.1);
+}
+
+/* ===== SCROLL TO TOP update ===== */
+#scroll-top { bottom: 28px; left: 28px; }
+
+/* ===== SLIDE scroll margin for sticky bar ===== */
+.slide { scroll-margin-top: 62px; }
+
+/* ===== PRINT ===== */
+@media print {
+  #topbar, #sidebar, #sidebar-overlay, #nav-toggle, #slide-counter, #mini-nav, #scroll-top { display: none !important; }
+  body { padding-top: 0; background: white; }
+  .slide { box-shadow: none !important; margin: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ STICKY TOPBAR ═══════════ -->
+<div id="topbar">
+  <div id="topbar-progress"></div>
+  <div id="topbar-title">Chapter 55 — The Female Reproductive System</div>
+  <div class="topbar-sep"></div>
+
+  <!-- Notes (localStorage persistent) -->
+  <button class="tb-btn" id="btn-notes" onclick="togglePanel('panel-notes',this)" title="Catatan per slide (tersimpan permanen)">
+    📝 <span class="label-text">Catatan</span>
+  </button>
+
+  <!-- Formula / Key Concepts -->
+  <button class="tb-btn" id="btn-formula" onclick="togglePanel('panel-formula',this)" title="Ringkasan konsep & pathway kunci">
+    🧪 <span class="label-text">Rumus</span>
+  </button>
+
+  <!-- Tag Navigator -->
+  <button class="tb-btn" id="btn-tags" onclick="togglePanel('panel-tags',this)" title="Navigasi berdasarkan tag">
+    🏷️ <span class="label-text">Tag</span>
+  </button>
+
+  <!-- Focus Mode -->
+  <button class="tb-btn" id="btn-focus" onclick="toggleFocusMode(this)" title="Fokus satu slide (F)">
+    🎯 <span class="label-text">Fokus</span>
+  </button>
+
+  <!-- Highlighter -->
+  <button class="tb-btn" id="btn-highlight" onclick="toggleHighlighter(this)" title="Mode stabilo teks">
+    🖊 <span class="label-text">Stabilo</span>
+  </button>
+
+  <div class="topbar-sep"></div>
+  <button class="tb-btn icon-only" onclick="toggleSidebar()" title="Navigasi slide (T)">☰</button>
+</div>
+
+<!-- ═══════════ TOPBAR PANELS ═══════════ -->
+
+<!-- Quick Notes Panel (localStorage persistent) -->
+<div class="tb-panel" id="panel-notes">
+  <h4>📝 Catatan — <span id="notes-context">Slide saat ini</span></h4>
+  <div id="notes-context-sub" style="font-size:0.68rem;color:var(--text-secondary);margin-bottom:6px;font-style:italic;">Catatan tersimpan otomatis di browser (tidak hilang saat ditutup)</div>
+  <textarea id="notes-textarea" placeholder="Tulis catatan untuk slide ini…"></textarea>
+  <div id="notes-actions">
+    <button class="notes-btn save" onclick="saveNote()">💾 Simpan</button>
+    <button class="notes-btn" onclick="clearNoteField()">🗑 Hapus Field</button>
+    <button class="notes-btn export-btn" onclick="exportNotes()">⬇ Export</button>
+  </div>
+  <div id="notes-saved-list"></div>
+</div>
+
+<!-- Formula / Key Concept Panel -->
+<div class="tb-panel" id="panel-formula">
+  <h4>🧪 Ringkasan Konsep Kunci — Chapter 55</h4>
+  <div class="formula-grid">
+    <div class="formula-card">
+      <div class="fc-label">HPO Axis Flow</div>
+      <div class="fc-formula">GnRH (pulsatile) → LH + FSH → E₂ + Prog + Inhibin → ⊖/⊕ feedback</div>
+      <div class="fc-note">GnRH kontinu → downregulasi reseptor → ↓ LH/FSH</div>
+    </div>
+    <div class="formula-card red">
+      <div class="fc-label">Positive vs Negative Feedback</div>
+      <div class="fc-formula">⊖ feedback: E₂ &lt;200 pg/mL · ⊕ feedback: E₂ &gt;200 pg/mL × 48h</div>
+      <div class="fc-note">Hanya perempuan yang punya positive feedback → LH surge</div>
+    </div>
+    <div class="formula-card pink">
+      <div class="fc-label">Two-Cell Model</div>
+      <div class="fc-formula">Theca (LH) → Androstenedione → Granulosa (FSH) → E₂ (aromatase)</div>
+      <div class="fc-note">Theca: no aromatase · Granulosa: no 17α-hydroxylase</div>
+    </div>
+    <div class="formula-card green">
+      <div class="fc-label">GnRH Signaling</div>
+      <div class="fc-formula">GnRHR → Gαq → PLC → IP₃/DAG → Ca²⁺ → LH/FSH release</div>
+      <div class="fc-note">Gq (not Gs!) — trap olimpiade! LH/FSH receptors → Gs</div>
+    </div>
+    <div class="formula-card">
+      <div class="fc-label">Menstrual Cycle Key Numbers</div>
+      <div class="fc-formula">Cycle ~28d · Follicular: variable · Luteal: FIXED 14d</div>
+      <div class="fc-note">LH surge: 3× peak, 12h to peak, 48h duration · Ovulation 16-24h after peak</div>
+    </div>
+    <div class="formula-card purple">
+      <div class="fc-label">Ovarian Steroid Pathway</div>
+      <div class="fc-formula">Cholesterol → Pregnenolone → Progesterone → 17α-OH-Prog → Androstenedione → E₁/E₂</div>
+      <div class="fc-note">StAR protein = rate-limiting step; 17α-hydroxylase only in theca</div>
+    </div>
+    <div class="formula-card red">
+      <div class="fc-label">Feedback Loops (Critical)</div>
+      <div class="fc-formula">Inhibin ⊖ FSH only (NOT LH) · Progesterone slows GnRH to every 3-4h</div>
+      <div class="fc-note">Activin stimulates FSH; follistatin blocks activin</div>
+    </div>
+    <div class="formula-card green">
+      <div class="fc-label">Ovulation Trigger</div>
+      <div class="fc-formula">LH surge → LH+IL-1+PGE₂ → COX-2 → PGE₂ → collagenase → follicle rupture</div>
+      <div class="fc-note">Resumption of meiosis I → secondary oocyte released (arrested at metaphase II)</div>
+    </div>
+    <div class="formula-card pink">
+      <div class="fc-label">hCG vs LH</div>
+      <div class="fc-formula">hCG = α identical to LH, different β; binds same LHCGR; longer half-life</div>
+      <div class="fc-note">hCG rescues corpus luteum; pregnancy tests detect hCG, not LH</div>
+    </div>
+    <div class="formula-card purple">
+      <div class="fc-label">Menopause Marker</div>
+      <div class="fc-formula">↑ FSH (earliest) → ↑ LH → ↓ Inhibin → ↓ E₂ → hot flashes, osteoporosis</div>
+      <div class="fc-note">FSH rises BEFORE menopause; estradiol falls AFTER</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tag Navigation Panel -->
+<div class="tb-panel" id="panel-tags">
+  <h4>🏷️ Navigasi Tag</h4>
+  <div class="tag-filter-grid" id="tag-filter-buttons">
+    <button class="tag-filter-btn active" data-tag="all" onclick="filterByTag('all',this)">Semua Slide</button>
+    <button class="tag-filter-btn" data-tag="high-yield" onclick="filterByTag('high-yield',this)">⭐ High-Yield</button>
+    <button class="tag-filter-btn" data-tag="olympiad" onclick="filterByTag('olympiad',this)">🏆 Olympiad</button>
+    <button class="tag-filter-btn" data-tag="mechanism" onclick="filterByTag('mechanism',this)">⚙️ Mechanism</button>
+    <button class="tag-filter-btn" data-tag="trap" onclick="filterByTag('trap',this)">⚠️ Trap</button>
+    <button class="tag-filter-btn" data-tag="clinical" onclick="filterByTag('clinical',this)">🩺 Clinical</button>
+    <button class="tag-filter-btn" data-tag="checkpoint" onclick="filterByTag('checkpoint',this)">🔄 Checkpoint</button>
+  </div>
+  <div id="tag-results-list"></div>
+</div>
+
+
+<div class="slide" id="s1">
+  <div class="slide-title">CHAPTER 55: THE FEMALE REPRODUCTIVE SYSTEM</div>
+  <div class="slide-subtitle">Boron & Boulpaep — Olympiad-Level Integrated Physiology</div>
+
+  <div class="card">
+    <div class="card-title">🔬 BIG PICTURE: Why Does the Female Reproductive System Exist?</div>
+    <p>The female reproductive system is not merely a collection of organs — it is a <strong>time-locked, hormone-orchestrated biological machine</strong> designed to:</p>
+    <ol>
+      <li><strong>Gamete production</strong> — Generate a single mature ovum per cycle from a finite pool of ~400,000 follicles (from 6-7 million at fetal life)</li>
+      <li><strong>Endometrial preparation</strong> — Build a vascularized, secretory endometrium capable of supporting blastocyst implantation</li>
+      <li><strong>Cyclic coordination</strong> — Synchronize ovum maturation, ovulation, sperm transport, and implantation within a ~28-day window</li>
+      <li><strong>Homeostatic trade-off</strong> — Balance energy investment in reproduction vs. maternal survival through feedback loops</li>
+    </ol>
+    <p><span class="highlight hy">HIGH-YIELD</span> <span class="highlight si">SYSTEM INTEGRATION</span> The entire system is controlled by the <strong>hypothalamic-pituitary-ovarian (HPO) axis</strong>, the only endocrine axis that generates a <strong>monthly rhythm</strong> — a unique feature among all endocrine systems.</p>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">🎯 CORE PRINCIPLE: The Menstrual Cycle as a Systems Integration Problem</div>
+    <p>The menstrual cycle is simultaneously:</p>
+    <ul>
+      <li>An <strong>ovarian cycle</strong> (follicular phase → ovulation → luteal phase)</li>
+      <li>An <strong>endometrial cycle</strong> (menses → proliferative → secretory)</li>
+      <li>A <strong>neuroendocrine cycle</strong> (GnRH pulsatility → gonadotropin surges → steroid feedback)</li>
+    </ul>
+    <p>All three cycles are <strong>phase-locked</strong> to each other. Disruption at any level propagates to all others — this is why understanding <strong>causal chains</strong> matters more than memorizing hormone levels.</p>
+  </div>
+
+  <div class="concept-map">
+    <div class="cm-node">
+      <div class="node-title">🧠 Hypothalamus</div>
+      <div class="node-content">GnRH neurons (arcuate + preoptic). Pulsatile release every 60-90 min. Chromosome 9. Preprohormone: 92 AA → prohormone 69 AA → GnRH decapeptide (AA 1-10) + GAP (AA 14-69)</div>
+    </div>
+    <div class="cm-node">
+      <div class="node-title">🎯 Anterior Pituitary</div>
+      <div class="node-content">Gonadotrophs release FSH & LH. Glycoprotein heterodimers: common α (92 AA, ~20 kDa) + unique β subunits. GnRH receptor: Gq-coupled → PLC → IP3/DAG → Ca²⁺↑</div>
+    </div>
+    <div class="cm-node">
+      <div class="node-title">🥚 Ovary</div>
+      <div class="node-content">Theca cells (LH receptors, Gs-cAMP) → androgens. Granulosa cells (FSH+LH receptors, Gs-cAMP) → aromatase → estrogens. Corpus luteum → progesterone dominance</div>
+    </div>
+    <div class="cm-node">
+      <div class="node-title">🌸 Endometrium</div>
+      <div class="node-content">Estrogen → proliferation (ER↑). Progesterone → secretory transformation (PR↑), antiestrogenic via 17β-HSD & sulfotransferase. Functional layer shed if no implantation</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: CORE PRINCIPLE -->
+<div class="slide" id="s2">
+  <div class="slide-title">CORE PRINCIPLE: The HPO Axis as a Pulsatile Feedback Machine</div>
+  <div class="slide-subtitle">Understanding the "Why" Behind Every Hormonal Change</div>
+
+  <div class="card">
+    <div class="card-title">⚙️ THE FUNDAMENTAL DESIGN LOGIC</div>
+    <p>The HPO axis operates on <strong>three nested time scales</strong>:</p>
+    <table>
+      <thead>
+        <tr><th>Time Scale</th><th>Mechanism</th><th>Biological Purpose</th><th>Olympiad Relevance</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hourly</strong> (60-90 min)</td>
+          <td>GnRH pulsatility from arcuate nucleus</td>
+          <td>Prevents receptor downregulation; maintains gonadotroph sensitivity</td>
+          <td><span class="highlight of">OLYMPIAD FAVORITE</span> Continuous GnRH → DOWNREGULATION → hypogonadism</td>
+        </tr>
+        <tr>
+          <td><strong>Daily</strong></td>
+          <td>FSH/LH pulse amplitude modulation by estradiol</td>
+          <td>Gradual follicular recruitment without premature luteinization</td>
+          <td><span class="highlight ct">COMMON TRAP</span> Early follicular phase: low estradiol → small LH pulses; late follicular: high estradiol → LARGE pulses</td>
+        </tr>
+        <tr>
+          <td><strong>Monthly</strong> (~28 days)</td>
+          <td>Estradiol positive feedback → LH surge → ovulation</td>
+          <td>Timed release of mature ovum; prepare endometrium</td>
+          <td><span class="highlight hy">HIGH-YIELD</span> Only endocrine axis with POSITIVE feedback by its own product</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">🔄 THE FEEDBACK PARADOX: Negative vs. Positive</div>
+    <p><span class="highlight hy">HIGH-YIELD</span> Estrogens are the ONLY steroid hormones that can exert BOTH negative AND positive feedback on the same axis — depending on <strong>concentration</strong> and <strong>duration of exposure</strong>.</p>
+    <div class="two-col">
+      <div>
+        <div class="card-title" style="color:var(--red);font-size:1rem;">⛔ NEGATIVE FEEDBACK</div>
+        <ul>
+          <li><strong>When:</strong> Low-moderate estradiol throughout most of cycle</li>
+          <li><strong>Where:</strong> Hypothalamus (arcuate: via opioid interneurons; preoptic: via GABA interneurons) + anterior pituitary</li>
+          <li><strong>Effect:</strong> ↓ GnRH pulse frequency, ↓ LH/FSH synthesis</li>
+          <li><strong>Progesterone:</strong> Only effective at HIGH concentrations; stimulates opioidergic interneurons → ↓ GnRH pulse FREQUENCY (amplitude stays high)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card-title" style="color:var(--green);font-size:1rem;">✅ POSITIVE FEEDBACK</div>
+        <ul>
+          <li><strong>When:</strong> Estradiol > threshold for ≥2 days, with ACCELERATING rate of rise (late follicular phase, days 12-14)</li>
+          <li><strong>Where:</strong> Preoptic GnRH neurons (GABA receptors) + anterior pituitary gonadotrophs</li>
+          <li><strong>Effect:</strong> ↑ GnRH surge → massive LH surge (3x baseline, peaks ~12h after onset, lasts ~48h)</li>
+          <li><strong>Synergy:</strong> Low progesterone + activins + estradiol together amplify the surge</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="important-callout">
+    <strong>💡 EXPERT INSIGHT:</strong> The "switch" from negative to positive feedback is NOT a simple threshold crossing. It requires: (1) estradiol concentration above a critical level, (2) sustained for a minimum duration, AND (3) an accelerating rate of increase. This is why slowly rising estradiol (e.g., in PCOS with chronic anovulation) may NOT trigger an LH surge — the rate-of-rise condition is not met.
+  </div>
+</div>
+
+<!-- SLIDE 3: ANATOMY -->
+<div class="slide" id="s3">
+  <div class="slide-title">ANATOMY & FUNCTIONAL UNITS</div>
+  <div class="slide-subtitle">Structural Foundation Determines Physiological Function</div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">🥚 THE OVARY: Cortex vs. Medulla</div>
+      <ul>
+        <li><strong>Cortex:</strong> Contains developing follicles (primordial → primary → secondary → tertiary → Graafian) and corpora lutea/albicantia in stroma</li>
+        <li><strong>Medulla:</strong> Large blood vessels, stromal cells, lymphatics — NOT a site of gametogenesis</li>
+        <li><strong>Surface:</strong> Covered by mesothelial cells (germinal epithelium)</li>
+        <li><strong>Hilum:</strong> Entry/exit point for vessels and nerves; medulla exposed here</li>
+      </ul>
+      <div class="molecular-detail">
+        <div class="label">Olympiad Favorite</div>
+        The ovary is the ONLY organ where <strong>the functional unit (follicle) is a transient structure</strong> that forms, matures, and degenerates continuously. The number of primordial follicles determines reproductive lifespan.
+      </div>
+    </div>
+    <div class="card card-pink">
+      <div class="card-title">🌸 ACCESSORY SEX ORGANS</div>
+      <ul>
+        <li><strong>Fallopian tubes:</strong> Infundibulum with fimbriae → ampulla (fertilization site) → isthmus → intramural portion. Cilia beat TOWARD uterus. Smooth muscle contractions aid ovum transport</li>
+        <li><strong>Uterus:</strong> Fundus → corpus → cervix. Serosa externally; endometrium (glandular + stroma) internally. Cervical glands produce sugar-rich mucus (viscosity regulated by estrogen/progestin)</li>
+        <li><strong>Vagina:</strong> ~10 cm, stratified squamous epithelium, thin muscular layer. pH acidic (lactobacilli)</li>
+        <li><strong>External genitalia:</strong> Clitoris (homologous to penis, erectile tissue), labia majora/minora, Bartholin glands</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">📊 FOLLICLE STAGES: From Primordial to Ovulated Ovum</div>
+    <div class="flowchart">
+      <div class="flow-box">Primordial<br><span style="font-size:0.75rem;color:var(--text-secondary)">30-60 μm<br>Flat pregranulosa<br>Arrested prophase I<br>~6 wk gestation</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Primary<br><span style="font-size:0.75rem;color:var(--text-secondary)">Cuboidal granulosa<br>Zona pellucida forms<br>FSH-dependent</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Secondary<br><span style="font-size:0.75rem;color:var(--text-secondary)">Multiple granulosa layers<br>Theca cells appear<br>LH receptors on theca</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Tertiary (Early)<br><span style="font-size:0.75rem;color:var(--text-secondary)">Antrum forms<br>Gap junctions<br>~120 μm oocyte</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box pink">Graafian<br><span style="font-size:0.75rem;color:var(--text-secondary)">20-33 mm<br>Antrum encircles oocyte<br>Cumulus oophorus<br>Preovulatory</span></div>
+      <div class="flow-arrow pink">→</div>
+      <div class="flow-box green">Ovulated<br><span style="font-size:0.75rem;color:var(--text-secondary)">Secondary oocyte (2N DNA)<br>Corona radiata<br>Arrested metaphase II</span></div>
+    </div>
+    <p><span class="highlight im">IMPORTANT MECHANISM</span> <strong>Atresia</strong> occurs at EVERY stage. 90-95% of follicles remain primordial at any time. Only ~400 ovulate in a woman's lifetime from an initial pool of 6-7 million.</p>
+  </div>
+</div>
+
+<!-- SLIDE 4: PUBERTY -->
+<div class="slide" id="s4">
+  <div class="slide-title">PUBERTY: The Neuroendocrine Awakening</div>
+  <div class="slide-subtitle">From High Sensitivity Feedback to Cyclic Reproductive Function</div>
+
+  <div class="card">
+    <div class="card-title">🧬 THE PUBERTAL TRANSITION: A Feedback Sensitivity Problem</div>
+    <p>Puberty is NOT simply "hormones turning on." It is a <strong>progressive desensitization of the hypothalamic-pituitary system to negative feedback by sex steroids</strong>.</p>
+    <table>
+      <thead>
+        <tr><th>Life Stage</th><th>Gonadotropin Pattern</th><th>Feedback Sensitivity</th><th>Key Mechanism</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fetal</strong> (mid-gestation)</td>
+          <td>LH/FSH surge peak (~100 mU/mL)</td>
+          <td>High sensitivity</td>
+          <td>HPO axis functional by ~23 wk gestation; GnRH present at 14-16 wk</td>
+        </tr>
+        <tr>
+          <td><strong>Infancy</strong></td>
+          <td>Second peak postnatal</td>
+          <td>High sensitivity</td>
+          <td>"Mini-puberty" — transient activation</td>
+        </tr>
+        <tr>
+          <td><strong>Childhood</strong> (6-8 yr)</td>
+          <td>LOWEST levels (nadir)</td>
+          <td><span class="highlight of">MAXIMUM sensitivity</span></td>
+          <td>Even VERY LOW steroids suppress GnRH; NOT due to high steroid levels (proven by gonadal dysgenesis patients who also have low GnRH)</td>
+        </tr>
+        <tr>
+          <td><strong>Early Puberty</strong></td>
+          <td>Nocturnal pulsatile GnRH/LH (REM sleep)</td>
+          <td>Decreasing sensitivity</td>
+          <td>Arcuate nucleus pulse generator matures; higher steroid levels now needed to suppress</td>
+        </tr>
+        <tr>
+          <td><strong>Mid-Puberty</strong></td>
+          <td>Pulses throughout day</td>
+          <td>Low sensitivity</td>
+          <td>FSH/LH basal levels rise; first menstrual cycles (irregular)</td>
+        </tr>
+        <tr>
+          <td><strong>Adult</strong></td>
+          <td>Monthly surges + hourly pulses</td>
+          <td>MINIMUM sensitivity</td>
+          <td>Only VERY HIGH estradiol suppresses; positive feedback possible</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">🔑 CRITICAL EVIDENCE: Gonadal Dysgenesis Experiment</div>
+    <p><span class="highlight hy">HIGH-YIELD</span> Girls with gonadal dysgenesis (Turner syndrome) have <strong>low steroid levels</strong> yet also have <strong>low LH/FSH</strong> in childhood — just like normal girls.</p>
+    <p><strong>Conclusion:</strong> The prepubertal quiescence is NOT due to high steroid feedback. Instead, it reflects <strong>intrinsic hypothalamic/pituitary sensitivity</strong> to steroids. The brain is "supersensitive" in childhood.</p>
+    <p><strong>Implication:</strong> Puberty onset = loss of this supersensitivity. The "brake" is released, not the "accelerator" applied.</p>
+  </div>
+
+  <div class="feedback-loop">
+    <div class="feedback-title">🔄 PUBERTY FEEDBACK EVOLUTION</div>
+    <div class="flowchart">
+      <div class="flow-box">Childhood<br>High sensitivity<br>Low GnRH</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box pink">Maturation<br>↓ Sensitivity<br>↑ GnRH pulsatility</div>
+      <div class="flow-arrow pink">→</div>
+      <div class="flow-box">Rising Steroids<br>Still suppressed<br>But need MORE</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box green">Adult Pattern<br>Low sensitivity<br>Cyclic function</div>
+    </div>
+    <p><strong>Clinical correlation:</strong> Precocious puberty can result from ANY process that prematurely reduces feedback sensitivity (e.g., CNS lesions disrupting inhibitory inputs). Delayed puberty can result from persistent hypersensitivity (e.g., constitutional delay, chronic disease, malnutrition).</p>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">📏 TANNER STAGES (Female Puberty)</div>
+    <table>
+      <thead>
+        <tr><th>Stage</th><th>Breast (Thelarche)</th><th>Pubic Hair (Pubarche)</th><th>Hormonal Milestone</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Preadolescent, only papillae elevated</td><td>No pubic hair (vellus only)</td><td>Baseline</td></tr>
+        <tr><td>2</td><td>Breast & papillae elevated, areolae enlarge</td><td>Sparse hair along labia majora</td><td>Adrenarche ↑ DHEA; nocturnal GnRH begins</td></tr>
+        <tr><td>3</td><td>Further enlargement</td><td>Darker, coarser, curly; spreads over pubis</td><td>Estrogen ↑; growth spurt</td></tr>
+        <tr><td>4</td><td>Areolae & papillae project beyond breast tissue</td><td>Adult type but smaller area</td><td>Menarche (~12.5 yr in US)</td></tr>
+        <tr><td>5</td><td>Adult pattern; areolae on same level</td><td>Adult pattern</td><td>Regular cycles established</td></tr>
+      </tbody>
+    </table>
+    <p><span class="highlight ct">COMMON TRAP</span> Menarche occurs at Tanner 4, NOT 5. Early cycles are typically <strong>anovulatory</strong> due to immature positive feedback mechanism.</p>
+  </div>
+</div>
+
+<!-- SLIDE 5: GnRH MOLECULAR BIOLOGY -->
+<div class="slide" id="s5">
+  <div class="slide-title">GnRH: MOLECULAR BIOLOGY & PULSE GENERATOR</div>
+  <div class="slide-subtitle">The Decapeptide That Orchestrates Reproduction</div>
+
+  <div class="card">
+    <div class="card-title">🧬 GnRH GENE & PROCESSING</div>
+    <div class="molecular-detail">
+      <div class="label">Chromosomal Location</div>
+      <strong>Chromosome 9</strong> — GnRH gene encodes a <strong>preprohormone of 92 amino acids</strong>
+    </div>
+    <div class="flowchart">
+      <div class="flow-box">Prepro-GnRH<br>92 AA<br>Signal peptide<br>(AA -23 to -1)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Signal Peptide<br>Cleaved<br>23 AA removed</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Prohormone<br>69 AA<br>(AA 1-69)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Cleavage at<br>AA 10-14<br>& 14-69</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box green">GnRH<br>Decapeptide<br>AA 1-10<br>Glu-His-Trp-Ser-Tyr-Gly-Leu-Arg-Pro-Gly-NH₂</div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-box yellow">GAP<br>56 AA peptide<br>AA 14-69<br>(GnRH-Associated Peptide)</div>
+    </div>
+    <div class="molecular-detail">
+      <div class="label">GnRH-Associated Peptide (GAP)</div>
+      GAP function is <strong>unknown</strong> but may <strong>inhibit prolactin secretion</strong>. Three amino acids (AA 11-13) link GnRH to GAP and are removed during processing.
+    </div>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">🧠 TWO GnRH NEURONAL POPULATIONS</div>
+    <table>
+      <thead>
+        <tr><th>Population</th><th>Location</th><th>Rhythm</th><th>Receptor Type</th><th>Function</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Arcuate Nucleus</strong></td>
+          <td>Medial basal hypothalamus</td>
+          <td>Hourly pulses (60-90 min)</td>
+          <td>Inhibitory <strong>opioid</strong> receptors</td>
+          <td>Baseline GnRH pulsatility; "pulse generator"</td>
+        </tr>
+        <tr>
+          <td><strong>Preoptic Area</strong></td>
+          <td>Rostral hypothalamus</td>
+          <td>Monthly surge (midcycle)</td>
+          <td>Inhibitory <strong>GABA</strong> receptors</td>
+          <td>LH surge generation; positive feedback integration</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="highlight hy">HIGH-YIELD</span> <span class="highlight of">OLYMPiad FAVORITE</span> The <strong>preoptic GnRH neurons</strong> are responsible for the massive midcycle GnRH surge that drives the LH surge. The <strong>arcuate neurons</strong> maintain basal pulsatility. This anatomical separation explains why negative feedback (chronic, low-dose steroids) and positive feedback (acute, high-dose estradiol) can operate through different neural circuits.</p>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">⏱️ GnRH PULSE FREQUENCY: THE GONADAL SELECTOR</div>
+    <p>The <strong>frequency</strong> of GnRH pulses determines which gonadotropin is favored and which gonadal response occurs:</p>
+    <table>
+      <thead>
+        <tr><th>Pulse Frequency</th><th>Gonadotropin Effect</th><th>Gonadal Effect</th><th>Clinical Context</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Every 60-90 min</strong> (normal follicular)</td>
+          <td>Upregulates GnRH receptors on gonadotrophs; stimulates BOTH FSH & LH</td>
+          <td>Follicular development, estrogen synthesis</td>
+          <td>Normal cycle; pulsatile GnRH therapy for Kallmann syndrome</td>
+        </tr>
+        <tr>
+          <td><strong>Continuous</strong> (no pulses)</td>
+          <td>DOWNREGULATION of GnRH receptors → ↓↓ FSH & LH</td>
+          <td>Hypogonadism, anovulation</td>
+          <td><span class="highlight of">OLYMPiad FAVORITE</span> GnRH analogues for endometriosis, fibroids, prostate cancer</td>
+        </tr>
+        <tr>
+          <td><strong>Fast / High frequency</strong></td>
+          <td>Favors LH synthesis</td>
+          <td>Androgen production (theca cells)</td>
+          <td>PCOS-like phenotype if chronically fast</td>
+        </tr>
+        <tr>
+          <td><strong>Slow / Low frequency</strong></td>
+          <td>Favors FSH synthesis</td>
+          <td>Follicular recruitment</td>
+          <td>Luteal phase pattern (progesterone slows pulses to every 3-4h)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="important-callout">
+    <strong>💡 EXPERT INSIGHT:</strong> GnRH half-life in blood is only <strong>2-4 minutes</strong>. This extremely short half-life means that portal blood GnRH levels oscillate with each hypothalamic burst, creating clearly discernible hourly LH pulses. This is why the hypothalamus can "talk" to the pituitary in Morse code — short bursts with precise timing.
+  </div>
+</div>
+
+<!-- SLIDE 6: GONADOTROPIN SIGNALING -->
+<div class="slide" id="s6">
+  <div class="slide-title">GONADOTROPIN SIGNALING: FSH, LH & THEIR RECEPTORS</div>
+  <div class="slide-subtitle">Glycoprotein Hormones, Gs-cAMP-PKA, and the Two-Cell System</div>
+
+  <div class="card">
+    <div class="card-title">🧬 GONADOTROPIN STRUCTURE</div>
+    <p>FSH, LH, TSH, and hCG belong to the <strong>same glycoprotein hormone family</strong>:</p>
+    <div class="molecular-detail">
+      <div class="label">Common Alpha Subunit</div>
+      <strong>92 amino acids, ~20 kDa</strong> — identical across all four hormones. Encoded by a single gene.
+    </div>
+    <div class="molecular-detail">
+      <div class="label">Unique Beta Subunits</div>
+      <strong>β-FSH</strong> and <strong>β-LH</strong> confer biological specificity. GnRH pulsatility determines the relative rates of α, β-FSH, and β-LH gene expression, dimerization, and glycosylation.
+    </div>
+    <p><span class="highlight bc">BIOCHEMISTRY LINK</span> The <strong>rhythm of GnRH secretion</strong> controls not just release, but <strong>synthesis and post-translational modification</strong> of gonadotropins. Different pulse frequencies favor different subunit combinations.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">🔬 GnRH RECEPTOR ON GONADOTROPHS</div>
+      <div class="receptor-detail">
+        <div class="rec-name">GnRH Receptor (GnRHR)</div>
+        G-protein <strong>COUPLED TO Gαq</strong> (NOT Gs!) → activates <strong>Phospholipase C (PLC)</strong>
+      </div>
+      <div class="mechanism-step">
+        <div class="step-num">1</div>
+        <div class="step-content">GnRH binds GnRHR → <strong>Gαq activation</strong> → PLC stimulation</div>
+      </div>
+      <div class="mechanism-step">
+        <div class="step-num">2</div>
+        <div class="step-content">PLC hydrolyzes <strong>PIP₂</strong> → <strong>IP₃</strong> + <strong>DAG</strong></div>
+      </div>
+      <div class="mechanism-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>IP₃</strong> → Ca²⁺ release from ER → [Ca²⁺]i rises</div>
+      </div>
+      <div class="mechanism-step">
+        <div class="step-num">4</div>
+        <div class="step-content">Ca²⁺ activates membrane Ca²⁺ channels → <strong>sustained Ca²⁺ influx</strong></div>
+      </div>
+      <div class="mechanism-step">
+        <div class="step-num">5</div>
+        <div class="step-content">[Ca²⁺]i triggers <strong>exocytosis</strong> → LH/FSH release</div>
+      </div>
+      <div class="mechanism-step">
+        <div class="step-num">6</div>
+        <div class="step-content"><strong>DAG</strong> → activates <strong>PKC</strong> → phosphorylates transcription factors → ↑ gonadotropin gene transcription</div>
+      </div>
+      <div class="mechanism-step">
+        <div class="step-num">7</div>
+        <div class="step-content">GnRH also ↑ mRNA for immediate early genes: <strong>c-Fos, c-Jun, JunB</strong></div>
+      </div>
+    </div>
+    <div class="card card-pink">
+      <div class="card-title">🎯 LH/FSH RECEPTORS ON OVARIAN CELLS</div>
+      <div class="receptor-detail">
+        <div class="rec-name">LH Receptor (LHCGR) & FSH Receptor (FSHR)</div>
+        Both are <strong>G-protein COUPLED TO Gαs</strong> → activates <strong>Adenylyl Cyclase</strong> → cAMP↑ → PKA activation
+      </div>
+      <p><strong>THECA CELLS:</strong> Have LH receptors only. LH → Gs → AC → cAMP → PKA → ↑ transcription of:</p>
+      <ul>
+        <li>LDL receptor (cholesterol uptake)</li>
+        <li>Side-chain cleavage enzyme (P-450scc)</li>
+        <li>17α-hydroxylase / 17,20-desmolase (same protein)</li>
+        <li>3β-HSD</li>
+      </ul>
+      <p><strong>GRANULOSA CELLS:</strong> Have BOTH FSH and LH receptors. FSH → Gs → AC → cAMP → PKA → ↑ transcription of:</p>
+      <ul>
+        <li><strong>Aromatase (P-450arom)</strong> — KEY enzyme for estrogen synthesis</li>
+        <li>LH receptors (self-priming for luteal phase)</li>
+        <li>Inhibins and activins</li>
+      </ul>
+      <p><span class="highlight hy">HIGH-YIELD</span> <strong>Both LH and FSH use Gs-cAMP-PKA</strong> on their target cells, but GnRH uses Gq-PLC-IP3/DAG-Ca²⁺ on gonadotrophs. This is a critical signaling distinction.</p>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">🔄 RECEPTOR REGULATION: Upregulation vs. Downregulation</div>
+    <div class="two-col">
+      <div>
+        <div class="card-title" style="color:var(--green);font-size:1rem;">✅ UPREGULATION (Pulsatile GnRH)</div>
+        <ul>
+          <li>GnRHR internalized → partially degraded in lysosomes</li>
+          <li>Portion <strong>recycled</strong> back to membrane ("replenishment")</li>
+          <li>Net effect: ↑ receptor number → ↑ sensitivity to next pulse</li>
+          <li>Requires <strong>interpulse interval</strong> for recycling</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card-title" style="color:var(--red);font-size:1rem;">⛔ DOWNREGULATION (Continuous GnRH)</div>
+        <ul>
+          <li>Continuous GnRH → sustained receptor internalization</li>
+          <li>NO time for replenishment → receptor depletion</li>
+          <li>Insufficient GnRHR for optimal response</li>
+          <li>Result: <strong>hypogonadotropic hypogonadism</strong></li>
+          <li>Clinical: GnRH analogues for endometriosis, prostate cancer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: FEEDBACK CONTROL -->
+<div class="slide" id="s7">
+  <div class="slide-title">FEEDBACK CONTROL OF THE HPO AXIS</div>
+  <div class="slide-subtitle">The Most Complex Feedback System in Endocrinology</div>
+
+  <div class="card">
+    <div class="card-title">🔄 THE COMPLETE FEEDBACK MAP</div>
+    <div class="flowchart">
+      <div class="flow-box">Hypothalamus<br>GnRH neurons<br>Arcuate + Preoptic</div>
+      <div class="flow-arrow">↓ GnRH</div>
+      <div class="flow-box">Anterior Pituitary<br>Gonadotrophs</div>
+      <div class="flow-arrow">↓ LH/FSH</div>
+      <div class="flow-box">Ovary<br>Theca + Granulosa</div>
+      <div class="flow-arrow">↓ Steroids + Peptides</div>
+      <div class="flow-box">Estrogens<br>Progestins</div>
+      <div class="flow-arrow">← NEGATIVE (most of cycle)<br>← POSITIVE (midcycle)</div>
+      <div class="flow-box">Inhibins<br>Activins</div>
+      <div class="flow-arrow">← NEGATIVE (inhibin)<br>← POSITIVE (activin)</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">⛔ NEGATIVE FEEDBACK MECHANISMS</div>
+      <p><strong>Estrogens (low-moderate levels):</strong></p>
+      <ul>
+        <li>Inhibit GnRH neurons <strong>INDIRECTLY</strong> via interneurons</li>
+        <li>Arcuate nucleus: inhibitory interneurons use <strong>endogenous opioids</strong></li>
+        <li>Preoptic area: inhibitory interneurons use <strong>GABA</strong></li>
+        <li>Also act directly on gonadotrophs to ↓ LH/FSH synthesis</li>
+      </ul>
+      <p><strong>Progestins (high levels only):</strong></p>
+      <ul>
+        <li>Stimulate <strong>opioidergic interneurons</strong> in hypothalamus</li>
+        <li>↓ GnRH pulse <strong>FREQUENCY</strong> (not amplitude)</li>
+        <li>Luteal phase: LH pulses every 3-4 hours (vs. hourly in follicular)</li>
+      </ul>
+      <p><strong>Inhibins:</strong></p>
+      <ul>
+        <li>Produced by granulosa cells; FSH stimulates their production</li>
+        <li>↓ FSH mRNA (both α and β-FSH subunits) — NO effect on β-LH</li>
+        <li>Action is <strong>BEYOND the Ca²⁺-mobilization step</strong> in FSH secretion</li>
+        <li>Also have <strong>intraovarian</strong> effect: ↓ androgen production by theca cells</li>
+      </ul>
+    </div>
+    <div class="card card-pink">
+      <div class="card-title">✅ POSITIVE FEEDBACK MECHANISMS</div>
+      <p><strong>Estradiol (late follicular phase):</strong></p>
+      <ul>
+        <li>Threshold: must exceed critical level for <strong>≥2 days</strong></li>
+        <li>Rate of rise must be <strong>accelerating</strong></li>
+        <li>Two simultaneous effects:</li>
+        <li style="margin-left:20px">1. <strong>Sensitizes gonadotrophs</strong> to GnRH pulses (Fig 55-6: late follicular LH response to GnRH is 3x larger)</li>
+        <li style="margin-left:20px">2. <strong>Induces GnRH surge</strong> from preoptic neurons (via GABA receptor modulation)</li>
+      </ul>
+      <p><strong>Progesterone (late follicular, low levels):</strong></p>
+      <ul>
+        <li>Synergizes with estradiol for positive feedback</li>
+        <li>NOT the primary trigger, but amplifies estradiol effect</li>
+      </ul>
+      <p><strong>Activins:</strong></p>
+      <ul>
+        <li>↑ β-FSH mRNA and FSH release</li>
+        <li>Independent of GnRH action</li>
+        <li>Also stimulate intraovarian estrogen synthesis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">🧬 INHIBIN/ACTIVIN MOLECULAR BIOLOGY</div>
+    <p>Both are dimers from the <strong>TGF-β supergene family</strong>:</p>
+    <div class="two-col">
+      <div>
+        <div class="molecular-detail">
+          <div class="label">Inhibins</div>
+          <strong>α subunit (20 kDa, glycosylated)</strong> + <strong>βA or βB (12 kDa, non-glycosylated)</strong>
+          <br>• Inhibin A = α-βA
+          <br>• Inhibin B = α-βB
+          <br>Linked by <strong>disulfide bridges</strong>
+        </div>
+      </div>
+      <div>
+        <div class="molecular-detail">
+          <div class="label">Activins</div>
+          <strong>Two β-type subunits only</strong> (NO α subunit)
+          <br>• Activin A = βA-βA
+          <br>• Activin B = βB-βB
+          <br>• Activin AB = βA-βB (heterodimer)
+          <br>Also linked by disulfide bridges
+        </div>
+      </div>
+    </div>
+    <p><span class="highlight hy">HIGH-YIELD</span> <span class="highlight ct">COMMON TRAP</span> Inhibins contain the α subunit; activins do NOT. This is the opposite of what many students intuitively assume. Remember: "Inhibin has the extra (α) piece that inhibits."</p>
+  </div>
+</div>
+
+<!-- SLIDE 8: OVARIAN STEROID BIOSYNTHESIS -->
+<div class="slide" id="s8">
+  <div class="slide-title">OVARIAN STEROID BIOSYNTHESIS</div>
+  <div class="slide-subtitle">From Cholesterol to Estradiol & Progesterone: The Enzymatic Cascade</div>
+
+  <div class="card">
+    <div class="card-title">🧪 THE BIOSYNTHETIC PATHWAY</div>
+    <p>All ovarian steroids derive from <strong>cholesterol (27 carbons)</strong>:</p>
+    <div class="flowchart">
+      <div class="flow-box">Cholesterol<br>27C<br>Diet + Liver synthesis<br>LDL uptake</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box yellow">Pregnenolone<br>21C<br><span style="font-size:0.75rem">Rate-limiting step:<br><strong>P-450scc</strong><br>(20,22-desmolase)<br>Mitochondria</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Progesterone<br>21C<br><span style="font-size:0.75rem">3β-HSD<br>Smooth ER</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">17α-OH Progesterone<br>21C<br><span style="font-size:0.75rem">17α-Hydroxylase<br>(same protein as<br>17,20-desmolase)</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box pink">Androstenedione<br>19C<br><span style="font-size:0.75rem">17,20-Desmolase<br>(lyase activity)<br>Smooth ER</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box pink">Testosterone<br>19C<br><span style="font-size:0.75rem">17β-HSD<br>Smooth ER</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box green">Estradiol (E₂)<br>18C<br><span style="font-size:0.75rem"><strong>Aromatase</strong><br>P-450arom<br>Smooth ER<br>Loss of 19-methyl</span></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">🔬 KEY ENZYMES</div>
+      <div class="enzyme-box">
+        <div class="enz-name">P-450scc (Side-Chain Cleavage / 20,22-Desmolase)</div>
+        <div class="enz-detail">Mitochondrial. Rate-limiting step. Converts cholesterol → pregnenolone. ALL steroidogenic tissues have this enzyme.</div>
+      </div>
+      <div class="enzyme-box">
+        <div class="enz-name">3β-Hydroxysteroid Dehydrogenase (3β-HSD)</div>
+        <div class="enz-detail">Smooth ER. Converts pregnenolone → progesterone AND 17α-OH-pregnenolone → 17α-OH-progesterone. NOT the same as 17β-HSD!</div>
+      </div>
+      <div class="enzyme-box">
+        <div class="enz-name">17α-Hydroxylase / 17,20-Desmolase</div>
+        <div class="enz-detail"><span class="highlight of">OLYMPiad FAVORITE</span> <strong>SAME PROTEIN</strong> with dual activity! 17α-hydroxylase adds OH at C17; 17,20-desmolase (lyase) cleaves C17-C20 bond. Both activities require phosphorylation by PKA. Absent in granulosa cells → they cannot make androgens.</div>
+      </div>
+      <div class="enzyme-box">
+        <div class="enz-name">Aromatase (P-450arom)</div>
+        <div class="enz-detail">Smooth ER. Converts androgens → estrogens. <strong>Absent in theca cells</strong>; present in granulosa cells. KEY differentiator between ovary and testis. Converts androstenedione → estrone AND testosterone → estradiol. Also converts estrone ↔ estradiol via 17β-HSD.</div>
+      </div>
+      <div class="enzyme-box">
+        <div class="enz-name">17β-Hydroxysteroid Dehydrogenase (17β-HSD)</div>
+        <div class="enz-detail">Bidirectional: androstenedione ↔ testosterone AND estrone ↔ estradiol. In granulosa cells, favors <strong>reduction</strong> (making more potent steroids: testosterone, estradiol).</div>
+      </div>
+    </div>
+    <div class="card card-pink">
+      <div class="card-title">🧬 STEROID HORMONE FATES</div>
+      <p><strong>Estrogen interconversion in liver:</strong></p>
+      <div class="flowchart">
+        <div class="flow-box">Estradiol (E₂)<br>Most potent</div>
+        <div class="flow-arrow">↔</div>
+        <div class="flow-box">Estrone (E₁)<br>Less potent</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">Estriol (E₃)<br>Weakest<br>(pregnancy)</div>
+      </div>
+      <p><strong>Transport in blood:</strong></p>
+      <ul>
+        <li><strong>60%</strong> bound to albumin</li>
+        <li><strong>38%</strong> bound to SHBG (Sex Hormone-Binding Globulin) — also called TeBG (testosterone-binding globulin)</li>
+        <li><strong>2%</strong> free (biologically active)</li>
+      </ul>
+      <p><span class="highlight hy">HIGH-YIELD</span> SHBG levels are <strong>2x higher in women than men</strong> because estrogens stimulate SHBG synthesis. Oral contraceptives further ↑ SHBG. Androgens ↓ SHBG.</p>
+      <p><strong>Mechanism of action:</strong> Estrogens cross cell membrane → bind <strong>nuclear ER (Estrogen Receptor)</strong> → forms <strong>homodimer</strong> → binds steroid response elements (SREs) on DNA → ↑ transcription of target genes. Also induces DNA synthesis (mitogenic).</p>
+      <p><strong>Progesterone action:</strong> Binds <strong>nuclear PR (Progesterone Receptor)</strong> → dimer → SRE binding. Must be "conditioned" by estrogen first (estrogen induces PR expression).</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: TWO-CELL TWO-GONADOTROPIN MODEL -->
+<div class="slide" id="s9">
+  <div class="slide-title">THE TWO-CELL, TWO-GONADOTROPIN MODEL</div>
+  <div class="slide-subtitle">Why Estrogen Synthesis Requires Collaboration Between Two Cell Types</div>
+
+  <div class="card">
+    <div class="card-title">🔬 THE FUNDAMENTAL PROBLEM</div>
+    <p>Neither theca cells nor granulosa cells can synthesize estradiol alone. Each lacks a critical enzyme:</p>
+    <table>
+      <thead>
+        <tr><th>Cell Type</th><th>Has</th><th>Lacks</th><th>Receptors</th><th>Blood Supply</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Theca cell</strong></td>
+          <td>P-450scc, 3β-HSD, <strong>17α-hydroxylase/17,20-desmolase</strong></td>
+          <td><span style="color:var(--red)"><strong>Aromatase</strong></span></td>
+          <td>LH only</td>
+          <td>Near capillaries → takes up LDL cholesterol</td>
+        </tr>
+        <tr>
+          <td><strong>Granulosa cell</strong></td>
+          <td>P-450scc, 3β-HSD, <strong>Aromatase</strong></td>
+          <td><span style="color:var(--red)"><strong>17α-hydroxylase/17,20-desmolase</strong></span></td>
+          <td>FSH + LH (acquires LH receptors later)</td>
+          <td>Far from vessels → surrounded by LDL-poor follicular fluid</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">⚙️ THE MECHANISM: Step-by-Step</div>
+    <div class="mechanism-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>LH</strong> binds theca cell LHCGR (Gs-cAMP-PKA) → ↑ LDL receptor expression → ↑ cholesterol uptake → ↑ P-450scc activity</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">2</div>
+      <div class="step-content">Theca cell synthesizes <strong>androstenedione</strong> (and some testosterone) via 17α-hydroxylase/17,20-desmolase</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">3</div>
+      <div class="step-content">Androstenedione <strong>freely diffuses</strong> across basement membrane to granulosa cells (lipophilic, no transporter needed)</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>FSH</strong> binds granulosa cell FSHR (Gs-cAMP-PKA) → ↑ <strong>aromatase</strong> gene transcription AND ↑ 17β-HSD</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">5</div>
+      <div class="step-content">Aromatase converts androstenedione → <strong>estrone</strong> → 17β-HSD converts estrone → <strong>estradiol</strong></div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">6</div>
+      <div class="step-content">Alternatively: 17β-HSD first converts androstenedione → <strong>testosterone</strong> → aromatase converts testosterone → <strong>estradiol</strong></div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">7</div>
+      <div class="step-content">Estradiol diffuses into blood → negative/positive feedback on HPO axis + endometrial proliferation</div>
+    </div>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">🔄 LUTEAL PHASE MODIFICATION</div>
+    <p>After ovulation, the follicle transforms into the <strong>corpus luteum</strong>. Vascularization changes everything:</p>
+    <ul>
+      <li><strong>Theca-lutein cells</strong> (small luteal cells): Peripheral, retain LH receptors, produce <strong>androgens</strong> and <strong>17α-hydroxyprogesterone</strong></li>
+      <li><strong>Granulosa-lutein cells</strong> (large luteal cells): Central, now vascularized, can take up LDL cholesterol, produce <strong>progesterone</strong> as major product</li>
+    </ul>
+    <p><span class="highlight hy">HIGH-YIELD</span> In the luteal phase, <strong>progesterone becomes the dominant steroid</strong>. However, estradiol synthesis still requires the two-cell collaboration: theca-lutein cells make androstenedione → granulosa-lutein cells aromatize it. But now granulosa-lutein cells can ALSO make progesterone directly from cholesterol (due to new vascular access to LDL).</p>
+    <p><span class="highlight ct">COMMON TRAP</span> Granulosa-lutein cells <strong>still lack 17α-hydroxylase/17,20-desmolase</strong>. They cannot make 17α-hydroxyprogesterone or androstenedione directly. These must come from theca-lutein cells.</p>
+  </div>
+
+  <div class="important-callout">
+    <strong>💡 EXPERT INSIGHT:</strong> The two-cell model is a beautiful example of <strong>metabolic compartmentalization</strong>. The ovary uses spatial separation of enzymes to regulate estrogen production precisely. High local androgen concentrations (e.g., in atretic follicles where aromatase is low) cannot be converted to estrogen and instead are 5α-reduced to DHT, which inhibits aromatase and LH receptor formation — a <strong>self-amplifying atresia signal</strong>.
+  </div>
+</div>
+
+<!-- SLIDE 10: MENSTRUAL CYCLE OVERVIEW -->
+<div class="slide" id="s10">
+  <div class="slide-title">THE MENSTRUAL CYCLE: INTEGRATED OVERVIEW</div>
+  <div class="slide-subtitle">Three Parallel Cycles Phase-Locked to Each Other</div>
+
+  <div class="card">
+    <div class="card-title">📅 THE THREE CYCLES</div>
+    <div class="cycle-diagram">
+      <div class="cycle-phase">
+        <div class="phase-name">FOLLICULAR PHASE</div>
+        <div class="phase-days">Days 0-14 (variable)</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">FSH recruits follicles<br>Estradiol rises<br>Endometrium proliferates</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-phase pink-phase">
+        <div class="phase-name">OVULATION</div>
+        <div class="phase-days">Day 14 (±2)</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">LH surge triggers<br>Follicle rupture<br>Oocyte release</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-phase">
+        <div class="phase-name">LUTEAL PHASE</div>
+        <div class="phase-days">Days 14-28 (fixed ~14 days)</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">Corpus luteum forms<br>Progesterone dominates<br>Endometrium secretory</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-phase pink-phase">
+        <div class="phase-name">MENSES</div>
+        <div class="phase-days">Days 0-4 (if no pregnancy)</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">Corpus luteum dies<br>Steroids fall<br>Endometrium sheds</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">📊 HORMONAL PROFILE ACROSS THE CYCLE</div>
+    <table>
+      <thead>
+        <tr><th>Hormone</th><th>Early Follicular</th><th>Late Follicular</th><th>Midcycle Surge</th><th>Early Luteal</th><th>Mid-Luteal</th><th>Late Luteal</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>GnRH</strong></td>
+          <td>Hourly pulses, small</td>
+          <td>Hourly pulses, larger</td>
+          <td>MASSIVE SURGE (preoptic)</td>
+          <td>↓ Frequency</td>
+          <td>Every 3-4h (progesterone effect)</td>
+          <td>Declining</td>
+        </tr>
+        <tr>
+          <td><strong>LH</strong></td>
+          <td>Low, small pulses</td>
+          <td>Rising, larger pulses</td>
+          <td><span style="color:var(--pink-primary)"><strong>3x peak, ~12h to peak, 48h duration</strong></span></td>
+          <td>Rapid fall</td>
+          <td>Low, slow pulses</td>
+          <td>Further decline</td>
+        </tr>
+        <tr>
+          <td><strong>FSH</strong></td>
+          <td>Moderate (recruiting)</td>
+          <td>Declining (inhibin↑)</td>
+          <td>Smaller surge (activin↑)</td>
+          <td>Low</td>
+          <td>Low</td>
+          <td>Rising (inhibin↓)</td>
+        </tr>
+        <tr>
+          <td><strong>Estradiol</strong></td>
+          <td>Low, rising</td>
+          <td><span style="color:var(--pink-primary)"><strong>Rapid acceleration</strong></span></td>
+          <td>Peak just before LH surge</td>
+          <td>Dip then rise</td>
+          <td>Secondary peak (corpus luteum)</td>
+          <td>Decline</td>
+        </tr>
+        <tr>
+          <td><strong>Progesterone</strong></td>
+          <td>Very low</td>
+          <td>Minimal rise</td>
+          <td>Small preovulatory rise</td>
+          <td>Rising sharply</td>
+          <td><span style="color:var(--green)"><strong>Peak (~7 days post-ovulation)</strong></span></td>
+          <td>Rapid decline</td>
+        </tr>
+        <tr>
+          <td><strong>Inhibin</strong></td>
+          <td>Low</td>
+          <td>Rising (from growing follicles)</td>
+          <td>Peak</td>
+          <td>Dip</td>
+          <td>Rise (corpus luteum)</td>
+          <td>Decline</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="highlight hy">HIGH-YIELD</span> The <strong>follicular phase is VARIABLE</strong> in length (can be 7-21 days) because it depends on follicular recruitment speed. The <strong>luteal phase is FIXED</strong> at ~14 days because the corpus luteum has a predetermined lifespan (~11 days of function + 2-3 days of regression) unless rescued by hCG.</p>
+  </div>
+</div>
+
+<!-- SLIDE 11: FOLLICULAR PHASE -->
+<div class="slide" id="s11">
+  <div class="slide-title">FOLLICULAR PHASE: FOLLICULOGENESIS & DOMINANCE</div>
+  <div class="slide-subtitle">From Cohort Recruitment to Single Dominant Follicle</div>
+
+  <div class="card">
+    <div class="card-title">🥚 FOLLICULAR DEVELOPMENT: PREREQUISITES</div>
+    <p>Three lines of evidence prove gonadotropins and estrogens are ESSENTIAL for follicular growth:</p>
+    <table>
+      <thead>
+        <tr><th>Evidence</th><th>Condition</th><th>Follicular Stage Blocked</th><th>Conclusion</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hypophysectomy</td>
+          <td>No pituitary → no gonadotropins</td>
+          <td>Depletion of primordial follicles</td>
+          <td>Gonadotropins required for early growth</td>
+        </tr>
+        <tr>
+          <td>Resistant ovary syndrome</td>
+          <td>Normal FSH/LH but NO ovarian receptors</td>
+          <td>Primordial stage (no progression)</td>
+          <td>Gonadotropin ACTION (not just presence) required</td>
+        </tr>
+        <tr>
+          <td>17α-hydroxylase deficiency</td>
+          <td>Normal/high LH but LOW estrogen</td>
+          <td>Primordial stage</td>
+          <td>Estrogens (not just gonadotropins) required for progression</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">⚙️ HORMONAL REQUIREMENTS BY FOLLICLE STAGE</div>
+    <div class="mechanism-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Primordial → Primary:</strong> Requires <strong>FSH</strong> + <strong>estradiol</strong>. FSH detected as early as 5 months gestation. Estrogen induces granulosa cell proliferation.</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Primary → Secondary:</strong> Theca cells acquire <strong>LH receptors</strong> and steroidogenic capacity. Granulosa cells acquire <strong>FSH, androgen, and estrogen receptors</strong>.</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>Secondary → Tertiary (antral):</strong> <strong>FSH + estradiol</strong> cause granulosa proliferation and antrum formation. FSH induces LH receptor expression on granulosa cells.</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>Tertiary → Graafian:</strong> <strong>FSH + LH + estradiol</strong> needed for maximum steroidogenesis. Premature LH exposure INHIBITS mitosis and steroidogenesis — timing is critical.</div>
+    </div>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">🏆 FOLLICULAR DOMINANCE: The Selection Mechanism</div>
+    <p><span class="highlight of">OLYMPiad FAVORITE</span> Why does only ONE follicle ovulate per cycle?</p>
+    <div class="flowchart">
+      <div class="flow-box">Cohort recruited<br>(~10-30 follicles)<br>Day -2 to 3</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Rising estradiol<br>from all follicles<br>→ ↓ FSH (negative feedback)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Less mature follicles<br>↓ aromatase<br>↓ FSH receptors</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Androgens accumulate<br>5α-reduced to DHT<br>→ Inhibit aromatase<br>→ Atresia</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box green">Dominant follicle<br>↑ FSH receptors<br>↑ aromatase<br>↑ vascularity<br>↑ estrogen<br>→ Survival</div>
+    </div>
+    <p><strong>Key mechanisms of dominance:</strong></p>
+    <ul>
+      <li><strong>Estrogen amplifies FSH effect:</strong> Estradiol ↑ FSH receptor number on granulosa cells → positive intra-follicular loop</li>
+      <li><strong>Inhibin production:</strong> Dominant follicle produces more inhibin → further suppresses FSH to competitors</li>
+      <li><strong>Vascular advantage:</strong> Dominant follicle has several-fold greater thecal vasculature → better FSH delivery</li>
+      <li><strong>Androgen trap:</strong> Subordinate follicles have low aromatase → androstenedione builds up → converted to DHT (5α-reductase) → DHT inhibits aromatase AND LH receptor formation → death spiral</li>
+    </ul>
+  </div>
+
+  <div class="important-callout">
+    <strong>💡 EXPERT INSIGHT:</strong> The dominant follicle is selected NOT because it receives more FSH, but because it becomes <strong>less dependent on FSH</strong> through autocrine/paracrine mechanisms. It "outcompetes" others by converting androgens to estrogens more efficiently, which then increases its own FSH sensitivity. This is a classic example of <strong>positive selection within a negative feedback framework</strong>.
+  </div>
+</div>
+
+<!-- SLIDE 12: OVULATION -->
+<div class="slide" id="s12">
+  <div class="slide-title">OVULATION: THE LH SURGE & FOLLICULAR RUPTURE</div>
+  <div class="slide-subtitle">A Masterclass in Positive Feedback and Tissue Remodeling</div>
+
+  <div class="card">
+    <div class="card-title">🎯 THE LH SURGE: TRIGGER & CHARACTERISTICS</div>
+    <div class="two-col">
+      <div>
+        <p><strong>Timing:</strong></p>
+        <ul>
+          <li>Initiated 24-36 hours after <strong>peak estradiol</strong></li>
+          <li>Peaks ~12 hours after onset</li>
+          <li>Lasts ~48 hours total</li>
+          <li>Ovulation occurs ~36 hours after surge onset, ~12 hours after peak</li>
+        </ul>
+        <p><strong>Magnitude:</strong></p>
+        <ul>
+          <li>Peak LH = ~3x baseline concentration</li>
+          <li>Superimposed on already elevated basal LH (puberty effect)</li>
+          <li>Smaller FSH surge accompanies (activin-mediated)</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Termination mechanisms:</strong></p>
+        <ul>
+          <li>Rising progesterone → negative feedback</li>
+          <li>Loss of estradiol positive feedback (estrogen levels fall after follicle rupture)</li>
+          <li>Gonadotropin store depletion in anterior pituitary</li>
+        </ul>
+        <p><span class="highlight hy">HIGH-YIELD</span> The LH surge is the ONLY physiological example of <strong>positive feedback by a hormone on its own releasing factor</strong> in endocrinology. This makes the menstrual cycle unique.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">⚙️ OOCYTE MATURATION AT OVULATION</div>
+    <p>The primary oocyte has been arrested in <strong>prophase I (dictyotene stage)</strong> since fetal life (~20 weeks gestation). The LH surge triggers resumption of meiosis:</p>
+    <div class="flowchart">
+      <div class="flow-box">Primary Oocyte<br>4N DNA<br>Arrested Prophase I<br>(since fetal life)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">LH Surge<br>→ Meiosis I<br>resumes</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">First Meiotic<br>Division<br>Completed<br>(hours before ovulation)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Secondary Oocyte<br>2N DNA<br>+ First Polar Body<br>(degenerates)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Second Meiosis<br>Begins → Arrests<br>at METAPHASE II</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box green">Ovulated Ovum<br>Metaphase II<br>Arrest<br>Fertilization triggers<br>completion</div>
+    </div>
+    <p><span class="highlight ct">COMMON TRAP</span> The ovulated ovum is a <strong>secondary oocyte</strong> (2N DNA, haploid number of duplicated chromosomes), NOT a mature ovum. It only completes meiosis II if fertilized. The first polar body is nonfunctional and degenerates.</p>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">🔨 FOLLICULAR RUPTURE: Biomechanics & Enzymatic Digestion</div>
+    <p>The LH surge initiates a cascade of structural changes:</p>
+    <div class="mechanism-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Cumulus expansion:</strong> LH and FSH stimulate hyaluronidase synthesis → cumulus oophorus expands → oocyte-cumulus complex breaks free and floats in antrum</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Wall weakening:</strong> LH + progesterone enhance <strong>proteolytic enzymes</strong> (collagenase, plasminogen activator) → digest connective tissue in follicular wall</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>Prostaglandin role:</strong> PGE and PGF series trigger lysosomal enzyme release → further wall digestion + smooth muscle contraction in theca</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>Stigma formation:</strong> A spot on follicle surface balloons out as a vesicle → ruptures → oocyte expelled with corona radiata and cumulus cells</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">5</div>
+      <div class="step-content"><strong>Intrafollicular pressure:</strong> Increases (fluid accumulation) but is NOT the primary driver — enzymatic weakening is essential</div>
+    </div>
+    <p><strong>Oocyte pickup:</strong> Fimbriae sweep over ovary → ciliary movement + tubal contractions transport oocyte to ampulla (fertilization site) within minutes to hours.</p>
+  </div>
+</div>
+
+<!-- SLIDE 13: LUTEAL PHASE -->
+<div class="slide" id="s13">
+  <div class="slide-title">LUTEAL PHASE: CORPUS LUTEUM FORMATION & REGRESSION</div>
+  <div class="slide-subtitle">From Estrogen Dominance to Progesterone Dominance</div>
+
+  <div class="card">
+    <div class="card-title">🔄 LUTEINIZATION: The Follicle Transforms</div>
+    <p>After ovulation, the follicular cells undergo <strong>luteinization</strong> — a structural and functional metamorphosis:</p>
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Theca → Theca-Lutein</th><th>Granulosa → Granulosa-Lutein</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cell size</strong></td>
+          <td>Small luteal cells</td>
+          <td>Large luteal cells (enlarged)</td>
+        </tr>
+        <tr>
+          <td><strong>Location</strong></td>
+          <td>Periphery of corpus luteum</td>
+          <td>Central, folded into cavity</td>
+        </tr>
+        <tr>
+          <td><strong>Vascularity</strong></td>
+          <td>Already vascular</td>
+          <td>Now vascularized (new vessels invade)</td>
+        </tr>
+        <tr>
+          <td><strong>Major product</strong></td>
+          <td>Androgens, 17α-OH progesterone</td>
+          <td><strong>Progesterone</strong> (major), some estradiol</td>
+        </tr>
+        <tr>
+          <td><strong>Receptors</strong></td>
+          <td>LH receptors</td>
+          <td>LH receptors (acquired preovulation)</td>
+        </tr>
+        <tr>
+          <td><strong>LDL access</strong></td>
+          <td>Direct from blood</td>
+          <td>Now direct (was LDL-poor in follicle)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">📉 LUTEOLYSIS: Why the Corpus Luteum Dies</div>
+    <p>Unless rescued by <strong>hCG</strong> (human chorionic gonadotropin) from the blastocyst, the corpus luteum regresses after ~11 days of function:</p>
+    <div class="two-col">
+      <div>
+        <div class="card-title" style="color:var(--blue-primary);font-size:1rem;">🔬 Withdrawal Hypothesis</div>
+        <ul>
+          <li>LH support gradually declines (negative feedback from rising steroids)</li>
+          <li>↓ LH → ↓ steroidogenic enzymes → ↓ progesterone</li>
+          <li>Without LH, luteal cells cannot maintain function</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card-title" style="color:var(--pink-primary);font-size:1rem;">🧪 Local Factor Hypothesis</div>
+        <ul>
+          <li><strong>Prostaglandin F2α</strong> produced locally inhibits luteal function</li>
+          <li>May act as a luteolytic signal</li>
+          <li>Other local factors (cytokines, endothelin) may contribute</li>
+        </ul>
+      </div>
+    </div>
+    <p><span class="highlight hy">HIGH-YIELD</span> The luteal phase is <strong>fixed at ~14 days</strong> because the corpus luteum has an intrinsic lifespan. This is why the menstrual cycle length variability comes from the <strong>follicular phase</strong>, not the luteal phase.</p>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">🤰 RESCUE BY hCG: The Pregnancy Signal</div>
+    <p>If fertilization occurs, the syncytiotrophoblast produces <strong>hCG</strong>:</p>
+    <ul>
+      <li>hCG binds to <strong>LH receptors</strong> on luteal cells (hCG and LH share the same receptor)</li>
+      <li>Maintains steroidogenic function of corpus luteum</li>
+      <li>Continues progesterone production until ~week 9 of gestation</li>
+      <li>After week 9, <strong>placental progesterone</strong> takes over (luteal-placental shift)</li>
+    </ul>
+    <p><span class="highlight im">IMPORTANT MECHANISM</span> hCG is structurally similar to LH (same α subunit, similar β subunit) but has a longer half-life. This is why pregnancy tests detect hCG, not LH.</p>
+  </div>
+</div>
+
+<!-- SLIDE 14: ENDOMETRIAL CYCLE -->
+<div class="slide" id="s14">
+  <div class="slide-title">THE ENDOMETRIAL CYCLE</div>
+  <div class="slide-subtitle">Estrogen Builds, Progesterone Transforms, Withdrawal Destroys</div>
+
+  <div class="card">
+    <div class="card-title">🌸 THREE PHASES OF ENDOMETRIAL TRANSFORMATION</div>
+    <div class="cycle-diagram">
+      <div class="cycle-phase pink-phase">
+        <div class="phase-name">MENSTRUAL</div>
+        <div class="phase-days">Days 0-4</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">Steroid withdrawal<br>Functional layer shed<br>~30 mL blood loss</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-phase">
+        <div class="phase-name">PROLIFERATIVE</div>
+        <div class="phase-days">Days 5-14</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">Estrogen-driven<br>Epithelial + stromal<br>mitosis<br>Thickness: 0.5→5 mm</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-phase">
+        <div class="phase-name">SECRETORY</div>
+        <div class="phase-days">Days 15-28</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">Progesterone-driven<br>Glandular secretion<br>Predecidualization<br>Vascularization</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">📈 PROLIFERATIVE PHASE: Estrogen Action</div>
+      <ul>
+        <li><strong>Trigger:</strong> Rising estradiol from developing follicles</li>
+        <li><strong>Mechanism:</strong> Estradiol → nuclear ER → gene transcription → ↑ DNA synthesis → mitosis</li>
+        <li><strong>Key effects:</strong>
+          <ul>
+            <li>Stromal cell proliferation from zona basalis</li>
+            <li>Glandular epithelium regenerates from remnants</li>
+            <li>Endometrium thickens from ~0.5 mm to ~5 mm</li>
+            <li>↑ ER expression (autoregulation)</li>
+            <li>↑ PR expression (priming for progesterone)</li>
+          </ul>
+        </li>
+        <li><strong>Growth factors:</strong> Estrogen induces IGFs, TGFs, EGF — autocrine/paracrine mediators of growth</li>
+        <li><strong>Proto-oncogenes:</strong> c-myc, c-fos activated — drive cell cycle progression</li>
+      </ul>
+    </div>
+    <div class="card card-pink">
+      <div class="card-title">🍼 SECRETORY PHASE: Progesterone Action</div>
+      <ul>
+        <li><strong>Trigger:</strong> Rising progesterone from corpus luteum</li>
+        <li><strong>Prerequisite:</strong> Endometrium must be <strong>estrogen-primed</strong> (PR induced by estrogen)</li>
+        <li><strong>Antiestrogenic effects:</strong>
+          <ul>
+            <li>↑ 17β-HSD → converts estradiol → estrone (less potent)</li>
+            <li>↑ Sulfotransferase → conjugates estrogens to sulfate (inactive)</li>
+            <li>↓ ER expression</li>
+            <li>Inhibits epithelial proliferation but stimulates stromal proliferation</li>
+          </ul>
+        </li>
+        <li><strong>Secretory transformation:</strong>
+          <ul>
+            <li>Glands become tortuous and engorged with secretions</li>
+            <li>↑ ER and mitochondria in epithelial cells</li>
+            <li>Nucleolar channel system develops (progesterone-stimulated)</li>
+            <li>↑ glycogen content (energy for blastocyst)</li>
+            <li>Maximal secretory activity at day 20-21</li>
+          </ul>
+        </li>
+        <li><strong>Predecidualization:</strong> Stromal cells around spiral arteries enlarge, develop eosinophilic cytoplasm, form zona compacta</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">🩸 MENSTRUATION: The Ischemic-Necrotic Cascade</div>
+    <p>Triggered by <strong>sudden withdrawal</strong> of estrogen and progesterone (corpus luteum demise):</p>
+    <div class="mechanism-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Spiral artery spasm:</strong> Rhythmic vasoconstriction and relaxation → ischemia-reperfusion injury</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Lysosomal enzyme release:</strong> Hydrolases digest tissue; phospholipases liberate arachidonic acid → ↑ prostaglandins</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>Vascular necrosis:</strong> Endothelial cell death → microhemorrhage</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>Tissue shedding:</strong> Functional layer (zona compacta + zona spongiosa) sloughs; zona basalis remains for regeneration</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">5</div>
+      <div class="step-content"><strong>Non-clotting blood:</strong> Fibrinolysins from necrotic tissue prevent clotting → menstrual blood remains fluid</div>
+    </div>
+    <p><span class="highlight hy">HIGH-YIELD</span> Average blood loss: <strong>~30 mL</strong>. Loss >80 mL is considered menorrhagia. Prostaglandins (PGF2α) are the main mediators of vasoconstriction and pain (dysmenorrhea).</p>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">🪟 IMPLANTATION WINDOW</div>
+    <p>The endometrium is receptive to blastocyst implantation for only <strong>3-4 days</strong>:</p>
+    <ul>
+      <li><strong>Window:</strong> Day 16-19 of cycle (days 2-5 post-ovulation)</li>
+      <li><strong>Markers of receptivity:</strong> Pinopods (microvilli protrusions), ↑ laminin/fibronectin, ↑ glycoprotein secretion</li>
+      <li><strong>Embryo transfer data:</strong> Embryos transferred on days 20-24 yield NO pregnancies — window is closed</li>
+    </ul>
+    <p><span class="highlight ct">COMMON TRAP</span> The implantation window is NOT the entire luteal phase. It is a narrow, progesterone-dependent window that requires precise synchronization between embryo development and endometrial maturation.</p>
+  </div>
+</div>
+
+<!-- SLIDE 15: ORAL CONTRACEPTIVES -->
+<div class="slide" id="s15">
+  <div class="slide-title">ORAL CONTRACEPTIVES: PHARMACOLOGIC HPO AXIS SUPPRESSION</div>
+  <div class="slide-subtitle">Exploiting Feedback Mechanisms for Fertility Control</div>
+
+  <div class="card">
+    <div class="card-title">💊 MECHANISMS OF CONTRACEPTION</div>
+    <p>Combined oral contraceptives (COCs) contain <strong>ethinyl estradiol</strong> (or mestranol) + a <strong>19-nor progestin</strong> (norethindrone, norgestrel, etc.):</p>
+    <div class="mechanism-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Hypothalamic suppression:</strong> Exogenous steroids → negative feedback on GnRH neurons → ↓ GnRH pulse frequency/amplitude</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Pituitary suppression:</strong> ↓ FSH → insufficient folliculogenesis; ↓ LH → NO LH surge → <strong>anovulation</strong></div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>Cervical mucus:</strong> Progestin effect → thick, viscid, scant mucus → <strong>sperm penetration blocked</strong></div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>Tubal/uterine motility:</strong> ↓ motility of uterus and oviducts → impaired gamete transport</div>
+    </div>
+    <div class="mechanism-step">
+      <div class="step-num">5</div>
+      <div class="step-content"><strong>Endometrial changes:</strong> ↓ glandular glycogen → hostile environment for blastocyst implantation</div>
+    </div>
+    <p><span class="highlight hy">HIGH-YIELD</span> COCs do NOT completely abolish gonadotropin secretion or ovarian function at standard doses. They suppress them enough to prevent ovulation. This is why "breakthrough ovulation" can occur with missed pills.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card card-green">
+      <div class="card-title">✅ BENEFITS OF OCPs</div>
+      <ul>
+        <li>↓ Ovarian cancer risk (protective effect increases with duration)</li>
+        <li>↓ Endometrial cancer risk (progestin opposes estrogen)</li>
+        <li>↓ Ovarian retention cysts</li>
+        <li>↓ Ectopic pregnancy</li>
+        <li>↓ Pelvic inflammatory disease</li>
+        <li>↓ Benign breast disease</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(255,82,82,0.3);">
+      <div class="card-title" style="color:var(--red);">⚠️ RISKS OF OCPs</div>
+      <ul>
+        <li>↑ Benign liver tumors</li>
+        <li>↑ Cholelithiasis (gallstones)</li>
+        <li>↑ Hypertension</li>
+        <li>↑ Thromboembolic events (DVT, PE, stroke, MI) — especially with estrogen</li>
+        <li>Side effects: nausea, edema, headache, weight gain, mastodynia</li>
+        <li>Androgenic progestins: acne, hirsutism</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">📋 OCP FORMULATIONS</div>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Composition</th><th>Regimen</th><th>Key Feature</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Monophasic</strong></td>
+          <td>Fixed estrogen + progestin dose</td>
+          <td>21 active + 7 placebo</td>
+          <td>Simple, predictable</td>
+        </tr>
+        <tr>
+          <td><strong>Multiphasic</strong></td>
+          <td>Varying progestin (low estrogen constant)</td>
+          <td>21 active (2-3 doses) + 7 placebo</td>
+          <td>Lower total steroid dose; less breakthrough bleeding</td>
+        </tr>
+        <tr>
+          <td><strong>Progestin-only</strong> ("minipill")</td>
+          <td>No estrogen</td>
+          <td>Daily continuous (no placebo week)</td>
+          <td>For nursing mothers; estrogen contraindications; higher failure rate</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="highlight ct">COMMON TRAP</span> Progestin-only pills have a <strong>substantially higher failure rate</strong> because they do NOT reliably suppress ovulation. Their contraceptive effect relies mainly on cervical mucus changes and impaired implantation.</p>
+  </div>
+</div>
+
+<!-- SLIDE 16: MENOPAUSE -->
+<div class="slide" id="s16">
+  <div class="slide-title">MENOPAUSE: THE END OF CYCLIC FUNCTION</div>
+  <div class="slide-subtitle">Ovarian Failure, Feedback Collapse, and Systemic Consequences</div>
+
+  <div class="card">
+    <div class="card-title">🥚 THE OVARIAN RESERVE DEPLETION</div>
+    <div class="flowchart">
+      <div class="flow-box">20 wk gestation<br><strong>6-7 million</strong><br>germ cells</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Birth<br><strong>1-2 million</strong></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Puberty (~12.5 yr)<br><strong>~400,000</strong></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Menopause (~51.5 yr)<br><strong>~400 ovulated</strong><br>Rest lost to atresia</div>
+    </div>
+    <p><span class="highlight hy">HIGH-YIELD</span> Only <strong>~400 follicles</strong> ovulate in a woman's lifetime. The remaining 399,600+ are lost to <strong>atresia</strong> — a continuous process from fetal life through menopause. At menopause, only occasional secondary follicles and a few primordial follicles remain in a prominent stroma.</p>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">📉 HORMONAL CHANGES IN MENOPAUSE</div>
+    <div class="two-col">
+      <div>
+        <div class="card-title" style="color:var(--red);font-size:1rem;">⬇️ FALLING HORMONES</div>
+        <ul>
+          <li><strong>Estradiol:</strong> &lt;30 pg/mL (lower than nadir of menstrual cycle)</li>
+          <li><strong>Progesterone:</strong> &lt;1 ng/mL</li>
+          <li><strong>Androstenedione:</strong> Minimal ovarian production (adrenal remains normal)</li>
+          <li><strong>Inhibin:</strong> Very low</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card-title" style="color:var(--green);font-size:1rem;">⬆️ RISING HORMONES</div>
+        <ul>
+          <li><strong>FSH:</strong> May exceed midcycle surge levels — futile attempt to stimulate failing ovaries</li>
+          <li><strong>LH:</strong> Also elevated but less dramatically than FSH</li>
+          <li><strong>GnRH:</strong> Still pulsatile (hypothalamus is intact)</li>
+        </ul>
+      </div>
+    </div>
+    <p><span class="highlight hy">HIGH-YIELD</span> The <strong>↑ FSH is the earliest marker</strong> of ovarian decline, detectable as early as age 35 (perimenopause). This reflects ↓ negative feedback from inhibin and estradiol. FSH rises BEFORE menopause; estradiol falls AFTER menopause.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🩺 MENOPAUSAL SYNDROME & SYSTEMIC EFFECTS</div>
+    <table>
+      <thead>
+        <tr><th>System</th><th>Symptom/Change</th><th>Mechanism</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Vasomotor</strong></td>
+          <td>Hot flashes, night sweats</td>
+          <td>Estrogen withdrawal → thermoregulatory dysfunction in hypothalamus</td>
+        </tr>
+        <tr>
+          <td><strong>Genitourinary</strong></td>
+          <td>Vaginal atrophy, dryness, pH changes, ↓ secretions</td>
+          <td>Loss of estrogen-dependent epithelial proliferation and glycogen production</td>
+        </tr>
+        <tr>
+          <td><strong>Cardiovascular</strong></td>
+          <td>↑ Cardiovascular disease risk</td>
+          <td>Loss of estrogen's vasoprotective effects (↑ HDL, ↓ LDL, endothelial function)</td>
+        </tr>
+        <tr>
+          <td><strong>Bone</strong></td>
+          <td>Osteoporosis</td>
+          <td>Estrogen normally inhibits osteoclasts; loss → ↑ bone resorption</td>
+        </tr>
+        <tr>
+          <td><strong>CNS</strong></td>
+          <td>Mood changes, memory loss, sleep disturbance, ↑ Alzheimer risk</td>
+          <td>Estrogen has neuroprotective effects; ↓ cerebral blood flow</td>
+        </tr>
+        <tr>
+          <td><strong>Metabolic</strong></td>
+          <td>Central obesity, insulin resistance</td>
+          <td>Shift in fat distribution; loss of estrogen's metabolic regulation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">💊 HORMONE REPLACEMENT THERAPY (HRT)</div>
+    <p><strong>Indications:</strong> Alleviate menopausal symptoms; prevent osteoporosis; reduce cardiovascular risk</p>
+    <p><strong>Composition:</strong> Estrogen + Progestin (unless hysterectomy — then estrogen alone)</p>
+    <p><strong>Why progestin?</strong> Unopposed estrogen → endometrial hyperplasia/cancer risk. Progestin induces secretory transformation and opposes proliferation.</p>
+    <p><strong>SERMs (Selective Estrogen Receptor Modulators):</strong></p>
+    <ul>
+      <li>Tamoxifen, raloxifene — act as <strong>agonists</strong> in bone and cardiovascular tissue, <strong>antagonists</strong> in breast/uterus</li>
+      <li>Mechanism: tissue-specific coactivator/corepressor recruitment</li>
+      <li>"Ideal SERM" would have all estrogen benefits without reproductive tissue risks</li>
+    </ul>
+    <p><span class="highlight ct">COMMON TRAP</span> HRT compliance is often poor due to side effects (return of menstruation, breast tenderness) and cancer concerns. The timing hypothesis suggests HRT is beneficial if started early in menopause but risky if started late.</p>
+  </div>
+</div>
+
+<!-- SLIDE 17: FEMALE SEX RESPONSE -->
+<div class="slide" id="s17">
+  <div class="slide-title">THE FEMALE SEX RESPONSE</div>
+  <div class="slide-subtitle">Autonomic Integration, Sperm Transport, and Cycle-Linked Libido</div>
+
+  <div class="card">
+    <div class="card-title">🧠 LIBIDO & CYCLE PHASE</div>
+    <p>Female sexual desire is <strong>modulated by circulating sex steroids</strong>:</p>
+    <ul>
+      <li>Libido <strong>increases around ovulation</strong> — peak androgen secretion from theca cells (stimulated by LH surge)</li>
+      <li>Androgens (from ovary + adrenal) are the primary libido hormones in women</li>
+      <li>Psychological and social factors also play major roles</li>
+    </ul>
+  </div>
+
+  <div class="card card-pink">
+    <div class="card-title">💗 MASTERS & JOHNSON FOUR PHASES</div>
+    <table>
+      <thead>
+        <tr><th>Phase</th><th>Duration</th><th>Key Events</th><th>ANS Division</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Excitement</strong></td>
+          <td>Variable</td>
+          <td>Vasocongestion, breast engorgement, nipple erection, clitoral/labial engorgement, vaginal lubrication (transudation), uterine tenting</td>
+          <td><span style="color:var(--green)"><strong>Parasympathetic</strong></span> (sacral plexus S2-S4)</td>
+        </tr>
+        <tr>
+          <td><strong>Plateau</strong></td>
+          <td>Variable</td>
+          <td>Maximal vasocongestion, "sex flush," lower third vaginal narrowing (orgasmic platform), upper two-thirds dilation, clitoral retraction</td>
+          <td>Both divisions active</td>
+        </tr>
+        <tr>
+          <td><strong>Orgasm</strong></td>
+          <td>3-15 sec</td>
+          <td>Rhythmic myotonic contractions (0.8 sec intervals), perivaginal/perineal muscle contractions, uterine contractions, anal sphincter contraction</td>
+          <td><span style="color:var(--red)"><strong>Sympathetic</strong></span></td>
+        </tr>
+        <tr>
+          <td><strong>Resolution</strong></td>
+          <td>10-15 min</td>
+          <td>Return to baseline, NO refractory period (unlike men), feeling of well-being</td>
+          <td>General relaxation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <div class="card-title">🦠 SPERM TRANSPORT MECHANISMS</div>
+    <p>Of 150-600 million sperm deposited, only <strong>50-100 reach the ampulla</strong>:</p>
+    <ul>
+      <li><strong>Cervical mucus:</strong> Estrogen-dependent, watery at midcycle → sperm penetration facilitated</li>
+      <li><strong>Uterine/tubal contractions:</strong> Orgasm enhances transport via oxytocin release</li>
+      <li><strong>Ciliary beating:</strong> Fallopian tube cilia beat toward uterus, but sperm swim against current — chemotaxis to progesterone/ovum signals</li>
+      <li><strong>Capacitation:</strong> Sperm require time in female tract to become fertilization-competent</li>
+    </ul>
+    <p><span class="highlight hy">HIGH-YIELD</span> Sperm reach the ampulla within <strong>5 minutes</strong> of ejaculation — too fast for swimming alone. Uterine and tubal contractions are the primary rapid transport mechanism; sperm swimming is for the final approach.</p>
+  </div>
+</div>
+
+<!-- SLIDE 18: HIGH-YIELD REASONING -->
+<div class="slide" id="s18">
+  <div class="slide-title">HIGH-YIELD REASONING & EXPERT INSIGHTS</div>
+  <div class="slide-subtitle">Patterns, Traps, and Transferable Frameworks</div>
+
+  <div class="card">
+    <div class="card-title">🧠 FRAMEWORK: The "WHY" Behind Every Hormonal Change</div>
+    <p>When analyzing any menstrual cycle problem, ask these <strong>5 causal questions</strong>:</p>
+    <ol>
+      <li><strong>What is the trigger?</strong> (e.g., estradiol threshold, progesterone withdrawal, GnRH pulse change)</li>
+      <li><strong>What is the receptor mechanism?</strong> (Gs-cAMP? Gq-PLC? Nuclear receptor?)</li>
+      <li><strong>What is the feedback direction?</strong> (Negative or positive? Which neuronal population?)</li>
+      <li><strong>What is the trade-off?</strong> (e.g., estrogen builds endometrium but risks hyperplasia; progesterone protects but inhibits folliculogenesis)</li>
+      <li><strong>What fails in disease?</strong> (Which step is blocked? What compensates? What are the consequences?)</li>
+    </ol>
+  </div>
+
+  <div class="card card-purple">
+    <div class="card-title">🎯 OLYMPIAD FAVORITE CONCEPTS</div>
+    <table>
+      <thead>
+        <tr><th>Concept</th><th>Why It Is Tested</th><th>Common Variation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Two-cell, two-gonadotropin model</strong></td>
+          <td>Tests understanding of metabolic compartmentalization and enzyme geography</td>
+          <td>"Which cell lacks aromatase?" "Which enzyme is absent in granulosa cells?"</td>
+        </tr>
+        <tr>
+          <td><strong>Positive feedback paradox</strong></td>
+          <td>Only endocrine axis with positive feedback; tests concentration + duration + rate-of-rise</td>
+          <td>"Why doesn't chronic low-dose estrogen trigger LH surge?"</td>
+        </tr>
+        <tr>
+          <td><strong>GnRH pulse frequency effects</strong></td>
+          <td>Tests receptor regulation and differential gonadotropin synthesis</td>
+          <td>"Continuous vs. pulsatile GnRH — what happens to receptor number?"</td>
+        </tr>
+        <tr>
+          <td><strong>Follicular dominance mechanism</strong></td>
+          <td>Tests autocrine/paracrine reasoning within negative feedback</td>
+          <td>"Why do subordinate follicles become atretic?"</td>
+        </tr>
+        <tr>
+          <td><strong>Luteal phase rescue</strong></td>
+          <td>Tests structural homology (hCG/LH same receptor) and timing</td>
+          <td>"When does placental progesterone replace luteal progesterone?"</td>
+        </tr>
+        <tr>
+          <td><strong>Menopause feedback collapse</strong></td>
+          <td>Tests understanding of what happens when target organ fails</td>
+          <td>"Why does FSH rise more than LH in menopause?"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-color:rgba(255,82,82,0.3);">
+    <div class="card-title" style="color:var(--red);">⚠️ COMMON TRAPS & MISCONCEPTIONS</div>
+    <table>
+      <thead>
+        <tr><th>Trap</th><th>Wrong Thinking</th><th>Correct Understanding</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Puberty = hormones turning on</td>
+          <td>"Gonadotropins are low in childhood because steroids suppress them"</td>
+          <td>Supersensitivity to feedback, NOT high steroids. Gonadal dysgenesis patients prove this.</td>
+        </tr>
+        <tr>
+          <td>Estrogen always inhibits</td>
+          <td>"Estrogen is always negative feedback"</td>
+          <td>Estrogen is NEGATIVE at low-moderate levels, POSITIVE at high sustained levels with accelerating rise.</td>
+        </tr>
+        <tr>
+          <td>Progesterone always sedates</td>
+          <td>"Progesterone only has negative feedback"</td>
+          <td>Low progesterone in late follicular phase actually SYNERGIZES with estradiol for positive feedback on LH surge.</td>
+        </tr>
+        <tr>
+          <td>Ovulation = mature ovum</td>
+          <td>"The ovulated egg is a mature gamete"</td>
+          <td>It is a secondary oocyte arrested at metaphase II. Only completes meiosis if fertilized.</td>
+        </tr>
+        <tr>
+          <td>Menstrual blood clots</td>
+          <td>"Menstrual blood should clot like normal blood"</td>
+          <td>Fibrinolysins from necrotic endometrium prevent clotting. Clots suggest excessive bleeding.</td>
+        </tr>
+        <tr>
+          <td>OCPs = 100% anovulation</td>
+          <td>"OCPs completely stop all ovarian function"</td>
+          <td>They suppress but do not abolish. Breakthrough ovulation possible, especially with missed pills.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SLIDE 19: QUESTION-BASED LEARNING -->
+<div class="slide" id="s19">
+  <div class="slide-title">QUESTION-BASED LEARNING: REASONING CHECKPOINTS</div>
+  <div class="slide-subtitle">Build Understanding Through Progressive Reasoning</div>
+
+  <div class="reasoning-box">
+    <div class="title">🧩 LEVEL 1: MECHANISM UNDERSTANDING</div>
+
+    <div class="question">Q1: Why does the two-cell model require TWO gonadotropins? Why can't LH alone stimulate estrogen synthesis?</div>
+    <div class="answer">
+      <strong>Step-by-step reasoning:</strong><br>
+      1. Estrogen synthesis requires androgen precursor + aromatase<br>
+      2. Theca cells have 17α-hydroxylase/17,20-desmolase (make androgens) but NO aromatase<br>
+      3. Granulosa cells have aromatase but NO 17α-hydroxylase/17,20-desmolase (can't make androgens)<br>
+      4. LH receptors are on THECA cells; FSH receptors are on GRANULOSA cells<br>
+      5. Therefore: LH stimulates androgen production; FSH stimulates aromatase induction<br>
+      6. Without FSH, granulosa cells cannot convert theca-derived androgens to estrogens<br>
+      <strong>Conclusion:</strong> Two different cell types with different receptors require two different gonadotropins.
+    </div>
+
+    <div class="question">Q2: A patient has 17α-hydroxylase deficiency. Why do her follicles not develop beyond the primordial stage?</div>
+    <div class="answer">
+      <strong>Step-by-step reasoning:</strong><br>
+      1. 17α-hydroxylase/17,20-desmolase is required to convert pregnenolone/progesterone → androgens<br>
+      2. Without androgens, there are no substrates for aromatase → NO estrogen production<br>
+      3. Estrogen is required for granulosa cell proliferation and follicular progression beyond primordial stage<br>
+      4. Evidence: 17α-hydroxylase deficient patients have normal/high LH but blocked follicular development<br>
+      <strong>Conclusion:</strong> Estrogen (not just gonadotropins) is essential for early follicular growth.
+    </div>
+  </div>
+
+  <div class="reasoning-box">
+    <div class="title">🧩 LEVEL 2: PREDICTION & INTEGRATION</div>
+
+    <div class="question">Q3: Predict what happens to GnRH pulse frequency, LH pulse amplitude, and FSH levels in the late luteal phase. Explain the causal chain.</div>
+    <div class="answer">
+      <strong>Step-by-step reasoning:</strong><br>
+      1. Late luteal: corpus luteum produces high progesterone + estradiol + inhibin<br>
+      2. Progesterone stimulates hypothalamic opioidergic interneurons → ↓ GnRH pulse FREQUENCY (from hourly to every 3-4 hours)<br>
+      3. High estradiol + inhibin → negative feedback on gonadotrophs → ↓ LH and ↓ FSH synthesis<br>
+      4. However, progesterone does NOT suppress LH pulse AMPLITUDE (amplitude remains relatively high)<br>
+      5. Net effect: fewer but still substantial LH pulses; FSH begins to rise as inhibin falls<br>
+      <strong>Conclusion:</strong> GnRH frequency ↓, LH amplitude maintained but average ↓, FSH starts rising pre-menstrually.
+    </div>
+
+    <div class="question">Q4: A woman takes continuous GnRH analogue (not pulsatile). Predict the ovarian, endometrial, and feedback consequences.</div>
+    <div class="answer">
+      <strong>Step-by-step reasoning:</strong><br>
+      1. Continuous GnRH → sustained receptor occupancy → GnRHR internalization WITHOUT replenishment<br>
+      2. ↓ GnRHR on gonadotrophs → ↓ sensitivity to GnRH → ↓ LH and FSH secretion<br>
+      3. ↓ LH/FSH → ↓ theca androgen production + ↓ granulosa aromatase → ↓ estrogen AND ↓ progesterone<br>
+      4. Endometrium: loses hormonal support → atrophy/withdrawal bleeding if abrupt; involution if gradual<br>
+      5. Clinical: "medical menopause" — used for endometriosis, fibroids, precocious puberty<br>
+      <strong>Conclusion:</strong> Continuous GnRH = downregulation = hypogonadotropic hypogonadism = hypoestrogenism.
+    </div>
+  </div>
+
+  <div class="reasoning-box">
+    <div class="title">🧩 LEVEL 3: COMPLEX OLYMPIAD REASONING</div>
+
+    <div class="question">Q5: In PCOS, women have chronic anovulation with elevated estradiol that rises slowly but does NOT trigger an LH surge. Using feedback principles, explain why.</div>
+    <div class="answer">
+      <strong>Step-by-step reasoning:</strong><br>
+      1. Positive feedback requires THREE conditions: (a) estradiol > threshold, (b) sustained for ≥2 days, (c) ACCELERATING rate of rise<br>
+      2. In PCOS, multiple small follicles produce estradiol slowly and steadily — NO acceleration<br>
+      3. Chronic moderate estradiol maintains NEGATIVE feedback on GnRH neurons (especially arcuate opioidergic inhibition)<br>
+      4. Without the rate-of-rise signal, preoptic GnRH neurons do NOT switch to surge mode<br>
+      5. Gonadotrophs remain sensitive but never receive the massive GnRH bolus needed for LH surge<br>
+      6. Result: chronic anovulation, multiple immature follicles, androgen excess (unaromatized androgens from theca)<br>
+      <strong>Conclusion:</strong> The positive feedback "switch" is a dynamic detector of rate-of-change, not just absolute level.
+    </div>
+
+    <div class="question">Q6: A menopausal woman has FSH levels higher than her previous midcycle surge. Explain why the ovary does NOT respond, and why FSH keeps rising.</div>
+    <div class="answer">
+      <strong>Step-by-step reasoning:</strong><br>
+      1. Menopause: ovarian follicles depleted → no granulosa cells → no inhibin, no estrogen, no progesterone<br>
+      2. Without inhibin and estrogen, negative feedback on gonadotrophs is MINIMAL<br>
+      3. Hypothalamus continues pulsatile GnRH (intrinsic pulse generator is intact)<br>
+      4. Gonadotrophs respond to GnRH by producing FSH and LH, but there is no ovarian restraint<br>
+      5. FSH rises higher than midcycle surge because: (a) no inhibin to suppress β-FSH mRNA, (b) no estrogen to suppress α-subunit, (c) the axis is "unleashed"<br>
+      6. Ovary does not respond because: no follicles remain → no FSH receptors → no steroidogenic cells<br>
+      7. This is a <strong>futile cycle</strong>: high gonadotropins → no response → even less feedback → higher gonadotropins<br>
+      <strong>Conclusion:</strong> Target organ failure removes the "brake," causing feedback collapse and gonadotropin elevation.
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 20: OLYMPIAD SIMULATION -->
+<div class="slide" id="s20">
+  <div class="slide-title">OLYMPIAD SIMULATION QUESTIONS</div>
+  <div class="slide-subtitle">Test Your Integrated Reasoning</div>
+
+  <div class="reasoning-box">
+    <div class="title">🏆 SIMULATION 1: Multi-System Integration</div>
+    <div class="question">
+      A 28-year-old woman with normal BMI presents with oligomenorrhea and hirsutism. Laboratory studies show:<br>
+      • LH: 18 mU/mL (normal follicular: 5-15)<br>
+      • FSH: 6 mU/mL (normal follicular: 5-15)<br>
+      • Estradiol: 85 pg/mL (normal follicular: 50-150)<br>
+      • Testosterone: 85 ng/dL (normal: 15-50)<br>
+      • DHEAS: 210 μg/dL (normal: 50-200)<br>
+      • Prolactin: 12 ng/mL (normal: 5-25)<br>
+      • TSH: 2.1 mIU/L (normal: 0.5-4.5)<br><br>
+      <strong>Question:</strong> Explain the pathophysiology of the elevated LH:FSH ratio and the mechanism of hirsutism using the two-cell model and feedback principles. Predict what would happen to GnRH pulse frequency in this patient compared to a normal woman in the follicular phase.
+    </div>
+    <div class="answer">
+      <strong>Integrated Answer:</strong><br><br>
+      <strong>1. LH:FSH Ratio Analysis (Normal ~1:1, here ~3:1):</strong><br>
+      • In PCOS, chronic moderate estradiol (from multiple small follicles) fails to trigger positive feedback → no LH surge → no ovulation → no corpus luteum → no progesterone<br>
+      • Without progesterone's slowing effect on GnRH, pulse frequency remains faster than normal luteal phase<br>
+      • Faster GnRH pulses favor LH β-subunit synthesis over FSH → preferential LH production<br>
+      • Additionally, low inhibin (from immature follicles) removes FSH suppression → but the GnRH pulse effect dominates, creating LH > FSH<br>
+      • The elevated LH chronically stimulates theca cells → ↑ androgen production<br><br>
+
+      <strong>2. Hirsutism Mechanism (Two-Cell Model):</strong><br>
+      • Theca cells produce androstenedione and testosterone under chronic LH stimulation<br>
+      • Granulosa cells in immature follicles have LOW aromatase activity (insufficient FSH priming)<br>
+      • Unaromatized androgens accumulate → diffuse into blood → peripheral 5α-reductase converts testosterone → DHT in skin/hair follicles<br>
+      • DHEAS is mildly elevated (adrenal contribution, stimulated by ACTH independently)<br>
+      • The "androgen trap" in subordinate follicles (5α-reduction → DHT → inhibits aromatase) further reduces estrogen production<br><br>
+
+      <strong>3. GnRH Pulse Frequency Prediction:</strong><br>
+      • Normal follicular phase: ~1 pulse per 60-90 minutes<br>
+      • This patient: likely FASTER pulses (~1 per 30-60 minutes) because:<br>
+      &nbsp;&nbsp;- No progesterone to slow frequency (no luteal phase ever occurs)<br>
+      &nbsp;&nbsp;- Chronic moderate estrogen does not slow frequency as effectively as high progesterone<br>
+      &nbsp;&nbsp;- Faster pulses further amplify LH synthesis → vicious cycle<br>
+      • This fast-pulse phenotype is characteristic of hypothalamic-driven hyperandrogenism<br><br>
+
+      <strong>4. Why No Positive Feedback Surge?</strong><br>
+      • Estradiol rises slowly and steadily from multiple small follicles — NO accelerating rate-of-rise<br>
+      • The preoptic GnRH neurons require an accelerating signal to switch to surge mode<br>
+      • Chronic moderate estradiol maintains negative feedback via arcuate opioidergic interneurons<br>
+      • Result: chronic "stuck" state — follicles grow to 5-10 mm but never reach preovulatory size<br>
+    </div>
+  </div>
+
+  <div class="reasoning-box">
+    <div class="title">🏆 SIMULATION 2: Molecular & Biochemical Reasoning</div>
+    <div class="question">
+      Aromatase inhibitors (e.g., letrozole) are used to induce ovulation in PCOS patients. Explain the mechanism by which blocking aromatase in GRANULOSA cells leads to increased FSH secretion and follicular development. Include the feedback pathways involved and explain why this does NOT happen in normal women taking aromatase inhibitors.<br><br>
+      <strong>Bonus:</strong> Explain why inhibiting aromatase in adipose tissue (peripheral aromatization) would have different effects than inhibiting ovarian aromatase.
+    </div>
+    <div class="answer">
+      <strong>Integrated Answer:</strong><br><br>
+      <strong>1. Mechanism in PCOS:</strong><br>
+      • Aromatase inhibitor blocks conversion of androstenedione → estrone and testosterone → estradiol in granulosa cells<br>
+      • ↓ Intrafollicular and circulating estradiol → ↓ negative feedback on hypothalamus and pituitary<br>
+      • ↓ Estrogen also means ↓ inhibin production (estrogen stimulates inhibin via intraovarian mechanisms)<br>
+      • Combined ↓ estrogen + ↓ inhibin → REMOVAL of negative feedback → ↑ GnRH pulsatility + ↑ FSH secretion<br>
+      • ↑ FSH stimulates follicular recruitment and aromatase in LESS MATURE follicles (paradoxically, the drug blocks aromatase but the ↑ FSH overcomes this in some follicles)<br>
+      • ↑ FSH also stimulates LH receptor acquisition on granulosa cells → prepares for ovulation<br>
+      • The key is that PCOS patients have EXCESS androgen substrate — blocking some aromatase still leaves enough for feedback reduction while FSH rises<br><br>
+
+      <strong>2. Why NOT in Normal Women?</strong><br>
+      • Normal women have a single dominant follicle with HIGH aromatase activity producing sufficient estradiol for positive feedback<br>
+      • Blocking aromatase in normal women would:<br>
+      &nbsp;&nbsp;- Prevent the estradiol surge needed for LH surge → block ovulation<br>
+      &nbsp;&nbsp;- Cause androgen accumulation → follicular atresia (androgen trap)<br>
+      &nbsp;&nbsp;- The ↑ FSH would recruit multiple follicles but none would achieve dominance due to androgen excess<br>
+      • In PCOS, the baseline state is already multi-follicular with androgen excess; the inhibitor "resets" the feedback threshold<br><br>
+
+      <strong>3. Peripheral vs. Ovarian Aromatase Inhibition:</strong><br>
+      • <strong>Ovarian aromatase:</strong> In granulosa cells — directly controls intrafollicular estrogen → affects follicular development, feedback, and ovulation<br>
+      • <strong>Peripheral aromatase (adipose):</strong> Converts adrenal androgens (androstenedione) → estrone (E1) — contributes to baseline estrogen in postmenopausal women<br>
+      • Inhibiting peripheral aromatase in premenopausal women has minimal effect because ovarian estrogen dominates<br>
+      • In postmenopausal women, peripheral aromatase is the MAIN estrogen source — inhibition causes severe hypoestrogenism (used in breast cancer therapy)<br>
+      • <strong>Key distinction:</strong> Ovarian aromatase is FSH-regulated and cycle-dependent; peripheral aromatase is constitutive and substrate-dependent (driven by adipose mass and adrenal androgens)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📚 KEY TAKEAWAYS FOR OLYMPIAD SUCCESS</div>
+    <ol>
+      <li><strong>Always trace the causal chain:</strong> Hormone → receptor → second messenger → cellular effect → feedback → systemic consequence</li>
+      <li><strong>Remember the three time scales:</strong> Hourly (GnRH pulses), daily (amplitude modulation), monthly (surge and cycle)</li>
+      <li><strong>Know the molecular details:</strong> GnRH is a decapeptide from chromosome 9; gonadotropins share α subunit; inhibins have α+β, activins have β+β</li>
+      <li><strong>Distinguish the two neuronal populations:</strong> Arcuate = hourly pulses (opioid receptors); Preoptic = monthly surge (GABA receptors)</li>
+      <li><strong>Apply the two-cell model:</strong> Theca = LH, androgens, no aromatase; Granulosa = FSH, aromatase, no 17α-hydroxylase</li>
+      <li><strong>Understand the feedback switch:</strong> Negative → positive requires concentration + duration + accelerating rate-of-rise</li>
+      <li><strong>Connect to pathophysiology:</strong> Every disease is a failure of one or more mechanisms — identify the break point</li>
+    </ol>
+    <p style="text-align:center;margin-top:20px;color:var(--blue-primary);font-weight:700;font-size:1.1rem;">End of Chapter 55 — The Female Reproductive System</p>
+  </div>
+</div>
+
+<!-- ===== PROGRESS BAR ===== -->
+<div id="progress-bar"></div>
+
+<!-- ===== SIDEBAR OVERLAY ===== -->
+<div id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- ===== SIDEBAR ===== -->
+<div id="sidebar">
+  <div id="sidebar-header">
+    <h2>📋 Daftar Slide</h2>
+    <p>Chapter 55 — Female Reproductive System</p>
+  </div>
+  <div id="sidebar-search">
+    <input type="text" id="toc-search" placeholder="🔍 Cari slide..." oninput="filterToc(this.value)" />
+  </div>
+  <!-- Tag filter in sidebar -->
+  <div id="tag-filter-area">
+    <p>Filter by tag:</p>
+    <div id="tag-filter-buttons-sidebar" style="display:flex;flex-wrap:wrap;gap:5px;">
+      <button class="tag-filter-btn active" data-tag="all" onclick="filterSidebarByTag('all',this)">Semua</button>
+      <button class="tag-filter-btn" data-tag="high-yield" onclick="filterSidebarByTag('high-yield',this)">⭐ HY</button>
+      <button class="tag-filter-btn" data-tag="olympiad" onclick="filterSidebarByTag('olympiad',this)">🏆 Olympiad</button>
+      <button class="tag-filter-btn" data-tag="mechanism" onclick="filterSidebarByTag('mechanism',this)">⚙️ Mechanism</button>
+      <button class="tag-filter-btn" data-tag="trap" onclick="filterSidebarByTag('trap',this)">⚠️ Trap</button>
+      <button class="tag-filter-btn" data-tag="clinical" onclick="filterSidebarByTag('clinical',this)">🩺 Clinical</button>
+      <button class="tag-filter-btn" data-tag="checkpoint" onclick="filterSidebarByTag('checkpoint',this)">🔄 Checkpoint</button>
+    </div>
+  </div>
+  <div id="sidebar-links">
+    <button class="toc-link" data-tags="high-yield,mechanism" onclick="goToSlide('s1')"><span class="toc-num">1</span><span class="toc-text">Cover & Big Picture</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span></span></button>
+    <button class="toc-link" data-tags="high-yield,mechanism" onclick="goToSlide('s2')"><span class="toc-num">2</span><span class="toc-text">Core Principle — HPO Axis</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag mechanism">Mech</span></span></button>
+    <button class="toc-link" data-tags="mechanism" onclick="goToSlide('s3')"><span class="toc-num">3</span><span class="toc-text">Anatomy & Functional Units</span><span class="toc-tags"><span class="nav-tag mechanism">Mech</span></span></button>
+    <button class="toc-link" data-tags="mechanism,clinical" onclick="goToSlide('s4')"><span class="toc-num">4</span><span class="toc-text">Puberty — Neuroendocrine Awakening</span><span class="toc-tags"><span class="nav-tag mechanism">Mech</span><span class="nav-tag clinical">Clin</span></span></button>
+    <button class="toc-link" data-tags="mechanism,olympiad" onclick="goToSlide('s5')"><span class="toc-num">5</span><span class="toc-text">GnRH Molecular Biology</span><span class="toc-tags"><span class="nav-tag mechanism">Mech</span><span class="nav-tag olympiad">Olymp</span></span></button>
+    <button class="toc-link" data-tags="mechanism,trap,olympiad" onclick="goToSlide('s6')"><span class="toc-num">6</span><span class="toc-text">Gonadotropin Signaling</span><span class="toc-tags"><span class="nav-tag mechanism">Mech</span><span class="nav-tag trap">Trap</span></span></button>
+    <button class="toc-link" data-tags="high-yield,mechanism,olympiad" onclick="goToSlide('s7')"><span class="toc-num">7</span><span class="toc-text">Feedback Control HPO Axis</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag olympiad">Olymp</span></span></button>
+    <button class="toc-link" data-tags="mechanism,olympiad" onclick="goToSlide('s8')"><span class="toc-num">8</span><span class="toc-text">Ovarian Steroid Biosynthesis</span><span class="toc-tags"><span class="nav-tag mechanism">Mech</span><span class="nav-tag olympiad">Olymp</span></span></button>
+    <button class="toc-link" data-tags="high-yield,mechanism,trap" onclick="goToSlide('s9')"><span class="toc-num">9</span><span class="toc-text">Two-Cell Two-Gonadotropin Model</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag trap">Trap</span></span></button>
+    <button class="toc-link" data-tags="high-yield,mechanism" onclick="goToSlide('s10')"><span class="toc-num">10</span><span class="toc-text">Menstrual Cycle — Overview</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag mechanism">Mech</span></span></button>
+    <button class="toc-link" data-tags="high-yield,mechanism" onclick="goToSlide('s11')"><span class="toc-num">11</span><span class="toc-text">Follicular Phase Deep Dive</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag mechanism">Mech</span></span></button>
+    <button class="toc-link" data-tags="high-yield,mechanism,olympiad" onclick="goToSlide('s12')"><span class="toc-num">12</span><span class="toc-text">Ovulation Mechanism</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag olympiad">Olymp</span></span></button>
+    <button class="toc-link" data-tags="mechanism,clinical" onclick="goToSlide('s13')"><span class="toc-num">13</span><span class="toc-text">Luteal Phase & Corpus Luteum</span><span class="toc-tags"><span class="nav-tag mechanism">Mech</span><span class="nav-tag clinical">Clin</span></span></button>
+    <button class="toc-link" data-tags="high-yield,mechanism" onclick="goToSlide('s14')"><span class="toc-num">14</span><span class="toc-text">Endometrial Cycle</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag mechanism">Mech</span></span></button>
+    <button class="toc-link" data-tags="clinical,mechanism" onclick="goToSlide('s15')"><span class="toc-num">15</span><span class="toc-text">Oral Contraceptives</span><span class="toc-tags"><span class="nav-tag clinical">Clin</span><span class="nav-tag mechanism">Mech</span></span></button>
+    <button class="toc-link" data-tags="clinical,high-yield" onclick="goToSlide('s16')"><span class="toc-num">16</span><span class="toc-text">Menopause & HRT</span><span class="toc-tags"><span class="nav-tag clinical">Clin</span><span class="nav-tag high-yield">HY</span></span></button>
+    <button class="toc-link" data-tags="mechanism,clinical" onclick="goToSlide('s17')"><span class="toc-num">17</span><span class="toc-text">Female Sexual Response</span><span class="toc-tags"><span class="nav-tag mechanism">Mech</span><span class="nav-tag clinical">Clin</span></span></button>
+    <button class="toc-link" data-tags="high-yield,trap" onclick="goToSlide('s18')"><span class="toc-num">18</span><span class="toc-text">High-Yield Reasoning</span><span class="toc-tags"><span class="nav-tag high-yield">HY</span><span class="nav-tag trap">Trap</span></span></button>
+    <button class="toc-link" data-tags="checkpoint,olympiad" onclick="goToSlide('s19')"><span class="toc-num">19</span><span class="toc-text">Question-Based Learning</span><span class="toc-tags"><span class="nav-tag checkpoint">Check</span><span class="nav-tag olympiad">Olymp</span></span></button>
+    <button class="toc-link" data-tags="checkpoint,olympiad" onclick="goToSlide('s20')"><span class="toc-num">20</span><span class="toc-text">Olympiad Simulation</span><span class="toc-tags"><span class="nav-tag checkpoint">Check</span><span class="nav-tag olympiad">Olymp</span></span></button>
+  </div>
+  <div id="sidebar-footer">
+    Tekan <span>T</span> untuk buka/tutup · <span>← →</span> navigasi · <span>F</span> fokus
+  </div>
+</div>
+
+<!-- ===== FLOATING TOGGLE BUTTON ===== -->
+<button id="nav-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</button>
+
+<!-- ===== SLIDE COUNTER ===== -->
+<div id="slide-counter">Slide 1 / 20</div>
+
+<!-- ===== MINI PREV/NEXT NAV ===== -->
+<div id="mini-nav">
+  <button id="btn-prev" onclick="navigateSlide(-1)">← Sebelumnya</button>
+  <button id="btn-next" onclick="navigateSlide(1)">Berikutnya →</button>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Kembali ke atas">↑</button>
+
+<script>
+// ═══════════════════════════ SLIDE DATA WITH TAGS ═══════════════════════════
+const SLIDES = [
+  { id:'s1',  num:'1',  title:'Cover & Big Picture',                    tags:['high-yield','mechanism'] },
+  { id:'s2',  num:'2',  title:'Core Principle — HPO Axis',              tags:['high-yield','mechanism'] },
+  { id:'s3',  num:'3',  title:'Anatomy & Functional Units',             tags:['mechanism'] },
+  { id:'s4',  num:'4',  title:'Puberty — Neuroendocrine Awakening',     tags:['mechanism','clinical'] },
+  { id:'s5',  num:'5',  title:'GnRH Molecular Biology',                 tags:['mechanism','olympiad'] },
+  { id:'s6',  num:'6',  title:'Gonadotropin Signaling',                 tags:['mechanism','trap','olympiad'] },
+  { id:'s7',  num:'7',  title:'Feedback Control HPO Axis',              tags:['high-yield','mechanism','olympiad'] },
+  { id:'s8',  num:'8',  title:'Ovarian Steroid Biosynthesis',           tags:['mechanism','olympiad'] },
+  { id:'s9',  num:'9',  title:'Two-Cell Two-Gonadotropin Model',        tags:['high-yield','mechanism','trap'] },
+  { id:'s10', num:'10', title:'Menstrual Cycle — Overview',             tags:['high-yield','mechanism'] },
+  { id:'s11', num:'11', title:'Follicular Phase Deep Dive',             tags:['high-yield','mechanism'] },
+  { id:'s12', num:'12', title:'Ovulation Mechanism',                    tags:['high-yield','mechanism','olympiad'] },
+  { id:'s13', num:'13', title:'Luteal Phase & Corpus Luteum',           tags:['mechanism','clinical'] },
+  { id:'s14', num:'14', title:'Endometrial Cycle',                      tags:['high-yield','mechanism'] },
+  { id:'s15', num:'15', title:'Oral Contraceptives',                    tags:['clinical','mechanism'] },
+  { id:'s16', num:'16', title:'Menopause & HRT',                        tags:['clinical','high-yield'] },
+  { id:'s17', num:'17', title:'Female Sexual Response',                 tags:['mechanism','clinical'] },
+  { id:'s18', num:'18', title:'High-Yield Reasoning',                   tags:['high-yield','trap'] },
+  { id:'s19', num:'19', title:'Question-Based Learning',                tags:['checkpoint','olympiad'] },
+  { id:'s20', num:'20', title:'Olympiad Simulation',                    tags:['checkpoint','olympiad'] }
+];
+const slideIds = SLIDES.map(s => s.id);
+let currentSlideIdx = 0;
+let sidebarOpen = false;
+let focusModeOn = false;
+let highlighterOn = false;
+let activePanel = null;
+let activeSidebarTag = 'all';
+
+// ═══════════════ LOCALSTORAGE NOTES ═══════════════
+const NOTES_KEY = 'ch55_female_notes_v1';
+function loadAllNotes() {
+  try { return JSON.parse(localStorage.getItem(NOTES_KEY)) || {}; }
+  catch(e) { return {}; }
+}
+function saveAllNotes(notes) {
+  try { localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); } catch(e) {}
+}
+function getCurrentSlideId() { return slideIds[currentSlideIdx] || slideIds[0]; }
+function getCurrentSlideTitle() { return SLIDES[currentSlideIdx]?.title || ''; }
+
+function openNotesPanel() {
+  const id = getCurrentSlideId();
+  const notes = loadAllNotes();
+  document.getElementById('notes-context').textContent = `Slide ${currentSlideIdx+1}: ${getCurrentSlideTitle()}`;
+  document.getElementById('notes-textarea').value = notes[id] || '';
+  renderSavedNotes();
+}
+function saveNote() {
+  const id = getCurrentSlideId();
+  const text = document.getElementById('notes-textarea').value.trim();
+  const notes = loadAllNotes();
+  if (text) {
+    notes[id] = text;
+  } else {
+    delete notes[id];
+  }
+  saveAllNotes(notes);
+  renderSavedNotes();
+  const btn = document.querySelector('.notes-btn.save');
+  btn.textContent = '✅ Tersimpan!';
+  setTimeout(() => btn.textContent = '💾 Simpan', 1400);
+}
+function clearNoteField() {
+  document.getElementById('notes-textarea').value = '';
+  const id = getCurrentSlideId();
+  const notes = loadAllNotes();
+  delete notes[id];
+  saveAllNotes(notes);
+  renderSavedNotes();
+}
+function deleteNote(id) {
+  const notes = loadAllNotes();
+  delete notes[id];
+  saveAllNotes(notes);
+  renderSavedNotes();
+  if (id === getCurrentSlideId()) document.getElementById('notes-textarea').value = '';
+}
+function exportNotes() {
+  const notes = loadAllNotes();
+  const entries = Object.entries(notes).filter(([,v]) => v);
+  if (!entries.length) { alert('Belum ada catatan tersimpan.'); return; }
+  let txt = 'CATATAN — Chapter 55: The Female Reproductive System\n';
+  txt += '='.repeat(55) + '\n\n';
+  entries.forEach(([id, text]) => {
+    const idx = slideIds.indexOf(id);
+    const title = idx >= 0 ? `Slide ${idx+1}: ${SLIDES[idx].title}` : id;
+    txt += `[${title}]\n${text}\n\n`;
+  });
+  const blob = new Blob([txt], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'catatan_ch55_female.txt';
+  a.click();
+}
+function renderSavedNotes() {
+  const list = document.getElementById('notes-saved-list');
+  const notes = loadAllNotes();
+  const entries = Object.entries(notes).filter(([,v]) => v);
+  if (!entries.length) { list.innerHTML = '<div style="font-size:0.72rem;color:var(--text-secondary);padding:6px 0;text-align:center;">Belum ada catatan.</div>'; return; }
+  list.innerHTML = `<div style="font-size:0.68rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Semua Catatan (${entries.length})</div>`;
+  entries.forEach(([id, text]) => {
+    const idx = slideIds.indexOf(id);
+    const title = idx >= 0 ? SLIDES[idx].title : id;
+    const div = document.createElement('div');
+    div.className = 'saved-note';
+    div.innerHTML = `<div class="saved-note-slide">Slide ${idx+1}: ${title}</div><div class="saved-note-text">${text.replace(/</g,'&lt;').substring(0,120)}${text.length>120?'…':''}</div><button class="saved-note-del" onclick="deleteNote('${id}')" title="Hapus">✕</button>`;
+    div.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('saved-note-del')) {
+        goToSlide(id);
+        openNotesPanel();
+      }
+    });
+    div.style.cursor = 'pointer';
+    list.appendChild(div);
+  });
+}
+
+// ═══════════════ PANEL TOGGLE ═══════════════
+function togglePanel(panelId, btn) {
+  const panel = document.getElementById(panelId);
+  const isOpen = panel.classList.contains('open');
+  document.querySelectorAll('.tb-panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.tb-btn[id^="btn-"]').forEach(b => {
+    if (!b.classList.contains('highlight-active') && !b.classList.contains('focus-active')) b.classList.remove('active');
+  });
+  if (!isOpen) {
+    panel.classList.add('open');
+    if (btn) btn.classList.add('active');
+    activePanel = panelId;
+    if (panelId === 'panel-notes') openNotesPanel();
+    if (panelId === 'panel-tags') renderTagPanel('all');
+  } else {
+    activePanel = null;
+    if (btn) btn.classList.remove('active');
+  }
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.tb-panel') && !e.target.closest('.tb-btn')) {
+    document.querySelectorAll('.tb-panel').forEach(p => p.classList.remove('open'));
+    document.querySelectorAll('.tb-btn').forEach(b => {
+      if (!b.classList.contains('highlight-active') && !b.classList.contains('focus-active')) b.classList.remove('active');
+    });
+    activePanel = null;
+  }
+});
+
+// ═══════════════ TAG PANEL ═══════════════
+let activeTagFilter = 'all';
+function filterByTag(tag, btn) {
+  activeTagFilter = tag;
+  document.querySelectorAll('#tag-filter-buttons .tag-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
+  renderTagPanel(tag);
+}
+function renderTagPanel(tag) {
+  const list = document.getElementById('tag-results-list');
+  list.innerHTML = '';
+  const filtered = tag === 'all' ? SLIDES : SLIDES.filter(s => s.tags.includes(tag));
+  if (!filtered.length) {
+    list.innerHTML = '<div class="tag-no-results">Tidak ada slide dengan tag ini.</div>';
+    return;
+  }
+  filtered.forEach(slide => {
+    const div = document.createElement('div');
+    div.className = 'tag-result-item';
+    const tagsHtml = slide.tags.map(t => `<span class="nav-tag ${t}">${t}</span>`).join('');
+    div.innerHTML = `<span class="tag-result-num">${slide.num}</span><span class="tag-result-title">${slide.title}</span><span class="tag-result-tags">${tagsHtml}</span>`;
+    div.addEventListener('click', () => {
+      goToSlide(slide.id);
+      document.querySelectorAll('.tb-panel').forEach(p => p.classList.remove('open'));
+      activePanel = null;
+    });
+    list.appendChild(div);
+  });
+}
+
+// ═══════════════ SIDEBAR TAG FILTER ═══════════════
+function filterSidebarByTag(tag, btn) {
+  activeSidebarTag = tag;
+  document.querySelectorAll('#tag-filter-buttons-sidebar .tag-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
+  applySidebarFilters();
+}
+function applySidebarFilters() {
+  const q = (document.getElementById('toc-search')?.value || '').toLowerCase();
+  document.querySelectorAll('#sidebar-links .toc-link').forEach(link => {
+    const tags = (link.dataset.tags || '').split(',');
+    const text = link.querySelector('.toc-text')?.textContent.toLowerCase() || '';
+    const num = link.querySelector('.toc-num')?.textContent || '';
+    const tagMatch = activeSidebarTag === 'all' || tags.includes(activeSidebarTag);
+    const searchMatch = !q || text.includes(q) || num.includes(q);
+    link.style.display = (tagMatch && searchMatch) ? '' : 'none';
+  });
+}
+
+// ═══════════════ TOC SEARCH ═══════════════
+function filterToc(query) { applySidebarFilters(); }
+
+// ═══════════════ SIDEBAR TOGGLE ═══════════════
+function toggleSidebar() { sidebarOpen ? closeSidebar() : openSidebar(); }
+function openSidebar() {
+  sidebarOpen = true;
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebar-overlay').classList.add('open');
+  document.getElementById('nav-toggle').classList.add('open');
+  setTimeout(() => {
+    const active = document.querySelector('#sidebar-links .toc-link.active');
+    if (active) active.scrollIntoView({ block: 'nearest' });
+  }, 350);
+}
+function closeSidebar() {
+  sidebarOpen = false;
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+  document.getElementById('nav-toggle').classList.remove('open');
+}
+
+// ═══════════════ NAVIGATION ═══════════════
+function goToSlide(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const idx = slideIds.indexOf(id);
+  if (idx !== -1) currentSlideIdx = idx;
+  if (sidebarOpen) closeSidebar();
+  updateUI();
+}
+function navigateSlide(dir) {
+  const newIdx = Math.max(0, Math.min(slideIds.length-1, currentSlideIdx+dir));
+  if (newIdx !== currentSlideIdx) { currentSlideIdx = newIdx; goToSlide(slideIds[newIdx]); }
+}
+
+// ═══════════════ FOCUS MODE ═══════════════
+function toggleFocusMode(btn) {
+  focusModeOn = !focusModeOn;
+  document.body.classList.toggle('focus-mode', focusModeOn);
+  btn.classList.toggle('focus-active', focusModeOn);
+  if (focusModeOn) applyFocusMode();
+  else document.querySelectorAll('.slide').forEach(el => el.classList.remove('focus-slide'));
+}
+function applyFocusMode() {
+  const activeId = slideIds[currentSlideIdx];
+  document.querySelectorAll('.slide').forEach(el => el.classList.toggle('focus-slide', el.id === activeId));
+}
+
+// ═══════════════ HIGHLIGHTER ═══════════════
+function toggleHighlighter(btn) {
+  highlighterOn = !highlighterOn;
+  document.body.classList.toggle('highlight-mode', highlighterOn);
+  btn.classList.toggle('highlight-active', highlighterOn);
+}
+
+// ═══════════════ UPDATE UI ═══════════════
+function updateUI() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+  // Topbar progress bar
+  document.getElementById('topbar-progress').style.width = pct + '%';
+  // Legacy progress bar (keep if exists)
+  const legacyBar = document.getElementById('progress-bar');
+  if (legacyBar) legacyBar.style.width = pct + '%';
+
+  // Scroll to top
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', scrollTop > 300);
+
+  // Detect current slide
+  const scrollPos = scrollTop + window.innerHeight / 3;
+  let activeId = slideIds[0];
+  for (const id of slideIds) {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollPos) activeId = id;
+  }
+  const idx = slideIds.indexOf(activeId);
+  if (idx !== -1) currentSlideIdx = idx;
+
+  // Topbar title
+  document.getElementById('topbar-title').textContent = `${SLIDES[currentSlideIdx]?.num}. ${SLIDES[currentSlideIdx]?.title}`;
+
+  // Slide counter
+  const counter = document.getElementById('slide-counter');
+  if (counter) counter.textContent = `Slide ${currentSlideIdx+1} / ${slideIds.length}`;
+
+  // Active TOC link
+  document.querySelectorAll('#sidebar-links .toc-link').forEach((link, i) => {
+    link.classList.toggle('active', i === currentSlideIdx);
+  });
+
+  // Prev/next buttons
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  if (btnPrev) btnPrev.disabled = currentSlideIdx === 0;
+  if (btnNext) btnNext.disabled = currentSlideIdx === slideIds.length - 1;
+
+  // Focus mode
+  if (focusModeOn) applyFocusMode();
+
+  // If notes panel open, update context
+  if (activePanel === 'panel-notes') openNotesPanel();
+}
+
+// ═══════════════ KEYBOARD ═══════════════
+document.addEventListener('keydown', function(e) {
+  if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+  if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); navigateSlide(1); }
+  else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); navigateSlide(-1); }
+  else if (e.key === 'Home') { e.preventDefault(); goToSlide(slideIds[0]); }
+  else if (e.key === 'End') { e.preventDefault(); goToSlide(slideIds[slideIds.length-1]); }
+  else if (e.key === 't' || e.key === 'T') toggleSidebar();
+  else if (e.key === 'f' || e.key === 'F') toggleFocusMode(document.getElementById('btn-focus'));
+  else if (e.key === 'Escape') {
+    document.querySelectorAll('.tb-panel').forEach(p => p.classList.remove('open'));
+    activePanel = null;
+    if (sidebarOpen) closeSidebar();
+  }
+});
+
+// ═══════════════ Q&A COLLAPSIBLE ANSWERS ═══════════════
+document.addEventListener('DOMContentLoaded', function() {
+  // Collapsible answers
+  document.querySelectorAll('.reasoning-box').forEach(box => {
+    const questions = box.querySelectorAll('.question');
+    const answers = box.querySelectorAll('.answer');
+    answers.forEach((answer, i) => {
+      answer.style.display = 'none';
+      const btn = document.createElement('button');
+      btn.textContent = '💡 Tampilkan Jawaban';
+      btn.style.cssText = `
+        margin-top:8px; background:rgba(105,240,174,0.1); border:1px solid rgba(105,240,174,0.3);
+        color:var(--green); padding:7px 16px; border-radius:8px; cursor:pointer;
+        font-size:0.82rem; font-weight:600; transition:all 0.2s; font-family:inherit;
+      `;
+      btn.addEventListener('mouseenter', () => btn.style.background = 'rgba(105,240,174,0.2)');
+      btn.addEventListener('mouseleave', () => btn.style.background = 'rgba(105,240,174,0.1)');
+      btn.addEventListener('click', () => {
+        const visible = answer.style.display !== 'none';
+        answer.style.display = visible ? 'none' : 'block';
+        btn.textContent = visible ? '💡 Tampilkan Jawaban' : '🙈 Sembunyikan Jawaban';
+      });
+      if (questions[i]) questions[i].after(btn);
+      else answer.before(btn);
+    });
+  });
+
+  // Card click highlight
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function() {
+      this.style.transition = 'box-shadow 0.2s ease, transform 0.2s ease';
+      this.style.boxShadow = '0 0 0 2px var(--pink-primary), 0 8px 32px rgba(244,143,177,0.15)';
+      this.style.transform = 'translateY(-2px)';
+      setTimeout(() => { this.style.boxShadow = ''; this.style.transform = ''; }, 1200);
+    });
+  });
+
+  // Sidebar overlay click
+  document.getElementById('sidebar-overlay').addEventListener('click', closeSidebar);
+
+  updateUI();
+});
+
+window.addEventListener('scroll', updateUI);
+window.addEventListener('load', updateUI);
+</script>
+</body>
+</html>
