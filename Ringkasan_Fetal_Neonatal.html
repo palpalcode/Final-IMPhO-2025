@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHAPTER 57 — Fetal & Neonatal Physiology | IMSPQ/IPO Level</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#3B6EC8;--blue-dark:#1E3F8A;--blue-light:#EEF3FF;--teal:#0D9488;--teal-light:#F0FDFA;--teal-dark:#0F766E;--amber:#D97706;--amber-light:#FFFBEB;--red:#DC2626;--red-light:#FEF2F2;--green:#16A34A;--green-light:#F0FDF4;--purple:#7C3AED;--purple-light:#F5F3FF;--pink:#DB2777;--pink-light:#FDF2F8;--dark:#1A2133;--gray:#6B7280;--gray-light:#E5E7EB;--light:#F1F5FD;--sidebar-bg:#0D1321;--card-radius:16px;--transition:all 0.22s cubic-bezier(0.4,0,0.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sora',system-ui,sans-serif;background:#ECF0FA;color:var(--dark);line-height:1.7;overflow-x:hidden}
+#sidebar{position:fixed;top:0;right:-340px;width:320px;height:100vh;background:var(--sidebar-bg);z-index:1100;transition:right .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden}
+#sidebar.open{right:0}
+#sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1099;opacity:0;pointer-events:none;transition:opacity .3s}
+#sidebar-overlay.show{opacity:1;pointer-events:all}
+#sidebar-header{padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:flex-start}
+#sidebar-header h2{color:white;font-size:.95em;font-weight:700;line-height:1.4}
+#sidebar-header p{color:rgba(255,255,255,.45);font-size:.75em;margin-top:3px}
+#sidebar-close{background:rgba(255,255,255,.1);border:none;color:white;cursor:pointer;width:32px;height:32px;border-radius:8px;font-size:1em;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--transition)}
+#sidebar-close:hover{background:rgba(255,255,255,.2)}
+#search-bar{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+#search-input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:white;padding:8px 12px;border-radius:8px;font-size:.82em;font-family:inherit;outline:none;transition:var(--transition)}
+#search-input::placeholder{color:rgba(255,255,255,.3)}
+#search-input:focus{background:rgba(255,255,255,.12);border-color:var(--teal)}
+#tag-filter-area{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+#tag-filter-area p{color:rgba(255,255,255,.4);font-size:.7em;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:600}
+#tag-filter-buttons{display:flex;flex-wrap:wrap;gap:6px}
+.tag-filter-btn{border:none;padding:4px 10px;border-radius:20px;font-size:.72em;font-weight:600;cursor:pointer;font-family:inherit;transition:var(--transition);opacity:.7}
+.tag-filter-btn.active{opacity:1;transform:scale(1.05)}
+.tag-filter-btn[data-tag="all"]{background:rgba(255,255,255,.15);color:white}
+.tag-filter-btn[data-tag="all"].active{background:white;color:var(--dark)}
+.tag-filter-btn[data-tag="high-yield"]{background:#d1fae5;color:#065f46}
+.tag-filter-btn[data-tag="olympiad"]{background:#fee2e2;color:#991b1b}
+.tag-filter-btn[data-tag="mechanism"]{background:#dbeafe;color:#1e40af}
+.tag-filter-btn[data-tag="trap"]{background:#fef3c7;color:#92400e}
+.tag-filter-btn[data-tag="integration"]{background:#ede9fe;color:#4c1d95}
+.tag-filter-btn[data-tag="clinical"]{background:#ffedd5;color:#7c2d12}
+.tag-filter-btn[data-tag="checkpoint"]{background:linear-gradient(135deg,var(--teal),var(--blue));color:white}
+#slide-list{flex:1;overflow-y:auto;padding:8px 0;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+.nav-group-label{color:rgba(255,255,255,.3);font-size:.65em;text-transform:uppercase;letter-spacing:1.5px;padding:10px 16px 4px;font-weight:600}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;transition:var(--transition);border-left:3px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,.07);border-left-color:rgba(255,255,255,.2)}
+.nav-item.active{background:rgba(13,148,136,.2);border-left-color:var(--teal)}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.15);flex-shrink:0}
+.nav-item-content{flex:1;min-width:0}
+.nav-item-num{font-size:.67em;font-weight:600;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.5px}
+.nav-item-title{font-size:.82em;color:rgba(255,255,255,.75);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.nav-item.active .nav-item-title{color:white}
+.nav-tags{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
+.nav-tag{font-size:.6em;padding:1px 5px;border-radius:4px;font-weight:600}
+.nav-tag.high-yield{background:rgba(209,250,229,.2);color:#6ee7b7}
+.nav-tag.olympiad{background:rgba(254,226,226,.2);color:#fca5a5}
+.nav-tag.mechanism{background:rgba(219,234,254,.2);color:#93c5fd}
+.nav-tag.trap{background:rgba(254,243,199,.2);color:#fcd34d}
+.nav-tag.integration{background:rgba(237,233,254,.2);color:#c4b5fd}
+.nav-tag.clinical{background:rgba(255,237,213,.2);color:#fdba74}
+.nav-tag.checkpoint{background:rgba(13,148,136,.3);color:#5eead4}
+.nav-item.tag-hidden{display:none}
+#topbar{position:fixed;top:0;left:0;right:0;height:54px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(13,148,136,.15);box-shadow:0 2px 16px rgba(30,40,80,.07);z-index:1050;display:flex;align-items:center;padding:0 20px;gap:8px}
+#reading-progress{position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--blue));width:0%;transition:width .1s}
+#topbar-title{font-size:.78em;font-weight:700;color:var(--teal-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;letter-spacing:-.2px}
+.topbar-sep{width:1px;height:24px;background:var(--gray-light);flex-shrink:0}
+.tb-btn{height:34px;padding:0 12px;border-radius:8px;border:1px solid var(--gray-light);background:white;color:var(--dark);font-size:.78em;font-weight:600;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:var(--transition);flex-shrink:0}
+.tb-btn:hover{background:var(--teal-light);border-color:var(--teal);color:var(--teal-dark)}
+.tb-btn.active{background:var(--teal);color:white;border-color:var(--teal)}
+.tb-btn.icon-only{padding:0 10px;font-size:1em}
+.tb-panel{position:fixed;top:54px;background:white;border:1px solid var(--gray-light);border-radius:14px;box-shadow:0 8px 40px rgba(30,40,80,.13);z-index:1049;display:none;animation:panelIn .2s ease;max-height:calc(100vh - 80px);overflow-y:auto}
+.tb-panel.open{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+#panel-quiz{right:16px;width:340px;padding:18px}
+#panel-quiz h4{margin:0 0 4px;font-size:.85em;color:var(--teal-dark);text-transform:uppercase;letter-spacing:.5px}
+#panel-quiz .quiz-subtitle{font-size:.72em;color:var(--gray);margin-bottom:14px}
+.flashcard{background:linear-gradient(135deg,var(--teal-light),var(--blue-light));border-radius:12px;padding:16px;margin-bottom:10px;border:1px solid rgba(13,148,136,.15);cursor:pointer;transition:var(--transition);min-height:80px}
+.flashcard:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(13,148,136,.15)}
+.flashcard .fc-q{font-size:.83em;font-weight:600;color:var(--teal-dark);line-height:1.4}
+.flashcard .fc-a{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(13,148,136,.3);font-size:.8em;color:var(--dark);line-height:1.5}
+.flashcard.flipped .fc-a{display:block;animation:fadeSlide .25s ease}
+.flashcard .fc-hint{font-size:.68em;color:var(--gray);margin-top:6px}
+.flashcard.flipped{background:linear-gradient(135deg,var(--green-light),#e8fdf2);border-color:rgba(22,163,74,.2)}
+.quiz-nav{display:flex;gap:6px;margin-top:8px}
+.quiz-nav-btn{flex:1;padding:7px;border-radius:7px;border:1px solid var(--gray-light);background:white;font-size:.78em;font-weight:600;font-family:inherit;cursor:pointer;transition:var(--transition);color:var(--dark)}
+.quiz-nav-btn:hover{background:var(--teal-light);border-color:var(--teal);color:var(--teal-dark)}
+.quiz-nav-btn.primary{background:var(--teal);color:white;border-color:var(--teal)}
+.quiz-nav-btn.primary:hover{background:var(--teal-dark)}
+#quiz-progress-bar{height:4px;background:var(--gray-light);border-radius:2px;margin-bottom:12px;overflow:hidden}
+#quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--blue));border-radius:2px;transition:width .3s;width:0%}
+#quiz-counter{font-size:.72em;color:var(--gray);text-align:right;margin-bottom:8px}
+#quiz-score{font-size:.75em;color:var(--green);font-weight:600;margin-top:8px;text-align:center;display:none}
+#panel-formula{left:50%;transform:translateX(-50%);width:min(700px,calc(100vw - 32px));padding:20px}
+#panel-formula h4{margin:0 0 14px;font-size:.85em;color:var(--teal-dark);text-transform:uppercase;letter-spacing:.5px}
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.formula-card{background:var(--teal-light);border-radius:10px;padding:10px 14px;font-size:.8em;border-left:3px solid var(--teal)}
+.formula-card .fc-label{font-size:.7em;font-weight:700;text-transform:uppercase;color:var(--teal-dark);letter-spacing:.5px;margin-bottom:4px}
+.formula-card .fc-formula{font-family:'JetBrains Mono',monospace;font-size:.93em;font-weight:600;color:var(--dark);line-height:1.4}
+.formula-card .fc-note{font-size:.85em;color:var(--gray);margin-top:3px;line-height:1.3}
+.formula-card.red{background:var(--red-light);border-left-color:var(--red)}
+.formula-card.red .fc-label{color:var(--red)}
+.formula-card.amber{background:var(--amber-light);border-left-color:var(--amber)}
+.formula-card.amber .fc-label{color:var(--amber)}
+.formula-card.purple{background:var(--purple-light);border-left-color:var(--purple)}
+.formula-card.purple .fc-label{color:var(--purple)}
+body.highlight-mode ::selection{background:rgba(255,220,0,.55);color:var(--dark)}
+body.focus-mode .slide:not(.focus-slide){opacity:.25;filter:blur(1px);transition:opacity .4s,filter .4s}
+body.focus-mode .slide.focus-slide{opacity:1;filter:none;box-shadow:0 0 0 3px rgba(13,148,136,.35),0 16px 48px rgba(13,148,136,.12)}
+.tb-btn.focus-active{background:var(--purple);color:white;border-color:var(--purple)}
+.tb-btn.highlighter-active{background:#FFEC40;color:#5a4a00;border-color:#d4b800}
+@media(max-width:640px){#topbar{padding:0 12px;gap:4px}#topbar-title{font-size:.72em}.tb-btn span.label-text{display:none}.slide{padding:26px 20px;margin:16px 8px}.two-col,.three-col{grid-template-columns:1fr}#panel-formula .formula-grid{grid-template-columns:1fr}}
+#main-content{padding-top:72px;max-width:760px;margin:0 auto}
+.slide{background:white;margin:24px 16px;padding:40px 48px;border-radius:20px;box-shadow:0 4px 24px rgba(30,40,80,.07),0 1px 4px rgba(30,40,80,.04);position:relative;overflow:hidden;transition:box-shadow .3s,transform .3s;scroll-margin-top:80px}
+.slide::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--teal) 0%,var(--blue) 100%)}
+.slide:hover{box-shadow:0 8px 40px rgba(30,40,80,.11)}
+.slide-number{position:absolute;bottom:18px;right:24px;font-size:.78em;color:var(--gray);font-weight:600;font-family:'JetBrains Mono',monospace;background:var(--light);padding:3px 10px;border-radius:20px}
+h1{font-family:'DM Serif Display',serif;color:var(--teal-dark);font-size:2.2em;font-weight:400;margin-bottom:6px;letter-spacing:-.5px;line-height:1.2}
+h2{color:var(--teal);font-size:1.55em;font-weight:700;margin-top:32px;margin-bottom:14px;padding-bottom:8px;border-bottom:3px solid var(--blue-light);display:inline-block;letter-spacing:-.3px}
+h3{color:var(--teal-dark);font-size:1.12em;font-weight:700;margin-top:20px;margin-bottom:8px}
+h4{color:var(--blue-dark);font-size:1.0em;font-weight:700;margin-top:16px;margin-bottom:6px}
+p{margin:10px 0;text-align:justify;font-size:.97em}
+ul,ol{margin:10px 0;padding-left:22px}
+li{margin:6px 0;font-size:.97em}
+strong{color:var(--teal-dark)}
+.subtitle{color:var(--teal);font-size:1.05em;font-weight:500;margin-bottom:22px;font-style:italic}
+.section-tag{display:inline-block;background:linear-gradient(135deg,var(--teal),var(--blue));color:white;padding:5px 16px;border-radius:20px;font-size:.8em;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:18px}
+.box{border-left:5px solid var(--teal);background:linear-gradient(90deg,var(--teal-light) 0%,white 100%);padding:16px 20px;margin:16px 0;border-radius:0 12px 12px 0}
+.box.trap{border-left-color:var(--red);background:linear-gradient(90deg,var(--red-light) 0%,white 100%)}
+.box.yield{border-left-color:var(--green);background:linear-gradient(90deg,var(--green-light) 0%,white 100%)}
+.box.mechanism{border-left-color:var(--blue);background:linear-gradient(90deg,var(--blue-light) 0%,white 100%)}
+.box.integration{border-left-color:var(--purple);background:linear-gradient(90deg,var(--purple-light) 0%,white 100%)}
+.box.clinical{border-left-color:var(--amber);background:linear-gradient(90deg,var(--amber-light) 0%,white 100%)}
+.box.warning{border-left-color:var(--pink);background:linear-gradient(90deg,var(--pink-light) 0%,white 100%)}
+.label{display:inline-flex;align-items:center;gap:4px;font-size:.72em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 10px;border-radius:6px;margin-right:6px;vertical-align:middle;cursor:default}
+.label.high-yield{background:#d1fae5;color:#065f46}
+.label.olympiad{background:#fee2e2;color:#991b1b}
+.label.trap{background:#fef3c7;color:#92400e}
+.label.mechanism{background:#dbeafe;color:#1e40af}
+.label.integration{background:#ede9fe;color:#4c1d95}
+.label.checkpoint{background:linear-gradient(135deg,var(--teal),var(--blue));color:white}
+.label.clinical{background:#ffedd5;color:#7c2d12}
+table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05);font-size:.93em}
+th{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);color:white;padding:12px 16px;text-align:left;font-weight:600;font-size:.9em}
+td{padding:11px 16px;border-bottom:1px solid #eef0f5;vertical-align:top}
+tr:nth-child(even){background:#fafbfc}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--teal-light);transition:background .15s}
+.checkpoint{background:linear-gradient(135deg,var(--teal) 0%,var(--blue-dark) 100%);color:white;padding:28px 30px;border-radius:var(--card-radius);margin:28px 0;position:relative;overflow:hidden}
+.checkpoint::before{content:'🔬';position:absolute;right:24px;top:18px;font-size:2.5em;opacity:.12}
+.checkpoint h3{color:white;margin-top:0;font-size:1.2em;border-bottom:2px solid rgba(255,255,255,.3);padding-bottom:10px;display:inline-block}
+.checkpoint p,.checkpoint li{color:rgba(255,255,255,.95)}
+.answer{background:white;padding:14px 18px;border-radius:10px;margin-top:10px;border-left:4px solid var(--green);color:var(--dark)!important;display:none}
+.answer.revealed{display:block;animation:fadeSlide .3s ease}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.reveal-btn{background:rgba(255,255,255,.2);color:white;border:2px solid rgba(255,255,255,.4);padding:8px 18px;border-radius:8px;cursor:pointer;font-size:.85em;font-weight:600;font-family:inherit;transition:var(--transition);margin-top:10px;display:inline-flex;align-items:center;gap:6px}
+.reveal-btn:hover{background:rgba(255,255,255,.3)}
+.flowchart{font-family:'JetBrains Mono',monospace;background:#f8f9fa;padding:20px;border-radius:12px;overflow-x:auto;line-height:1.9;border:2px solid var(--gray-light);font-size:.87em;margin:16px 0;color:var(--dark)}
+.concept-map{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:20px 0;padding:18px;background:#fafbfc;border-radius:12px;justify-content:center;border:2px solid var(--gray-light)}
+.node{background:var(--teal);color:white;padding:8px 16px;border-radius:24px;font-size:.85em;font-weight:600;text-align:center;box-shadow:0 2px 6px rgba(13,148,136,.25);transition:var(--transition)}
+.node:hover{transform:translateY(-2px)}
+.node.blue{background:var(--blue)}
+.node.purple{background:var(--purple)}
+.node.green{background:var(--green)}
+.node.amber{background:var(--amber)}
+.node.red{background:var(--red)}
+.node.pink{background:var(--pink)}
+.arrow{color:var(--teal-dark);font-weight:700;font-size:1.2em;align-self:center}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:16px 0}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin:16px 0}
+.col-box{background:#fafbfc;padding:16px;border-radius:12px;border-top:4px solid var(--teal)}
+.col-box.blue{border-top-color:var(--blue)}
+.col-box.green{border-top-color:var(--green)}
+.col-box.amber{border-top-color:var(--amber)}
+.col-box.purple{border-top-color:var(--purple)}
+.col-box.red{border-top-color:var(--red)}
+.step-list{counter-reset:steps;list-style:none;padding-left:0}
+.step-list li{counter-increment:steps;padding:10px 10px 10px 48px;position:relative;margin:8px 0;background:#fafbfc;border-radius:10px;border-left:3px solid var(--teal)}
+.step-list li::before{content:counter(steps);position:absolute;left:12px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--teal);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;line-height:1;text-align:center;padding-top:1px}
+.pathway-step{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.step-box{background:var(--teal);color:white;padding:7px 12px;border-radius:8px;font-size:.85em;font-weight:600;text-align:center}
+.step-box.blue{background:var(--blue)}
+.step-box.gray{background:var(--gray)}
+.step-box.green{background:var(--green)}
+.step-box.amber{background:var(--amber)}
+.step-box.red{background:var(--red)}
+.step-box.purple{background:var(--purple)}
+.step-arrow{color:var(--teal-dark);font-weight:bold;font-size:1.1em}
+.feedback-loop{background:linear-gradient(90deg,var(--teal-light),var(--blue-light),var(--teal-light));padding:18px;border-radius:14px;border:2px dashed var(--teal);margin:16px 0;text-align:center;font-size:.92em}
+.divider{height:3px;background:linear-gradient(90deg,var(--teal),var(--blue));border-radius:2px;margin:26px 0}
+.small{font-size:.88em;color:var(--gray)}
+.highlight-text{background:linear-gradient(120deg,rgba(13,148,136,.25) 0%,rgba(13,148,136,.25) 100%);background-repeat:no-repeat;background-size:100% 35%;background-position:0 90%;padding:0 2px;font-weight:600}
+#scroll-top-btn{position:fixed;bottom:90px;right:28px;width:42px;height:42px;border-radius:50%;background:white;border:2px solid var(--gray-light);color:var(--teal);font-size:1.1em;font-weight:700;cursor:pointer;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,.1);opacity:0;pointer-events:none;transition:var(--transition);display:flex;align-items:center;justify-content:center}
+#scroll-top-btn.visible{opacity:1;pointer-events:all}
+#scroll-top-btn:hover{background:var(--teal);color:white}
+@media print{#topbar,#sidebar,#sidebar-overlay,#nav-fab,#scroll-top-btn{display:none!important}.slide{box-shadow:none;margin:0;page-break-after:always;padding:30px}.answer{display:block!important}body{background:white;padding-top:0}#main-content{padding-top:0}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+<div id="reading-progress"></div>
+<div id="topbar-title">Chapter 57 — Fetal & Neonatal Physiology</div>
+<div class="topbar-sep"></div>
+<button class="tb-btn" id="btn-quiz" onclick="togglePanel('panel-quiz',this)" title="Quick Review Flashcards">🃏 <span class="label-text">Quiz</span></button>
+<button class="tb-btn" id="btn-formula" onclick="togglePanel('panel-formula',this)" title="Key Concepts">🧬 <span class="label-text">Concepts</span></button>
+<button class="tb-btn" id="btn-focus" onclick="toggleFocusMode(this)" title="Focus mode">🎯 <span class="label-text">Focus</span></button>
+<button class="tb-btn" id="btn-highlight" onclick="toggleHighlighter(this)" title="Highlighter">🖊 <span class="label-text">Stabilo</span></button>
+<div class="topbar-sep"></div>
+<button class="tb-btn icon-only" onclick="toggleSidebar()" title="Navigation">☰</button>
+</div>
+
+<!-- QUIZ PANEL -->
+<div class="tb-panel" id="panel-quiz">
+<h4>🃏 Quick Review Flashcards</h4>
+<p class="quiz-subtitle">Click a card to reveal the answer</p>
+<div id="quiz-progress-bar"><div id="quiz-progress-fill"></div></div>
+<div id="quiz-counter">Card <span id="quiz-cur">1</span> of <span id="quiz-total">-</span></div>
+<div id="flashcard-container"></div>
+<div class="quiz-nav">
+<button class="quiz-nav-btn" onclick="quizPrev()">← Prev</button>
+<button class="quiz-nav-btn" onclick="quizShuffle()">🔀 Shuffle</button>
+<button class="quiz-nav-btn primary" onclick="quizNext()">Next →</button>
+</div>
+<div id="quiz-score"></div>
+</div>
+
+<!-- CONCEPTS PANEL -->
+<div class="tb-panel" id="panel-formula">
+<h4>🧬 Key Concepts — Chapter 57</h4>
+<div class="formula-grid">
+<div class="formula-card"><div class="fc-label">Fetal Growth Phases</div><div class="fc-formula">1st half: genetic control · 2nd half: epigenetic (placental, hormonal, env, metabolic)</div><div class="fc-note">Malnutrition during hyperplasia → irreversible cell deficit; during hypertrophy → reversible</div></div>
+<div class="formula-card red"><div class="fc-label">Fetal vs Postnatal GH</div><div class="fc-formula">Fetal growth: IGF-2 dominant (not GH) · Postnatal: GH → IGF-1 dominant</div><div class="fc-note">Anencephalic fetuses (low GH) grow normally → GH not critical in fetus</div></div>
+<div class="formula-card"><div class="fc-label">Surfactant Trigger</div><div class="fc-formula">↑Cortisol (T3) → ↑FA synthase + phosphocholine transferase → ↑DPPC synthesis in type II cells</div><div class="fc-note">Glycogen → glucose → acetyl-CoA → palmitate → DPPC. Starts meaningfully ~32 wks.</div></div>
+<div class="formula-card amber"><div class="fc-label">Fetal Shunts (4)</div><div class="fc-formula">1. Placenta (50% CCO) 2. Ductus venosus (bypasses liver) 3. Foramen ovale (R→L) 4. Ductus arteriosus (PA→Ao, R→L)</div><div class="fc-note">All 4 close at/after birth. Ventricles in PARALLEL fetus → SERIES neonate.</div></div>
+<div class="formula-card red"><div class="fc-label">DA Closure Triggers</div><div class="fc-formula">↑PO₂ (18→60 mmHg) → smooth muscle contraction + ↓PGE₂ (COX active at birth) → functional closure within hours</div><div class="fc-note">Indomethacin (COX inhibitor) closes patent DA in preterm infants</div></div>
+<div class="formula-card"><div class="fc-label">Nonshivering Thermogenesis</div><div class="fc-formula">Cold → ↑Epi+TSH → T3 locally in brown fat → UCP1 upregulation → H⁺ channel → uncouples OXPHOS → HEAT</div><div class="fc-note">FAs (from epinephrine-activated lipase) relieve ATP/GTP block on UCP1</div></div>
+<div class="formula-card amber"><div class="fc-label">Neonatal Glucose Crisis</div><div class="fc-formula">Birth: ↓glucose → ↓insulin + ↑glucagon → glycogenolysis → gluconeogenesis. Hepatic glycogen depleted by 12 hrs</div><div class="fc-note">Infants of diabetic mothers: fetal hyperinsulinism → severe neonatal hypoglycemia</div></div>
+<div class="formula-card purple"><div class="fc-label">RDS Pathophysiology</div><div class="fc-formula">Prematurity → ↓surfactant → ↓lung compliance → atelectasis → R→L shunt → hypoxemia → capillary leak → plasma proteins inactivate surfactant (vicious cycle)</div><div class="fc-note">L/S ratio >2.0 in amniotic fluid = mature lungs. Antenatal steroids accelerate maturation.</div></div>
+</div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar-overlay"></div>
+<div id="sidebar">
+<div id="sidebar-header"><div><h2>Chapter 57 Navigator</h2><p>Fetal & Neonatal Physiology</p></div><button id="sidebar-close" onclick="toggleSidebar()">✕</button></div>
+<div id="search-bar"><input type="text" id="search-input" placeholder="🔍  Search slides..." oninput="filterSearch(this.value)"></div>
+<div id="tag-filter-area"><p>Filter by tag</p><div id="tag-filter-buttons">
+<button class="tag-filter-btn active" data-tag="all" onclick="filterByTag('all')">All</button>
+<button class="tag-filter-btn" data-tag="high-yield" onclick="filterByTag('high-yield')">High Yield</button>
+<button class="tag-filter-btn" data-tag="olympiad" onclick="filterByTag('olympiad')">Olympiad</button>
+<button class="tag-filter-btn" data-tag="mechanism" onclick="filterByTag('mechanism')">Mechanism</button>
+<button class="tag-filter-btn" data-tag="trap" onclick="filterByTag('trap')">Trap</button>
+<button class="tag-filter-btn" data-tag="integration" onclick="filterByTag('integration')">Integration</button>
+<button class="tag-filter-btn" data-tag="clinical" onclick="filterByTag('clinical')">Clinical</button>
+<button class="tag-filter-btn" data-tag="checkpoint" onclick="filterByTag('checkpoint')">Checkpoint</button>
+</div></div>
+<div id="slide-list"></div>
+</div>
+
+<button id="nav-fab" onclick="toggleSidebar()" style="position:fixed;bottom:28px;right:28px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue-dark));border:none;cursor:pointer;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 4px 20px rgba(13,148,136,.4);transition:transform .3s,box-shadow .3s;" aria-label="Toggle navigation">
+<div class="bar" style="width:20px;height:2px;background:white;border-radius:2px;transition:all .3s;transform-origin:center;"></div>
+<div class="bar" style="width:20px;height:2px;background:white;border-radius:2px;transition:all .3s;transform-origin:center;"></div>
+<div class="bar" style="width:20px;height:2px;background:white;border-radius:2px;transition:all .3s;transform-origin:center;"></div>
+</button>
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<div id="main-content">
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide" id="slide-1">
+<div class="section-tag">Chapter 57 — Section IX</div>
+<h1>FETAL & NEONATAL PHYSIOLOGY</h1>
+<div class="subtitle">Boron & Boulpaep — IMSPQ / IPO International Level</div>
+<div class="box">
+<span class="label high-yield">BIG PICTURE</span>
+<strong>Three interconnected arcs:</strong>
+<ul>
+<li><strong>Fetal Biology</strong> — how growth is regulated (genetic → epigenetic), what drives cell proliferation vs. hypertrophy, and which hormones matter most (spoiler: IGF-2, not GH)</li>
+<li><strong>Cardiopulmonary Development</strong> — from a non-breathing, shunt-dependent circulation to air-breathing, series-circuit adult pattern</li>
+<li><strong>Neonatal Physiology</strong> — the newborn's remarkable metabolic adaptations: thermogenesis, glucose homeostasis, immune transfer, and fluid management</li>
+</ul>
+</div>
+<div class="box integration">
+<span class="label integration">WHY SYSTEMS THINKING IS ESSENTIAL</span>
+<p>Every system in this chapter exists because the fetus lives in a low-PO₂ environment with the placenta doing the work of lungs + gut + kidney + liver simultaneously. At birth, all four organ systems must assume their adult roles within minutes to hours. Understanding the fetal shunts mechanistically allows prediction of what goes wrong in prematurity, asphyxia, and congenital heart disease.</p>
+</div>
+<div class="concept-map">
+<div class="node">Fetal Growth Biology</div><div class="arrow">→</div>
+<div class="node blue">Lung Development & Surfactant</div><div class="arrow">→</div>
+<div class="node green">Fetal Circulation (4 shunts)</div><div class="arrow">→</div>
+<div class="node amber">Birth Transition</div><div class="arrow">→</div>
+<div class="node red">Neonatal Adaptation</div>
+</div>
+<div class="slide-number">Slide 1</div>
+</div>
+
+<!-- SLIDE 2: FETAL GROWTH PHASES -->
+<div class="slide" id="slide-2">
+<h2>Biology of Fetal Growth: Hyperplasia vs. Hypertrophy</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label mechanism">MECHANISM</span>
+<div class="two-col">
+<div class="col-box">
+<h3>Three Growth Phases</h3>
+<ol class="step-list">
+<li><strong>Pure hyperplasia:</strong> cell number ↑, cell size stable. DNA content ↑ linearly.</li>
+<li><strong>Hyperplasia + hypertrophy:</strong> both cell number and size increase simultaneously.</li>
+<li><strong>Hypertrophy alone:</strong> cell number fixed, size increases. RNA, protein, weight ↑ but DNA plateau.</li>
+</ol>
+<p class="small">Timing is organ-specific. Placenta: mostly hypertrophy (weight + RNA + protein ↑ linearly, but cell number stable in T3). Fetus: almost entirely hyperplasia.</p>
+</div>
+<div class="col-box amber">
+<h3>Why Timing Matters Clinically</h3>
+<ul>
+<li>Insult during <strong>hyperplastic phase</strong> → <strong>↓cell number → irreversible</strong> (cannot regain cells even if nutrition restored)</li>
+<li>Insult during <strong>hypertrophic phase</strong> → <strong>↓cell size → reversible</strong> (cells regain size with adequate nutrition)</li>
+<li>This is the mechanistic basis of Type I (symmetric) vs. Type II (asymmetric) IUGR</li>
+</ul>
+</div>
+</div>
+<div class="box yield">
+<span class="label high-yield">BIRTH WEIGHT DETERMINANTS</span>
+<table>
+<tr><th>Factor</th><th>Contribution</th><th>Mechanism</th></tr>
+<tr><td>Maternal environment</td><td><strong>30%</strong></td><td>Nutrition, health, age, parity, BMI, stress, disease</td></tr>
+<tr><td>Maternal genotype</td><td>20%</td><td>Genes passed to fetus</td></tr>
+<tr><td>Paternal genotype</td><td>20%</td><td>Genes passed to fetus</td></tr>
+<tr><td>Unique fetal genotype</td><td>15%</td><td>Allelic interaction (dominant/recessive)</td></tr>
+<tr><td>Fetal gender</td><td>2%</td><td>Males slightly heavier</td></tr>
+<tr><td>Multifactorial (twins, gestational age)</td><td>13%</td><td>Variable</td></tr>
+</table>
+</div>
+<div class="slide-number">Slide 2</div>
+</div>
+
+<!-- SLIDE 3: GENETIC vs EPIGENETIC CONTROL -->
+<div class="slide" id="slide-3">
+<h2>Genetic vs. Epigenetic Control of Fetal Growth</h2>
+<span class="label high-yield">HIGH-YIELD</span>
+<div class="two-col">
+<div class="col-box">
+<h3>First Half (Genetic Dominant)</h3>
+<ul>
+<li>Fetal genome = primary driver of growth pattern</li>
+<li>Programmed sequence of gene activation/suppression</li>
+<li>~42 cell divisions total (fertilized egg 1ng → 3kg newborn = 10¹²-fold)</li>
+<li>Growth constrained within genetically set limits</li>
+<li>Environmental insults have limited impact on growth trajectory</li>
+</ul>
+</div>
+<div class="col-box blue">
+<h3>Second Half (Epigenetic Dominant)</h3>
+<p>Four major epigenetic factors:</p>
+<ul>
+<li><strong>Placental:</strong> transport capacity, surface area, blood flow</li>
+<li><strong>Hormonal:</strong> insulin, IGFs, thyroid hormones, cortisol</li>
+<li><strong>Environmental:</strong> nutrition, disease, drugs, altitude, smoking</li>
+<li><strong>Metabolic:</strong> diabetes (→ fetal hyperinsulinism → macrosomia)</li>
+</ul>
+</div>
+</div>
+<div class="box integration">
+<span class="label integration">PLACENTA-FETAL GROWTH COUPLING</span>
+<p>Fetal growth <strong>closely correlates with placental weight.</strong> Rapid fetal growth → ↑placental mass → ↑villous surface area → ↑maternal + fetal blood flow. Placenta grows linearly until ~4 weeks before birth. <strong>IUGR = ↓placental reserve</strong> (maternal smoking, hypertension, etc.) particularly critical in T3 when fetal growth velocity is maximal.</p>
+</div>
+<div class="box trap">
+<span class="label trap">OLYMPIAD TRAP</span>
+<strong>GH is NOT the dominant fetal growth hormone.</strong> Anencephalic fetuses (very low GH) grow normally → GH plays minimal role prenatally. The fetal liver has few GH receptors. <strong>IGF-2 dominates fetal growth</strong> (not IGF-1 as postnatally). After birth, IGF-2 falls and IGF-1 takes over (under GH control).
+</div>
+<div class="slide-number">Slide 3</div>
+</div>
+
+<!-- SLIDE 4: HORMONAL CONTROL OF FETAL GROWTH -->
+<div class="slide" id="slide-4">
+<h2>Hormonal Control of Fetal Growth</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label olympiad">OLYMPIAD FAVORITE</span>
+<table>
+<tr><th>Hormone</th><th>Fetal Role</th><th>Key Mechanism</th><th>Note</th></tr>
+<tr><td><strong>Insulin</strong></td><td>Growth factor (near term); lipogenesis; glycogen storage; AA uptake</td><td>Acts when fetal glucose metabolism becomes insulin-sensitive; glucose crosses placenta → fetal insulin secretion</td><td>Maternal insulin cannot cross placenta. Fetal hyperinsulinism → macrosomia</td></tr>
+<tr><td><strong>IGF-2</strong></td><td>Primary fetal mitogen (dominant in T1–T3)</td><td>IGF-1 receptor (binds IGF-1, IGF-2, insulin). Present from end of T1; correlates with birth weight</td><td>IGF-2 >> IGF-1 in fetus. After birth reverses.</td></tr>
+<tr><td><strong>IGF-1</strong></td><td>Secondary fetal mitogen; takes over postnatally</td><td>Poorly correlates with GH in fetus → GH-independent prenatally</td><td>Postnatally GH → liver → IGF-1 (classic axis)</td></tr>
+<tr><td><strong>Glucocorticoids</strong></td><td>Glycogen storage (liver, T3); lung maturation; enzyme induction</td><td>Promote glycogen synthase activity; upregulate FA synthase + phosphocholine transferase for surfactant</td><td>Surge before birth; 2/3 fetal origin, 1/3 maternal</td></tr>
+<tr><td><strong>Thyroid hormones</strong></td><td>Obligatory for growth; brain myelination; cardiac growth</td><td>T4 mainly maternal before T2. Fetal TSH + T4 rise in T2 (with HPP axis development)</td><td>Hypothyroidism → ↓organ size (heart, kidney, liver, muscle, spleen)</td></tr>
+<tr><td><strong>EGF (via TGFα)</strong></td><td>Mitogen for ectoderm + mesoderm</td><td>No fetal EGF mRNA → TGFα acts as EGF receptor ligand instead</td><td>Fetus has abundant EGF receptors</td></tr>
+</table>
+<div class="slide-number">Slide 4</div>
+</div>
+
+<!-- SLIDE 5: FETAL ERYTHROPOIESIS & HEMOGLOBIN -->
+<div class="slide" id="slide-5">
+<h2>Fetal Erythropoiesis & Hemoglobin Transition</h2>
+<span class="label mechanism">MECHANISM</span>
+<div class="flowchart">
+Week 3:   Yolk sac + placenta → begin erythropoiesis (nucleated RBCs)
+Week 4:   Vascular endothelium + mesenchyme join
+Shortly:  Liver joins (major source T1-T2)
+End T1:   Bone marrow + spleen + lymphoid tissue begin
+T3:       Bone marrow = DOMINANT source
+            All others gradually lose capacity
+</div>
+<div class="two-col">
+<div class="col-box">
+<h3>Fetal RBC Features</h3>
+<ul>
+<li>Early: nucleated RBCs → progressively non-nucleated</li>
+<li>Reticulocyte fraction high early → falls to ~5% at term (adult: &lt;1%)</li>
+<li>RBC life span: ~80 days at term (adult: ~120 days); shorter in immature fetuses</li>
+<li>Hb concentration: ~15 g/dL by midgestation; fetal Hb &gt; maternal Hb at term (~12 g/dL)</li>
+</ul>
+</div>
+<div class="col-box green">
+<h3>Hemoglobin Switching</h3>
+<ul>
+<li><strong>Embryonic Hb:</strong> α-type + β-type chain combinations, very early</li>
+<li><strong>HbF (fetal):</strong> predominates at birth; higher O₂ affinity (left-shifted curve)</li>
+<li><strong>HbA + HbA₂:</strong> gradually replace HbF during first 12 months → adult pattern</li>
+<li>Switching = genetic program of Hb gene activation/suppression</li>
+</ul>
+</div>
+</div>
+<div class="box trap">
+<span class="label trap">INTEGRATION TRAP</span>
+The <strong>higher O₂ affinity of HbF</strong> is crucial for placental gas exchange (Chapter 56). At intervillous PO₂ 30–35 mmHg: maternal HbA = ~65% sat, fetal HbF = ~85% sat → fetus extracts O₂ from mother. After birth, HbF's high affinity becomes a disadvantage for O₂ unloading to tissues → explains why HbF must be replaced by HbA during the first year.
+</div>
+<div class="slide-number">Slide 5</div>
+</div>
+
+<!-- SLIDE 6: FETAL ORGAN DEVELOPMENT TIMELINE -->
+<div class="slide" id="slide-6">
+<h2>Fetal Organ Development: Key Timeline</h2>
+<span class="label high-yield">HIGH-YIELD</span>
+<table>
+<tr><th>Week</th><th>Key Developmental Events</th></tr>
+<tr><td><strong>3</strong></td><td>Heart starts beating; embryonic blood vessels develop; yolk sac erythropoiesis begins</td></tr>
+<tr><td><strong>4</strong></td><td>Lung bud from foregut; face/tongue/thyroid primordia; primitive gut; limb buds appear; neural tube walls thicken → spinal cord</td></tr>
+<tr><td><strong>5</strong></td><td>Kidneys (permanent adult kidney begins); adrenal glands; gonadal ridges; atria + ventricles; palate begins</td></tr>
+<tr><td><strong>6</strong></td><td>Bronchial tree begins repetitive branching; pituitary: Rathke's pouch connection disappears; midgut elongates</td></tr>
+<tr><td><strong>7</strong></td><td>Anal canal formed; skull cartilages begin fusing</td></tr>
+<tr><td><strong>12–14</strong></td><td>Fetal breathing movements begin; GI tract starts imbibing amniotic fluid; fetal urine starts</td></tr>
+<tr><td><strong>16–25</strong></td><td>Canalicular period: airway canalization, 17 generations; respiratory bronchioles form</td></tr>
+<tr><td><strong>24+</strong></td><td>Terminal sac period: epithelium thins, capillaries approach alveoli; surfactant synthesis begins (type II cells)</td></tr>
+<tr><td><strong>28+</strong></td><td>Fetal renal system begins regulating fluid/electrolyte/acid-base (complete by T3)</td></tr>
+<tr><td><strong>32+</strong></td><td>Meaningful surfactant production (cortisol surge); lipid stores begin rapid accumulation; alveolar-like structures present</td></tr>
+<tr><td><strong>34–36</strong></td><td>10–15% adult alveolar number present</td></tr>
+<tr><td><strong>Term (40 wks)</strong></td><td>Alveolar development continues until age 8; full renal maturity at ~1 year postnatally</td></tr>
+</table>
+<div class="slide-number">Slide 6</div>
+</div>
+
+<!-- SLIDE 7: LUNG DEVELOPMENT -->
+<div class="slide" id="slide-7">
+<h2>Fetal Lung Development: Four Phases</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label mechanism">MECHANISM</span>
+<div class="flowchart">
+Lung bud from foregut ~24 days → branches into main bronchi precursors ~28 days
+
+PHASE 1: PSEUDOGLANDULAR (5–17 wks)
+  Airways resemble branching exocrine glands. Conducting airways formed.
+  Branching of pulmonary arterial tree parallels bronchial branching (spatially + temporally).
+
+PHASE 2: CANALICULAR (16–25 wks)
+  Airway canalization → 17 generations + respiratory bronchioles formed.
+  Each resp. bronchiole → up to 6 alveolar ducts → primitive alveoli.
+  Problem at 24 wks: large interstitial tissue gap between capillary and epithelium → very low diffusing capacity.
+
+PHASE 3: TERMINAL SAC (24 wks → birth)
+  Respiratory epithelium THINS greatly. Capillaries push INTO alveolar sacs.
+  Type I alveolar pneumocytes thin → gas exchange possible after ~24 wks.
+  Type II cells begin surfactant synthesis + storage (not extensively until ~32 wks).
+
+PHASE 4: ALVEOLAR (late fetal → 8 years)
+  Final alveolar growth. At 34–36 wks: 10–15% adult alveolar count.
+  Alveolar multiplication continues until age 8.
+</div>
+<div class="box trap">
+<span class="label trap">OLYMPIAD TRAP</span>
+<strong>Viability threshold ~24 weeks</strong> is explained by Phase 3 onset: capillaries finally approach type I pneumocytes → gas exchange becomes structurally possible. However, surfactant is still minimal → RDS risk very high. Two separate limiting factors: (1) structural diffusion distance and (2) surfactant availability.
+</div>
+<div class="box integration">
+<span class="label integration">INTEGRATION</span>
+The pulmonary arterial tree mirrors bronchial branching <em>both spatially and temporally</em>. This co-development means that structural lung prematurity = both airway AND vascular immaturity → explains why premature infants have both respiratory failure AND persistent pulmonary hypertension.
+</div>
+<div class="slide-number">Slide 7</div>
+</div>
+
+<!-- SLIDE 8: SURFACTANT -->
+<div class="slide" id="slide-8">
+<h2>Surfactant: Synthesis, Regulation & Clinical Importance</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label olympiad">OLYMPIAD FAVORITE</span>
+<h3>What is Surfactant?</h3>
+<p>Surfactant ↓ alveolar surface tension → ↑ lung compliance → prevents alveolar collapse at end-expiration. The predominant phospholipid is <strong>DPPC (dipalmitoylphosphatidylcholine)</strong>, also called dipalmitoyl lecithin.</p>
+<h3>DPPC Synthesis Pathway</h3>
+<div class="pathway-step">
+<div class="step-box">Glycogen → Glucose</div><div class="step-arrow">→</div>
+<div class="step-box blue">Acetyl-CoA → Malonyl-CoA</div><div class="step-arrow">→</div>
+<div class="step-box green">FA synthase → Palmitate</div>
+</div>
+<div class="pathway-step">
+<div class="step-box">DAG + CDP-choline</div><div class="step-arrow">→</div>
+<div class="step-box amber">Phosphocholine transferase</div><div class="step-arrow">→</div>
+<div class="step-box green">DPPC</div>
+</div>
+<div class="box yield">
+<span class="label high-yield">CORTISOL = MASTER INDUCER</span>
+<p>At ~32 weeks: cortisol surge (+ thyroid hormones, TRH, PRL, EGF) → upregulates <strong>FA synthase</strong> + <strong>phosphocholine transferase</strong> → massive ↑ DPPC production. Cortisol also ↑ number of type II alveolar pneumocytes and their lamellar bodies (surfactant storage organelles). Cortisol receptors present in lung from midterm. <strong>2/3 fetal cortisol, 1/3 maternal.</strong></p>
+</div>
+<div class="box clinical">
+<span class="label clinical">CLINICAL — RDS DIAGNOSIS & TREATMENT</span>
+<ul>
+<li><strong>L/S ratio &gt;2.0</strong> in amniotic fluid = mature lungs (lecithin/sphingomyelin). Positive phosphatidylglycerol (PG) = also confirms maturity.</li>
+<li><strong>Antenatal steroids</strong> (dexamethasone/betamethasone) given 24–34 weeks at risk of preterm delivery → accelerates surfactant production</li>
+<li><strong>Postnatal surfactant instillation</strong> into trachea within 1 hour of birth → dramatically reduces RDS mortality</li>
+</ul>
+</div>
+<div class="box trap">
+<span class="label trap">RDS VICIOUS CYCLE</span>
+<div class="pathway-step">
+<div class="step-box red">↓ Surfactant</div><div class="step-arrow">→</div>
+<div class="step-box red">↓ Compliance + Atelectasis</div><div class="step-arrow">→</div>
+<div class="step-box red">R→L shunt</div><div class="step-arrow">→</div>
+<div class="step-box red">Hypoxemia</div><div class="step-arrow">→</div>
+<div class="step-box amber">Capillary damage + plasma protein leak</div><div class="step-arrow">→</div>
+<div class="step-box red">Proteins inactivate surfactant</div><div class="step-arrow">→</div>
+<div class="step-box red">Worse atelectasis...</div>
+</div>
+</div>
+<div class="slide-number">Slide 8</div>
+</div>
+
+<!-- SLIDE 9: FETAL CIRCULATION OVERVIEW -->
+<div class="slide" id="slide-9">
+<h2>Fetal Circulation: The Four-Shunt System</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label olympiad">OLYMPIAD FAVORITE</span>
+<div class="box yield">
+<span class="label high-yield">KEY PRINCIPLE</span>
+In fetal life, the right and left ventricles work <strong>in PARALLEL</strong> (not in series as in adults). The combined cardiac output (CCO) = sum of both ventricular outputs. Four shunts allow blood to bypass postnatal circuits. The placenta is the "lung" — receiving 50% CCO and returning oxygenated blood.
+</div>
+<table>
+<tr><th>Shunt</th><th>Direction</th><th>% CCO</th><th>Function / Why it exists</th></tr>
+<tr><td><strong>1. Placenta</strong></td><td>2 umbilical arteries (deO₂) → placenta → 1 umbilical vein (O₂)</td><td>50% CCO to placenta</td><td>Gas exchange, nutrition, waste removal (replaces lungs + gut + liver + kidney)</td></tr>
+<tr><td><strong>2. Ductus Venosus</strong></td><td>Umbilical vein → IVC (bypasses liver)</td><td>~50% CCO bypasses liver</td><td>Liver largely non-functional; ductus venosus delivers oxygenated blood directly to right atrium + IVC</td></tr>
+<tr><td><strong>3. Foramen Ovale</strong></td><td>Right atrium → Left atrium (R→L)</td><td>27% CCO crosses to LA</td><td>Directs best-oxygenated blood (from IVC, which got umbilical vein blood) to left heart → brain + coronary arteries</td></tr>
+<tr><td><strong>4. Ductus Arteriosus</strong></td><td>Pulmonary artery → Descending aorta (R→L)</td><td>59% CCO bypasses lungs</td><td>Lungs non-ventilated → high PVR → only 7% CCO to lungs. PGE₂ (fetal levels 5× adult) keeps DA patent.</td></tr>
+</table>
+<div class="box mechanism">
+<span class="label mechanism">PO₂ AT KEY CHECKPOINTS</span>
+<ul>
+<li>Umbilical vein (best oxygenated): <strong>PO₂ 30–35 mmHg, HbF sat 85%</strong></li>
+<li>IVC entering right atrium: PO₂ ~27 mmHg, sat ~70%</li>
+<li>Right ventricle: PO₂ 18–22 mmHg, sat ~55%</li>
+<li>Descending aorta (mixed): PO₂ ~23 mmHg, sat ~60%</li>
+<li>Umbilical arteries (leaving fetus): PO₂ ~23 mmHg, sat ~60%</li>
+<li><strong>Left ventricle/ascending aorta (brain blood): PO₂ ~25 mmHg, sat ~65%</strong></li>
+</ul>
+</div>
+<div class="slide-number">Slide 9</div>
+</div>
+
+<!-- SLIDE 10: FETAL CIRCULATION DETAIL -->
+<div class="slide" id="slide-10">
+<h2>Fetal Circulation: Quantitative Blood Flow Tracing</h2>
+<span class="label olympiad">OLYMPIAD FAVORITE</span>
+<div class="flowchart">
+CCO = 100% (sum of both ventricles)
+
+INFERIOR VENA CAVA → RIGHT ATRIUM: 69% CCO (IVC: 50% umbilical vein + ductus venosus, 19% lower body/liver)
+SUPERIOR VENA CAVA → RIGHT ATRIUM: 21% CCO (poorly oxygenated, head/upper body)
+CORONARY VEINS → RIGHT ATRIUM: 3% CCO
+
+Right Atrium receives total 93% CCO.
+  → 27% crosses FORAMEN OVALE → LEFT ATRIUM (preferentially from IVC, best O₂)
+  → 66% stays → tricuspid → RIGHT VENTRICLE
+
+LEFT VENTRICLE: 27% (from FO) + 7% (from lungs) = 34% CCO
+  → Ascending aorta → HEAD + CORONARY ARTERIES
+  → 10% of this reaches descending aorta
+
+RIGHT VENTRICLE: 66% CCO
+  → Pulmonary trunk → 7% goes to lungs (high PVR)
+  → 59% → DUCTUS ARTERIOSUS → Descending aorta
+
+DESCENDING AORTA: 59% (DA) + 10% (from aortic arch) = 69% CCO
+  → 50% to PLACENTA (umbilical arteries from common iliacs)
+  → 19% to lower body, GI, kidneys
+</div>
+<div class="box trap">
+<span class="label trap">CRITICAL TRAP: Superior vs. Inferior Vena Cava Separation</span>
+The foramen ovale acts as a <strong>preferential routing valve</strong>: IVC blood (contains oxygenated umbilical vein blood) preferentially crosses FO to LA → left heart → brain. SVC blood (poorly oxygenated, from upper body) does NOT cross FO due to the valve-like anatomy → stays in right heart → pulmonary artery → ductus arteriosus. This ensures the <strong>brain gets the highest-PO₂ blood available</strong> in the fetus.
+</div>
+<div class="slide-number">Slide 10</div>
+</div>
+
+<!-- SLIDE 11: CHECKPOINT 1 -->
+<div class="slide" id="slide-11">
+<div class="checkpoint">
+<h3>🔬 Reasoning Checkpoint 1 — Fetal Growth & Circulation</h3>
+<ol>
+<li>A fetus is exposed to severe maternal malnutrition at 8 weeks gestation. At 24 weeks. Predict the type of IUGR and whether it is reversible.</li>
+<div class="answer"><strong>At 8 weeks (hyperplastic phase):</strong> ↓cell division → ↓cell number → <strong>Type I (symmetric) IUGR. IRREVERSIBLE</strong> — cells cannot be recovered. All organs equally small (head + body). At 24 weeks (late hyperplasia/early hypertrophy transition): mixed picture → Intermediate IUGR. Partially reversible.</div>
+
+<li>Why does blood preferentially cross the foramen ovale rather than going to the right ventricle, and why is this physiologically important?</li>
+<div class="answer"><strong>The foramen ovale has a valve-like flap on the left atrial side. IVC blood enters the right atrium with a specific flow vector (directed toward FO due to the crista dividens) → preferentially crosses to LA. SVC blood enters at a different angle → does not reach FO → goes to RV. Physiological importance: IVC blood contains the highest-PO₂ blood in the fetus (mixed umbilical vein + ductus venosus blood) → brain and coronaries receive the best available oxygenated blood.</strong></div>
+
+<li>A preterm infant at 26 weeks is born. Predict the two major structural reasons for respiratory failure.</li>
+<div class="answer"><strong>(1) Diffusion distance: at 26 weeks, still in canalicular/early terminal sac phase → capillaries still separated from respiratory epithelium by thick interstitial tissue → very low diffusing capacity. (2) Surfactant deficiency: type II pneumocytes present but lamellar bodies sparse; cortisol surge not yet occurred (peaks ~32 wks) → DPPC synthesis minimal → ↓compliance → atelectasis → RDS.</strong></div>
+
+<li>Why is PGE₂ essential for the fetal ductus arteriosus, and what happens when you give indomethacin to a preterm infant?</li>
+<div class="answer"><strong>PGE₂ (fetal levels 5× adult) → vasodilates DA smooth muscle → keeps it patent (allowing right-to-left shunt to bypass non-ventilated lungs). Indomethacin = COX inhibitor → ↓PGE₂ → ↓vasodilator tone → DA smooth muscle constricts → functional closure → used therapeutically for patent ductus arteriosus (PDA) in preterm infants.</strong></div>
+</ol>
+</div>
+<div class="slide-number">Slide 11</div>
+</div>
+
+<!-- SLIDE 12: BIRTH TRANSITION OVERVIEW -->
+<div class="slide" id="slide-12">
+<h2>Birth: The Most Dramatic Physiological Transition</h2>
+<span class="label high-yield">HIGH-YIELD</span>
+<div class="box yield">
+<span class="label high-yield">THREE IMMEDIATE METABOLIC CRISES AT BIRTH</span>
+<div class="three-col">
+<div class="col-box"><h4>1. Hypoxia</h4><p>Umbilical arteries constrict → loss of placental O₂. Must breathe within seconds. PO₂ drops until first breath.</p></div>
+<div class="col-box amber"><h4>2. Hypoglycemia</h4><p>Loss of placental glucose supply. Hepatic glycogen depleted within 12 hours. Must mobilize endogenous fuels.</p></div>
+<div class="col-box red"><h4>3. Hypothermia</h4><p>From warm amniotic fluid (37°C) to cold air. Large surface-to-volume ratio. Evaporation immediate heat loss.</p></div>
+</div>
+</div>
+<h3>Sequence of Circulatory Events at Birth</h3>
+<ol class="step-list">
+<li><strong>Umbilical artery vasoconstriction:</strong> stretch + ↑PO₂ → ends placental circulation → ↑systemic vascular resistance (TPR doubles)</li>
+<li><strong>First breath:</strong> lung expansion → ↓pulmonary vascular resistance (>5-fold) → ↑PO₂ + ↑pH → pulmonary vasodilation + PGI₂ release</li>
+<li><strong>Ductus venosus closes:</strong> within 3 hours → portal blood forced through liver → ↑portal pressure</li>
+<li><strong>Foramen ovale closes:</strong> ↑LA pressure (from ↑pulmonary venous return) + ↓RA pressure (from ↓venous return) → valve pushed against septum</li>
+<li><strong>Ductus arteriosus closes functionally:</strong> ↑PO₂ (18–22 → ~60 mmHg) + ↓PGE₂ → smooth muscle contraction → functional closure within hours → anatomical closure in weeks–months</li>
+</ol>
+<div class="box trap">
+<span class="label trap">COMMON TRAP</span>
+<strong>Blood flow through DA reverses at birth.</strong> Fetal DA: R→L (PA → Aorta). After birth: ↑systemic resistance + ↓pulmonary resistance → aortic pressure > pulmonary artery pressure → flow reverses to <strong>L→R</strong> (Aorta → PA). This left-to-right shunt is undesirable but brief (functional closure within hours).
+</div>
+<div class="slide-number">Slide 12</div>
+</div>
+
+<!-- SLIDE 13: FIRST BREATH -->
+<div class="slide" id="slide-13">
+<h2>The First Breath: Triggers & Mechanics</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label mechanism">MECHANISM</span>
+<div class="two-col">
+<div class="col-box">
+<h3>Triggers for First Breath</h3>
+<ul>
+<li><strong>Hypoxia + hypercapnia</strong> (main trigger): partial umbilical cord occlusion during delivery → ↑PCO₂, ↓PO₂ → peripheral + central chemoreceptors fire</li>
+<li><strong>Tactile stimulation</strong>: delivery process mechanically stimulates baby</li>
+<li><strong>Cold skin</strong>: sudden temperature drop → cold receptors → breathing stimulus</li>
+<li><strong>↑Sympathetic tone</strong>: vasoconstriction of vessels to peripheral chemoreceptors → ↓local PO₂ → amplifies hypoxic signal</li>
+</ul>
+</div>
+<div class="col-box amber">
+<h3>Mechanics of First Breath</h3>
+<ul>
+<li>Most difficult inspiration of a lifetime</li>
+<li>First breath: transpulmonary pressure (PTP) needed = <strong>60 cm H₂O</strong> to expand lung by ~40 mL</li>
+<li>Second breath: PTP ~40 cm H₂O (some alveoli already open, surfactant beginning to act)</li>
+<li>Normal adult tidal breath: PTP ~2.5 cm H₂O for 500 mL</li>
+<li>Adult compliance achieved ~1 hour post-birth</li>
+</ul>
+</div>
+</div>
+<div class="box mechanism">
+<span class="label mechanism">LUNG FLUID CLEARANCE</span>
+<p>In utero: alveoli + airways filled with fetal lung fluid (≈ FRC volume). Onset of labor → ↑catecholamines + AVP → <strong>↓fluid production + ↑active reabsorption</strong>. Clearance by: pulmonary circulation (majority), pulmonary lymphatics, and tracheal expulsion during birth canal passage. Failure to clear (e.g., C-section without labor) → transient tachypnea of newborn.</p>
+</div>
+<div class="box integration">
+<span class="label integration">AMNIOTIC FLUID DYNAMICS</span>
+<p>After fetal kidneys mature (T3): fetal urine = ~75% amniotic fluid. Lung secretions = ~25%. Reabsorption via: fetal GI (~55%), amnion (~30%), lungs (~15%). Water turns over once per day. <strong>Oligohydramnios</strong> = ↓fetal urine (renal agenesis) → lung compression → pulmonary hypoplasia. <strong>Polyhydramnios</strong> = ↓GI absorption (esophageal atresia) → amniotic fluid accumulates.</p>
+</div>
+<div class="slide-number">Slide 13</div>
+</div>
+
+<!-- SLIDE 14: SHUNT CLOSURE DETAIL -->
+<div class="slide" id="slide-14">
+<h2>Shunt Closure at Birth: Mechanisms & Timing</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label olympiad">OLYMPIAD FAVORITE</span>
+<table>
+<tr><th>Shunt</th><th>Fetal Direction</th><th>Closure Trigger</th><th>Timing</th><th>Pathology if Fails</th></tr>
+<tr><td><strong>Placenta</strong></td><td>50% CCO to placenta</td><td>Umbilical artery stretch + ↑PO₂ → vasoconstriction</td><td>Immediately at birth</td><td>Prolonged cord → autotransfusion (~75–100 mL to neonate if neonate below placenta)</td></tr>
+<tr><td><strong>Ductus Venosus</strong></td><td>Umbilical vein → IVC (bypass liver)</td><td>Unknown (vascular smooth muscle contraction)</td><td>Within 3 hours</td><td>Portal hypertension relief absent; delayed liver perfusion</td></tr>
+<tr><td><strong>Foramen Ovale</strong></td><td>R→L (IVC → LA)</td><td>↑LA pressure (↑pulm venous return) + ↓RA pressure → flap pushed closed</td><td>Functional: at birth. Anatomical seal: months–years</td><td>Patent FO in 15–20% adults. No shunt normally (valve effective). Shunt if ↑RA pressure (pulm HTN)</td></tr>
+<tr><td><strong>Ductus Arteriosus</strong></td><td>R→L (PA → Ao)</td><td>↑PO₂ (18→60 mmHg) → smooth muscle contraction + ↓PGE₂</td><td>Functional: within hours. Anatomical: weeks–months</td><td>Patent DA: L→R shunt → pulmonary overcirculation. Indomethacin closes it. PGE₁ keeps it open (for ductus-dependent CHD).</td></tr>
+</table>
+<div class="box mechanism">
+<span class="label mechanism">PARALLEL → SERIES TRANSITION</span>
+<p>In fetus: RV and LV work in parallel (mix via shunts). LV output = 34% CCO. RV output = 66% CCO. At birth: shunts close → <strong>RV and LV now in series</strong> → equal outputs. LV doubles its stroke volume (major adaptation). Newborn has <strong>lower SVR than adult</strong> → high flow at lower pressure. PVR falls >5-fold (previously high due to hypoxic vasoconstriction + collapsed airways + LTD₄).</p>
+</div>
+<div class="slide-number">Slide 14</div>
+</div>
+
+<!-- SLIDE 15: NEONATAL THERMOGENESIS -->
+<div class="slide" id="slide-15">
+<h2>Neonatal Thermoregulation: Brown Fat & Nonshivering Thermogenesis</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label mechanism">MECHANISM</span>
+<div class="box yield">
+<span class="label high-yield">WHY NEONATES ARE COLD-VULNERABLE</span>
+<ul>
+<li><strong>Large surface area : body mass ratio</strong> → proportionally more heat radiated/conducted/convected</li>
+<li><strong>Limited shivering thermogenesis</strong> (immature neuromuscular system)</li>
+<li><strong>Poor thermal insulation</strong> (thin fat layer; preterm even worse)</li>
+<li><strong>Cannot behaviorally thermoregulate</strong> (can't put on clothes, adjust thermostat)</li>
+<li><strong>Immediate evaporative loss</strong> at birth (amniotic fluid on skin)</li>
+</ul>
+</div>
+<h3>Nonshivering Thermogenesis: The Brown Fat Mechanism</h3>
+<div class="flowchart">
+COLD STRESS
+  ↓
+↑ Epinephrine (adrenal medulla) + ↑ TSH (anterior pituitary)
+  ↓                                    ↓
+Epi → β-receptor → cAMP → PKA     TSH → T4 release (thyroid)
+  ↓                                    ↓
+Activate triacylglycerol lipase    Epi activates 5'-monodeiodinase in brown fat
+  ↓                                    ↓
+Free fatty acids (FFAs) liberated   T4 → T3 (locally in brown fat)
+  ↓                                    ↓
+FFAs relieve GDP/ATP block on UCP1 ← T3 upregulates UCP1 (thermogenin)
+  ↓
+UCP1 opens H⁺ channel in inner mitochondrial membrane
+  ↓
+Protons bypass ATP synthase → H⁺ gradient dissipated as HEAT
+  ↓
+~27 kcal/kg/day generated → major fraction of neonate's high metabolic rate
+</div>
+<div class="box mechanism">
+<span class="label mechanism">UCP1 MECHANISM DETAIL</span>
+<p>UCP1 (uncoupling protein 1, aka thermogenin) = H⁺ channel in inner mitochondrial membrane. Normally <strong>inhibited by purine nucleotides</strong> (ATP, GDP). FFAs (liberated by epinephrine-activated lipase via cAMP/PKA) <strong>relieve this inhibition</strong> → channel opens → protons generated by electron transport chain enter matrix through UCP1 instead of ATP synthase → no ATP made → ALL energy released as heat. Brown fat location: neck, upper midline back. Brown color = high mitochondrial density (cytochromes).</p>
+</div>
+<div class="slide-number">Slide 15</div>
+</div>
+
+<!-- SLIDE 16: NEONATAL GLUCOSE METABOLISM -->
+<div class="slide" id="slide-16">
+<h2>Neonatal Glucose & Fuel Metabolism</h2>
+<span class="label high-yield">HIGH-YIELD</span><span class="label mechanism">MECHANISM</span>
+<div class="two-col">
+<div class="col-box">
+<h3>Fetal Glucose Preparation</h3>
+<ul>
+<li>Fetus: passive glucose (facilitated diffusion across placenta)</li>
+<li>Gluconeogenesis minimal (low gluconeogenic enzyme levels)</li>
+<li>Glucocorticoids in T3 → ↑glycogen synthase → <strong>rapid glycogen accumulation</strong></li>
+<li>Cardiac glycogen: 10× adult. Skeletal muscle glycogen: 3–5× adult</li>
+<li>Phosphorylase + G6Pase (glycogenolysis enzymes) present but inactive until birth</li>
+</ul>
+</div>
+<div class="col-box amber">
+<h3>Postnatal Glucose Crisis & Response</h3>
+<ul>
+<li>Placenta gone → no more glucose supply. Suckling begins ~6 hrs</li>
+<li>First hours: <strong>glycogenolysis</strong> (now phosphorylase + G6Pase activated at birth)</li>
+<li>Hepatic glycogen depleted in <strong>first 12 hours</strong></li>
+<li>Blood glucose may drop to <strong>40–50 mg/dL</strong> physiologically</li>
+<li>↓Glucose → <strong>↓insulin + ↑glucagon</strong> → cAMP → glycogenolysis + gluconeogenesis + lipolysis</li>
+<li>↑Epinephrine (from hypoglycemia + hypoxia + hypothermia) → same cAMP path</li>
+</ul>
+</div>
+</div>
+<div class="box trap">
+<span class="label trap">DIABETIC MOTHER TRAP</span>
+<strong>Sequence:</strong> Maternal hyperglycemia → fetal hyperglycemia → fetal β-cell hyperplasia → fetal hyperinsulinism. At birth: glucose supply cut but insulin still HIGH → <strong>severe neonatal hypoglycemia</strong> (&lt;35 mg/dL). Lowest point within hours of birth; begins recovering spontaneously within 6 hours. High fetal insulin also = macrosomia (organomegaly, excess fat). Cesarean rates ↑.
+</div>
+<h3>Fat Metabolism at Birth</h3>
+<div class="box mechanism">
+<span class="label mechanism">MECHANISM</span>
+<p>Fetal fat stores: ~500g at term (~15% body weight), mainly T3. ↓Glucose → ↑glucagon + ↑epinephrine → activate <strong>hormone-sensitive lipase</strong> (via cAMP) → TG → glycerol + FAs. Glycerol → liver → gluconeogenesis. FAs → liver → <strong>ketone bodies</strong> (important fuel as glycogen depletes). This fat mobilization is critical for the first ~6 hours pre-suckling.</p>
+</div>
+<div class="slide-number">Slide 16</div>
+</div>
+
+<!-- SLIDE 17: IUGR TYPES -->
+<div class="slide" id="slide-17">
+<h2>Intrauterine Growth Restriction: Symmetric vs. Asymmetric</h2>
+<span class="label clinical">CLINICAL REASONING</span><span class="label olympiad">OLYMPIAD FAVORITE</span>
+<table>
+<tr><th>Feature</th><th>Type I: Symmetric IUGR</th><th>Type II: Asymmetric IUGR</th><th>Intermediate IUGR</th></tr>
+<tr><td>Prevalence</td><td>20–30%</td><td><strong>70–80%</strong></td><td>5–10%</td></tr>
+<tr><td>Timing of insult</td><td>Early (4–20 wks, hyperplastic phase)</td><td>Late (&gt;28 wks, hypertrophic phase)</td><td>Middle (20–28 wks)</td></tr>
+<tr><td>Growth phase affected</td><td>Hyperplasia → ↓cell number</td><td>Hypertrophy → ↓cell size</td><td>Transition phase</td></tr>
+<tr><td>Head circumference</td><td>↓ (small head)</td><td><strong>Normal (brain-sparing)</strong></td><td>Variable</td></tr>
+<tr><td>Body/abdomen</td><td>↓ proportionally</td><td><strong>↓↓ (most affected)</strong></td><td>Variable</td></tr>
+<tr><td>Reversibility</td><td><strong>Irreversible</strong></td><td>Reversible (cells regain size)</td><td>Partial</td></tr>
+<tr><td>Main causes</td><td>Chromosomal anomalies, congenital infections (rubella, CMV), drugs, smoking</td><td>Uteroplacental insufficiency (hypertension, renal disease, diabetes)</td><td>Severe early maternal vascular disease</td></tr>
+</table>
+<div class="box mechanism">
+<span class="label mechanism">BRAIN-SPARING MECHANISM (Type II)</span>
+<p>When uteroplacental perfusion ↓ → fetal CO redistributes: <strong>↑blood flow to brain, heart, adrenals</strong> + <strong>↓flow to gut, liver, kidneys, limbs</strong>. Brain prioritized by fetal hypoxic vasodilation of cerebral vessels. Result: normal head circumference but small abdomen (↓liver glycogen, ↓muscle mass). This is an <strong>adaptive response</strong> — fetus sacrifices growth of non-vital organs to protect the brain.</p>
+</div>
+<div class="box trap">
+<span class="label trap">EXAM TRAP</span>
+<strong>Type I IUGR is symmetric but NOT brain-sparing.</strong> Both head and body are small. This is because insult happened during hyperplasia — before the fetus had developed the circulatory redistribution capacity. Type II is asymmetric WITH brain sparing (late insult → redistribution compensates).
+</div>
+<div class="slide-number">Slide 17</div>
+</div>
+
+<!-- SLIDE 18: CHECKPOINT 2 -->
+<div class="slide" id="slide-18">
+<div class="checkpoint">
+<h3>🔬 Reasoning Checkpoint 2 — Birth Transition & Neonatal Adaptation</h3>
+<ol>
+<li>At birth, pulmonary vascular resistance drops >5-fold. List ALL mechanisms responsible.</li>
+<div class="answer"><strong>1) Physical lung expansion: capillaries no longer mechanically compressed by collapsed airways → ↓resistance. 2) ↑PO₂ after first breath: relieves hypoxic pulmonary vasoconstriction (the main cause of high fetal PVR). 3) ↑pH: acidosis also contributed to fetal pulmonary vasoconstriction; reverses at birth. 4) PGI₂ (prostacyclin) release: lung expansion triggers prostacyclin → potent pulmonary vasodilator. 5) Removal of leukotriene D₄ influence (LTD₄ caused fetal pulmonary vasoconstriction).</strong></div>
+
+<li>A newborn is born via elective C-section without labor. Predict the most likely early respiratory complication and explain why.</li>
+<div class="answer"><strong>Transient tachypnea of the newborn (TTN). Mechanism: labor normally triggers ↑catecholamines + AVP → active reabsorption of fetal lung fluid before delivery. Without labor, this hormonal surge is absent → fetal lung fluid retained → waterlogged lungs → ↓compliance → tachypnea. Typically resolves within 24–48 hrs as lymphatics + capillaries absorb residual fluid.</strong></div>
+
+<li>A preterm infant at 30 weeks has a patent ductus arteriosus. The team decides to give indomethacin. Predict: (a) mechanism of action, (b) expected circulatory change, (c) one potential adverse effect.</li>
+<div class="answer"><strong>(a) Indomethacin = COX inhibitor → ↓PGE₂ synthesis → removes vasodilatory tone from DA smooth muscle → contraction → functional closure. (b) L→R shunt from Ao to PA eliminated → ↓pulmonary overcirculation → ↓right heart volume load → ↑systemic perfusion. (c) Indomethacin also inhibits renal prostaglandins → ↓renal blood flow → ↓GFR → oliguria/renal impairment (reversible usually). Also can cause NEC risk, platelet aggregation inhibition.</strong></div>
+
+<li>An infant of a diabetic mother is born and immediately develops severe hypoglycemia. Explain the full hormonal cascade from maternal diabetes to neonatal hypoglycemia.</li>
+<div class="answer"><strong>Maternal hyperglycemia → glucose crosses placenta by facilitated diffusion → fetal hyperglycemia → fetal β-cell hyperplasia + ↑insulin secretion → fetal hyperinsulinism. At birth: maternal glucose supply abruptly cut + placenta gone → blood glucose falls → BUT insulin levels remain high (β-cell hyperplasia not immediately reversible) → excess insulin: suppresses hepatic glucose output, stimulates glucose uptake → severe hypoglycemia. Additionally, fetal hyperinsulinism inhibited glycogen mobilization, compounding the crisis.</strong></div>
+</ol>
+</div>
+<div class="slide-number">Slide 18</div>
+</div>
+
+<!-- SLIDE 19: NEONATAL FLUID & RENAL -->
+<div class="slide" id="slide-19">
+<h2>Neonatal Fluid Balance & Renal Immaturity</h2>
+<span class="label clinical">CLINICAL REASONING</span>
+<div class="two-col">
+<div class="col-box">
+<h3>Fluid Status</h3>
+<ul>
+<li>TBW at birth: <strong>~75% body weight</strong> (adult men ~60%, women ~50%)</li>
+<li>Weight loss first week: 6–10% (↓interstitial + intravascular volume = physiologic)</li>
+<li>Returns to birth weight by ~1.5 weeks</li>
+<li>Daily water turnover: <strong>100–120 mL/kg</strong> (3–4× adult rate)</li>
+<li>→ Small fluid deficits become rapidly critical</li>
+</ul>
+</div>
+<div class="col-box amber">
+<h3>Renal Immaturity</h3>
+<ul>
+<li><strong>GFR very low at birth</strong>, rises rapidly in first 2 weeks</li>
+<li>Even normalized for weight: adult GFR not reached until <strong>~1 year</strong></li>
+<li>Max urine osmolality: <strong>~450 mOsm</strong> (adult: ~1200 mOsm) → poor concentrating ability</li>
+<li>↓Acid excretion → risk of <strong>metabolic acidosis</strong></li>
+<li>↑Metabolic rate → ↑fixed acid production → compounds problem</li>
+</ul>
+</div>
+</div>
+<div class="box integration">
+<span class="label integration">INTEGRATION</span>
+<p>The neonate's high metabolic rate (resting: 55 kcal/kg/day vs adult 30 kcal/kg/day) generates more CO₂ + fixed acids per kg. Combined with immature kidneys (poor acid excretion + low GFR) and high daily water turnover → neonates operate on minimal physiologic reserve. Any vomiting, diarrhea, or reduced intake → rapid decompensation. Premature infants have even worse renal maturity → highest risk.</p>
+</div>
+<div class="slide-number">Slide 19</div>
+</div>
+
+<!-- SLIDE 20: NEONATAL IMMUNITY -->
+<div class="slide" id="slide-20">
+<h2>Neonatal Immunology: Passive & Active Immunity</h2>
+<span class="label high-yield">HIGH-YIELD</span>
+<div class="two-col">
+<div class="col-box">
+<h3>Prenatal Passive Immunity</h3>
+<ul>
+<li><strong>IgG</strong>: actively transported by placenta (RME) → <strong>fetal IgG &gt; maternal IgG</strong></li>
+<li>IgA, IgE, IgM: do NOT cross placenta in significant amounts → very low at birth</li>
+<li>IgG protects against: viruses, some bacteria (diphtheria, measles, polio)</li>
+<li>Fetal own antibodies: IgM only (if exposed to intrauterine infection)</li>
+<li>Fetus also produces: complement, lysozyme, interferon-γ (from T lymphocytes)</li>
+</ul>
+</div>
+<div class="col-box green">
+<h3>Postnatal Passive + Active</h3>
+<ul>
+<li>Colostrum + breast milk: <strong>secretory IgA</strong> (major source) + macrophages</li>
+<li>IgA absorbed by neonatal GI tract → mucosal protection</li>
+<li>Maternal IgG nadir: <strong>~3 months</strong> (maternal IgG declining, infant's own IgG not yet sufficient)</li>
+<li>IgG, IgA, IgM, IgE = only <strong>half adult levels</strong> by 1 year</li>
+<li>Maternal measles antibodies persist → delay measles vaccine until <strong>15 months</strong></li>
+<li>Pertussis protection inadequate by <strong>1–2 months</strong> → first DTP at 2 months</li>
+</ul>
+</div>
+</div>
+<div class="box trap">
+<span class="label trap">OLYMPIAD TRAP</span>
+<strong>IgG nadir at 3 months</strong> is the most vulnerable window: maternal IgG falling (half-life ~3 weeks, declining from birth) and infant's own production not yet adequate. This explains why some infections are more dangerous at 2–4 months. Note: <strong>high-dose prenatal IgG transfer</strong> is why maternal vaccination (e.g., Tdap, flu) during pregnancy protects the newborn — the IgG crosses and provides early neonatal protection.
+</div>
+<div class="slide-number">Slide 20</div>
+</div>
+
+<!-- SLIDE 21: FETAL LIPIDS & NUTRITION -->
+<div class="slide" id="slide-21">
+<h2>Fetal Lipid Accumulation & Neonatal Nutrition</h2>
+<span class="label mechanism">MECHANISM</span>
+<div class="two-col">
+<div class="col-box">
+<h3>Fetal Fat Stores</h3>
+<ul>
+<li>T1: fat = only <strong>1%</strong> body weight</li>
+<li>T3: fat rises to <strong>~15%</strong> body weight (~500g at term)</li>
+<li>Humans have more fat than other mammals at birth (except hibernators/migratory birds)</li>
+<li>~50% from placental lipid transport; ~50% from fetal hepatic fatty acid synthesis</li>
+<li>Insulin (near term) stimulates hepatic lipogenesis</li>
+<li>Brown fat: neck + upper back (for thermogenesis)</li>
+<li>White fat: subcutaneous (insulation + energy) + deep depots</li>
+</ul>
+</div>
+<div class="col-box green">
+<h3>Neonatal Nutritional Needs</h3>
+<ul>
+<li>Caloric requirement: <strong>100–120 kcal/kg/day</strong> at birth; falls to 90–100 kcal/kg/day by year 1</li>
+<li>Resting metabolic rate: <strong>55 kcal/kg/day</strong> (nearly 2× adult)</li>
+<li>Breast milk: meets ALL nutritional needs if maternal diet adequate</li>
+<li>Key supplements needed: <strong>Vitamin D</strong> (Ca absorption; sun exposure often inadequate), <strong>Fluoride</strong> (dental caries prevention), <strong>Iron</strong> after 6–9 months (when hepatic stores deplete)</li>
+<li>Vitamin C: adequate in breast milk; deficiency → scurvy</li>
+</ul>
+</div>
+</div>
+<div class="box integration">
+<span class="label integration">BREAST MILK VS COW MILK</span>
+<p>Cow's milk: 3× more protein (mainly casein 82% vs 44% in human milk) + higher electrolytes → <strong>renal solute load too high for neonatal kidneys</strong>. Human milk: more lactose (osmotic driver for water, gut health), more fat, lower protein. Colostrum: higher protein + cells (7–8 million leukocytes/dL) → immune protection in first days.</p>
+</div>
+<div class="slide-number">Slide 21</div>
+</div>
+
+<!-- SLIDE 22: FETAL ASPHYXIA -->
+<div class="slide" id="slide-22">
+<h2>Fetal Asphyxia: Mechanisms & Consequences</h2>
+<span class="label clinical">CLINICAL REASONING</span><span class="label integration">INTEGRATION</span>
+<div class="box trap">
+<span class="label trap">DEFINITION & CAUSES</span>
+Asphyxia = ↓PO₂ + ↑PCO₂ + acidosis from impaired placental gas exchange. Common causes:
+<ul>
+<li>Maternal hypotension (↓uteroplacental perfusion)</li>
+<li>Abruptio placentae (placenta separates → gas exchange stops)</li>
+<li>Prolapsed umbilical cord (cord compressed in birth canal → ↓umbilical flow)</li>
+</ul>
+</div>
+<div class="flowchart">
+↓PO₂ + ↑PCO₂ + ↓pH
+  ↓
+↓Myocardial function → ↓CO → ↓O₂ delivery → worse asphyxia (vicious cycle)
+  ↓
+Brain: aerobic → anaerobic shift
+  → ↓ATP (↑ADP, ↑Pi)
+  → Lactic acid accumulation
+  → ↑PG + leukotrienes → vasodilation of microvessels
+  → Free radical generation → cell damage
+  → Altered neurotransmitter release + ion gradients
+  ↓
+Chronic in utero hypoxia → ↓energy reserves → delayed breathing at birth → neonatal hypoxia
+Metabolic derangements persist for ~24 hours after birth
+</div>
+<div class="box integration">
+<span class="label integration">FETAL REDISTRIBUTION RESPONSE TO HYPOXIA</span>
+<p>Acute fetal hypoxia → redistribution of CO: <strong>↑brain, heart, adrenal</strong> blood flow + <strong>↓gut, kidney, skin, muscle</strong> blood flow. This is mediated by: (1) chemoreceptor activation → ↑vagal tone → ↓HR (bradycardia) + vasoconstriction of peripheral vessels; (2) direct hypoxic vasodilation of cerebral vessels. CTG (cardiotocography) detects this: late decelerations = sign of placental insufficiency + fetal redistribution.</p>
+</div>
+<div class="slide-number">Slide 22</div>
+</div>
+
+<!-- SLIDE 23: CHECKPOINT 3 -->
+<div class="slide" id="slide-23">
+<div class="checkpoint">
+<h3>🔬 Reasoning Checkpoint 3 — Advanced Reasoning</h3>
+<ol>
+<li>A preterm infant at 28 weeks has respiratory failure, pulmonary hypertension, and a patent ductus arteriosus. Explain how all three conditions are mechanistically linked.</li>
+<div class="answer"><strong>Surfactant deficiency → atelectasis → hypoxemia + acidosis → hypoxic pulmonary vasoconstriction → ↑PVR (pulmonary hypertension). High PVR → RV pressure >> LV pressure → maintains R→L shunt through DA (since DA still open due to high PGE₂ in premature infant, which keeps smooth muscle relaxed). R→L DA shunt → deoxygenated blood enters aorta → worsens systemic hypoxemia → worsens pulmonary vasoconstriction. RDS + persistent pulmonary hypertension + PDA all reinforce each other in a vicious cycle. Treatment: surfactant (fixes compliance), O₂ (↓PVR), indomethacin (closes DA).</strong></div>
+
+<li>A fetus with anencephaly (absent cerebral cortex + hypothalamus) is delivered at 42 weeks. The pregnancy lasted unusually long. Explain why.</li>
+<div class="answer"><strong>Normal parturition initiation involves fetal HPA axis: fetal hypothalamus → CRH → pituitary → ACTH → fetal adrenal → ↑cortisol → ↑prostaglandins → labor onset. In anencephaly: absent hypothalamus → no CRH/ACTH signal → fetal adrenal not stimulated → ↓cortisol → ↓PG synthesis → labor not initiated on schedule → prolonged gestation. Also: ↓fetal cortisol → ↓surfactant production → lungs immature despite post-term. Note: maternal prostaglandins eventually initiate labor, just delayed.</strong></div>
+
+<li>Explain why UCP1 in brown fat is simultaneously regulated by both T3 AND epinephrine, and why both signals are necessary.</li>
+<div class="answer"><strong>T3 acts via nuclear receptor (transcription) → upregulates UCP1 gene expression → more UCP1 protein inserted into inner mitochondrial membrane (slow, hours-days). Epinephrine acts via cAMP → PKA → activates triacylglycerol lipase → FAs liberated. FAs relieve ATP/GTP inhibition of UCP1 → channel opens (fast, minutes). T3 provides the capacity (more channels); epinephrine provides the activation signal (opens channels). Neither alone is sufficient: T3 without Epi = channels present but closed; Epi without T3 = FAs available but few channels to activate.</strong></div>
+</ol>
+</div>
+<div class="slide-number">Slide 23</div>
+</div>
+
+<!-- SLIDE 24: PATHOPHYSIOLOGY TABLE -->
+<div class="slide" id="slide-24">
+<h2>Pathophysiology Integration — Chapter 57</h2>
+<span class="label integration">INTEGRATION</span><span class="label clinical">CLINICAL</span>
+<table>
+<tr><th>Condition</th><th>Mechanism</th><th>Key Physiological Link</th></tr>
+<tr><td><strong>RDS (Respiratory Distress Syndrome)</strong></td><td>Prematurity → ↓surfactant → ↓compliance → atelectasis → R→L shunt → hypoxemia → protein leak → surfactant inactivation</td><td>Cortisol surge not yet occurred; type II cells immature. Vicious cycle: hypoxemia → capillary damage → protein leak → worse surfactant deficiency</td></tr>
+<tr><td><strong>Patent Ductus Arteriosus (PDA)</strong></td><td>Premature infant: high PGE₂ (immature COX activity) + low PO₂ → DA stays patent</td><td>Left-to-right shunt post-birth → pulmonary overcirculation → pulmonary edema + ↑RV load. Indomethacin (COX inhibitor) closes it.</td></tr>
+<tr><td><strong>Fetal Asphyxia</strong></td><td>Placental gas exchange failure → ↓O₂ + ↑CO₂ + acidosis</td><td>Brain: anaerobic shift → ATP depletion → free radicals + leukotriene-mediated microvascular damage → HIE (hypoxic-ischemic encephalopathy)</td></tr>
+<tr><td><strong>IUGR Type I (symmetric)</strong></td><td>Early insult (chromosomal, infection, toxins) during hyperplastic phase</td><td>↓Cell number in ALL organs → irreversible. SGA with normal head:body ratio. ~25% have aneuploidy.</td></tr>
+<tr><td><strong>IUGR Type II (asymmetric)</strong></td><td>Late insult (uteroplacental insufficiency) during hypertrophic phase</td><td>Brain sparing: CO redistributed to brain → normal head, small abdomen. Cells present but small → potentially reversible.</td></tr>
+<tr><td><strong>Neonatal hypoglycemia (diabetic mother)</strong></td><td>Fetal hyperinsulinism from chronic intrauterine hyperglycemia → β-cell hyperplasia</td><td>Post-birth: maternal glucose gone + insulin still high → profound hypoglycemia. Also: macrosomia (insulin = growth factor), organomegaly.</td></tr>
+<tr><td><strong>Transient tachypnea of newborn</strong></td><td>C-section without labor → no catecholamine/AVP surge → lung fluid not cleared</td><td>Waterlogged lungs → ↓compliance → tachypnea. Resolves 24–48 hrs. L/S ratio normal → not surfactant deficiency.</td></tr>
+</table>
+<div class="slide-number">Slide 24</div>
+</div>
+
+<!-- SLIDE 25: OLYMPIAD TRAPS -->
+<div class="slide" id="slide-25">
+<h2>High-Yield Reasoning & Olympiad Traps</h2>
+<span class="label trap">COMMON TRAP</span><span class="label olympiad">OLYMPIAD FAVORITE</span>
+<div class="box trap"><span class="label trap">TRAP 1</span><strong>GH drives fetal growth</strong> — FALSE. Anencephalic fetuses (low GH, few hepatic GH receptors) grow normally. <strong>IGF-2 is the dominant fetal mitogen</strong>, not under GH control prenatally. GH/IGF-1 axis becomes dominant only postnatally.</div>
+<div class="box trap"><span class="label trap">TRAP 2</span><strong>Symmetric IUGR has brain sparing</strong> — FALSE. Brain sparing = Type II (asymmetric, late insult, redistribution mechanism). Type I (symmetric, early insult) = proportionally small all organs INCLUDING brain. Brain cannot be spared if the insult happened before the redistribution mechanism developed.</div>
+<div class="box trap"><span class="label trap">TRAP 3</span><strong>The ductus arteriosus flows in the same direction before and after birth</strong> — FALSE. Fetal DA: R→L (PA → Ao). Immediately after birth (before closure): L→R (Ao → PA) because systemic resistance ↑ and pulmonary resistance ↓. Two completely opposite flow directions.</div>
+<div class="box trap"><span class="label trap">TRAP 4</span><strong>PDA in premature infants is treated with surgical ligation primarily</strong> — FALSE. First-line = indomethacin (COX inhibitor → ↓PGE₂ → DA constriction). Surgical ligation only if pharmacological treatment fails or contraindicated. Contrast: in ductus-dependent congenital heart lesions, PGE₁ is given to KEEP the DA open.</div>
+<div class="box trap"><span class="label trap">TRAP 5</span><strong>HbF's high O₂ affinity is always beneficial</strong> — FALSE. High affinity is critical prenatally (extracts O₂ from maternal blood). Postnatally: high affinity = <strong>impaired O₂ unloading</strong> to peripheral tissues → must be replaced by HbA. HbF→HbA transition is functionally necessary for extrauterine life.</div>
+<div class="box trap"><span class="label trap">TRAP 6</span><strong>Malnutrition effects are always reversible</strong> — FALSE. Only reversible if malnutrition occurs during the <strong>hypertrophic phase</strong> (cell size ↓ → recoverable). During the <strong>hyperplastic phase</strong> (cell number ↓) → <strong>irreversible</strong>, even with later adequate nutrition. Timing = everything.</div>
+<div class="slide-number">Slide 25</div>
+</div>
+
+<!-- SLIDE 26: OLYMPIAD SIMULATION -->
+<div class="slide" id="slide-26">
+<h2>Olympiad Simulation Questions — Chapter 57</h2>
+<span class="label olympiad">OLYMPIAD LEVEL</span>
+<div class="checkpoint">
+<h3>Q1: Multi-System Cascade</h3>
+<p>A premature infant at 30 weeks is born and develops RDS. Despite O₂ supplementation, oxygenation remains poor. Echocardiography reveals bidirectional shunting through the ductus arteriosus. Explain the full physiological cascade, including why oxygenation remains poor despite supplemental O₂.</p>
+<div class="answer">
+<strong>Step-by-step:</strong>
+<ol>
+<li>Prematurity → ↓cortisol → ↓surfactant → ↓lung compliance → alveolar collapse at end-expiration</li>
+<li>Atelectasis → ↑intrapulmonary R→L shunt (blood bypasses unventilated alveoli) → hypoxemia despite supplemental O₂ (shunted blood never contacts alveolar O₂)</li>
+<li>Hypoxemia + acidosis → hypoxic pulmonary vasoconstriction → ↑PVR → pulmonary hypertension</li>
+<li>High PVR → RV pressure exceeds LV pressure → bidirectional/R→L DA shunting → deoxygenated blood enters descending aorta → systemic hypoxemia worsens</li>
+<li>Systemic hypoxemia → capillary damage in alveoli → plasma proteins leak into alveolar space → proteins inactivate remaining surfactant → complete vicious cycle</li>
+<li>Supplemental O₂ fails because: (a) R→L intrapulmonary shunt bypasses ventilated alveoli; (b) DA R→L shunt adds deO₂ blood to systemic circulation. Need to fix underlying surfactant deficiency + close DA.</li>
+</ol>
+</div>
+</div>
+<div class="checkpoint">
+<h3>Q2: Comparative Physiology</h3>
+<p>Compare fetal cardiac output distribution to adult cardiac output distribution. What are the key physiological principles that dictate the differences, and what happens to each difference at birth?</p>
+<div class="answer">
+<strong>Fetal:</strong> RV + LV in parallel. Lungs get only 7% (high PVR). Placenta gets 50% (major sink). Brain gets high-PO₂ blood via FO shortcut. Right heart dominant (66% CCO).<br><br>
+<strong>Adult:</strong> RV + LV in series. Lungs get 100%. No placenta. Brain gets mixed aortic blood.<br><br>
+<strong>At birth transitions:</strong> (1) Placenta closure → ↑SVR → ↑LV afterload → LV doubles stroke volume. (2) Lung expansion → ↓PVR → lungs receive full CO. (3) FO closes (↑LA pressure). (4) DA closes (↑PO₂ + ↓PGE₂). (5) DV closes (unknown mechanism). Result: parallel → series circulation; RV and LV outputs equalize.
+</div>
+</div>
+<div class="slide-number">Slide 26</div>
+</div>
+
+<!-- SLIDE 27: FULL CONCEPT MAP -->
+<div class="slide" id="slide-27">
+<h2>Full Integration Map: Chapter 57</h2>
+<span class="label integration">FULL INTEGRATION</span>
+<div class="flowchart">
+═══════════ FETAL GROWTH ═══════════
+Genetic control (T1) → Epigenetic control (T2–T3)
+  Hormones: IGF-2 (dominant) > IGF-1 > Insulin > Glucocorticoids > T3/T4
+  Placenta: growth correlates with fetal weight; surface area ↑ parallel to fetal demands
+  Growth phases: hyperplasia → both → hypertrophy
+    Insult timing determines reversibility (hyperplasia: irreversible; hypertrophy: reversible)
+    → IUGR Type I (symmetric) vs Type II (asymmetric, brain-sparing)
+
+═══════════ LUNG DEVELOPMENT ═══════════
+Foregut bud (24d) → Pseudoglandular → Canalicular → Terminal sac (~24+ wks) → Alveolar (to age 8)
+Surfactant: Cortisol surge (~32 wks) → ↑FA synthase + phosphocholine transferase → ↑DPPC (type II cells)
+Lung fluid: produced in utero → cleared at birth by catecholamines/AVP
+RDS: ↓surfactant → ↓compliance → atelectasis → R→L shunt → hypoxemia → protein leak vicious cycle
+
+═══════════ FETAL CIRCULATION (4 shunts) ═══════════
+Parallel ventricles: LV 34%, RV 66% of CCO
+Placenta (50%) → Ductus venosus (bypass liver) → IVC → RA
+  27% crosses Foramen Ovale (R→L) → LA → LV → brain/coronaries (best PO₂ blood)
+  66% → RV → PA → 59% via Ductus Arteriosus (R→L, PGE₂-dependent) → descending Ao
+  Only 7% to lungs (high PVR: hypoxic vasoconstriction + acidosis + LTD₄)
+
+═══════════ BIRTH TRANSITION ═══════════
+1st breath: hypoxia + hypercapnia + tactile + cold → chemoreceptors fire → breathing initiated
+  PTP required: 60 cm H₂O (1st breath) → 40 cm H₂O (2nd breath) → adult ~2.5 cm H₂O
+Shunt closure: Placenta (immediate) → DV (3 hrs) → FO (LA>RA pressure) → DA (↑PO₂ + ↓PGE₂)
+Parallel → Series circulation
+
+═══════════ NEONATAL ADAPTATION ═══════════
+Thermogenesis: Cold → Epi+TSH → T3 → UCP1 → uncoupled OXPHOS → HEAT (brown fat, neck/back)
+Glucose: glycogenolysis (first 12 hrs) → glucagon/Epi → gluconeogenesis + lipolysis → ketones
+Immunity: maternal IgG (transplacental), IgA (breast milk). IgG nadir ~3 months.
+Fluid: TBW 75%, turnover 100–120 mL/kg/day (3–4× adult). Immature kidneys (max 450 mOsm).
+</div>
+<div class="slide-number">Slide 27</div>
+</div>
+
+<!-- SLIDE 28: KEY TAKEAWAYS -->
+<div class="slide" id="slide-28">
+<h2>Non-Negotiable Concepts — Chapter 57</h2>
+<span class="label high-yield">HIGH-YIELD</span>
+<div class="box yield">
+<span class="label high-yield">MUST KNOW</span>
+<ul>
+<li>Hyperplastic insult → irreversible ↓cell number; Hypertrophic insult → reversible ↓cell size</li>
+<li>GH has minimal fetal role; <strong>IGF-2 dominates fetal growth</strong> (poorly correlated with GH)</li>
+<li>Erythropoiesis: yolk sac → liver → bone marrow (dominant by T3). HbF → HbA transition over first year</li>
+<li>Lung phases: Pseudoglandular → Canalicular → Terminal sac → Alveolar (continues to age 8)</li>
+<li>Surfactant: cortisol (+ T3, TRH, PRL) at ~32 wks → ↑FA synthase + phosphocholine transferase → DPPC</li>
+<li>L/S ratio &gt;2.0 + positive PG = mature lungs. Antenatal steroids accelerate maturation.</li>
+<li>4 fetal shunts: placenta (50%), DV (bypasses liver), FO (R→L), DA (R→L, PGE₂-maintained)</li>
+<li>Only 7% CCO to fetal lungs; 59% bypasses via DA. FO ensures brain gets best oxygenated blood.</li>
+<li>At birth: 1st breath → ↓PVR &gt;5-fold (expansion + ↑PO₂ + ↑pH + PGI₂). ↑SVR (placenta closes)</li>
+<li>DA closure: ↑PO₂ (18→60 mmHg) + ↓PGE₂. Indomethacin (↓PGE₂) closes PDA in preterm infants</li>
+<li>FO closure: ↑LA pressure (↑pulmonary venous return) &gt; RA pressure → flap occluded</li>
+<li>Brown fat thermogenesis: Cold → Epi → cAMP → lipase → FAs → relieve UCP1 inhibition + T3 (via TSH → monodeiodinase) upregulates UCP1 → uncoupled OXPHOS → heat</li>
+<li>Hepatic glycogen depleted in first 12 hours; neonatal blood glucose physiologically falls to 40–50 mg/dL</li>
+<li>Diabetic mother → fetal hyperinsulinism → neonatal hypoglycemia + macrosomia</li>
+<li>Maternal IgG crosses placenta; secretory IgA in breast milk. IgG nadir at ~3 months postnatal</li>
+<li>IUGR Type I (symmetric, early, irreversible) vs Type II (asymmetric, late, brain-sparing, reversible)</li>
+</ul>
+</div>
+<div class="slide-number">Slide 28</div>
+</div>
+
+<!-- SLIDE 29: REFERENCES -->
+<div class="slide" id="slide-29">
+<h2>References & Further Reading</h2>
+<div class="box"><h4>Primary Source</h4><p>Boron WF, Boulpaep EL. <em>Medical Physiology.</em> 3rd ed. Elsevier; 2017. Chapter 57: Fetal and Neonatal Physiology.</p></div>
+<div class="box"><h4>Key Topics for Deeper Study</h4>
+<ul>
+<li>Persistent pulmonary hypertension of the newborn (PPHN): failure of PVR to fall at birth</li>
+<li>Bronchopulmonary dysplasia (BPD): chronic lung disease from RDS + ventilator injury</li>
+<li>Hypoxic-ischemic encephalopathy (HIE): neonatal brain injury from asphyxia; cooling therapy</li>
+<li>Congenital heart disease: how ductus-dependent lesions (e.g., transposition, critical aortic stenosis) require PGE₁ to maintain DA patency</li>
+<li>Fetal programming (Barker hypothesis): epigenetic effects of intrauterine environment on adult disease risk</li>
+<li>Necrotizing enterocolitis (NEC): premature gut ischemia, often coexistent with RDS + PDA</li>
+</ul>
+</div>
+<div style="text-align:center;margin-top:40px;padding:30px;background:linear-gradient(135deg,var(--teal),var(--blue-dark));border-radius:16px;color:white;">
+<h2 style="color:white;border:none;margin:0;font-family:'DM Serif Display',serif;">END OF CHAPTER 57</h2>
+<p style="font-size:1.1em;margin:10px 0;">Fetal & Neonatal Physiology</p>
+<p style="font-size:.95em;opacity:.9;">IMSPQ / IPO International Level · Boron & Boulpaep · Mechanism-Based · Systems Integration</p>
+</div>
+<div class="slide-number">Slide 29</div>
+</div>
+
+</div><!-- end main-content -->
+<script>
+const SLIDES=[
+{id:'slide-1',num:'1',title:'Title & Big Picture',tags:['high-yield','integration']},
+{id:'slide-2',num:'2',title:'Fetal Growth: Hyperplasia vs. Hypertrophy',tags:['high-yield','mechanism']},
+{id:'slide-3',num:'3',title:'Genetic vs. Epigenetic Control',tags:['high-yield','trap']},
+{id:'slide-4',num:'4',title:'Hormonal Control of Fetal Growth',tags:['high-yield','olympiad']},
+{id:'slide-5',num:'5',title:'Fetal Erythropoiesis & Hb Transition',tags:['mechanism','trap']},
+{id:'slide-6',num:'6',title:'Fetal Organ Development Timeline',tags:['high-yield']},
+{id:'slide-7',num:'7',title:'Lung Development: Four Phases',tags:['high-yield','mechanism']},
+{id:'slide-8',num:'8',title:'Surfactant: Synthesis, Regulation & RDS',tags:['high-yield','olympiad','clinical']},
+{id:'slide-9',num:'9',title:'Fetal Circulation: Four-Shunt System',tags:['high-yield','olympiad']},
+{id:'slide-10',num:'10',title:'Fetal Circulation: Quantitative Tracing',tags:['olympiad','mechanism']},
+{id:'slide-11',num:'11',title:'Reasoning Checkpoint 1',tags:['checkpoint','olympiad']},
+{id:'slide-12',num:'12',title:'Birth: Three Metabolic Crises',tags:['high-yield','mechanism']},
+{id:'slide-13',num:'13',title:'The First Breath: Triggers & Mechanics',tags:['high-yield','mechanism']},
+{id:'slide-14',num:'14',title:'Shunt Closure at Birth: Detail',tags:['high-yield','olympiad','trap']},
+{id:'slide-15',num:'15',title:'Brown Fat & Nonshivering Thermogenesis',tags:['high-yield','mechanism']},
+{id:'slide-16',num:'16',title:'Neonatal Glucose & Fat Metabolism',tags:['high-yield','mechanism','trap']},
+{id:'slide-17',num:'17',title:'IUGR: Symmetric vs. Asymmetric',tags:['clinical','olympiad','trap']},
+{id:'slide-18',num:'18',title:'Reasoning Checkpoint 2',tags:['checkpoint','olympiad']},
+{id:'slide-19',num:'19',title:'Neonatal Fluid Balance & Renal Immaturity',tags:['clinical']},
+{id:'slide-20',num:'20',title:'Neonatal Immunology',tags:['high-yield','trap']},
+{id:'slide-21',num:'21',title:'Fetal Lipids & Neonatal Nutrition',tags:['mechanism','clinical']},
+{id:'slide-22',num:'22',title:'Fetal Asphyxia',tags:['clinical','integration']},
+{id:'slide-23',num:'23',title:'Reasoning Checkpoint 3',tags:['checkpoint','olympiad']},
+{id:'slide-24',num:'24',title:'Pathophysiology Integration Table',tags:['integration','clinical']},
+{id:'slide-25',num:'25',title:'High-Yield Traps & Reasoning',tags:['trap','olympiad','high-yield']},
+{id:'slide-26',num:'26',title:'Olympiad Simulation Questions',tags:['olympiad','checkpoint']},
+{id:'slide-27',num:'27',title:'Full Integration Concept Map',tags:['integration','high-yield']},
+{id:'slide-28',num:'28',title:'Non-Negotiable Key Takeaways',tags:['high-yield','trap']},
+{id:'slide-29',num:'29',title:'References & Further Reading',tags:[]},
+];
+
+const FLASHCARDS=[
+{q:"What is the difference between Type I and Type II IUGR in terms of timing, cell biology, and reversibility?",a:"Type I (symmetric, 20-30%): early insult (4-20 wks, hyperplastic phase) → ↓cell number → IRREVERSIBLE. Head + body equally small. Type II (asymmetric, 70-80%): late insult (>28 wks, hypertrophic phase) → ↓cell size → reversible. Normal head (brain-sparing), small abdomen."},
+{q:"Why does the foramen ovale preferentially receive blood from the IVC rather than SVC?",a:"The crista dividens and valve anatomy of the FO direct IVC blood (which contains high-PO₂ umbilical vein blood) across the FO to the LA. SVC blood enters at a different angle and goes to the RV. This ensures the brain and coronaries receive the best-oxygenated blood available in the fetus."},
+{q:"What is UCP1, how is it regulated, and what is its physiological role in the neonate?",a:"UCP1 (thermogenin) = H⁺ channel in inner mitochondrial membrane of brown fat. Normally inhibited by ATP/GDP. Activated by: (1) T3 (transcriptional upregulation, via TSH→T4→T3 by 5'-monodeiodinase, epi-activated) and (2) Free fatty acids (from epinephrine→cAMP→PKA→lipase pathway) that relieve nucleotide inhibition. Protons bypass ATP synthase → heat generated without ATP production. Critical for neonatal nonshivering thermogenesis."},
+{q:"Why does GH have minimal effect on fetal growth, and which growth factor dominates instead?",a:"The fetal liver has very few GH receptors (unlike postnatal liver). Anencephalic fetuses (low GH) grow normally. IGF-2 is the dominant fetal mitogen, present from end of T1, poorly correlated with GH. Postnatally: GH→liver→IGF-1 axis takes over and IGF-2 levels fall to adult values."},
+{q:"List all four fetal shunts, their direction of flow, and their mechanism of closure at birth.",a:"1) Placenta: R→L equivalent (deoxygenated blood out via umbilical arteries). Closes: umbilical artery stretch + ↑PO₂ → vasoconstriction. 2) Ductus venosus: umbilical vein → IVC bypass. Closes: smooth muscle contraction within 3 hrs (mechanism unknown). 3) Foramen ovale: R→L (IVC → LA). Closes: ↑LA pressure > RA pressure → flap pushed against septum. 4) Ductus arteriosus: R→L (PA → Ao). Closes: ↑PO₂ (18→60 mmHg) + ↓PGE₂ → smooth muscle constriction."},
+{q:"Why does pulmonary vascular resistance fall >5-fold at birth? List all mechanisms.",a:"1) Physical lung expansion: capillaries no longer crushed by collapsed airways. 2) ↑PO₂ after first breath: relieves hypoxic pulmonary vasoconstriction. 3) ↑pH (as CO₂ cleared): acidosis had contributed to fetal PVR. 4) PGI₂ (prostacyclin) release: lung expansion → vasodilator prostaglandin. 5) Removal of LTD₄ influence (leukotriene D₄ = fetal pulmonary vasoconstrictor)."},
+{q:"Explain the DPPC synthesis pathway and which enzyme does cortisol upregulate.",a:"Glycogen → glucose → pyruvate → acetyl-CoA → (acetyl-CoA carboxylase) → malonyl-CoA → (FA synthase, 7-step) → palmitate. Palmitate incorporated into DAG. CDP-choline (from choline + CTP) + DAG → (phosphocholine transferase) → DPPC. Cortisol at ~32 wks upregulates FA synthase AND phosphocholine transferase. Also ↑ number of type II pneumocytes and lamellar bodies."},
+{q:"What is the L/S ratio and what value indicates fetal lung maturity? What does PG add?",a:"L/S ratio = lecithin (DPPC) to sphingomyelin in amniotic fluid. Sphingomyelin is relatively constant. As fetal lungs mature, lecithin ↑↑. L/S >2.0 = mature lungs (low RDS risk). Positive phosphatidylglycerol (PG) assay provides additional confirmation of maturity. Both tests use amniotic fluid (amniocentesis)."},
+{q:"An infant of a diabetic mother is born. Trace the full mechanism from maternal hyperglycemia to neonatal macrosomia and neonatal hypoglycemia.",a:"Maternal hyperglycemia → glucose crosses placenta (facilitated diffusion) → fetal hyperglycemia → fetal β-cell hyperplasia → ↑fetal insulin secretion. Insulin = growth factor → organomegaly + macrosomia. At birth: maternal glucose removed → blood glucose falls → BUT β-cell hyperplasia remains → insulin still high → ↓glycogenolysis + ↑glucose uptake → profound neonatal hypoglycemia (<35 mg/dL)."},
+{q:"Describe the sequence of erythropoiesis sites in the fetus and what hemoglobin changes occur perinatally.",a:"Week 3: yolk sac + placenta (nucleated RBCs). Week 4: vascular endothelium + mesenchyme. Then liver (major T1-T2 source). Late T1: bone marrow + spleen + lymphoid start. T3: bone marrow = dominant. Hb: embryonic Hb (early) → HbF (fetal, predominant at birth) → HbA + HbA₂ replace HbF during first 12 months. HbF has higher O₂ affinity (left-shifted curve) → necessary for placental O₂ extraction."},
+{q:"Why does the first breath require a transpulmonary pressure of 60 cm H₂O, but subsequent breaths require much less?",a:"First breath: creates air-water interface for first time from scratch → enormous surface tension of fluid-filled alveoli must be overcome + viscoelastic resistance of collapsed lung. PTP = 60 cm H₂O for ~40 mL. Second breath: some alveoli already open (lower surface tension to reopen) + surfactant begins coating air-water interface → lower surface tension → PTP ~40 cm H₂O. Adult tidal breath: only ~2.5 cm H₂O."},
+{q:"What happens to the ductus arteriosus blood flow direction immediately after birth, and why?",a:"Fetal DA: R→L (PA → Ao). At birth: (1) closure of placenta → ↑SVR → ↑aortic pressure; (2) ↓PVR → ↓pulmonary artery pressure. Aortic pressure now exceeds pulmonary artery pressure → DA flow REVERSES to L→R (Ao → PA). This creates a left-to-right shunt (undesirable but brief). Within hours: ↑PO₂ + ↓PGE₂ → DA smooth muscle constricts → functional closure."},
+{q:"What are the three main triggers for the first breath, and which chemoreceptors detect them?",a:"1) Hypoxia + hypercapnia (main trigger): peripheral chemoreceptors (carotid bodies) detect ↓PO₂; central chemoreceptors (medullary) detect ↑PCO₂/↓pH. Both fire → respiratory drive. 2) Tactile stimulation: mechanoreceptors in skin. 3) Cold skin: cold thermoreceptors → stimulate brainstem respiratory center. Sympathetic ↑ also constricts peripheral vessels → lowers local PO₂ at glomus cells → amplifies signal."},
+{q:"What happens to neonatal hepatic glycogen stores in the first 12 hours, and what metabolic shifts compensate?",a:"Phosphorylase + G6Pase (both present but inactive in fetus) activate at birth → glycogenolysis begins immediately. Hepatic glycogen depleted within 12 hours. Compensation: ↓blood glucose → ↑glucagon + ↑epinephrine → (1) glycogenolysis (fast), (2) gluconeogenesis induction (slower, glucagon stimulates gene expression), (3) lipolysis → FAs + glycerol → glycerol used for gluconeogenesis → ketones from FAs as alternative fuel."},
+{q:"Why does fetal lung fluid need to be cleared before birth, and what triggers its clearance?",a:"Fetal lung fluid fills alveoli to FRC-equivalent volume (maintains airway patency, provides stretch signals for lung growth). At birth: fluid must be cleared for gas exchange. Triggers: onset of labor → ↑catecholamines (adrenaline, noradrenaline) + ↑AVP → switch type II alveolar cells from fluid secretion to active reabsorption. Clearance routes: pulmonary capillaries (majority) + pulmonary lymphatics + tracheal expulsion during birth canal transit. C-section without labor: no catecholamine surge → incomplete clearance → TTN."},
+{q:"Explain the brain-sparing mechanism in Type II IUGR.",a:"Uteroplacental insufficiency → ↓O₂ delivery → fetal redistribution of CO: ↑flow to brain, heart, adrenal glands; ↓flow to gut, kidneys, muscle, skin. Mechanism: fetal hypoxemia → chemoreceptor activation → peripheral vasoconstriction (↑SVR) + selective cerebrovascular vasodilation (direct hypoxic dilation). Result: brain grows normally (normal head circumference) while abdominal viscera are starved of nutrients → small abdominal circumference (↓liver glycogen + ↓muscle mass). Detectable on fetal Doppler: ↑umbilical artery resistance + ↓middle cerebral artery resistance."},
+{q:"What is the immunological nadir in the neonate and why does it occur?",a:"IgG nadir at ~3 months. Mechanism: maternal IgG (transferred transplacentally, high at birth) has half-life ~3 weeks → progressively declines. Infant's own IgG production begins slowly but insufficient by 3 months. No other immunoglobulins help much (IgA from breast milk = secretory/mucosal only; IgM/IgE minimal). This window = maximum susceptibility to infections. After 3 months: infant IgG production ramps up. By 1 year: all Ig classes still only ~50% of adult levels."},
+{q:"Why do premature infants have a higher tendency for patent ductus arteriosus than term infants?",a:"PDA in prematurity: (1) Premature infants maintain higher circulating PGE₂ levels (immature enzymatic degradation + possibly less COX activity at birth for PG breakdown). PGE₂ = primary vasodilator of DA smooth muscle. (2) Low PO₂ due to RDS/lung immaturity → PO₂-triggered DA constriction mechanism not activated (needs PO₂ ~60 mmHg). Indomethacin (COX inhibitor) → ↓PGE₂ → DA closes. If hypoxic: O₂ therapy → ↑PO₂ → also closes DA."},
+];
+
+const slideIds=SLIDES.map(s=>s.id);
+let currentSlideIdx=0,activeTag='all',focusModeOn=false,highlighterOn=false;
+let quizOrder=[...Array(FLASHCARDS.length).keys()],quizCurrent=0;
+
+function renderFlashcard(){
+const idx=quizOrder[quizCurrent];const card=FLASHCARDS[idx];
+const container=document.getElementById('flashcard-container');
+container.innerHTML=`<div class="flashcard" id="active-card" onclick="flipCard(this)"><div class="fc-q">${card.q}</div><div class="fc-hint">👆 Click to reveal answer</div><div class="fc-a">${card.a}</div></div>`;
+document.getElementById('quiz-cur').textContent=quizCurrent+1;
+document.getElementById('quiz-total').textContent=FLASHCARDS.length;
+document.getElementById('quiz-progress-fill').style.width=((quizCurrent/FLASHCARDS.length)*100)+'%';
+}
+function flipCard(el){el.classList.toggle('flipped');el.querySelector('.fc-hint').textContent=el.classList.contains('flipped')?'✅ Got it! Click Next →':'👆 Click to reveal answer';}
+function quizNext(){quizCurrent=Math.min(FLASHCARDS.length-1,quizCurrent+1);renderFlashcard();if(quizCurrent===FLASHCARDS.length-1){document.getElementById('quiz-progress-fill').style.width='100%';document.getElementById('quiz-score').style.display='block';document.getElementById('quiz-score').textContent='🎉 All '+FLASHCARDS.length+' cards reviewed!';}}
+function quizPrev(){quizCurrent=Math.max(0,quizCurrent-1);renderFlashcard();document.getElementById('quiz-score').style.display='none';}
+function quizShuffle(){for(let i=quizOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[quizOrder[i],quizOrder[j]]=[quizOrder[j],quizOrder[i]];}quizCurrent=0;renderFlashcard();document.getElementById('quiz-score').style.display='none';}
+
+let activePanel=null;
+function togglePanel(panelId,btn){
+const panel=document.getElementById(panelId);const isOpen=panel.classList.contains('open');
+document.querySelectorAll('.tb-panel').forEach(p=>p.classList.remove('open'));
+document.querySelectorAll('.tb-btn[id^="btn-"]').forEach(b=>{if(!b.classList.contains('highlighter-active')&&!b.classList.contains('focus-active'))b.classList.remove('active');});
+if(!isOpen){panel.classList.add('open');btn.classList.add('active');activePanel=panelId;if(panelId==='panel-quiz')renderFlashcard();}else{activePanel=null;}
+}
+document.addEventListener('click',function(e){if(!e.target.closest('.tb-panel')&&!e.target.closest('.tb-btn')){document.querySelectorAll('.tb-panel').forEach(p=>p.classList.remove('open'));document.querySelectorAll('.tb-btn').forEach(b=>{if(!b.classList.contains('highlighter-active')&&!b.classList.contains('focus-active'))b.classList.remove('active');});activePanel=null;}});
+
+function toggleFocusMode(btn){focusModeOn=!focusModeOn;document.body.classList.toggle('focus-mode',focusModeOn);btn.classList.toggle('focus-active',focusModeOn);if(focusModeOn)applyFocusMode();else document.querySelectorAll('.slide').forEach(el=>el.classList.remove('focus-slide'));}
+function applyFocusMode(){const activeId=slideIds[currentSlideIdx];document.querySelectorAll('.slide').forEach(el=>el.classList.toggle('focus-slide',el.id===activeId));}
+function toggleHighlighter(btn){highlighterOn=!highlighterOn;document.body.classList.toggle('highlight-mode',highlighterOn);btn.classList.toggle('highlighter-active',highlighterOn);}
+
+function buildGroupedNav(){
+const list=document.getElementById('slide-list');list.innerHTML='';
+const groups=[
+{label:'Fetal Growth Biology',range:[0,5]},
+{label:'Lung Development & Surfactant',range:[6,8]},
+{label:'Fetal Circulation',range:[9,10]},
+{label:'Checkpoint 1',range:[11,11]},
+{label:'Birth Transition',range:[12,14]},
+{label:'Neonatal Adaptation',range:[15,16]},
+{label:'IUGR & Pathology',range:[17,18]},
+{label:'Neonatal Organ Systems',range:[19,22]},
+{label:'Checkpoints & Integration',range:[23,26]},
+{label:'Review & Summary',range:[27,28]},
+];
+groups.forEach(group=>{
+const lbl=document.createElement('div');lbl.className='nav-group-label';lbl.textContent=group.label;list.appendChild(lbl);
+for(let i=group.range[0];i<=group.range[1]&&i<SLIDES.length;i++){
+const slide=SLIDES[i];const item=document.createElement('div');item.className='nav-item';
+item.dataset.slideId=slide.id;item.dataset.tags=slide.tags.join(',');item.dataset.title=slide.title.toLowerCase();
+const tagsHtml=slide.tags.map(t=>`<span class="nav-tag ${t}">${t}</span>`).join('');
+item.innerHTML=`<div class="nav-dot"></div><div class="nav-item-content"><div class="nav-item-num">Slide ${slide.num}</div><div class="nav-item-title">${slide.title}</div>${tagsHtml?`<div class="nav-tags">${tagsHtml}</div>`:''}</div>`;
+item.addEventListener('click',()=>goToSlide(slide.id));list.appendChild(item);}});}
+
+function filterByTag(tag){activeTag=tag;document.querySelectorAll('.tag-filter-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.tag===tag));applyFilters();}
+function filterSearch(q){window._searchQuery=q.toLowerCase();applyFilters();}
+function applyFilters(){
+const q=window._searchQuery||'';
+document.querySelectorAll('.nav-item').forEach(item=>{
+const tagMatch=activeTag==='all'||(item.dataset.tags||'').includes(activeTag);
+const searchMatch=!q||(item.dataset.title||'').includes(q);
+item.classList.toggle('tag-hidden',!(tagMatch&&searchMatch));});
+document.querySelectorAll('.nav-group-label').forEach(lbl=>{let sib=lbl.nextElementSibling,allHidden=true;while(sib&&!sib.classList.contains('nav-group-label')){if(sib.classList.contains('nav-item')&&!sib.classList.contains('tag-hidden')){allHidden=false;break;}sib=sib.nextElementSibling;}lbl.style.display=allHidden?'none':'';}); }
+
+function toggleSidebar(){
+const sidebar=document.getElementById('sidebar');const overlay=document.getElementById('sidebar-overlay');const fab=document.getElementById('nav-fab');const isOpen=sidebar.classList.contains('open');
+sidebar.classList.toggle('open',!isOpen);overlay.classList.toggle('show',!isOpen);
+const bars=fab.querySelectorAll('.bar');
+if(!isOpen){bars[0].style.transform='translateY(7px) rotate(45deg)';bars[1].style.opacity='0';bars[2].style.transform='translateY(-7px) rotate(-45deg)';}
+else{bars.forEach(b=>{b.style.transform='';b.style.opacity='';});}
+if(!isOpen)setTimeout(()=>{const a=document.querySelector('.nav-item.active');if(a)a.scrollIntoView({block:'nearest'});},350);}
+
+function goToSlide(id){const el=document.getElementById(id);if(!el)return;el.scrollIntoView({behavior:'smooth',block:'start'});const idx=slideIds.indexOf(id);if(idx!==-1)currentSlideIdx=idx;if(document.getElementById('sidebar').classList.contains('open'))toggleSidebar();updateUI();}
+
+function revealAnswer(btn){const answer=btn.nextElementSibling;if(!answer)return;if(answer.classList.contains('revealed')){answer.classList.remove('revealed');btn.innerHTML='👁 Show Answer';btn.classList.remove('shown');}else{answer.classList.add('revealed');btn.innerHTML='🙈 Hide Answer';btn.classList.add('shown');}}
+
+function updateUI(){
+const scrollTop=window.scrollY;const docHeight=document.documentElement.scrollHeight-window.innerHeight;
+document.getElementById('reading-progress').style.width=(docHeight>0?(scrollTop/docHeight)*100:0)+'%';
+document.getElementById('scroll-top-btn').classList.toggle('visible',scrollTop>400);
+const scrollPos=scrollTop+window.innerHeight/3;let activeId=slideIds[0];
+for(const id of slideIds){const el=document.getElementById(id);if(el&&el.offsetTop<=scrollPos)activeId=id;}
+const idx=slideIds.indexOf(activeId);if(idx!==-1)currentSlideIdx=idx;
+const slide=SLIDES[currentSlideIdx];if(slide)document.getElementById('topbar-title').textContent=`${slide.num}. ${slide.title}`;
+document.querySelectorAll('.nav-item').forEach(item=>item.classList.toggle('active',item.dataset.slideId===activeId));
+if(focusModeOn)applyFocusMode();}
+
+document.addEventListener('keydown',function(e){
+if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;
+if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();const n=Math.min(slideIds.length-1,currentSlideIdx+1);if(n!==currentSlideIdx){currentSlideIdx=n;goToSlide(slideIds[n]);}}
+else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();const n=Math.max(0,currentSlideIdx-1);if(n!==currentSlideIdx){currentSlideIdx=n;goToSlide(slideIds[n]);}}
+else if(e.key==='t'||e.key==='T')toggleSidebar();
+else if(e.key==='f'||e.key==='F')toggleFocusMode(document.getElementById('btn-focus'));
+else if(e.key==='Escape'){document.querySelectorAll('.tb-panel').forEach(p=>p.classList.remove('open'));if(document.getElementById('sidebar').classList.contains('open'))toggleSidebar();}});
+
+window.addEventListener('scroll',updateUI);
+document.addEventListener('DOMContentLoaded',()=>{
+buildGroupedNav();
+document.getElementById('sidebar-overlay').onclick=toggleSidebar;
+document.getElementById('sidebar-close').onclick=toggleSidebar;
+document.querySelectorAll('.checkpoint .answer').forEach(ans=>{
+const btn=document.createElement('button');btn.className='reveal-btn';btn.innerHTML='👁 Show Answer';btn.onclick=function(){revealAnswer(this);};
+ans.parentNode.insertBefore(btn,ans);});
+updateUI();});
+</script>
+</body>
+</html>
