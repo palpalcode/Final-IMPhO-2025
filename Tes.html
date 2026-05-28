@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endokrinologi & Reproduksi — Unit XIV Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #faf7ff;
+    --surface:  #ffffff;
+    --primary:  #b76db8;
+    --p-dark:   #8b4a8c;
+    --p-light:  #f3e5f5;
+    --accent1:  #e8789a;
+    --accent2:  #7c6fae;
+    --accent3:  #5fa8d3;
+    --correct:  #2d9d5a;
+    --wrong:    #d64545;
+    --text:     #2d2a3e;
+    --muted:    #7a7685;
+    --border:   #e8e0f0;
+    --shadow:   0 12px 48px rgba(139, 74, 140, 0.12);
+    --r:        24px;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* ═══ ANIMATED MESH BACKGROUND ═══ */
+  .bg-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+    animation: floatBlob 20s infinite ease-in-out;
+  }
+  .blob-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(183,109,184,0.4) 0%, transparent 70%);
+    top: -10%; left: -5%;
+    animation-delay: 0s;
+  }
+  .blob-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(231,120,154,0.35) 0%, transparent 70%);
+    bottom: -5%; right: -8%;
+    animation-delay: -5s;
+    animation-duration: 25s;
+  }
+  .blob-3 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(95,168,211,0.3) 0%, transparent 70%);
+    top: 40%; left: 60%;
+    animation-delay: -10s;
+    animation-duration: 22s;
+  }
+  .blob-4 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(124,111,174,0.35) 0%, transparent 70%);
+    top: 10%; right: 20%;
+    animation-delay: -15s;
+    animation-duration: 18s;
+  }
+  @keyframes floatBlob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -40px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+  }
+
+  /* Interactive particles on mouse move */
+  .particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: rgba(183,109,184,0.25);
+    border-radius: 50%;
+    animation: particleFloat 15s infinite linear;
+  }
+  @keyframes particleFloat {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+  }
+
+  /* ═══ HEADER ═══ */
+  .header {
+    width: 100%;
+    padding: 48px 24px 56px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(183,109,184,0.08) 0%, rgba(231,120,154,0.06) 50%, rgba(95,168,211,0.08) 100%);
+    border-bottom: 1px solid rgba(183,109,184,0.1);
+  }
+  .unit-tag {
+    display: inline-block;
+    background: rgba(183,109,184,0.12);
+    color: var(--p-dark);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 99px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(183,109,184,0.2);
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--text);
+    line-height: 1.2;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+  }
+  .header h1 em {
+    font-style: italic;
+    color: var(--primary);
+    font-weight: 400;
+  }
+  .header .sub {
+    color: var(--muted);
+    font-size: .95rem;
+    margin-top: 12px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+  }
+
+  /* ═══ PROGRESS CARD ═══ */
+  .progress-wrap {
+    width: 100%; max-width: 800px;
+    padding: 0 24px;
+    margin-top: -24px;
+    position: relative; z-index: 10;
+  }
+  .progress-card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 18px 26px;
+    display: flex; align-items: center; gap: 18px;
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+  .prog-info { flex: 1; }
+  .prog-label {
+    font-size: .7rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .prog-track {
+    height: 8px; border-radius: 99px;
+    background: #f0e8f7; overflow: hidden;
+  }
+  .prog-fill {
+    height: 100%; border-radius: 99px;
+    background: linear-gradient(90deg, var(--accent1), var(--primary), var(--accent2));
+    transition: width .6s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 2px 8px rgba(183,109,184,0.3);
+  }
+  .q-counter { 
+    font-weight: 700; font-size: .9rem; 
+    color: var(--primary); white-space: nowrap; 
+    font-family: 'Playfair Display', serif;
+  }
+  .score-pill {
+    background: linear-gradient(135deg, var(--primary), var(--accent2));
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem;
+    padding: 8px 20px;
+    border-radius: 99px;
+    box-shadow: 0 4px 16px rgba(139, 74, 140, 0.25);
+    white-space: nowrap;
+  }
+
+  /* ═══ QUIZ CARD ═══ */
+  .quiz-wrap {
+    width: 100%; max-width: 800px;
+    padding: 28px 24px 0;
+    position: relative; z-index: 1;
+  }
+  .question-card {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--r);
+    padding: 36px 34px 30px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    animation: cardIn .45s cubic-bezier(.4,0,.2,1);
+    border: 1px solid rgba(255,255,255,0.7);
+  }
+  @keyframes cardIn {
+    from { opacity:0; transform: translateY(20px) scale(.98); }
+    to   { opacity:1; transform: translateY(0) scale(1); }
+  }
+  .card-accent {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--accent1), var(--primary), var(--accent2), var(--accent3));
+  }
+  .q-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--p-light);
+    color: var(--p-dark);
+    font-size: .8rem; font-weight: 700;
+    padding: 6px 16px; border-radius: 99px;
+    margin-bottom: 16px;
+    border: 1.5px solid rgba(183,109,184,0.15);
+    letter-spacing: 0.5px;
+  }
+  .q-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--primary);
+    animation: pulse 2.5s infinite;
+    box-shadow: 0 0 8px rgba(183,109,184,0.4);
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:.6; transform:scale(.8); }
+  }
+  .q-text {
+    font-size: 1.08rem; font-weight: 500;
+    line-height: 1.7; color: var(--text);
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ═══ OPTIONS ═══ */
+  .opts { display: flex; flex-direction: column; gap: 12px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(250,247,252,0.8);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: .98rem; font-weight: 500;
+    color: var(--text);
+    text-align: left;
+    transition: all .2s cubic-bezier(.4,0,.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .opt::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0; width: 0;
+    background: linear-gradient(180deg, var(--p-light), transparent);
+    transition: width .3s;
+    z-index: 0;
+  }
+  .opt:hover:not(:disabled)::before { width: 4px; }
+  .opt:hover:not(:disabled) {
+    border-color: var(--primary);
+    background: rgba(243,229,245,0.5);
+    transform: translateX(6px);
+    box-shadow: 0 6px 24px rgba(183,109,184,0.12);
+  }
+  .opt:active:not(:disabled) { transform: translateX(3px) scale(.99); }
+  .opt-ltr {
+    min-width: 36px; height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f0e4f7, #e8d5f0);
+    color: var(--primary);
+    font-family: 'Inter', sans-serif;
+    font-size: .95rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+    transition: all .2s;
+    position: relative; z-index: 1;
+    border: 1px solid rgba(183,109,184,0.15);
+  }
+  .opt-txt { flex:1; line-height: 1.55; padding-top: 3px; position: relative; z-index: 1; }
+
+  /* States */
+  .opt.picked { border-color: var(--primary); background: var(--p-light); }
+  .opt.picked .opt-ltr { background: var(--primary); color: white; border-color: var(--primary); }
+  .opt.correct-ans {
+    border-color: var(--correct); background: #f0fdf4;
+    transform: translateX(0);
+  }
+  .opt.correct-ans .opt-ltr { background: var(--correct); color: white; border-color: var(--correct); }
+  .opt.wrong-ans {
+    border-color: var(--wrong); background: #fef2f2;
+    animation: shake .45s;
+  }
+  .opt.wrong-ans .opt-ltr { background: var(--wrong); color: white; border-color: var(--wrong); }
+  @keyframes shake {
+    0%,100% { transform:translateX(0); }
+    20% { transform:translateX(-7px); }
+    40% { transform:translateX(7px); }
+    60% { transform:translateX(-4px); }
+    80% { transform:translateX(4px); }
+  }
+  .opt:disabled { cursor:default; }
+
+  /* ═══ FEEDBACK ═══ */
+  .feedback {
+    display: none;
+    margin-top: 20px;
+    border-radius: 16px;
+    padding: 18px 22px;
+    animation: popIn .35s cubic-bezier(.4,0,.2,1);
+    align-items: flex-start; gap: 14px;
+    backdrop-filter: blur(10px);
+  }
+  @keyframes popIn {
+    from { opacity:0; transform:scale(.95) translateY(5px); }
+    to   { opacity:1; transform:scale(1) translateY(0); }
+  }
+  .feedback.show { display: flex; }
+  .feedback.ok { 
+    background: linear-gradient(135deg, rgba(240,253,244,0.9), rgba(220,252,231,0.8)); 
+    border: 2px solid var(--correct); 
+  }
+  .feedback.no { 
+    background: linear-gradient(135deg, rgba(254,242,242,0.9), rgba(254,226,226,0.8)); 
+    border: 2px solid var(--wrong); 
+  }
+  .fb-icon { font-size: 1.8rem; flex-shrink:0; margin-top: -2px; }
+  .fb-body { flex:1; }
+  .fb-ttl { 
+    font-size: .82rem; font-weight: 700; 
+    text-transform: uppercase; letter-spacing:1.2px; 
+    margin-bottom:6px; font-family: 'Inter', sans-serif;
+  }
+  .feedback.ok .fb-ttl { color: #166534; }
+  .feedback.no .fb-ttl { color: #991b1b; }
+  .fb-expl { 
+    font-size: .9rem; font-weight: 500; 
+    line-height:1.6; opacity:.9; 
+  }
+  .feedback.ok .fb-expl { color:#166534; }
+  .feedback.no .fb-expl { color:#7f1d1d; }
+
+  /* ═══ NEXT BTN ═══ */
+  .next-btn {
+    display: none;
+    width:100%; margin-top:18px;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--accent2));
+    color:white; border:none; border-radius:14px;
+    font-family: 'Playfair Display', serif;
+    font-size:1.05rem; font-weight:600;
+    cursor:pointer;
+    box-shadow: 0 8px 28px rgba(139, 74, 140, 0.3);
+    transition: all .25s;
+    letter-spacing: 0.5px;
+  }
+  .next-btn:hover { 
+    transform:translateY(-2px); 
+    box-shadow:0 12px 36px rgba(139, 74, 140, 0.4); 
+  }
+  .next-btn:active { transform:translateY(0); }
+  .next-btn.show { display:block; animation:popIn .35s; }
+
+  /* ═══ FINISH SCREEN ═══ */
+  #finish {
+    display:none;
+    width:100%; max-width:800px;
+    padding: 28px 24px;
+    animation: cardIn .5s cubic-bezier(.4,0,.2,1);
+    position: relative; z-index: 1;
+  }
+  .finish-card {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    padding: 48px 36px;
+    text-align: center;
+    position: relative; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.8);
+  }
+  .finish-card::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:6px;
+    background: linear-gradient(90deg, var(--accent1), var(--primary), var(--accent2), var(--accent3));
+  }
+  .trophy { 
+    font-size:4.5rem; display:block; margin-bottom:18px; 
+    animation: gentleBounce 2s infinite ease-in-out; 
+    filter: drop-shadow(0 4px 12px rgba(183,109,184,0.3));
+  }
+  @keyframes gentleBounce {
+    0%,100% { transform:translateY(0) rotate(0deg); }
+    25% { transform:translateY(-8px) rotate(3deg); }
+    75% { transform:translateY(-4px) rotate(-3deg); }
+  }
+  .fin-title { 
+    font-family:'Playfair Display', serif; 
+    font-size:2.2rem; font-weight:600; 
+    color:var(--text); 
+    letter-spacing: -0.5px;
+  }
+  .fin-score {
+    font-family:'Playfair Display', serif;
+    font-size:4.5rem; font-weight:700;
+    background: linear-gradient(135deg, var(--primary), var(--accent2));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text; line-height:1.1; margin:16px 0;
+  }
+  .fin-stats { 
+    display:flex; gap:14px; justify-content:center; 
+    flex-wrap:wrap; margin:22px 0; 
+  }
+  .stat { 
+    padding:10px 22px; border-radius:99px; 
+    font-weight:700; font-size:.9rem;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .stat.g { background:rgba(240,253,244,0.8); color:#166534; }
+  .stat.r { background:rgba(254,242,242,0.8); color:#991b1b; }
+  .stat.b { background:var(--p-light); color:var(--p-dark); }
+  .fin-msg { 
+    color:var(--muted); font-size:1rem; 
+    font-weight:500; line-height:1.6; margin:16px 0 32px; 
+    max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+  .restart {
+    padding:16px 48px;
+    background: linear-gradient(135deg, var(--primary), var(--accent2));
+    color:white; border:none; border-radius:14px;
+    font-family:'Playfair Display', serif;
+    font-size:1.15rem; font-weight:600;
+    cursor:pointer;
+    box-shadow:0 8px 28px rgba(139, 74, 140, 0.3);
+    transition:all .25s;
+    letter-spacing: 0.5px;
+  }
+  .restart:hover { 
+    transform:translateY(-3px); 
+    box-shadow:0 14px 40px rgba(139, 74, 140, 0.4); 
+  }
+
+  /* ═══ SCROLLBAR ═══ */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+  @media (max-width:560px) {
+    .question-card { padding:24px 18px 22px; }
+    .progress-card { padding:14px 16px; }
+    .opt { font-size:.92rem; padding:13px 14px; }
+    .header h1 { font-size: 1.8rem; }
+    .fin-score { font-size: 3.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Animated Mesh Background -->
+<div class="bg-mesh">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+<div class="particles" id="particles"></div>
+
+<<header class="header">
+  <div class="unit-tag">Unit XIV · Guyton & Hall</div>
+  <h1>Endokrinologi &amp; <em>Reproduksi</em></h1>
+  <p class="sub">Kuis Fisiologi Endokrin &amp; Reproduksi</p>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-card">
+    <div class="prog-info">
+      <div class="prog-label">Progres</div>
+      <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    </div>
+    <div class="q-counter" id="q-counter">1 / 50</div>
+    <div class="score-pill" id="score-pill">Score: 0</div>
+  </div>
+</div>
+
+<div class="quiz-wrap" id="quiz-wrap">
+  <div class="question-card" id="q-card">
+    <div class="card-accent"></div>
+    <div class="q-tag"><span class="q-dot"></span><span id="q-label">Soal #1</span></div>
+    <div class="q-text" id="q-text">Memuat soal...</div>
+    <div class="opts" id="opts"></div>
+    <div class="feedback" id="feedback">
+      <div class="fb-icon" id="fb-icon"></div>
+      <div class="fb-body">
+        <div class="fb-ttl" id="fb-ttl"></div>
+        <div class="fb-expl" id="fb-expl"></div>
+      </div>
+    </div>
+    <button class="next-btn" id="next-btn" onclick="next()">Soal Berikutnya →</button>
+  </div>
+</div>
+
+<div id="finish">
+  <div class="finish-card">
+    <span class="trophy" id="trophy">🎓</span>
+    <div class="fin-title" id="fin-title">Quiz Selesai!</div>
+    <div class="fin-score" id="fin-score">0/50</div>
+    <div class="fin-stats">
+      <div class="stat g" id="s-correct">✅ 0 Benar</div>
+      <div class="stat r" id="s-wrong">❌ 0 Salah</div>
+      <div class="stat b" id="s-pct">🎯 0%</div>
+    </div>
+    <p class="fin-msg" id="fin-msg"></p>
+    <button class="restart" onclick="restart()">Mulai Lagi (Urutan Baru)</button>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════
+   DATA SOAL YANG SUDAH DIBERSIHKAN
+   ═══════════════════════════════════════ */
+const ALL_Q = [
+  {
+    num: 1,
+    question: "Which receptor controls nitric oxide (NO) release to cause vasodilation during penile erection?",
+    options: { A: "Leptin receptor", B: "Angiotensin AT1 receptor", C: "Endothelin ETA receptor", D: "Muscarinic receptor" },
+    answer: "D",
+    explanation: "Parasympathetic postganglionic fibers release acetylcholine that activates muscarinic receptors on endothelium to produce NO and increase cGMP, causing vasodilation."
+  },
+  {
+    num: 2,
+    question: "Which statement about antidiuretic hormone (ADH) is true?",
+    options: { A: "It is synthesized in the posterior pituitary gland", B: "It increases salt and water reabsorption in the collecting tubules and ducts", C: "It stimulates thirst", D: "It has opposite effects on urine and plasma osmolality" },
+    answer: "D",
+    explanation: "ADH increases water reabsorption (not salt), concentrating urine and diluting plasma — opposite effects on urine vs plasma osmolality. It is synthesized in hypothalamus, not posterior pituitary."
+  },
+  {
+    num: 3,
+    question: "After menopause, hormone replacement therapy with estrogen-like compounds is effective in preventing the progression of osteoporosis. What is the mechanism of their protective effect?",
+    options: { A: "They stimulate the activity of osteoblasts", B: "They increase absorption of calcium from the gastrointestinal tract", C: "They stimulate calcium reabsorption by the renal tubules", D: "They stimulate parathyroid hormone (PTH) secretion by the parathyroid gland" },
+    answer: "A",
+    explanation: "Estrogen compounds stimulate osteoblast activity, tipping the balance toward bone building rather than degradation after menopause."
+  },
+  {
+    num: 4,
+    question: "A patient has nephrogenic diabetes insipidus. Of the following options, which outcome would be expected or which intervention would be suggested?",
+    options: { A: "Expected outcome: decreased plasma sodium concentration", B: "Expected outcome: increased secretion of ADH from the supraoptic and paraventricular nuclei", C: "Expected outcome: high urine osmolality", D: "Suggested intervention: water restriction", E: "Suggested intervention: ADH antagonists (vaptans)" },
+    answer: "B",
+    explanation: "In nephrogenic diabetes insipidus, kidneys cannot respond to ADH, causing water loss and hypernatremia. Hypernatremia stimulates ADH secretion from magnocellular neurons."
+  },
+  {
+    num: 5,
+    question: "Within minutes after a normal delivery, flow through the foramen ovale decreases dramatically. What is the cause of this change?",
+    options: { A: "Increased formation of prostaglandin E2 (PGE2) in the endocardium", B: "Increased rate of flow through the pulmonary artery", C: "Increased left atrial pressure", D: "Increased right atrial pressure", E: "Increased partial pressure of oxygen (Po2)" },
+    answer: "C",
+    explanation: "After birth, systemic arterial resistance increases, raising left atrial pressure. Meanwhile, pulmonary vascular resistance falls, reducing right atrial pressure. The pressure gradient change closes the foramen ovale."
+  },
+  {
+    num: 6,
+    question: "Which hormones antagonize the effect of NO and cause the penis to become flaccid after orgasm?",
+    options: { A: "Endothelin and norepinephrine", B: "Estrogen and progesterone", C: "Luteinizing hormone (LH) and follicle-stimulating hormone (FSH)", D: "Progesterone and LH" },
+    answer: "A",
+    explanation: "Norepinephrine from nerve terminals and endothelin from endothelial cells cause vasoconstriction, antagonizing NO and promoting detumescence."
+  },
+  {
+    num: 7,
+    question: "Which lines most likely illustrate these relationships in a patient with type 2 diabetes? (Liver glucose production vs Insulin / Muscle glucose uptake vs Insulin)",
+    options: { A: "A and C", B: "A and D", C: "B and C", D: "B and D" },
+    answer: "C",
+    explanation: "Type 2 DM is characterized by insulin resistance. Hepatic glucose production is increased (line B, shifted right/up) and muscle glucose uptake is impaired (line C, shifted down)."
+  },
+  {
+    num: 8,
+    question: "Which lines most likely illustrate these relationships in a patient with acromegaly?",
+    options: { A: "A and C", B: "A and D", C: "B and C", D: "B and D" },
+    answer: "C",
+    explanation: "In acromegaly, high GH causes insulin resistance. Liver glucose production increases (line B) and muscle glucose uptake is impaired (line C)."
+  },
+  {
+    num: 9,
+    question: "Line D most likely illustrates the influence of which of the following?",
+    options: { A: "Exercise", B: "Obesity", C: "Growth hormone (GH)", D: "Cortisol", E: "Glucagon" },
+    answer: "A",
+    explanation: "During exercise, glucose utilization by muscle increases largely independent of insulin, shifting muscle glucose uptake upward (line D)."
+  },
+  {
+    num: 10,
+    question: "Thecal cells in the follicle are not able to produce what sex steroid?",
+    options: { A: "Estradiol", B: "Testosterone", C: "Progesterone", D: "Dihydrotestosterone" },
+    answer: "A",
+    explanation: "Thecal cells lack aromatase, so they cannot convert androgens to estradiol. They can produce testosterone and other androgens."
+  },
+  {
+    num: 11,
+    question: "A baby is born with a penis, a scrotum with no testes, no vagina, and XX chromosomes. This condition is referred to as hermaphroditism. What could cause this abnormality?",
+    options: { A: "Abnormally high levels of human chorionic gonadotropin (HCG) production by the trophoblast cells", B: "The presence of a testosterone-secreting tumor in the mother's right adrenal gland", C: "Abnormally high levels of LH in the maternal blood", D: "Abnormally low levels of testosterone in the maternal blood", E: "Abnormally low rates of estrogen production by the placenta" },
+    answer: "B",
+    explanation: "A very high concentration of testosterone in a female embryo will induce formation of male genitalia. An adrenal tumor in the mother could produce this masculinizing effect."
+  },
+  {
+    num: 12,
+    question: "A young woman is given daily injections of a substance beginning on the sixteenth day of her normal menstrual cycle and continuing for 3 weeks. As long as the injections continue, she does not menstruate. The injected substance could be which of the following?",
+    options: { A: "Testosterone", B: "FSH", C: "An inhibitor of progesterone's actions", D: "A PGE2 inhibitor", E: "HCG" },
+    answer: "E",
+    explanation: "HCG has the same stimulatory effect as LH on the corpus luteum. Administration of HCG would cause the corpus luteum to continue secreting estrogen and progesterone, preventing menstruation."
+  },
+  {
+    num: 13,
+    question: "Which of the following increases secretion of GH?",
+    options: { A: "Senescence", B: "Insulin-like growth factor-1 (IGF-1)", C: "Somatostatin", D: "Hypoglycemia", E: "Exogenous GH administration" },
+    answer: "D",
+    explanation: "Hypoglycemia is a potent stimulus for GH secretion. GH decreases with aging, somatostatin, and negative feedback from IGF-1 and exogenous GH."
+  },
+  {
+    num: 14,
+    question: "Which of the following could inhibit the initiation of labor?",
+    options: { A: "Administration of an antagonist of the actions of progesterone", B: "Administration of LH", C: "Administration of an antagonist of PGE2 effects", D: "Mechanically dilating and stimulating the cervix", E: "Administration of oxytocin" },
+    answer: "C",
+    explanation: "Antagonism of progesterone's effects, cervical dilation, and oxytocin all facilitate labor. LH has no effect. PGE2 strongly stimulates uterine contraction; blocking it would inhibit labor initiation."
+  },
+  {
+    num: 15,
+    question: "Exposure to ultraviolet light directly facilitates which of the following?",
+    options: { A: "Conversion of cholesterol to 25-hydroxycholicalciferol", B: "Conversion of 25-hydroxycholicalciferol to 1,25-dihydroxycholicalciferol", C: "Transport of calcium into the extracellular fluid", D: "Formation of calcium-binding protein", E: "Storage of vitamin D3 in the liver" },
+    answer: "A",
+    explanation: "Ultraviolet light absorbed by the skin directly facilitates conversion of 7-dehydrocholesterol (a cholesterol derivative) to cholecalciferol (vitamin D3), which is then converted to 25-hydroxy form in the liver."
+  },
+  {
+    num: 16,
+    question: "Which of the following decreases the pressure in the pulmonary artery after birth?",
+    options: { A: "An increase in systemic arterial pressure", B: "Closure of ductus arteriosus", C: "An increase in left ventricular pressure", D: "A decrease in pulmonary vascular resistance" },
+    answer: "D",
+    explanation: "Pulmonary vascular resistance greatly decreases as a result of expansion of the lungs at birth. The vessels are no longer compressed, so resistance falls severalfold."
+  },
+  {
+    num: 17,
+    question: "Which of the following is both synthesized and stored in the hypothalamus?",
+    options: { A: "ADH", B: "Thyroid-stimulating hormone (TSH)", C: "LH", D: "Somatostatin", E: "Somatomedin" },
+    answer: "D",
+    explanation: "Somatostatin is both synthesized and stored in the hypothalamus. ADH is synthesized in hypothalamus but stored in posterior pituitary. TSH and LH are synthesized and stored in anterior pituitary."
+  },
+  {
+    num: 18,
+    question: "If a radioimmunoassay is properly conducted and the amount of radioactive hormone bound to antibody is low, what would this result indicate?",
+    options: { A: "Plasma levels of endogenous hormone are high", B: "Plasma levels of endogenous hormone are low", C: "More antibody is needed", D: "Less radioactive hormone is needed" },
+    answer: "A",
+    explanation: "In RIA, endogenous hormone competes with labeled hormone for antibody binding sites. If radioactive hormone bound is low, endogenous hormone levels are high (competing successfully)."
+  },
+  {
+    num: 19,
+    question: "By which mechanism do LH and FSH return to baseline levels?",
+    options: { A: "LH surge", B: "Negative feedback on gonadotropin-releasing hormone (GnRH) by progesterone", C: "Negative feedback on GnRH by estradiol", D: "Negative feedback on GnRH from testosterone" },
+    answer: "C",
+    explanation: "Just before the LH surge, estradiol levels increase, causing negative feedback on GnRH to stop producing LH and FSH, resulting in decreased levels."
+  },
+  {
+    num: 20,
+    question: "Spermatogenesis is regulated by a negative feedback control system in which FSH stimulates the steps in sperm cell formation. Which negative feedback signal associated with sperm cell production inhibits pituitary formation of FSH?",
+    options: { A: "Testosterone", B: "Inhibin", C: "Estrogen", D: "LH" },
+    answer: "B",
+    explanation: "Sertoli cells secrete inhibin at a rate proportional to sperm production. Inhibin directly inhibits anterior pituitary secretion of FSH."
+  },
+  {
+    num: 21,
+    question: "Which of the following is true during the 12-hour period preceding ovulation?",
+    options: { A: "A surge of LH is secreted from the pituitary", B: "The surge occurs immediately after the formation of the corpus luteum", C: "The surge is followed immediately by a fall in the plasma concentration of progesterone", D: "The number of developing follicles is increasing" },
+    answer: "A",
+    explanation: "Ovulation will not take place unless a surge of LH precedes it. The number of follicles is actually decreasing due to attrition, and progesterone rises (not falls) after the LH surge."
+  },
+  {
+    num: 22,
+    question: "When do progesterone levels rise to their highest point during the female hormonal cycle?",
+    options: { A: "Between ovulation and the beginning of menstruation", B: "Immediately before ovulation", C: "When the blood concentration of LH is at its highest point", D: "When 12 primary follicles are developing to the antral stage" },
+    answer: "A",
+    explanation: "The corpus luteum is the main source of progesterone and is functional between ovulation and the beginning of menstruation. Progesterone peaks during the mid-luteal phase."
+  },
+  {
+    num: 23,
+    question: "What accompanies sloughing of the endometrium during the endometrial cycle in a normal woman?",
+    options: { A: "An increase in progesterone", B: "The LH 'surge'", C: "A decrease in both progesterone and estrogen", D: "An increase in estradiol" },
+    answer: "C",
+    explanation: "At the end of the luteal phase, the corpus luteum degenerates and fails to produce progesterone and estradiol. Their levels fall precipitously, causing the endometrium to slough."
+  },
+  {
+    num: 24,
+    question: "Some cells secrete chemicals into the extracellular fluid that act on cells in the same tissue. Which of the following refers to this type of regulation?",
+    options: { A: "Neural", B: "Endocrine", C: "Neuroendocrine", D: "Paracrine", E: "Autocrine" },
+    answer: "D",
+    explanation: "Paracrine communication refers to cell secretions that diffuse into extracellular fluid to affect neighboring cells in the same tissue."
+  },
+  {
+    num: 25,
+    question: "Which of the following pairs is an example of the type of regulation referred to in Question 24 (paracrine)?",
+    options: { A: "Somatostatin—GH secretion", B: "Somatostatin—insulin secretion", C: "Dopamine—prolactin secretion", D: "Norepinephrine—corticotropin-releasing hormone (CRH) secretion", E: "CRH—adrenocorticotropic hormone (ACTH) secretion" },
+    answer: "B",
+    explanation: "Delta cells of the pancreas secrete somatostatin, which inhibits insulin and glucagon secretion from neighboring beta and alpha cells — a classic paracrine effect."
+  },
+  {
+    num: 26,
+    question: "A professional athlete in her mid-20s has not had a menstrual cycle for 5 years, although a bone density scan revealed normal skeletal mineralization. Which fact may explain these observations?",
+    options: { A: "She consumes a high-carbohydrate diet", B: "Her grandmother sustained a hip fracture at age 79 years", C: "Her blood pressure is higher than normal", D: "Her plasma estrogen concentration is very low", E: "She has been taking anabolic steroid supplements for 5 years" },
+    answer: "E",
+    explanation: "Anabolic steroids bind to testosterone receptors in the hypothalamus, providing feedback inhibition of normal ovarian cycling (preventing menstruation) while stimulating osteoblastic activity (preserving bone density)."
+  },
+  {
+    num: 27,
+    question: "What is the nongenomic effect of testosterone on vascular smooth muscle?",
+    options: { A: "Vasodilation", B: "Vasoconstriction", C: "Increase in prostaglandins", D: "Increase in estrogen receptors" },
+    answer: "A",
+    explanation: "Testosterone causes vasodilation by inhibiting L-type calcium channels, reducing calcium influx into vascular smooth muscle cells."
+  },
+  {
+    num: 28,
+    question: "In the circulatory system of a fetus, which of the following is greater before birth than after birth?",
+    options: { A: "Arterial Po2", B: "Right atrial pressure", C: "Aortic pressure", D: "Left ventricular pressure" },
+    answer: "B",
+    explanation: "Right atrial pressure falls dramatically after birth due to reduced pulmonary vascular resistance, pulmonary arterial pressure, and right ventricular pressure."
+  },
+  {
+    num: 29,
+    question: "A patient with Conn's syndrome. Match with correct plasma values (Aldosterone/Cortisol/Potassium):",
+    options: { A: "10 / 2.0 / 4.5", B: "2.0 / 2.0 / 6.0", C: "40 / 30 / 2.0", D: "40 / 10 / 4.5", E: "40 / 10 / 2.0" },
+    answer: "E",
+    explanation: "Conn's syndrome involves aldosterone-secreting tumors (high aldosterone), normal cortisol secretion, and hypokalemia due to excessive potassium wasting."
+  },
+  {
+    num: 30,
+    question: "A patient consuming a low-sodium diet. Match with correct plasma values (Aldosterone/Cortisol/Potassium):",
+    options: { A: "10 / 2.0 / 4.5", B: "2.0 / 2.0 / 6.0", C: "40 / 30 / 2.0", D: "40 / 10 / 4.5", E: "40 / 10 / 2.0" },
+    answer: "D",
+    explanation: "Low sodium intake stimulates aldosterone secretion (up to 40 ng/dl) but cortisol remains normal (10 mg/dl). Potassium stays near normal (4.5 mEq/L) because low distal tubular flow offsets potassium wasting."
+  },
+  {
+    num: 31,
+    question: "In the figure, which lines most likely reflect the responses in a patient with nephrogenic diabetes insipidus? (Plasma ADH vs Plasma Osm / Urine Osm vs Plasma ADH)",
+    options: { A: "A and C", B: "A and D", C: "B and C", D: "B and D" },
+    answer: "B",
+    explanation: "In nephrogenic DI, kidneys do not respond to ADH (flat urine osmolality line D), but ADH secretion responds normally to plasma osmolality (line A)."
+  },
+  {
+    num: 32,
+    question: "Which enzyme in the cytochrome P450 steroid synthesis cascade is directly responsible for estradiol synthesis?",
+    options: { A: "17-beta-hydroxysteroid dehydrogenase", B: "5-alpha reductase", C: "Aromatase", D: "Side chain cleavage enzyme" },
+    answer: "C",
+    explanation: "Aromatase converts testosterone to estradiol. Thecal cells lack this enzyme, which is present in granulosa cells."
+  },
+  {
+    num: 33,
+    question: "Which of the following is greater after birth than before birth?",
+    options: { A: "Flow through the foramen ovale", B: "Pressure in the right atrium", C: "Flow through the ductus arteriosus", D: "Aortic pressure" },
+    answer: "D",
+    explanation: "Systemic vascular resistance doubles at birth due to loss of placental vasculature, increasing aortic pressure, left ventricular pressure, and left atrial pressure."
+  },
+  {
+    num: 34,
+    question: "PTH does what directly?",
+    options: { A: "Controls the rate of 25-hydroxycholicalciferol formation", B: "Controls the rate of calcium transport in the mucosa of the small intestine", C: "Controls the rate of formation of calcium-binding protein", D: "Controls the rate of formation of 1,25-dihydroxycholicalciferol", E: "Stimulates renal tubular phosphate reabsorption" },
+    answer: "D",
+    explanation: "PTH acts in the renal cortex to stimulate conversion of 25-hydroxycholecalciferol to 1,25-dihydroxycholecalciferol (active vitamin D)."
+  },
+  {
+    num: 35,
+    question: "Which substances are most likely to produce the greatest increase in insulin secretion?",
+    options: { A: "Amino acids", B: "Amino acids and glucose", C: "Amino acids and somatostatin", D: "Glucose alone", E: "Fatty acids alone" },
+    answer: "B",
+    explanation: "Both amino acids and glucose stimulate insulin secretion. Amino acids strongly potentiate the glucose stimulus for insulin secretion."
+  },
+  {
+    num: 36,
+    question: "Which of the following would be expected in a child with dwarfism due to pituitary dysfunction?",
+    options: { A: "Normal IGF-1, normal GH secretion, low glucose", B: "Normal IGF-1, normal GH secretion, normal glucose", C: "Normal IGF-1, low GH secretion, low glucose", D: "Low IGF-1, low GH secretion, normal glucose", E: "Low IGF-1, low GH secretion, low glucose" },
+    answer: "E",
+    explanation: "Pituitary dysfunction causes low GH secretion, which decreases hepatic IGF-1 production. GH normally raises blood glucose, so low GH leads to lower glucose."
+  },
+  {
+    num: 37,
+    question: "For male differentiation to occur during embryonic development, testosterone must be secreted from the testes. What stimulates the secretion of testosterone during embryonic development?",
+    options: { A: "LH from the maternal pituitary gland", B: "HCG", C: "Inhibin from the corpus luteum", D: "GnRH from the embryo's hypothalamus" },
+    answer: "B",
+    explanation: "HCG binds to LH receptors on fetal testicular interstitial cells, stimulating testosterone production that drives male sex organ development."
+  },
+  {
+    num: 38,
+    question: "A patient has an elevated plasma thyroxine (T4) concentration, a low plasma TSH concentration, and her thyroid gland is smaller than normal. What is the most likely cause?",
+    options: { A: "A lesion in the anterior pituitary that prevents TSH secretion", B: "The patient is taking propylthiouracil", C: "The patient is taking thyroid extract", D: "The patient is consuming large amounts of iodine", E: "Graves' disease" },
+    answer: "C",
+    explanation: "Exogenous thyroid extract increases plasma T4, suppressing TSH via negative feedback. Low TSH causes thyroid atrophy. Graves' disease would cause gland enlargement, not atrophy."
+  },
+  {
+    num: 39,
+    question: "Extracellular ionic calcium activity will be decreased within 1 minute by which of the following?",
+    options: { A: "An increase in extracellular phosphate ion activity", B: "An increase in extracellular pH", C: "A decrease in extracellular partial pressure of carbon dioxide (Pco2)", D: "All the above" },
+    answer: "D",
+    explanation: "All listed changes shift the mass action balance toward association of ionic calcium with phosphate or other anionic compounds, reducing free ionic calcium levels."
+  },
+  {
+    num: 40,
+    question: "As menstruation ends, estrogen levels in the blood rise rapidly. What is the source of the estrogen?",
+    options: { A: "Corpus luteum", B: "Developing follicles", C: "Endometrium", D: "Stromal cells of the ovaries", E: "Anterior pituitary gland" },
+    answer: "B",
+    explanation: "In the nonpregnant female, the only significant source of estrogen is ovarian follicles or corpus luteae. Menstruation ends when developing follicles secrete sufficient estrogen to stimulate endometrial regrowth."
+  },
+  {
+    num: 41,
+    question: "A 30-year-old woman reports to the clinic for a routine physical examination. The examination reveals she is pregnant. Her plasma levels of TSH are high, but her total thyroid hormone concentration is normal. Which of the following best reflects the patient's clinical state?",
+    options: { A: "Graves' disease", B: "Hashimoto's disease", C: "A pituitary tumor secreting TSH", D: "A hypothalamic tumor secreting thyrotropin-releasing hormone (TRH)", E: "The patient is taking thyroid extract" },
+    answer: "B",
+    explanation: "High TSH with normal total T4 in pregnancy suggests inappropriately low free T4. Elevated estrogen increases TBG, raising total T4, but if free T4 is low, TSH rises. This is consistent with Hashimoto's thyroiditis."
+  },
+  {
+    num: 42,
+    question: "Which anterior pituitary hormone plays a major role in the regulation of a nonendocrine target gland?",
+    options: { A: "ACTH", B: "TSH", C: "Prolactin", D: "FSH", E: "GH" },
+    answer: "C",
+    explanation: "Prolactin stimulates milk secretion from the breast (a nonendocrine exocrine gland). Other anterior pituitary hormones primarily stimulate endocrine glands."
+  },
+  {
+    num: 43,
+    question: "A female athlete who took testosterone-like steroids for several months stopped having normal menstrual cycles. What is the best explanation for this observation?",
+    options: { A: "Testosterone stimulates inhibin production from the corpus luteum", B: "Testosterone binds to receptors in the endometrium, resulting in the failure of the endometrium to develop during the normal cycle", C: "Testosterone binds to receptors in the anterior pituitary that stimulate the secretion of FSH and LH", D: "Testosterone inhibits the hypothalamic secretion of GnRH and the pituitary secretion of LH and FSH" },
+    answer: "D",
+    explanation: "Testosterone and estrogen inhibit hypothalamic GnRH and pituitary gonadotropin secretion. Exogenous androgens suppress the normal menstrual cycle via this negative feedback."
+  },
+  {
+    num: 44,
+    question: "An experiment is conducted in which ADH is administered at hour 3 to four subjects. Which lines most likely reflect the response to ADH administration in a normal patient and in a patient with central diabetes insipidus?",
+    options: { A: "Normal: B, Central DI: A", B: "Normal: B, Central DI: D", C: "Normal: D, Central DI: A", D: "Normal: D, Central DI: B" },
+    answer: "D",
+    explanation: "Normal patients respond to ADH with decreased urine output (line D drops). Central DI patients lack ADH, so their urine output remains high and unchanged (line B stays flat)."
+  },
+  {
+    num: 45,
+    question: "Which of the following decreases the resistance in the arteries leading to the sinuses of the penis?",
+    options: { A: "Stimulation of the sympathetic nerves innervating the arteries", B: "NO", C: "Inhibition of activity of the parasympathetic nerves leading to the arteries", D: "Endothelin" },
+    answer: "B",
+    explanation: "NO is the primary vasodilator released in penile arteries, causing reduced resistance and increased blood flow for erection."
+  },
+  {
+    num: 46,
+    question: "A patient has a goiter associated with high plasma levels of both TRH and TSH. Her heart rate is elevated. This patient most likely has which condition?",
+    options: { A: "An endemic goiter", B: "A hypothalamic tumor secreting large amounts of TRH", C: "A pituitary tumor secreting large amounts of TSH", D: "Graves' disease" },
+    answer: "B",
+    explanation: "A hypothalamic TRH-secreting tumor would stimulate both TSH secretion and thyroid hormone production, causing elevated heart rate. Both TRH and TSH would be high. In Graves' disease and pituitary tumors, TRH would be low due to feedback."
+  },
+  {
+    num: 47,
+    question: "A man eats a low-carbohydrate meal that is rich in proteins containing the amino acids that stimulate insulin secretion. Which response accounts for the absence of hypoglycemia?",
+    options: { A: "Suppression of GH", B: "Suppression of somatomedin C secretion", C: "Stimulation of cortisol secretion", D: "Stimulation of glucagon secretion", E: "Stimulation of epinephrine secretion" },
+    answer: "D",
+    explanation: "Amino acids stimulate both insulin and glucagon secretion. Increased glucagon opposes insulin's hypoglycemic effect and maintains blood glucose during protein-rich meals."
+  },
+  {
+    num: 48,
+    question: "A 46-year-old man has 'puffy' skin and is lethargic. His plasma TSH concentration is low and increases markedly when he is given TRH. What is the most likely diagnosis?",
+    options: { A: "Hyperthyroidism due to a thyroid tumor", B: "Hyperthyroidism due to an abnormality in the hypothalamus", C: "Hypothyroidism due to an abnormality in the thyroid", D: "Hypothyroidism due to an abnormality in the hypothalamus", E: "Hypothyroidism due to an abnormality in the pituitary" },
+    answer: "D",
+    explanation: "Low TSH that responds to TRH suggests hypothalamic hypothyroidism (insufficient TRH production). The pituitary is functional but not adequately stimulated."
+  },
+  {
+    num: 49,
+    question: "Negative feedback on FSH release from the anterior pituitary in men that results in a reduction in estradiol production is due to which hormone?",
+    options: { A: "Progesterone", B: "Estradiol", C: "Testosterone", D: "Inhibin" },
+    answer: "D",
+    explanation: "Inhibin prevents FSH release from the anterior pituitary. Without FSH, Sertoli cells reduce aromatization of testosterone to estradiol."
+  },
+  {
+    num: 50,
+    question: "During the first few years after menopause, FSH levels are normally extremely high. A 56-year-old woman completed menopause 3 years ago. However, she is found to have low levels of FSH in her blood. What is the best explanation for this finding?",
+    options: { A: "She has been receiving hormone replacement therapy with estrogen and progesterone since she completed menopause", B: "Her adrenal glands continue to produce estrogen", C: "Her ovaries continue to secrete estrogen", D: "She took birth control pills for 20 years before menopause" },
+    answer: "A",
+    explanation: "After menopause, absence of estrogen/progesterone feedback causes high FSH. Hormone replacement therapy with estrogen suppresses FSH via negative feedback."
+  }
+];
+
+/* ── Ultra-random seed ── */
+function seed() {
+  const n = new Date();
+  let s = (n.getMilliseconds()*1000003) ^ (n.getSeconds()*999983) ^
+          (n.getMinutes()*99991) ^ (n.getHours()*9973) ^
+          (n.getDate()*997) ^ (n.getMonth()*101) ^
+          (Math.floor(Math.random()*999979));
+  return s >>> 0;
+}
+function shuffle(arr, sd) {
+  const a = [...arr]; let s = sd;
+  function r(){ s^=s<<13; s^=s>>17; s^=s<<5; return (s>>>0)/4294967296; }
+  for (let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+
+/* ── State ── */
+let questions=[], cur=0, score=0, wrong=0, answered=false;
+
+function init() {
+  questions = shuffle(ALL_Q, seed());
+  cur=0; score=0; wrong=0; answered=false;
+  document.getElementById('finish').style.display='none';
+  document.getElementById('quiz-wrap').style.display='block';
+  render();
+  makeParticles();
+}
+
+function render() {
+  answered=false;
+  const q=questions[cur], tot=questions.length;
+
+  document.getElementById('q-label').textContent='Soal #'+(cur+1);
+  document.getElementById('q-text').textContent=q.question;
+  document.getElementById('q-counter').textContent=(cur+1)+' / '+tot;
+  document.getElementById('score-pill').textContent='Score: '+score;
+  document.getElementById('prog-fill').style.width=(cur/tot*100)+'%';
+
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  Object.entries(q.options).forEach(([ltr,txt])=>{
+    const btn=document.createElement('button');
+    btn.className='opt';
+    btn.innerHTML='<div class="opt-ltr">'+ltr+'</div><div class="opt-txt">'+txt+'</div>';
+    btn.onclick=()=>pick(ltr,btn);
+    opts.appendChild(btn);
+  });
+
+  const fb=document.getElementById('feedback');
+  fb.className='feedback';
+  const nb=document.getElementById('next-btn');
+  nb.className='next-btn';
+  nb.textContent=cur===questions.length-1?'Lihat Hasil':'Soal Berikutnya →';
+
+  const card=document.getElementById('q-card');
+  card.style.animation='none'; void card.offsetWidth;
+  card.style.animation='cardIn .45s cubic-bezier(.4,0,.2,1)';
+}
+
+function pick(ltr, btn) {
+  if(answered) return;
+  answered=true;
+  const q=questions[cur];
+  const allBtns=document.querySelectorAll('.opt');
+  allBtns.forEach(b=>b.disabled=true);
+
+  const ok=(ltr===q.answer);
+  if(ok){ score++; btn.classList.add('correct-ans'); }
+  else {
+    wrong++;
+    btn.classList.add('wrong-ans');
+    allBtns.forEach(b=>{
+      if(b.querySelector('.opt-ltr').textContent===q.answer)
+        b.classList.add('correct-ans');
+    });
+  }
+
+  const fb=document.getElementById('feedback');
+  const icons_ok=['✅','🌟','💡','🎯'];
+  const icons_no=['❌','📖','💭','🤔'];
+  document.getElementById('fb-icon').textContent=ok
+    ? icons_ok[Math.floor(Math.random()*icons_ok.length)]
+    : icons_no[Math.floor(Math.random()*icons_no.length)];
+  document.getElementById('fb-ttl').textContent=ok
+    ? 'Jawaban Benar!'
+    : 'Salah — Jawaban: '+q.answer;
+  document.getElementById('fb-expl').textContent=q.explanation;
+  fb.className='feedback show '+(ok?'ok':'no');
+
+  document.getElementById('score-pill').textContent='Score: '+score;
+  document.getElementById('next-btn').className='next-btn show';
+}
+
+function next() {
+  cur++;
+  if(cur>=questions.length) finish();
+  else render();
+}
+
+function finish() {
+  document.getElementById('quiz-wrap').style.display='none';
+  document.getElementById('finish').style.display='block';
+  const tot=questions.length, pct=Math.round(score/tot*100);
+  document.getElementById('fin-score').textContent=score+'/'+tot;
+  document.getElementById('s-correct').textContent='✅ '+score+' Benar';
+  document.getElementById('s-wrong').textContent='❌ '+wrong+' Salah';
+  document.getElementById('s-pct').textContent='🎯 '+pct+'%';
+  document.getElementById('prog-fill').style.width='100%';
+  document.getElementById('score-pill').textContent='Score: '+score;
+  document.getElementById('q-counter').textContent=tot+'/'+tot;
+
+  let em,ti,ms;
+  if(pct>=90){em='🏆';ti='Luar Biasa!';ms='Nilai '+pct+'% — kamu benar-benar menguasai fisiologi endokrin & reproduksi!';}
+  else if(pct>=75){em='🌟';ti='Hebat!';ms='Nilai '+pct+'% — pemahaman kamu sudah solid. Pertahankan!';}
+  else if(pct>=60){em='💪';ti='Cukup Bagus!';ms='Nilai '+pct+'% — fondasi sudah ada. Ulangi materi yang masih ragu!';}
+  else if(pct>=40){em='📖';ti='Terus Belajar!';ms='Nilai '+pct+'% — masih banyak ruang untuk berkembang. Buka lagi Guyton Unit XIV!';}
+  else{em='🔄';ti='Jangan Menyerah!';ms='Nilai '+pct+'% — semua dokter pernah mulai dari nol. Pelajari lagi dan coba kembali!';}
+
+  document.getElementById('trophy').textContent=em;
+  document.getElementById('fin-title').textContent=ti;
+  document.getElementById('fin-msg').textContent=ms;
+}
+
+function restart() { init(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function makeParticles() {
+  const c=document.getElementById('particles'); c.innerHTML='';
+  for(let i=0;i<<20;i++){
+    const d=document.createElement('div');
+    d.className='particle';
+    d.style.left=Math.random()*100+'vw';
+    d.style.animationDuration=(12+Math.random()*20)+'s';
+    d.style.animationDelay=(-Math.random()*25)+'s';
+    d.style.width=d.style.height=(2+Math.random()*4)+'px';
+    c.appendChild(d);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
