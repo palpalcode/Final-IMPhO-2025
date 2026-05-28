@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reproductive System Physiology Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf7ff;
+  --surface:#ffffff;
+  --pink:#e0529c;
+  --pink-dark:#a8316f;
+  --pink-light:#fce7f4;
+  --purple:#8b5cf6;
+  --purple-deep:#7c3aed;
+  --purple-light:#efeafe;
+  --blue:#60a5fa;
+  --blue-deep:#3b82f6;
+  --blue-light:#eaf3ff;
+  --sky:#7dd3fc;
+  --correct:#10b981;
+  --wrong:#ef4444;
+  --text:#2a1f47;
+  --muted:#7a7290;
+  --border:#ecdcff;
+  --shadow:0 10px 44px rgba(139,92,246,0.12);
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding-bottom:80px;
+  color:var(--text);
+  background-image:
+    radial-gradient(ellipse at 6% 0%,rgba(224,82,156,.10) 0%,transparent 52%),
+    radial-gradient(ellipse at 94% 8%,rgba(139,92,246,.10) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 100%,rgba(96,165,250,.09) 0%,transparent 55%);
+}
+
+/* ── HEADER ── */
+.header{
+  width:100%;
+  background:linear-gradient(135deg,#e0529c 0%,#9d6bf0 50%,#7dbef9 100%);
+  padding:48px 24px 56px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.header::before,.header::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,.08)}
+.header::before{width:340px;height:340px;top:-120px;left:-100px}
+.header::after{width:240px;height:240px;bottom:-100px;right:-70px}
+.header .deco-dots{
+  position:absolute;top:24px;right:30px;width:70px;height:70px;z-index:0;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.55) 1.6px,transparent 1.6px);
+  background-size:13px 13px;
+}
+.unit-tag{
+  display:inline-block;
+  background:rgba(255,255,255,.20);color:white;
+  font-size:.70rem;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;
+  padding:6px 20px;border-radius:99px;margin-bottom:18px;
+  backdrop-filter:blur(8px);position:relative;z-index:1;
+  border:1px solid rgba(255,255,255,.22);
+}
+.header h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.9rem,5.4vw,3rem);
+  color:white;line-height:1.08;font-weight:600;
+  letter-spacing:-.5px;
+  position:relative;z-index:1;
+}
+.header h1 em{font-style:italic;font-weight:500}
+.header .sub{
+  color:rgba(255,255,255,.88);font-size:.94rem;margin-top:12px;
+  font-weight:500;position:relative;z-index:1;
+}
+
+/* ── TOPIC BADGES ── */
+.badge-row{
+  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
+  margin-top:20px;position:relative;z-index:1;
+}
+.badge{
+  background:rgba(255,255,255,.16);color:white;
+  font-size:.72rem;font-weight:600;padding:5px 14px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(4px);
+}
+
+/* ── PROGRESS CARD ── */
+.progress-wrap{width:100%;max-width:800px;padding:0 20px;margin-top:-22px;position:relative;z-index:10}
+.progress-card{
+  background:white;border-radius:18px;
+  box-shadow:var(--shadow);padding:16px 22px;
+  display:flex;align-items:center;gap:16px;
+  border:1px solid rgba(236,220,255,.7);
+}
+.prog-info{flex:1}
+.prog-label{font-size:.68rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.prog-track{height:9px;border-radius:99px;background:#f1e9ff;overflow:hidden}
+.prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue));transition:width .5s cubic-bezier(.4,0,.2,1)}
+.q-counter{font-weight:800;font-size:.9rem;color:var(--purple-deep);white-space:nowrap}
+.score-pill{
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;font-family:'Fraunces',serif;font-size:1rem;font-weight:600;
+  padding:8px 18px;border-radius:99px;
+  box-shadow:0 4px 16px rgba(224,82,156,.28);white-space:nowrap;
+}
+
+/* ── QUESTION CARD ── */
+.quiz-wrap{width:100%;max-width:800px;padding:24px 20px 0}
+.question-card{
+  background:white;border-radius:var(--r);
+  padding:34px 32px 28px;
+  box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+  border:1px solid rgba(236,220,255,.7);
+  animation:cardIn .38s cubic-bezier(.4,0,.2,1);
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.card-accent{position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue))}
+
+/* topic chip */
+.topic-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.71rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+  padding:4px 13px;border-radius:99px;margin-bottom:6px;
+}
+.chip-repro{background:var(--pink-light);color:var(--pink-dark);border:1.5px solid rgba(224,82,156,.18)}
+.chip-fetal{background:var(--blue-light);color:#1d4ed8;border:1.5px solid rgba(96,165,250,.22)}
+.chip-endo{background:var(--purple-light);color:#6d28d9;border:1.5px solid rgba(139,92,246,.18)}
+.chip-olymp{background:linear-gradient(135deg,#fce7f4,#efeafe);color:#7c3aed;border:1.5px solid rgba(139,92,246,.25)}
+
+.q-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--purple-light);color:var(--purple-deep);
+  font-size:.76rem;font-weight:700;
+  padding:5px 15px;border-radius:99px;margin-bottom:14px;
+  border:1.5px solid rgba(139,92,246,.18);
+}
+.diff-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.66rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+  padding:4px 11px;border-radius:99px;margin-bottom:14px;margin-left:8px;
+  background:linear-gradient(135deg,#fdf0f7,#f0ebfe);color:#a8316f;
+  border:1.5px solid rgba(168,49,111,.18);
+}
+.q-dot{width:7px;height:7px;border-radius:50%;background:var(--purple);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.q-text{font-size:1.07rem;font-weight:600;line-height:1.7;color:var(--text);margin-bottom:22px}
+
+/* ── OPTIONS ── */
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{
+  display:flex;align-items:flex-start;gap:13px;
+  background:#fbfaff;border:2.5px solid #efeafe;border-radius:14px;
+  padding:13px 16px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  font-size:.96rem;font-weight:500;color:var(--text);text-align:left;
+  transition:all .16s cubic-bezier(.4,0,.2,1);width:100%;
+}
+.opt:hover:not(:disabled){
+  border-color:var(--purple);background:var(--purple-light);
+  transform:translateX(5px);
+  box-shadow:0 4px 18px rgba(139,92,246,.14);
+}
+.opt:active:not(:disabled){transform:translateX(2px) scale(.99)}
+.opt-ltr{
+  min-width:32px;height:32px;border-radius:10px;
+  background:#efeafe;color:var(--purple-deep);
+  font-family:'Fraunces',serif;font-size:.95rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;transition:all .16s;
+}
+.opt-txt{flex:1;line-height:1.5;padding-top:3px}
+.opt.picked{border-color:var(--purple);background:var(--purple-light)}
+.opt.picked .opt-ltr{background:var(--purple);color:white}
+.opt.correct-ans{border-color:var(--correct);background:#ecfdf5;transform:translateX(0)}
+.opt.correct-ans .opt-ltr{background:var(--correct);color:white}
+.opt.wrong-ans{border-color:var(--wrong);background:#fff1f1;animation:shake .4s}
+.opt.wrong-ans .opt-ltr{background:var(--wrong);color:white}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.opt:disabled{cursor:default}
+
+/* ── FEEDBACK ── */
+.feedback{
+  display:none;margin-top:18px;border-radius:14px;
+  padding:15px 18px;animation:popIn .3s cubic-bezier(.4,0,.2,1);
+  align-items:flex-start;gap:12px;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+.feedback.show{display:flex}
+.feedback.ok{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:2px solid var(--correct)}
+.feedback.no{background:linear-gradient(135deg,#fff1f1,#fee2e2);border:2px solid var(--wrong)}
+.fb-mark{
+  flex-shrink:0;width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:white;margin-top:1px;
+}
+.feedback.ok .fb-mark{background:var(--correct)}
+.feedback.no .fb-mark{background:var(--wrong)}
+.fb-body{flex:1}
+.fb-ttl{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.feedback.ok .fb-ttl{color:#065f46}
+.feedback.no .fb-ttl{color:#991b1b}
+.fb-expl{font-size:.88rem;font-weight:500;line-height:1.6;opacity:.92}
+.feedback.ok .fb-expl{color:#065f46}
+.feedback.no .fb-expl{color:#991b1b}
+
+/* ── NEXT BTN ── */
+.next-btn{
+  display:none;width:100%;margin-top:16px;padding:15px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;border:none;border-radius:14px;
+  font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600;
+  cursor:pointer;box-shadow:0 6px 22px rgba(139,92,246,.30);
+  transition:all .2s;
+}
+.next-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(139,92,246,.4)}
+.next-btn:active{transform:translateY(0)}
+.next-btn.show{display:block;animation:popIn .3s}
+
+/* ── FINISH ── */
+#finish{display:none;width:100%;max-width:800px;padding:24px 20px;animation:cardIn .45s cubic-bezier(.4,0,.2,1)}
+.finish-card{
+  background:white;border-radius:var(--r);
+  box-shadow:var(--shadow);padding:52px 32px;
+  text-align:center;position:relative;overflow:hidden;
+  border:1px solid rgba(236,220,255,.7);
+}
+.finish-card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue))}
+.medal{
+  width:96px;height:96px;border-radius:50%;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-size:2.6rem;font-weight:700;color:white;
+  background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));
+  box-shadow:0 10px 30px rgba(139,92,246,.32);
+  animation:bounce 1.4s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.fin-title{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;color:var(--purple-deep)}
+.fin-score{
+  font-family:'Fraunces',serif;font-size:4.4rem;font-weight:700;
+  background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1.1;margin:14px 0;
+}
+.fin-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.stat{padding:10px 22px;border-radius:99px;font-weight:700;font-size:.88rem}
+.stat.g{background:#ecfdf5;color:#065f46}
+.stat.r{background:#fff1f1;color:#991b1b}
+.stat.b{background:var(--purple-light);color:#6d28d9}
+.fin-msg{color:var(--muted);font-size:.98rem;font-weight:500;line-height:1.6;margin:14px 0 28px}
+.restart{
+  padding:15px 44px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;border:none;border-radius:14px;
+  font-family:'Fraunces',serif;font-size:1.12rem;font-weight:600;
+  cursor:pointer;box-shadow:0 6px 22px rgba(139,92,246,.30);
+  transition:all .2s;
+}
+.restart:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(139,92,246,.4)}
+
+/* ── REVIEW PANEL ── */
+.review-btn{
+  margin-top:18px;padding:13px 32px;
+  background:white;border:2.5px solid var(--purple);
+  color:var(--purple-deep);border-radius:14px;
+  font-family:'Fraunces',serif;font-size:1rem;font-weight:600;
+  cursor:pointer;transition:all .2s;
+  box-shadow:0 2px 12px rgba(139,92,246,.12);
+}
+.review-btn:hover{background:var(--purple-light)}
+#review-panel{display:none;margin-top:20px;width:100%;max-width:800px;padding:0 20px}
+.review-item{
+  background:white;border-radius:14px;margin-bottom:12px;
+  padding:18px 22px;box-shadow:0 2px 12px rgba(0,0,0,.05);
+  border-left:5px solid var(--purple);
+}
+.review-item.correct-r{border-left-color:var(--correct)}
+.review-item.wrong-r{border-left-color:var(--wrong)}
+.rev-q{font-size:.93rem;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.55}
+.rev-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;align-items:center}
+.rev-chip{font-size:.73rem;font-weight:700;padding:3px 11px;border-radius:99px}
+.rev-chip.ok{background:#ecfdf5;color:#065f46}
+.rev-chip.no{background:#fff1f1;color:#991b1b}
+.rev-ans{font-size:.82rem;color:var(--muted);font-weight:500;line-height:1.5}
+
+@media(max-width:520px){
+  .question-card{padding:24px 17px 22px}
+  .progress-card{padding:13px 15px}
+  .opt{font-size:.9rem;padding:11px 13px}
+  .fin-score{font-size:3.5rem}
+  .header{padding:38px 20px 50px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="deco-dots"></div>
+  <div class="unit-tag">Reproductive System Physiology</div>
+  <h1>Reproductive System<br><em>Physiology</em> Quiz</h1>
+  <p class="sub">100 questions · Board-style + Olympiad-level analysis</p>
+  <div class="badge-row">
+    <span class="badge">Female Reproduction</span>
+    <span class="badge">Male Reproduction</span>
+    <span class="badge">Fetal &amp; Neonatal</span>
+    <span class="badge">Pregnancy &amp; Lactation</span>
+    <span class="badge">Olympiad Set</span>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-card">
+    <div class="prog-info">
+      <div class="prog-label">Progress</div>
+      <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    </div>
+    <div class="q-counter" id="q-counter">1 / 100</div>
+    <div class="score-pill" id="score-pill">Score: 0</div>
+  </div>
+</div>
+
+<div class="quiz-wrap" id="quiz-wrap">
+  <div class="question-card" id="q-card">
+    <div class="card-accent"></div>
+    <div class="q-tag"><span class="q-dot"></span><span id="q-label">Question #1</span></div>
+    <div id="topic-chip-area"></div>
+    <div class="q-text" id="q-text">Loading...</div>
+    <div class="opts" id="opts"></div>
+    <div class="feedback" id="feedback">
+      <div class="fb-mark" id="fb-mark"></div>
+      <div class="fb-body">
+        <div class="fb-ttl" id="fb-ttl"></div>
+        <div class="fb-expl" id="fb-expl"></div>
+      </div>
+    </div>
+    <button class="next-btn" id="next-btn" onclick="next()">Next Question →</button>
+  </div>
+</div>
+
+<div id="finish">
+  <div class="finish-card">
+    <span class="medal" id="medal">A+</span>
+    <div class="fin-title" id="fin-title">Quiz Complete!</div>
+    <div class="fin-score" id="fin-score">0/100</div>
+    <div class="fin-stats">
+      <div class="stat g" id="s-correct">0 Correct</div>
+      <div class="stat r" id="s-wrong">0 Wrong</div>
+      <div class="stat b" id="s-pct">0%</div>
+    </div>
+    <p class="fin-msg" id="fin-msg"></p>
+    <button class="restart" onclick="restart()">Restart (New Order)</button>
+    <br>
+    <button class="review-btn" onclick="toggleReview()">Review All Answers</button>
+  </div>
+</div>
+
+<div id="review-panel"></div>
+
+<script>
+const questions = [
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Which receptor controls nitric oxide (NO) release to cause vasodilation during penile erection?", "opts": ["Leptin receptor", "Angiotensin AT1 receptor", "Endothelin ETA receptor", "Muscarinic receptor"], "answer": "D", "explanation": "Parasympathetic postganglionic fibers release acetylcholine that activates muscarinic receptors on endothelium → produces NO → increases cGMP → activates protein kinase G → reduces intracellular Ca²⁺ → vasodilation."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Which hormones antagonize the effect of NO and cause the penis to become flaccid after orgasm?", "opts": ["Endothelin and norepinephrine", "Estrogen and progesterone", "LH and FSH", "Progesterone and LH"], "answer": "A", "explanation": "Norepinephrine (from sympathetic nerve terminals) and endothelin (from endothelial cells) cause vasoconstriction of penile vasculature, reversing the vasodilation of erection."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "After menopause, hormone replacement therapy with estrogen-like compounds prevents osteoporosis progression. What is the mechanism?", "opts": ["They stimulate osteoblast activity", "They increase GI calcium absorption", "They stimulate renal calcium reabsorption", "They stimulate PTH secretion"], "answer": "A", "explanation": "Estrogen compounds stimulate osteoblastic activity. After menopause, when estrogen falls, the balance tips toward osteoclastic bone degradation. Estrogen HRT restores osteoblast activity to balance osteoclastic resorption."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Which statement is true during the 12-hour period preceding ovulation?", "opts": ["A surge of LH is secreted from the pituitary", "The surge occurs immediately after corpus luteum formation", "The surge is immediately followed by a fall in progesterone", "The number of developing follicles is increasing"], "answer": "A", "explanation": "Ovulation cannot occur without a preceding LH surge. Immediately before ovulation, follicle numbers are decreasing (attrition to the dominant follicle), and the LH surge itself stimulates progesterone synthesis."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "When do progesterone levels reach their highest point during the female hormonal cycle?", "opts": ["Between ovulation and the beginning of menstruation", "Immediately before ovulation", "When blood LH concentration is at its peak", "When 12 primary follicles are developing to the antral stage"], "answer": "A", "explanation": "The corpus luteum is the only significant source of progesterone. It is functional between ovulation and the start of menstruation. During this period, LH concentration is suppressed below the preovulatory surge level."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "What accompanies sloughing of the endometrium during the endometrial cycle?", "opts": ["An increase in progesterone", "The LH surge", "A decrease in both progesterone and estrogen", "An increase in estradiol"], "answer": "C", "explanation": "At the end of the luteal phase, the corpus luteum is resorbed and fails to produce progesterone and estradiol. Their sudden fall causes endometrial sloughing (menstruation)."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "By which mechanism do LH and FSH return to baseline levels after their midcycle surge?", "opts": ["LH surge itself", "Negative feedback on GnRH by progesterone", "Negative feedback on GnRH by estradiol", "Negative feedback on GnRH by testosterone"], "answer": "C", "explanation": "Just before the LH surge, rising estradiol levels exert negative feedback on GnRH secretion, which stops LH and FSH production and returns them to baseline levels."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "A 20-year-old woman has no menstrual cycles, and her plasma progesterone concentration is minimal. What is the most likely explanation?", "opts": ["LH secretion rate is elevated", "LH secretion rate is suppressed", "FSH secretion rate is suppressed", "No corpus luteum is present", "High inhibin concentration suppressed progesterone synthesis"], "answer": "D", "explanation": "The corpus luteum is the only source of progesterone in the non-pregnant female. If she has no menstrual cycles, no corpus luteum forms, and progesterone remains minimal."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Before the preovulatory LH surge, which hormone do granulosa cells of the follicle primarily secrete?", "opts": ["Testosterone", "Progesterone", "Estrogen", "Inhibin"], "answer": "C", "explanation": "FSH stimulates the granulosa cells of the developing follicle to secrete estrogen. This estrogen plays a central role in the positive feedback that triggers the LH surge."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Two days before menstruation, FSH and LH reach their lowest levels. What causes this?", "opts": ["Anterior pituitary becomes unresponsive to GnRH", "Estrogen from developing follicles inhibits the hypothalamus", "Rise in body temperature inhibits GnRH", "Secretion of estrogen, progesterone, and inhibin by the corpus luteum suppresses hypothalamic GnRH and pituitary FSH"], "answer": "D", "explanation": "During the luteal phase, estrogen and progesterone from the corpus luteum exert strong negative feedback on the anterior pituitary to suppress FSH and LH. The corpus luteum also secretes inhibin, which directly inhibits FSH."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "As menstruation ends, estrogen levels in the blood rise rapidly. What is the source of this estrogen?", "opts": ["Corpus luteum", "Developing follicles", "Endometrium", "Stromal cells of the ovaries", "Anterior pituitary"], "answer": "B", "explanation": "After the corpus luteum degenerates, menstruation begins. As developing follicles mature, they secrete increasing amounts of estrogen, which rises sufficiently to stimulate endometrial regrowth and end menstruation."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Thecal cells in the follicle are NOT able to produce which sex steroid?", "opts": ["Estradiol", "Testosterone", "Progesterone", "Dihydrotestosterone"], "answer": "A", "explanation": "Thecal cells lack aromatase (P-450arom), the enzyme required to convert androgens to estradiol. They can produce testosterone, progesterone, and DHT, but cannot aromatize testosterone to estradiol — that function belongs to granulosa cells."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "A female athlete who took testosterone-like steroids for several months stopped having normal menstrual cycles. What is the best explanation?", "opts": ["Testosterone stimulates inhibin production from the corpus luteum", "Testosterone binds endometrial receptors, preventing endometrial development", "Testosterone binds anterior pituitary receptors to stimulate FSH and LH", "Testosterone inhibits hypothalamic GnRH secretion and pituitary LH and FSH release"], "answer": "D", "explanation": "Testosterone and anabolic steroids inhibit hypothalamic GnRH secretion and pituitary LH/FSH secretion via negative feedback. This suppression prevents follicular development and ovulation, causing amenorrhea."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "A professional athlete in her mid-20s has had no menstrual cycles for 5 years, but a bone density scan reveals normal skeletal mineralization. Which fact best explains these observations?", "opts": ["She consumes a high-carbohydrate diet", "Her grandmother sustained a hip fracture at age 79", "Her blood pressure is higher than normal", "Her plasma estrogen concentration is very low", "She has been taking anabolic steroid supplements for 5 years"], "answer": "E", "explanation": "Anabolic steroids bind testosterone receptors in the hypothalamus, suppressing normal ovarian cycling and causing amenorrhea. However, anabolic steroids also stimulate osteoblastic activity in bones, explaining the normal bone mineralization despite absent estrogen-dependent cycling."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Birth control pills (synthetic estrogen + progesterone, given for the first 21 days of the cycle) prevent pregnancy by which primary mechanism?", "opts": ["Prevention of the preovulatory LH surge", "Prevention of ovarian follicle development", "Suppression of corpus luteum function", "Prevention of normal endometrial development"], "answer": "A", "explanation": "Administration of estrogen or progesterone during the first half of the menstrual cycle inhibits ovulation by preventing the preovulatory LH surge from the anterior pituitary, which is essential for ovulation to occur."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "Which enzyme in the cytochrome P450 steroid synthesis cascade is directly responsible for estradiol synthesis?", "opts": ["17β-hydroxysteroid dehydrogenase", "5α-reductase", "Aromatase", "Side-chain cleavage enzyme"], "answer": "C", "explanation": "Aromatase (P-450arom) catalyzes the conversion of testosterone to estradiol. This enzyme is present in granulosa cells of the ovarian follicle and in the placenta, but is absent from thecal cells."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "If a woman has a tumor secreting large amounts of estrogen from the adrenal gland, which set of findings would occur?", "opts": ["Progesterone levels will be very low", "LH secretion will be totally suppressed", "She will not have normal menstrual cycles", "Her bones will be normally calcified", "All of the above"], "answer": "E", "explanation": "Sustained high estrogen suppresses LH secretion (via negative feedback on GnRH). Without LH surges, no ovulation occurs → no corpus luteum → no progesterone. No menstrual cycles. The high estrogen stimulates osteoblasts → normal/increased bone calcification."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "In the hypothalamic-pituitary-gonadal axis of the female, which follicular cell type produces inhibin?", "opts": ["Cytotrophoblasts", "Syncytiotrophoblasts", "Granulosa cells", "Thecal cells"], "answer": "C", "explanation": "Granulosa cells of the ovarian follicle produce inhibin, which exerts negative feedback on the anterior pituitary to suppress FSH secretion — the primary FSH-regulating negative feedback signal from the follicle."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "What causes menopause?", "opts": ["Reduced gonadotropic hormone secretion from the anterior pituitary", "Reduced follicular responsiveness to gonadotropins", "Reduced progesterone secretion from the corpus luteum", "Reduced numbers of follicles available in the ovary"], "answer": "D", "explanation": "By approximately age 45, very few primordial follicles remain. As follicle numbers approach zero, estrogen production falls below the critical level needed to inhibit gonadotropin release. FSH and LH rise dramatically but cannot stimulate follicular development."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "During the first few years after menopause, FSH levels are normally extremely high. A 56-year-old woman who completed menopause 3 years ago has low FSH. What is the best explanation?", "opts": ["She has been receiving hormone replacement therapy with estrogen and progesterone since menopause", "Her adrenal glands continue to produce estrogen", "Her ovaries continue to secrete estrogen", "She took birth control pills for 20 years before menopause"], "answer": "A", "explanation": "After menopause, the absence of ovarian estrogen and progesterone removes the feedback inhibition, causing high FSH. Women taking exogenous estrogen (HRT) suppress FSH secretion via the same negative feedback mechanism as endogenous estrogen."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "RU486 causes abortion if administered before or soon after implantation. What is its specific mechanism?", "opts": ["Binds LH receptors and stimulates progesterone from the corpus luteum", "Blocks progesterone receptors so progesterone has no effect", "Blocks pituitary FSH secretion", "Blocks oxytocin receptor effects in uterine muscle"], "answer": "B", "explanation": "Progesterone is required to maintain the decidual endometrium. RU486 (mifepristone) is a progesterone receptor antagonist. By blocking progesterone receptors, it removes the support for the decidua, causing endometrial breakdown and termination of early pregnancy."},
+  {"topic": "Female Reproduction", "chip": "chip-repro", "q": "During the week after ovulation, the endometrium increases in thickness to 5–6 mm. What stimulates this growth?", "opts": ["LH", "Estrogen from the corpus luteum", "Progesterone from the corpus luteum", "FSH"], "answer": "C", "explanation": "Progesterone secreted in large quantities from the corpus luteum causes marked swelling and secretory development of the endometrium during the secretory (luteal) phase of the cycle."},
+  {"topic": "Male Reproduction", "chip": "chip-repro", "q": "Spermatogenesis is regulated by a negative feedback system in which FSH stimulates sperm cell formation. Which negative feedback signal inhibits pituitary FSH formation?", "opts": ["Testosterone", "Inhibin", "Estrogen", "LH"], "answer": "B", "explanation": "Sertoli cells of the seminiferous tubules secrete inhibin in proportion to the rate of sperm production. Inhibin directly inhibits anterior pituitary FSH secretion, completing the negative feedback loop from the seminiferous tubules to the pituitary."},
+  {"topic": "Male Reproduction", "chip": "chip-repro", "q": "What is the nongenomic effect of testosterone on vascular smooth muscle?", "opts": ["Vasodilation", "Vasoconstriction", "Increase in prostaglandins", "Increase in estrogen receptors"], "answer": "A", "explanation": "Testosterone causes vasodilation by inhibiting L-type calcium channels in vascular smooth muscle cells, thereby reducing calcium influx and promoting relaxation."},
+  {"topic": "Male Reproduction", "chip": "chip-repro", "q": "Negative feedback on FSH release from the anterior pituitary in men that results in reduced estradiol production is due to which hormone?", "opts": ["Progesterone", "Estradiol", "Testosterone", "Inhibin"], "answer": "D", "explanation": "Inhibin secreted by Sertoli cells inhibits FSH release from the anterior pituitary. By reducing FSH, inhibin prevents Sertoli cells from producing the aromatase needed for estradiol synthesis — thus indirectly reducing estradiol production."},
+  {"topic": "Male Reproduction", "chip": "chip-repro", "q": "Men who take large doses of testosterone-like androgenic steroids for long periods become sterile. What is the explanation?", "opts": ["High androgens bind Sertoli cell receptors and overstimulate inhibin formation", "Overstimulation of sperm production results in defective sperm", "High androgen levels inhibit hypothalamic GnRH secretion, suppressing LH and FSH release", "High androgens cause hypertrophic dysfunction of the prostate gland"], "answer": "C", "explanation": "Exogenous testosterone-like steroids suppress hypothalamic GnRH secretion via negative feedback, which inhibits pituitary LH and FSH secretion. Without LH/FSH, testicular function (Leydig cell testosterone production and Sertoli cell-driven spermatogenesis) ceases, resulting in sterility."},
+  {"topic": "Male Reproduction", "chip": "chip-repro", "q": "Which of the following decreases resistance in the arteries leading to the penile sinuses?", "opts": ["Stimulation of sympathetic nerves innervating the arteries", "Nitric oxide (NO)", "Inhibition of parasympathetic activity to the arteries", "All of the above"], "answer": "B", "explanation": "NO is the primary vasodilator released during erection, causing relaxation of arterial smooth muscle in the penile vasculature via the cGMP pathway. Sympathetic stimulation causes vasoconstriction (detumescence), not dilation."},
+  {"topic": "Male Reproduction", "chip": "chip-repro", "q": "Blockade of which receptors will prolong erection in the male?", "opts": ["Estrogen receptors", "Cholesterol receptors", "Muscarinic receptors", "Phosphodiesterase-5 (PDE5) receptors"], "answer": "D", "explanation": "PDE5 degrades cGMP, which is responsible for vasodilation during erection. Blocking PDE5 prevents cGMP breakdown, maintaining elevated cGMP levels and prolonging vasodilation and erection. This is the mechanism of sildenafil (Viagra)."},
+  {"topic": "Male Reproduction", "chip": "chip-repro", "q": "A 'birth control' compound for men that would provide effective sterility would be which of the following?", "opts": ["A substance that mimics the actions of LH", "A substance that blocks the actions of inhibin", "A substance that blocks the actions of FSH", "A substance that mimics the actions of GnRH"], "answer": "C", "explanation": "Blocking FSH action on Sertoli cells of the seminiferous tubules directly interrupts spermatogenesis, because FSH is essential for Sertoli cell function and sperm production. This is the only option that reliably prevents sperm formation."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "Within minutes after a normal delivery, flow through the foramen ovale decreases dramatically. What causes this?", "opts": ["Increased PGE₂ formation in the endocardium", "Increased rate of flow through the pulmonary artery", "Increased left atrial pressure", "Increased right atrial pressure", "Increased arterial PO₂"], "answer": "C", "explanation": "After birth, systemic vascular resistance increases (loss of placental circulation), raising arterial and left atrial pressure. Simultaneously, pulmonary vascular resistance falls (lung expansion), increasing pulmonary venous return to the left atrium. This reverses the pressure gradient across the atrial septum, pushing the foramen ovale flap closed."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "A young woman receives daily injections starting on day 16 of her normal menstrual cycle and continuing for 3 weeks. As long as injections continue, she does not menstruate. The injected substance could be which of the following?", "opts": ["Testosterone", "FSH", "An inhibitor of progesterone's actions", "A PGE₂ inhibitor", "HCG"], "answer": "E", "explanation": "HCG has the same stimulatory effect as LH on the corpus luteum. Administering HCG causes the corpus luteum to continue secreting estrogen and progesterone, preventing endometrial degradation and the onset of menstruation — mimicking early pregnancy."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "Which of the following could inhibit the initiation of labor?", "opts": ["Administration of a progesterone antagonist", "Administration of LH", "Administration of a PGE₂ antagonist", "Mechanically dilating and stimulating the cervix", "Administration of oxytocin"], "answer": "C", "explanation": "Prostaglandins (particularly PGE₂ and PGF₂α) play a crucial role in initiating labor by stimulating uterine smooth muscle contraction and cervical softening. Blocking PGE₂ effects would therefore inhibit labor initiation. Progesterone antagonist, cervical stimulation, and oxytocin all facilitate labor."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "Which of the following is greater after birth than before birth?", "opts": ["Flow through the foramen ovale", "Pressure in the right atrium", "Flow through the ductus arteriosus", "Aortic pressure"], "answer": "D", "explanation": "Loss of placental blood flow at birth doubles systemic vascular resistance, which increases aortic pressure as well as left ventricular and left atrial pressure. Right atrial pressure falls (pulmonary vascular resistance drops), and the foramen ovale and ductus arteriosus both close."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "Which of the following decreases pulmonary artery pressure after birth?", "opts": ["An increase in systemic arterial pressure", "Closure of the ductus arteriosus", "An increase in left ventricular pressure", "A decrease in pulmonary vascular resistance"], "answer": "D", "explanation": "Expansion of the lungs at birth mechanically decompresses previously compressed pulmonary vessels. This, combined with rising PO₂ and pH, dramatically reduces pulmonary vascular resistance (>5-fold), lowering pulmonary artery pressure."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "Which blood vessel in the fetus has the highest PO₂?", "opts": ["Ductus arteriosus", "Ductus venosus", "Ascending aorta", "Left atrium"], "answer": "B", "explanation": "Blood returning from the placenta via the umbilical vein passes through the ductus venosus. Oxygenated blood coming from the placenta has the highest PO₂ found anywhere in the fetal circulation (approximately 30–35 mmHg, HbF saturation ~85%)."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "Failure of the ductus arteriosus to close is a common developmental defect. Which condition would likely be present in a 12-month-old infant with patent ductus arteriosus?", "opts": ["Below-normal arterial PO₂", "Below-normal arterial PCO₂", "Greater than normal arterial blood pressure", "Lower than normal pulmonary arterial pressure"], "answer": "A", "explanation": "A patent ductus arteriosus allows poorly oxygenated blood from the pulmonary artery to flow into the aorta (right-to-left shunt if pulmonary hypertension persists) or overloads the pulmonary circulation. Either way, mixing of deoxygenated blood into the systemic circulation lowers arterial PO₂."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "What is a frequent cause of delayed breathing at birth?", "opts": ["Fetal hypoxia during the birth process", "Maternal hypoxia during the birth process", "Fetal hypercapnia", "Maternal hypercapnia"], "answer": "A", "explanation": "Prolonged fetal hypoxia during delivery seriously depresses the respiratory center. This can result from umbilical cord compression, premature placental separation, excessive uterine contractions, or maternal anesthesia."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "In the fetus, why can normal growth occur despite low PO₂ levels?", "opts": ["Hemoglobin A concentration is increased in the fetus", "Fetal hemoglobin can carry more oxygen at lower PCO₂ levels", "The oxyhemoglobin dissociation curve in the fetus is shifted to the left", "The mother has an increased blood volume during pregnancy"], "answer": "C", "explanation": "Fetal hemoglobin (HbF) has a higher oxygen affinity than adult HbA — its O₂ dissociation curve is shifted to the left. At the same PO₂, HbF achieves greater saturation than HbA, allowing the fetus to extract adequate oxygen from maternal blood despite the low intervillous PO₂ (~30–35 mmHg)."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "Which of the following is higher in the neonate than in the fetus?", "opts": ["Flow through the foramen ovale", "Right atrial pressure", "Flow through the ductus arteriosus", "Aortic pressure"], "answer": "D", "explanation": "Aortic pressure increases in the neonate due to the rise in left ventricular pressure. The increase in left atrial pressure (from increased pulmonary venous return) causes the foramen ovale to close. The ductus arteriosus also closes shortly after birth."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "Why is milk produced by a woman only after delivery, not during pregnancy?", "opts": ["LH and FSH levels are too low during pregnancy to support milk production", "High levels of progesterone and estrogen during pregnancy suppress milk production", "Alveolar cells of the breast do not reach maturity until after delivery", "High levels of oxytocin are required for milk production to begin, and oxytocin is not secreted until the baby stimulates the nipple"], "answer": "B", "explanation": "Although prolactin levels are 10–20 fold higher during late pregnancy, high estrogen and progesterone levels competitively inhibit prolactin's lactogenic action at the breast alveoli. After delivery, the sudden fall in estrogen and progesterone removes this block, allowing prolactin to initiate milk production."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "For milk to flow from the nipple of the nursing mother into the baby's mouth, what must occur?", "opts": ["Myoepithelial cells must relax", "Prolactin levels must fall", "Oxytocin secretion from the posterior pituitary must occur", "The baby must develop strong negative pressure over the nipple", "All of the above"], "answer": "C", "explanation": "Oxytocin, released from the posterior pituitary in response to suckling, causes contraction (not relaxation) of myoepithelial cells surrounding the alveoli and ducts. This raises hydrostatic pressure in the lactiferous ducts, forcing milk out — the milk let-down (ejection) reflex."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "A 30-year-old woman is breastfeeding her infant. During suckling, which hormonal response is expected in the woman?", "opts": ["Increased ADH secretion from the supraoptic nuclei", "Increased ADH secretion from the paraventricular nuclei", "Increased oxytocin secretion from the paraventricular nuclei", "Decreased neurophysin secretion", "Increased plasma levels of both oxytocin and ADH"], "answer": "C", "explanation": "During suckling, nipple stimulation sends afferent signals to the hypothalamus → activation of paraventricular and supraoptic nuclei → release of oxytocin (and neurophysin) from the posterior pituitary. Suckling does NOT significantly stimulate ADH secretion."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "What is the consequence of sporadic (infrequent) nursing of the neonate by the mother?", "opts": ["An increase in prolactin-releasing hormone", "An increase in oxytocin", "Lack of birth control", "Lack of prolactin surge"], "answer": "D", "explanation": "Nipple mechanoreceptors trigger prolactin release. Sporadic nursing does not provide adequate, sustained stimulation of these receptors → insufficient prolactin surges → inadequate milk production → the mother eventually cannot provide sufficient milk for the infant."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "During pregnancy, the uterine smooth muscle is quiescent. During the ninth month, the uterine muscle becomes progressively more excitable. What factor contributes to this increase in excitability?", "opts": ["Placental estrogen synthesis rises to high rates", "Progesterone synthesis by the placenta decreases", "Uterine blood flow reaches its highest rate", "PGE₂ synthesis by the placenta decreases", "Fetal activity falls to low levels"], "answer": "B", "explanation": "A very high plasma concentration of progesterone maintains uterine quiescence throughout pregnancy. In the final month of gestation, progesterone concentration begins to decline. This withdrawal of progesterone increases myometrial excitability and facilitates the onset of labor."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "Dehydroepiandrosterone sulfate (DHEA-S), the precursor for the high levels of estradiol occurring in pregnancy, is made in which tissue?", "opts": ["Fetal adrenal gland", "Mother's ovary", "Placenta", "Mother's adrenal gland"], "answer": "A", "explanation": "DHEA-S is produced primarily by the fetal adrenal gland. It diffuses to the placenta where sulfatase removes the sulfate group, and aromatase then converts it to estradiol. This is the basis of the maternal-placental-fetal unit for estrogen synthesis."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-endo", "q": "After implantation into the uterus, nutrition of the blastocyst during the first week after implantation comes from which source?", "opts": ["Placenta", "Decidua", "Glomerulosa cells", "Corpus luteum"], "answer": "B", "explanation": "During the first week after implantation, trophoblast cells invade and digest the nutrient-rich decidual cells, absorbing their contents for embryonic use. The placenta does not begin providing nutrition until approximately day 16 beyond fertilization (~1 week after implantation)."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "What is the most common cause of respiratory distress syndrome (RDS) in neonates born at 7 months' gestation?", "opts": ["Pulmonary edema due to pulmonary arterial hypertension", "Formation of a hyaline membrane over the alveolar surface", "Failure of the alveolar lining to form adequate amounts of surfactant", "Excessive permeability of the alveolar membrane to water"], "answer": "C", "explanation": "RDS is caused by surfactant deficiency. At 7 months' gestation, type II alveolar pneumocytes have not yet received adequate cortisol stimulation to produce sufficient DPPC surfactant. Without surfactant, surface tension is too high → alveolar collapse (atelectasis) → right-to-left shunt → hypoxemia."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "A baby is born with a penis, a scrotum with no testes, no vagina, and XX chromosomes. What could cause this abnormality?", "opts": ["Abnormally high HCG production by trophoblast cells", "The presence of a testosterone-secreting tumor in the mother's adrenal gland", "Abnormally high maternal LH levels", "Abnormally low maternal testosterone levels", "Abnormally low placental estrogen production"], "answer": "B", "explanation": "A very high concentration of testosterone in a genetically female (XX) embryo will induce formation of male genitalia. A testosterone-secreting adrenal tumor in the mother would produce masculinizing levels of androgens that cross the placenta and expose the female fetus to high testosterone during genital development."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "For male differentiation to occur during embryonic development, testosterone must be secreted from the fetal testes. What stimulates this testosterone secretion?", "opts": ["LH from the maternal pituitary gland", "HCG", "Inhibin from the corpus luteum", "GnRH from the embryo's hypothalamus"], "answer": "B", "explanation": "HCG (from the trophoblast) binds LH receptors on fetal testicular interstitial (Leydig) cells, stimulating testosterone production in male fetuses. This testosterone drives development of male internal and external genitalia up to the time of birth."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-fetal", "q": "Why is it important to feed newborn infants every few hours?", "opts": ["The hepatic capacity to store and synthesize glycogen and glucose is not adequate to maintain plasma glucose for more than a few hours after feeding", "Plasma protein concentration will rise to greater than normal if fluids are not ingested frequently", "GI function improves by keeping food in the stomach at all times", "Hepatic capacity to form plasma proteins requires constant amino acid availability"], "answer": "A", "explanation": "The neonatal liver functions imperfectly during the first weeks of life. Glycogen stores are rapidly depleted (within ~12 hours) and gluconeogenic enzyme activation is still maturing. Without regular feeding, blood glucose falls to critically low levels within a few hours."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "A 46,XY infant has normally formed Wolffian-derived structures (epididymis, vas deferens, seminal vesicles) but female-appearing external genitalia. Best explanation?", "opts": ["Complete androgen receptor deficiency", "5α-reductase deficiency", "Sertoli-cell failure to make AMH", "Aromatase deficiency in target tissues"], "answer": "B", "explanation": "Wolffian duct virilization needs testosterone itself (these cells lack 5α-reductase), while external genitalia require DHT. With 5α-reductase deficiency, testosterone-dependent internal ducts form normally but DHT-dependent external genitalia stay female-like. Complete AR deficiency would also block Wolffian development, so it is excluded."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "A 46,XY fetus has functioning testes but BOTH a uterus and fallopian tubes are present alongside a vas deferens. Most likely defect?", "opts": ["Loss of SRY function", "Defective AMH or its receptor", "Androgen receptor mutation", "5α-reductase deficiency"], "answer": "B", "explanation": "Testosterone (present) preserved the Wolffian vas deferens, so androgen signaling works. Müllerian regression specifically requires AMH from Sertoli cells; an AMH/AMH-receptor defect leaves Müllerian derivatives (uterus, tubes) while androgen-dependent structures still develop — persistent Müllerian duct syndrome."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "In the classic Jost experiment, a male rabbit fetus is castrated bilaterally before duct maturation and then given exogenous testosterone. Predicted result?", "opts": ["Wolffian ducts develop AND Müllerian ducts regress", "Wolffian ducts develop but Müllerian ducts persist", "Both duct systems regress", "Müllerian ducts develop and Wolffian ducts regress"], "answer": "B", "explanation": "Testosterone supports Wolffian development, but Müllerian regression requires AMH — a separate testicular product absent after castration. Hence Wolffian ducts form yet Müllerian ducts fail to regress. This dissociation is the key proof that two distinct testicular factors govern duct fate."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "A phenotypic but infertile male has karyotype 46,XX with bilateral testes. The single most probable molecular event is:", "opts": ["A point mutation inactivating the androgen receptor", "Translocation of SRY onto an X chromosome", "Duplication of the DAX1 locus", "Nondisjunction producing 47,XXY"], "answer": "B", "explanation": "An XX male typically arises from aberrant X–Y recombination transferring SRY (the testis-determining factor) onto an X chromatid. Possessing SRY drives testis formation despite the XX karyotype. AR mutation gives a female phenotype, and 47,XXY is a different karyotype entirely."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "The HMG box of the SRY protein is highly conserved. Its essential biochemical role is to:", "opts": ["Bind and bend DNA as a transcription factor", "Act as a steroidogenic enzyme", "Phosphorylate the AMH receptor", "Serve as a membrane androgen channel"], "answer": "A", "explanation": "SRY belongs to the HMG superfamily of transcription factors; its ~80-amino-acid HMG box binds DNA (bending it) to regulate downstream genes such as AMH. It is not an enzyme, receptor kinase, or ion channel — distractors built from other pathway components."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "A 45,XO individual has streak gonads but normally formed (though immature) fallopian tubes, uterus, and vagina. Why are the internal female ducts present?", "opts": ["Two X chromosomes are required for duct formation but not gonads", "Female internal duct development proceeds in the absence of testicular AMH/androgens, independent of gonadal hormones", "Streak gonads secrete enough estrogen to drive duct formation", "The single X drives Müllerian development directly"], "answer": "B", "explanation": "The default (female) pattern of internal genitalia develops whenever AMH and androgens are absent — even with no functional gonad. Streak gonads make essentially no steroid, yet Müllerian derivatives still form. Two X chromosomes are needed for normal OVARY development, not for the ducts."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "Congenital 21α-hydroxylase deficiency virilizes a 46,XX fetus. The mechanistic reason is:", "opts": ["Excess placental aromatase converts cortisol to androgen", "Adrenal steroid precursors are shunted into the androgen pathway", "Loss of AMH allows Wolffian persistence", "Maternal testosterone crosses the placenta"], "answer": "B", "explanation": "Blocking 21α-hydroxylase impairs cortisol and aldosterone synthesis; the accumulated precursors are diverted into adrenal androgen production. The resulting androgen excess virilizes the external genitalia of a genetic female (adrenogenital syndrome). The source is the fetal adrenal, not maternal or placental tissue."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "DHT binds the androgen receptor with roughly 100-fold greater affinity than testosterone, yet the epididymis and vas deferens respond to testosterone itself. Why?", "opts": ["Those duct cells lack 5α-reductase, so they cannot generate DHT and use testosterone directly", "DHT cannot enter Wolffian-derived cells", "Testosterone uses a different membrane receptor in ducts", "Aromatase in ducts converts DHT back to testosterone"], "answer": "A", "explanation": "Wolffian-duct cells lack 5α-reductase; unable to make DHT locally, they rely on the high local testosterone (maintained by androgen-binding protein) acting on the same AR. External-genitalia/urogenital-sinus cells DO have 5α-reductase and therefore depend on DHT."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "Androgens masculinize sexually dimorphic hypothalamic nuclei, yet act there only after a key conversion. That conversion is:", "opts": ["Testosterone → DHT by 5α-reductase", "Testosterone → estrogen by aromatase", "DHT → estradiol by 17β-HSD", "Androstenedione → testosterone by 17β-HSD"], "answer": "B", "explanation": "In the brain, aromatase converts androgens to estrogens, and it is the locally formed estrogen that masculinizes the dimorphic nuclei. Thus androgens act as prohormones for estrogen centrally — a counterintuitive point that makes 5α-reductase (the genital-tissue enzyme) a tempting but wrong distractor."},
+  {"topic": "Sexual Differentiation", "chip": "chip-olymp", "q": "Testicular descent fails in both 5α-reductase deficiency and complete androgen insensitivity. The common reason is:", "opts": ["Both eliminate AMH production", "Both abolish effective androgen action, on which descent depends", "Both raise intra-abdominal pressure abnormally", "Both prevent gubernaculum formation by estrogen excess"], "answer": "B", "explanation": "Testicular descent is androgen-dependent. 5α-reductase deficiency removes DHT signaling and androgen insensitivity removes all AR signaling — each cripples androgen action and thus descent. AMH is unrelated to descent here, and the gubernaculum issue is downstream of androgen action."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "The rate-limiting, LH-regulated step in testicular testosterone synthesis is catalyzed by:", "opts": ["17,20-desmolase (P-450c17)", "3β-hydroxysteroid dehydrogenase", "Side-chain cleavage enzyme (P-450scc) converting cholesterol → pregnenolone", "17β-hydroxysteroid dehydrogenase"], "answer": "C", "explanation": "P-450scc (20,22-desmolase) converts cholesterol to pregnenolone — the rate-limiting, committed step, stimulated by LH (which raises enzyme affinity for cholesterol and, long-term, enzyme amount). The other enzymes act downstream and are not rate-limiting."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "StAR (steroidogenic acute regulatory protein) is essential because it:", "opts": ["Cleaves the cholesterol side chain", "Transfers cholesterol from the outer to the inner mitochondrial membrane where P-450scc resides", "Aromatizes testosterone in Sertoli cells", "Binds testosterone in the seminiferous lumen"], "answer": "B", "explanation": "Mature StAR shuttles cholesterol across the mitochondrial intermembrane space to the inner membrane, delivering substrate to P-450scc. It does not itself cleave cholesterol (that is P-450scc), aromatize (aromatase), or bind testosterone (ABP) — each distractor is a real but different protein."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "A useful mnemonic links 'L' and 'S' to testicular cells. Which pairing of gonadotropin → cell → product is internally consistent?", "opts": ["FSH → Leydig → testosterone", "LH → Sertoli → inhibin", "LH → Leydig → testosterone; FSH → Sertoli → inhibin/ABP", "FSH → Leydig → inhibin"], "answer": "C", "explanation": "LH acts on Leydig cells (testosterone); FSH acts on Sertoli cells (ABP, aromatase, inhibin, growth factors). The crossed pairings are constructed distractors. Note FSH stimulates spermatogenesis indirectly via Sertoli cells, not directly on spermatogonia."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "Continuous (non-pulsatile) administration of a GnRH analogue is used as 'chemical castration' in prostate cancer because it:", "opts": ["Directly destroys Leydig cells", "Downregulates/depletes pituitary GnRH receptors, suppressing LH and FSH", "Blocks the androgen receptor competitively", "Inhibits 5α-reductase in the prostate"], "answer": "B", "explanation": "Pulsatile GnRH stimulates gonadotrophs; CONTINUOUS exposure downregulates GnRH receptors, so LH/FSH fall and testosterone drops. It is not cytotoxic, not an AR blocker, and not a 5α-reductase inhibitor — those describe other anti-androgen strategies."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "Spermatogenesis takes ~74 days. Which statement about its kinetics is correct?", "opts": ["The rate can be accelerated by high-dose gonadotropins", "Each stage has a fixed duration and the overall rate cannot be hormonally accelerated", "Secondary spermatocytes are the longest-lived stage", "Spermiogenesis reduces chromosome number"], "answer": "B", "explanation": "Each step has a specific, fixed duration; hormones permit spermatogenesis but cannot speed the intrinsic timetable. Secondary spermatocytes are the SHORTEST-lived (~1 day). Spermiogenesis is the morphological maturation of spermatids — no further reduction division."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "A 46,XY man has azoospermia; biopsy shows seminiferous tubules lined only by Sertoli cells with no germ cells. Plasma testosterone and LH are normal but FSH is often elevated. The elevated FSH is best explained by:", "opts": ["Leydig-cell hyperplasia", "Reduced inhibin feedback due to absent/abnormal Sertoli signaling and missing germ cells", "Excess GnRH from a tumor", "Androgen receptor resistance"], "answer": "B", "explanation": "Sertoli-cell-only syndrome: germ cells are absent and inhibin output is suboptimal, weakening the specific negative feedback on FSH — hence selectively high FSH with normal LH/testosterone (Leydig function preserved)."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "Sperm taken directly from the testis cannot penetrate an ovum, but the same immature sperm CAN fertilize if injected into the oocyte. This indicates that epididymal maturation primarily confers:", "opts": ["The full haploid chromosome set", "The functional capacity for motility and zona penetration, not the genome", "Mitochondrial ATP for division", "The acrosomal enzyme content from scratch"], "answer": "B", "explanation": "The genome is already complete in testicular sperm; epididymal transit adds functional competence — progressive motility, membrane reorganization, and zona-binding ability. ICSI bypasses the penetration requirement, so genome-complete but functionally immature sperm still fertilize."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "Absence of fructose in the ejaculate of an azoospermic man with low ejaculate volume most specifically suggests:", "opts": ["Sertoli-cell-only syndrome", "Obstruction or atresia of the seminal vesicles", "Prostate hypersecretion", "5α-reductase deficiency"], "answer": "B", "explanation": "Fructose is produced by the seminal vesicles, which contribute the majority of semen volume. Absent fructose plus low volume points to seminal-vesicle obstruction/atresia (often with absent vas deferens), not a primary spermatogenic or prostatic problem."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "In men with upper motor neuron spinal lesions, reflexogenic erections are typically preserved but psychogenic erections are lost. The reason is:", "opts": ["The sacral parasympathetic reflex arc is destroyed", "Descending pathways from the brain are interrupted while the local sacral reflex remains intact", "The pudendal sensory nerve is severed", "Sympathetic emission pathways are hyperactive"], "answer": "B", "explanation": "Reflexogenic erection depends on the intact local sacral arc, which survives an upper motor neuron lesion. Psychogenic erection needs descending brain pathways, which the lesion blocks. Ejaculation is more impaired in upper- than lower-motor-neuron lesions due to loss of the psychogenic component."},
+  {"topic": "Male Reproduction", "chip": "chip-olymp", "q": "Sildenafil improves erection by inhibiting PDE5. The downstream consequence is:", "opts": ["Increased breakdown of cGMP", "Accumulation of cGMP, sustaining smooth-muscle relaxation", "Direct activation of guanylyl cyclase independent of NO", "Blockade of α-adrenergic vasoconstriction"], "answer": "B", "explanation": "PDE5 normally degrades cGMP; inhibiting it raises cGMP, prolonging vasodilation/erection — but only during arousal when NO is generating cGMP. It does not itself make NO or activate guanylyl cyclase, and 'increased breakdown' is the opposite of its effect."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "In the two-cell, two-gonadotropin model, granulosa cells cannot independently make estradiol because they lack:", "opts": ["Aromatase", "17α-hydroxylase/17,20-desmolase (to make androgen substrate)", "LH receptors entirely", "The side-chain cleavage enzyme only"], "answer": "B", "explanation": "Granulosa cells HAVE aromatase but lack 17α-hydroxylase/17,20-desmolase, so they cannot make the androgen precursor. Theca cells supply androstenedione (they lack aromatase). Cooperation of the two cells/two gonadotropins (LH on theca, FSH on granulosa) is required."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "A high-androgen intrafollicular environment promotes atresia of subordinate follicles partly because:", "opts": ["Excess androgen upregulates aromatase", "5α-reduced androgens (e.g., DHT) cannot be aromatized and also inhibit aromatase", "Androgens increase FSH receptor number", "Androgens convert directly to inhibin"], "answer": "B", "explanation": "At high concentrations, weak androgens are 5α-reduced to DHT, which cannot be aromatized to estrogen AND inhibits aromatase activity. The follicle's estrogen output falls, tipping it toward atresia — while the dominant, high-aromatase follicle keeps its estrogenic edge."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "The midcycle GnRH/LH surge is generated by a distinct neuronal population. Which mapping is correct?", "opts": ["Arcuate GnRH neurons (opioid-inhibited) drive the surge", "Preoptic GnRH neurons (GABA-inhibited) drive the surge; arcuate neurons drive the hourly pulses", "Both pulse and surge arise solely from the arcuate nucleus", "The surge originates in the median eminence vasculature"], "answer": "B", "explanation": "The hourly pulse generator sits in the arcuate nucleus (opioid receptors), whereas the preovulatory surge is driven by preoptic-area GnRH neurons (GABA receptors). Distinguishing the two populations explains how positive feedback can momentarily override the tonic pulsatile system."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "Estradiol's switch from negative to positive feedback at the end of the follicular phase requires that estradiol:", "opts": ["Briefly exceed a threshold sustained for ~2 days", "Fall sharply for 12 hours", "Be replaced by progesterone as the trigger", "Drop below the inhibin level"], "answer": "A", "explanation": "Positive feedback (the LH-surge trigger) needs estradiol above a threshold maintained for a minimum of ~2 days (the accelerating rise also matters). Below this duration/level, estradiol still feeds back negatively. Progesterone augments but is not the primary trigger."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "Continuous GnRH analogue is used to treat endometriosis, whereas PULSATILE GnRH treats Kallmann syndrome. The pharmacologic principle is:", "opts": ["Continuous = stimulation; pulsatile = suppression", "Continuous downregulates GnRH receptors (suppression); pulsatile upregulates them (stimulation)", "Both modes suppress gonadotropins equally", "Route of administration, not pattern, determines the effect"], "answer": "B", "explanation": "Pattern is decisive: pulsatile GnRH (60–90 min) upregulates receptors and stimulates gonadotropins (good for hypogonadotropic Kallmann), while continuous delivery downregulates receptors and suppresses the axis (good for estrogen-dependent endometriosis)."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "During the luteal phase, granulosa-lutein cells make large amounts of progesterone largely because corpus-luteum vascularization now:", "opts": ["Removes LDL from the cells", "Delivers LDL cholesterol to cells previously bathed in LDL-poor follicular fluid", "Eliminates their LH receptors", "Supplies aromatase from blood"], "answer": "B", "explanation": "In the follicle, granulosa cells sat in LDL-poor fluid and relied on de novo cholesterol. After luteinization, new vessels deliver LDL cholesterol directly, and LH drives uptake/processing — enabling the surge in progesterone output characteristic of the midluteal phase."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "Why does 17α-hydroxylase deficiency arrest follicular development at the primordial stage despite normal/high LH?", "opts": ["LH receptors are absent", "Estrogen cannot be synthesized, and estrogen is required for follicular progression", "Inhibin levels are too high", "FSH cannot be secreted"], "answer": "B", "explanation": "Appropriate follicular growth needs the sequence FSH → estradiol → LH. Without 17α-hydroxylase, androgen/estrogen synthesis fails, so the estrogen-dependent steps stall — follicles remain primordial even though gonadotropins are present (paralleling resistant-ovary and hypophysectomy evidence)."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "At the LH surge, the primary oocyte resumes meiosis. Immediately after completing meiosis I, the secondary oocyte:", "opts": ["Has 1N DNA and is ready for fertilization", "Has 2N DNA (haploid, duplicated) and arrests in metaphase II until fertilization", "Is diploid 4N and arrests in prophase I", "Extrudes the second polar body before ovulation"], "answer": "B", "explanation": "Meiosis I yields a secondary oocyte with a haploid set of DUPLICATED chromosomes (2N DNA) plus the first polar body, then arrests in metaphase II. Meiosis II completes — extruding the SECOND polar body — only upon fertilization."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "Progesterone acts as a functional anti-estrogen on the endometrial epithelium chiefly by inducing:", "opts": ["Aromatase and 5α-reductase", "17β-HSD and sulfotransferase that convert estradiol to weaker/inactive forms", "Estrogen receptors", "De novo cholesterol synthesis"], "answer": "B", "explanation": "Progesterone stimulates 17β-HSD (estradiol → weaker estrone) and sulfotransferase (estrogen sulfation → inactive). This lowers local active estrogen, halting proliferation and favoring secretory/decidual change — the molecular basis of progesterone's anti-estrogenic endometrial effect."},
+  {"topic": "Female Reproduction", "chip": "chip-olymp", "q": "The effective endometrial 'implantation window' is narrow (~days 16–19). Embryos transferred on days 20–24 fail. This demonstrates that successful implantation requires:", "opts": ["Maximal endometrial thickness alone", "Temporal synchrony between embryonic stage and endometrial receptivity", "High estrogen at transfer", "Absence of pinopods"], "answer": "B", "explanation": "Receptivity is time-limited and must be synchronized with embryo development; transferring outside the window (even into a thick endometrium) yields no pregnancies. Pinopods and integrin expression mark this receptive phase — their presence, not absence, aids implantation."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "Sperm binding to the zona pellucida glycoprotein ZP3 triggers the acrosome reaction. The immediate intracellular trigger for acrosomal exocytosis is:", "opts": ["A fall in sperm cAMP", "A rise in sperm [Ca²⁺]ᵢ", "Hyperpolarization of the sperm membrane", "Release of zona hyaluronidase"], "answer": "B", "explanation": "ZP3 engagement initiates a signaling cascade that raises sperm [Ca²⁺]ᵢ, fusing the outer acrosomal membrane with the plasma membrane to exocytose hydrolytic enzymes. ZP1 cross-links ZP2/ZP3; hyaluronidase is sperm-derived but not the exocytosis trigger."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "The cortical reaction prevents polyspermy by:", "opts": ["Hardening the zona via enzymes that modify ZP glycoproteins", "Depolarizing the oocyte permanently", "Releasing hyaluronidase to dissolve the zona", "Triggering meiosis I in the oocyte"], "answer": "A", "explanation": "Sperm-induced [Ca²⁺]ᵢ rise causes cortical granule exocytosis; released enzymes modify zona glycoproteins so the zona hardens, blocking additional sperm. The same Ca²⁺ rise completes meiosis II (not I) and forms the second polar body."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "After fertilization, the conceptus is deliberately held in the fallopian tube for ~72 h by isthmic smooth-muscle contraction. The functional purpose is to:", "opts": ["Allow capacitation to finish", "Synchronize embryo arrival (morula/blastocyst) with endometrial readiness for implantation", "Prevent the cortical reaction", "Permit the second polar body to form"], "answer": "B", "explanation": "Delaying transit lets the embryo reach the morula/blastocyst stage exactly as the endometrium becomes receptive — temporal synchrony is essential. Capacitation occurs before fertilization, and the cortical/polar-body events have already happened."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "hCG 'rescues' the corpus luteum in early pregnancy because hCG:", "opts": ["Inhibits the progesterone receptor", "Acts on LH receptors to sustain corpus-luteum steroidogenesis as maternal LH falls", "Is identical to FSH", "Suppresses placental progesterone synthesis"], "answer": "B", "explanation": "hCG (from syncytiotrophoblast) binds luteal LH receptors, maintaining progesterone output despite falling maternal LH — sustaining the endometrium until the placenta takes over (~8–9 weeks). hCG resembles LH, not FSH, and supports (not suppresses) steroidogenesis."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "The placenta CANNOT make estriol by itself because it lacks 16α-hydroxylase. The maternal-placental-fetal unit solves this by:", "opts": ["Maternal ovary supplying estriol", "Fetal adrenal/liver providing 16α-hydroxylated DHEA-S precursors for placental aromatization", "Placental synthesis of cholesterol de novo", "Maternal liver aromatizing androgens"], "answer": "B", "explanation": "The fetus (adrenal + liver) supplies 16α-hydroxy-DHEA-S; after placental sulfatase removes sulfate and aromatase acts, estriol is formed. The placenta lacks 17α-hydroxylase/17,20-desmolase and 16α-hydroxylase, while the fetus lacks aromatase/3β-HSD — complementary deficiencies."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "Why does the fetus sulfate steroid intermediates (e.g., pregnenolone → pregnenolone sulfate; DHEA → DHEA-S)?", "opts": ["To increase their biological potency", "To greatly reduce their biological activity, protecting the fetus from active steroids", "To enable transport across the placenta only", "To allow storage in fetal fat"], "answer": "B", "explanation": "Sulfation markedly lowers steroid bioactivity, shielding the fetus from high active-hormone levels meant for the mother. Only when these conjugates reach placental sulfatase are they desulfated and converted to active hormones for maternal export."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "Despite an intervillous PO₂ of only ~30–35 mmHg (maternal Hb ~65% saturated), the umbilical vein reaches ~85% saturation. The principal reason is:", "opts": ["Fetal cardiac output is low", "Fetal Hb has higher O₂ affinity (left-shifted curve) and extracts O₂ from maternal Hb", "Maternal Hb has higher affinity than fetal Hb", "CO₂ is not transferred"], "answer": "B", "explanation": "HbF's leftward-shifted dissociation curve gives higher saturation at the same PO₂, letting the fetus pull O₂ from maternal HbA across the placenta. High fetal cardiac output and rising Hb concentration assist, but the affinity difference is the key driver."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "Across the placenta, glucose and amino acids are handled by different mechanisms. Which pairing is correct?", "opts": ["Glucose: secondary active transport; amino acids: simple diffusion", "Glucose: facilitated diffusion; amino acids: secondary active transport", "Both by simple diffusion", "Glucose: endocytosis; amino acids: facilitated diffusion"], "answer": "B", "explanation": "Glucose crosses by facilitated diffusion (down its gradient), whereas amino acids are concentrated in the fetus by secondary active transport (against gradient). Large molecules (LDL, IgG) use receptor-mediated endocytosis — a third, distinct route."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "Oxytocin and prostaglandins both sustain labor, but a unique role of prostaglandins (PGF₂α/PGE₂) versus oxytocin is that prostaglandins:", "opts": ["Act only at term when OT receptors peak", "Are believed to INITIATE labor and can evoke uterine contraction at ANY stage of gestation", "Cannot soften the cervix", "Require the Ferguson reflex to act"], "answer": "B", "explanation": "The uterus is responsive to prostaglandins throughout pregnancy and they are implicated in initiating labor (and cervical softening), whereas oxytocin chiefly SUSTAINS labor once OT-receptor numbers surge near term. Aspirin (cyclooxygenase inhibition) can delay labor by reducing PGs."},
+  {"topic": "Pregnancy & Lactation", "chip": "chip-olymp", "q": "Suckling triggers milk EJECTION (let-down) and milk PRODUCTION via two different hormones. The correct mapping is:", "opts": ["Prolactin → ejection; oxytocin → production", "Oxytocin → ejection (myoepithelial contraction); prolactin → production (via reduced dopamine)", "Both effects via prolactin alone", "Both effects via oxytocin alone"], "answer": "B", "explanation": "Oxytocin contracts myoepithelial cells to eject pre-formed milk (galactokinetic), while suckling lowers hypothalamic dopamine (PIF), disinhibiting prolactin to drive milk synthesis (galactopoietic). Mixing the two is the classic trap."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "In brown fat, epinephrine activates a deiodinase that converts T4 to T3 locally. The role of this local T3 is to:", "opts": ["Suppress UCP1", "Upregulate UCP1 expression, enabling heat production", "Convert white fat to bone", "Inhibit lipolysis"], "answer": "B", "explanation": "Cold stress raises epinephrine and TSH; epinephrine activates 5'/3'-monodeiodinase in brown fat, making active T3 that UPREGULATES UCP1. Combined with epinephrine-driven lipolysis (FAs open UCP1), this maximizes thermogenesis."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "Patency of the fetal ductus arteriosus is actively maintained by high PGE₂. After birth it closes mainly because:", "opts": ["Prostaglandins rise further", "A sharp rise in arterial PO₂ (plus falling prostaglandins) constricts its smooth muscle", "Pulmonary resistance increases", "Aortic pressure falls below pulmonary pressure"], "answer": "B", "explanation": "The neonatal rise in PO₂ constricts ductal smooth muscle, and falling circulating prostaglandins remove the vasodilator drive — functional closure within hours. In hypoxemic infants, low PO₂ keeps it patent; indomethacin (PG synthesis inhibitor) promotes closure."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "The neonate's first breath requires an unusually large transpulmonary pressure (~60 cm H₂O) compared with later breaths because it must:", "opts": ["Overcome high airway resistance from mucus", "Overcome surface tension to create the first air–water interface and open fluid-filled alveoli", "Expand a stiff, fibrotic lung", "Counteract pulmonary hypertension"], "answer": "B", "explanation": "Opening fluid-filled alveoli for the first time means overcoming large surface-tension forces; once surfactant reaches the new air–water interface, subsequent breaths need far less pressure (~40 then far lower). Surfactant deficiency (RDS) makes this much harder."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "Cortisol surges late in gestation to mature the lung. Its key surfactant-related action is to upregulate enzymes such as:", "opts": ["5α-reductase and aromatase", "Fatty acid synthase and phosphocholine transferase (for DPPC synthesis)", "UCP1 and deiodinase", "Glucose-6-phosphatase and phosphorylase"], "answer": "B", "explanation": "Cortisol induces FA synthase and phosphocholine transferase, boosting production of dipalmitoylphosphatidylcholine (DPPC), the principal surfactant phospholipid. The other enzyme pairs belong to androgen synthesis, thermogenesis, and neonatal glucose handling respectively."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "An L/S (lecithin/sphingomyelin) ratio >2.0 in amniotic fluid indicates:", "opts": ["Imminent fetal asphyxia", "Mature fetal lungs with adequate surfactant", "Surfactant deficiency", "Intrauterine growth restriction"], "answer": "B", "explanation": "A lecithin-to-sphingomyelin ratio above 2.0 (and a positive phosphatidylglycerol assay) reflects sufficient surfactant and lung maturity, predicting low RDS risk — useful when timing elective preterm delivery. A low ratio would signal surfactant deficiency."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "Symmetric (Type I) IUGR versus asymmetric (Type II) IUGR differ mechanistically. Asymmetric IUGR with relative 'brain-sparing' typically results from:", "opts": ["Early first-trimester chromosomal/infective insult reducing total cell number", "Late-gestation uteroplacental insufficiency reducing cell size with redistribution of flow to the brain", "A genetic reduction in growth potential from conception", "Maternal folate deficiency in week 4"], "answer": "B", "explanation": "Type II (asymmetric) IUGR arises late (often >28 wk) from uteroplacental insufficiency: hypertrophy-phase growth slows, cells are smaller but normal in number, abdominal growth lags while head/length are spared (brain-sparing). Type I (symmetric) reflects an early hyperplastic-phase insult reducing cell NUMBER."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "Unlike the postnatal pattern, fetal growth shows IGF-2 > IGF-1 and poor correlation of IGFs with GH. This implies that in the fetus:", "opts": ["GH is the dominant growth driver via hepatic GH receptors", "GH has minimal effect on growth; IGFs (especially IGF-2) act largely GH-independently", "IGF-1 is undetectable until term", "Thyroid hormone is unnecessary for growth"], "answer": "B", "explanation": "The fetal liver has few GH receptors and IGF levels track GH poorly; anencephalic fetuses (low GH) still grow fairly normally. Growth is driven by GH-independent IGFs (IGF-2 predominant). Thyroid hormone, however, IS obligatory for normal fetal growth/development."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "In a poorly controlled diabetic pregnancy, fetal macrosomia and organomegaly occur because:", "opts": ["Maternal insulin crosses the placenta and stimulates growth", "Maternal hyperglycemia → fetal hyperglycemia → fetal hyperinsulinemia, and insulin acts as a fetal growth factor", "Fetal glucagon is suppressed by maternal glucose", "Placental lactogen is deficient"], "answer": "B", "explanation": "Glucose crosses the placenta but maternal insulin does NOT. Sustained maternal hyperglycemia raises fetal glucose, driving fetal β-cell hyperplasia and hyperinsulinemia; fetal insulin (a growth factor) promotes organ and body overgrowth — macrosomia."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "Within the first ~12 hours after birth the neonate depletes hepatic glycogen. The hormonal milieu that then maintains glucose is:", "opts": ["High insulin, low glucagon", "Low insulin, high glucagon (plus epinephrine), driving glycogenolysis and gluconeogenesis", "High insulin and high glucagon equally", "Low glucagon, high cortisol only"], "answer": "B", "explanation": "Falling blood glucose lowers insulin and raises glucagon (and epinephrine), which via cAMP stimulate glycogenolysis, gluconeogenesis, and gluconeogenic-enzyme synthesis. An infant of a diabetic mother stays hyperinsulinemic after birth and risks severe hypoglycemia — the inverse scenario."},
+  {"topic": "Fetal & Neonatal", "chip": "chip-olymp", "q": "Newborn passive immunity is dominated by which maternal antibody class, and by what route?", "opts": ["IgM, via placental active transport", "IgG, actively transported across the placenta (fetal levels can exceed maternal)", "IgA, via the placenta", "IgE, via colostrum only"], "answer": "B", "explanation": "The placenta actively transports maternal IgG, so fetal IgG can exceed maternal levels, protecting against many viruses/bacteria. IgA/IgM/IgE largely do NOT cross; secretory IgA is instead supplied postnatally in colostrum and breast milk."}
+];
+
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+let questions_shuffled=[], cur=0, score=0, wrong=0, answered=false;
+let userAnswers=[];
+
+function init(){
+  questions_shuffled=shuffle(questions);
+  cur=0;score=0;wrong=0;answered=false;
+  userAnswers=new Array(questions_shuffled.length).fill(null);
+  document.getElementById('quiz-wrap').style.display='block';
+  document.getElementById('finish').style.display='none';
+  document.getElementById('review-panel').style.display='none';
+  document.getElementById('review-panel').innerHTML='';
+  render();
+}
+
+function render(){
+  answered=false;
+  const q=questions_shuffled[cur];
+  const tot=questions_shuffled.length;
+  document.getElementById('q-label').textContent='Question #'+(cur+1);
+  document.getElementById('q-counter').textContent=(cur+1)+' / '+tot;
+  document.getElementById('prog-fill').style.width=((cur/tot)*100)+'%';
+  document.getElementById('score-pill').textContent='Score: '+score;
+
+  const chipArea=document.getElementById('topic-chip-area');
+  let chipsHTML='<span class="topic-chip '+q.chip+'">'+q.topic+'</span>';
+  if(q.chip==='chip-olymp'){
+    chipsHTML+='<span class="diff-badge">Olympiad · High Analysis</span>';
+  }
+  chipArea.innerHTML=chipsHTML;
+
+  document.getElementById('q-text').textContent=q.q;
+
+  const optsEl=document.getElementById('opts');
+  const ltrs=['A','B','C','D','E','F'];
+  optsEl.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');
+    btn.className='opt';
+    btn.innerHTML='<span class="opt-ltr">'+ltrs[i]+'</span><span class="opt-txt">'+o+'</span>';
+    btn.addEventListener('click',()=>pick(ltrs[i],btn));
+    optsEl.appendChild(btn);
+  });
+
+  const fb=document.getElementById('feedback');
+  fb.className='feedback';
+  const nb=document.getElementById('next-btn');
+  nb.className='next-btn';
+  nb.textContent=cur===questions_shuffled.length-1?'See Results →':'Next Question →';
+
+  const card=document.getElementById('q-card');
+  card.style.animation='none';void card.offsetWidth;
+  card.style.animation='cardIn .38s cubic-bezier(.4,0,.2,1)';
+}
+
+function pick(ltr,btn){
+  if(answered)return;
+  answered=true;
+  const q=questions_shuffled[cur];
+  const allBtns=document.querySelectorAll('.opt');
+  allBtns.forEach(b=>b.disabled=true);
+
+  const ok=(ltr===q.answer);
+  userAnswers[cur]={chosen:ltr,correct:q.answer,ok:ok};
+  if(ok){score++;btn.classList.add('correct-ans');}
+  else{
+    wrong++;btn.classList.add('wrong-ans');
+    allBtns.forEach(b=>{
+      if(b.querySelector('.opt-ltr').textContent===q.answer)
+        b.classList.add('correct-ans');
+    });
+  }
+
+  const fb=document.getElementById('feedback');
+  document.getElementById('fb-mark').textContent=ok?'\u2713':'\u2717';
+  document.getElementById('fb-ttl').textContent=ok
+    ?'Correct'
+    :'Incorrect \u2014 Correct answer: '+q.answer;
+  document.getElementById('fb-expl').textContent=q.explanation;
+  fb.className='feedback show '+(ok?'ok':'no');
+
+  document.getElementById('score-pill').textContent='Score: '+score;
+  document.getElementById('next-btn').className='next-btn show';
+  document.getElementById('next-btn').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function next(){
+  cur++;
+  if(cur>=questions_shuffled.length)finish();
+  else {render();window.scrollTo({top:0,behavior:'smooth'});}
+}
+
+function finish(){
+  document.getElementById('quiz-wrap').style.display='none';
+  document.getElementById('finish').style.display='block';
+  const tot=questions_shuffled.length,pct=Math.round(score/tot*100);
+  document.getElementById('fin-score').textContent=score+'/'+tot;
+  document.getElementById('s-correct').textContent=score+' Correct';
+  document.getElementById('s-wrong').textContent=wrong+' Wrong';
+  document.getElementById('s-pct').textContent=pct+'%';
+  document.getElementById('prog-fill').style.width='100%';
+  document.getElementById('score-pill').textContent='Score: '+score;
+  document.getElementById('q-counter').textContent=tot+'/'+tot;
+
+  let md,ti,ms;
+  if(pct>=90){md='A+';ti='Outstanding!';ms='Score '+pct+'% \u2014 You have truly mastered reproductive physiology, including the olympiad-level analysis.';}
+  else if(pct>=75){md='A';ti='Excellent!';ms='Score '+pct+'% \u2014 Your understanding is solid. A little polish on the toughest items and you are there.';}
+  else if(pct>=60){md='B';ti='Good Work!';ms='Score '+pct+'% \u2014 Strong foundation. Review the items you missed and try again.';}
+  else if(pct>=40){md='C';ti='Keep Studying!';ms='Score '+pct+'% \u2014 There is room to grow. Revisit the key mechanisms and try again.';}
+  else{md='D';ti="Don't Give Up!";ms='Score '+pct+'% \u2014 Every expert started here. Study the material and come back stronger.';}
+
+  document.getElementById('medal').textContent=md;
+  document.getElementById('fin-title').textContent=ti;
+  document.getElementById('fin-msg').textContent=ms;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleReview(){
+  const panel=document.getElementById('review-panel');
+  if(panel.style.display==='block'){panel.style.display='none';return;}
+  panel.innerHTML='';panel.style.display='block';
+  questions_shuffled.forEach((q,i)=>{
+    const ua=userAnswers[i];
+    if(!ua)return;
+    const div=document.createElement('div');
+    div.className='review-item '+(ua.ok?'correct-r':'wrong-r');
+    const ltrs=['A','B','C','D','E','F'];
+    const correctTxt=q.opts[ltrs.indexOf(q.answer)];
+    const chosenTxt=q.opts[ltrs.indexOf(ua.chosen)]||'\u2014';
+    div.innerHTML=
+      '<div class="rev-q"><strong>Q'+(i+1)+'.</strong> '+q.q+'</div>'+
+      '<div class="rev-chips">'+
+        '<span class="rev-chip '+(ua.ok?'ok':'no')+'">'+(ua.ok?'Correct':'Wrong')+'</span>'+
+        '<span class="topic-chip '+q.chip+'" style="font-size:.66rem;padding:2px 9px;margin:0">'+q.topic+'</span>'+
+      '</div>'+
+      '<div class="rev-ans">Your answer: <strong>'+ua.chosen+') '+chosenTxt+'</strong>'+
+        (!ua.ok?' &nbsp;|&nbsp; Correct: <strong>'+ua.correct+') '+correctTxt+'</strong>':'')+
+      '</div>';
+    panel.appendChild(div);
+  });
+  window.scrollTo({top:document.getElementById('finish').offsetTop+420,behavior:'smooth'});
+}
+
+function restart(){
+  document.getElementById('review-panel').style.display='none';
+  document.getElementById('review-panel').innerHTML='';
+  init();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+init();
+
+</script>
+</body>
+</html>
